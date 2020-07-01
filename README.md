@@ -9,13 +9,10 @@
 - [Scrum](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_iOS_Scrum)
 - [Work-flow](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Workflow)
 - [Library](#library)
-- [간단한 설명](#)
-- [기능 소개](#])
-- [팀원](#)
-- [Project]()
-
-
-
+- [간단한 설명](#간단한-설명)
+- [기능 소개](#기능-소개)
+- [Project](#projcet)
+- [팀원 소개](#팀원)
 
 
 ### Library
@@ -32,17 +29,17 @@
 
 
 
-## 간단한 설명
+### 간단한 설명
 
 
 
 
 
-## 기능 소개
+### 기능 소개
 
 
 
-## Projcet
+### Projcet
 
 - [Week 1](https://github.com/We-are-Ounce/OUNCE_iOS/projects/1)
 - [Week 2](https://github.com/We-are-Ounce/OUNCE_iOS/projects/2)
@@ -51,12 +48,7 @@
 
 
 
-## 팀원
-
-
-
-
-
+### 팀원
 <table>
     <tr align="center">
         <td><B>팀원<B></td>

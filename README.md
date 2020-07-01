@@ -80,7 +80,7 @@
             <a href="https://github.com/profitjean"><I>이윤진</I></a>
         </td>
         <td width="100">역할을 적어주세요!!</a></td>
-        <td>목표를 적어주세요!!</td>
+        <td>iOS 실력 성장 && 앱스토어 출시</td>
     </tr>
     <tr align="center">
         <td>

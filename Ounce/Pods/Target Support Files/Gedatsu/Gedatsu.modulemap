@@ -1,0 +1,6 @@
+framework module Gedatsu {
+  umbrella header "Gedatsu-umbrella.h"
+
+  export *
+  module * { export * }
+}

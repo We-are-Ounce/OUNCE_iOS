@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E039CAB24AFFDA0009B1BC6 /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039CAA24AFFDA0009B1BC6 /* PasswordVC.swift */; };
+		5E039CAD24AFFDAE009B1BC6 /* EmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039CAC24AFFDAE009B1BC6 /* EmailVC.swift */; };
+		5E039CAF24AFFDBE009B1BC6 /* IDVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039CAE24AFFDBE009B1BC6 /* IDVC.swift */; };
+		5E039CB124AFFE9D009B1BC6 /* LoginVC+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039CB024AFFE9D009B1BC6 /* LoginVC+Constraint.swift */; };
+		5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039CB224AFFEAB009B1BC6 /* EmailVC+Constraint.swift */; };
+		5E039CB524AFFEBD009B1BC6 /* IDVC+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039CB424AFFEBD009B1BC6 /* IDVC+Constraint.swift */; };
+		5E039CB724AFFECF009B1BC6 /* Password+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039CB624AFFECF009B1BC6 /* Password+Constraint.swift */; };
 		5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35794B24AE37B300043066 /* UIViewController+Extension.swift */; };
 		5E35794E24AE37D400043066 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35794D24AE37D400043066 /* UIColor+Extension.swift */; };
 		5E35795024AE385500043066 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35794F24AE385500043066 /* UITextView+Extension.swift */; };
@@ -40,6 +47,13 @@
 /* Begin PBXFileReference section */
 		05423A96C27836670EC1ED86 /* Pods-Ounce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ounce.release.xcconfig"; path = "Target Support Files/Pods-Ounce/Pods-Ounce.release.xcconfig"; sourceTree = "<group>"; };
 		1E6D581E26C8D14A0B0C0DAC /* Pods-Ounce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ounce.debug.xcconfig"; path = "Target Support Files/Pods-Ounce/Pods-Ounce.debug.xcconfig"; sourceTree = "<group>"; };
+		5E039CAA24AFFDA0009B1BC6 /* PasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
+		5E039CAC24AFFDAE009B1BC6 /* EmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVC.swift; sourceTree = "<group>"; };
+		5E039CAE24AFFDBE009B1BC6 /* IDVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDVC.swift; sourceTree = "<group>"; };
+		5E039CB024AFFE9D009B1BC6 /* LoginVC+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginVC+Constraint.swift"; sourceTree = "<group>"; };
+		5E039CB224AFFEAB009B1BC6 /* EmailVC+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmailVC+Constraint.swift"; sourceTree = "<group>"; };
+		5E039CB424AFFEBD009B1BC6 /* IDVC+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDVC+Constraint.swift"; sourceTree = "<group>"; };
+		5E039CB624AFFECF009B1BC6 /* Password+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Password+Constraint.swift"; sourceTree = "<group>"; };
 		5E35794B24AE37B300043066 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E35794D24AE37D400043066 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5E35794F24AE385500043066 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
@@ -265,6 +279,13 @@
 			isa = PBXGroup;
 			children = (
 				5E69E8A324AC6C61005D4DC1 /* LoginVC.swift */,
+				5E039CB024AFFE9D009B1BC6 /* LoginVC+Constraint.swift */,
+				5E039CAC24AFFDAE009B1BC6 /* EmailVC.swift */,
+				5E039CB224AFFEAB009B1BC6 /* EmailVC+Constraint.swift */,
+				5E039CAE24AFFDBE009B1BC6 /* IDVC.swift */,
+				5E039CB424AFFEBD009B1BC6 /* IDVC+Constraint.swift */,
+				5E039CAA24AFFDA0009B1BC6 /* PasswordVC.swift */,
+				5E039CB624AFFECF009B1BC6 /* Password+Constraint.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -443,6 +464,7 @@
 				5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */,
 				5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */,
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
+				5E039CAB24AFFDA0009B1BC6 /* PasswordVC.swift in Sources */,
 				5E69E89124AC6769005D4DC1 /* ReferenceCVCell.swift in Sources */,
 				5E35795C24AE391500043066 /* UITabBar+Extension.swift in Sources */,
 				5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */,
@@ -450,17 +472,23 @@
 				5E35795224AE38A900043066 /* UIButton+Extension.swift in Sources */,
 				7FC9385224AB1088002B0CA7 /* MainVC.swift in Sources */,
 				5E35795A24AE38FC00043066 /* String+Extension.swift in Sources */,
+				5E039CB124AFFE9D009B1BC6 /* LoginVC+Constraint.swift in Sources */,
 				5E69E8A224AC6BF7005D4DC1 /* MainCell.swift in Sources */,
 				5E35794E24AE37D400043066 /* UIColor+Extension.swift in Sources */,
 				5E35795024AE385500043066 /* UITextView+Extension.swift in Sources */,
+				5E039CB724AFFECF009B1BC6 /* Password+Constraint.swift in Sources */,
 				5E69E89424AC6828005D4DC1 /* Model.swift in Sources */,
 				5E69E89A24AC689C005D4DC1 /* APIConstants.swift in Sources */,
 				5E69E89624AC6833005D4DC1 /* Font+Enum.swift in Sources */,
 				7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */,
 				7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */,
+				5E039CAF24AFFDBE009B1BC6 /* IDVC.swift in Sources */,
 				5E35795424AE38BE00043066 /* UIImageView+Extension.swift in Sources */,
 				5E69E8A824AC6CA1005D4DC1 /* LoginCell.swift in Sources */,
+				5E039CB524AFFEBD009B1BC6 /* IDVC+Constraint.swift in Sources */,
 				5E35795624AE38D100043066 /* Date+Extension.swift in Sources */,
+				5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */,
+				5E039CAD24AFFDAE009B1BC6 /* EmailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

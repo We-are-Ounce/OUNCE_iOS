@@ -82,7 +82,7 @@ class LoginVC: UIViewController {
         $0.font = Font.smallGuideLabel
         $0.text = "ounce가 처음이신가요?"
     }
-
+    
     let signUpButton = UIButton().then {
         $0.setTitle("회원가입", for: .normal)
         $0.setTitleColor(.signatureColor, for: .normal)
@@ -91,7 +91,7 @@ class LoginVC: UIViewController {
     }
     
     // MARK: - Variables and Properties
-        
+    
     let name = NSMutableAttributedString(string: "회원가입")
     
     // MARK: - Life Cycle
@@ -100,27 +100,35 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         
         constraint()
-
+        
         name.addAttribute(NSAttributedString.Key.underlineStyle,
-        value: NSUnderlineStyle.single.rawValue,
-        range: NSMakeRange(0, 4))
+                          value: NSUnderlineStyle.single.rawValue,
+                          range: NSMakeRange(0, 4))
         signUpButton.setAttributedTitle(name, for: .normal)
-
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-          self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     @objc func tapFindButton() {
         print(#function)
     }
     
-    @objc func tapSignInButton() {
-        print(#function)
-    }
     
     @objc func tapSignUpButton() {
         print(#function)
+    }
+}
+
+extension LoginVC {
+    @objc func tapSignInButton() {
+        
+        let sb = UIStoryboard(name: "TabBar", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.present(vc, animated: true)
     }
 }

@@ -56,6 +56,10 @@ extension UIColor {
     @nonobjc class var labelColor: UIColor {
         return UIColor(red: 151.0 / 255.0, green: 151.0 / 255.0, blue: 151.0 / 255.0, alpha: 1.0)
     }
+    
+    @nonobjc class var tintColor: UIColor {
+        return UIColor(red: 60.0 / 255.0, green: 60.0 / 255.0, blue: 60.0 / 255.0, alpha: 1.0)
+    }
 
     @nonobjc class var wheatColor: UIColor {
       return UIColor(red: 248.0 / 255.0, green: 218.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)

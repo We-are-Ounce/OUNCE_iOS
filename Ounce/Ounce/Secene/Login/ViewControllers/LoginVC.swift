@@ -16,11 +16,11 @@ class LoginVC: UIViewController {
     
     let logoImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
+        $0.image = UIImage(named: "btnAdd")
     }
     
     let idGuideLabel = UILabel().then {
         $0.font = Font.guideLabel
-        print($0.font.pointSize)
         $0.text = "아이디"
         $0.textColor = .signatureColor
     }

@@ -50,7 +50,23 @@ extension UIColor {
     }
 
     @nonobjc class var signatureColor: UIColor {
-      return UIColor(white: 209.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 39.0 / 255.0, green: 39.0 / 255.0, blue: 78.0 / 255.0, alpha: 1.0)
     }
     
+    @nonobjc class var labelColor: UIColor {
+        return UIColor(red: 151.0 / 255.0, green: 151.0 / 255.0, blue: 151.0 / 255.0, alpha: 1.0)
+    }
+
+    @nonobjc class var wheatColor: UIColor {
+      return UIColor(red: 248.0 / 255.0, green: 218.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    }
+
+    @nonobjc class var pinkishColor: UIColor {
+      return UIColor(red: 222.0 / 255.0, green: 103.0 / 255.0, blue: 108.0 / 255.0, alpha: 1.0)
+    }
+
+    @nonobjc class var brownGreyColor: UIColor {
+        return UIColor(red: 151.0 / 255.0, green: 151.0 / 255.0, blue: 151.0 / 255.0, alpha: 1.0)
+    }
+
 }

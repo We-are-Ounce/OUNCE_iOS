@@ -41,30 +41,30 @@
 
 ### 기능 소개
 
-| 기능        | 상세 기능                           | 담당 |
-| ----------- | ----------------------------------- | ---- |
-| 스플래시    | 스플래시 (자동 로그인)              | 준현 |
-| 로그인      | 로그인                              | 준현 |
-| 회원가입    | 이메일 인증                         | 준현 |
-|             | 아이디 검증                         | 준현 |
-|             | 비밀번호 검증                       | 준현 |
-|             | 회원가입                            | 준현 |
-| 프로필 등록 | 프로필 등록                         | 준현 |
-| 홈 화면     | 정렬                                | 주연 |
-|             | 필터                                | 주연 |
-|             | 계정 선택                           | 주연 |
-|             | 계정 추가                           | 주연 |
-|             | 팔로워                              | 호세 |
-|             | 팔로잉                              | 호세 |
-|             | 설정                                | -    |
-|             | 프로필 수정                         | -    |
-| 설정        | 설정 메뉴 내부에서 프로필 삭제      | 주연 |
-| 기록하기    | 기록 하기                           | 윤진 |
-|             | 제품 검색                           | 윤진 |
-|             | 제품이 없을시 제품 생성과 함께 기록 | 윤진 |
-| 제품        | 제품 검색                           | 준현 |
-| 둘러보기    | 둘러보기 카드 뷰                    | 호세 |
-| 리뷰 추가   | 리뷰 추가                           | 준현 |
+| 기능        | 상세 기능                           | 담당                                    |
+| ----------- | ----------------------------------- | --------------------------------------- |
+| 스플래시    | 스플래시 (자동 로그인)              | [준현](https://github.com/5anniversary) |
+| 로그인      | 로그인                              | [준현](https://github.com/5anniversary) |
+| 회원가입    | 이메일 인증                         | [준현](https://github.com/5anniversary) |
+|             | 아이디 검증                         | [준현](https://github.com/5anniversary) |
+|             | 비밀번호 검증                       | [준현](https://github.com/5anniversary) |
+|             | 회원가입                            | [준현](https://github.com/5anniversary) |
+| 프로필 등록 | 프로필 등록                         | [준현](https://github.com/5anniversary) |
+| 홈 화면     | 정렬                                | [주연](https://github.com/juyeonblue)   |
+|             | 필터                                | [주연](https://github.com/juyeonblue)   |
+|             | 계정 선택                           | [주연](https://github.com/juyeonblue)   |
+|             | 계정 추가                           | [주연](https://github.com/juyeonblue)   |
+|             | 팔로워                              | [호세](https://github.com/psychehose)   |
+|             | 팔로잉                              | [호세](https://github.com/psychehose)   |
+|             | 설정                                | -                                       |
+|             | 프로필 수정                         | -                                       |
+| 설정        | 설정 메뉴 내부에서 프로필 삭제      | [주연](https://github.com/juyeonblue)   |
+| 기록하기    | 기록 하기                           | [윤진](https://github.com/profitjean)   |
+|             | 제품 검색                           | [윤진](https://github.com/profitjean)   |
+|             | 제품이 없을시 제품 생성과 함께 기록 | [윤진](https://github.com/profitjean)   |
+| 제품        | 제품 검색                           | [준현](https://github.com/5anniversary) |
+| 둘러보기    | 둘러보기 카드 뷰                    | [호세](https://github.com/psychehose)   |
+| 리뷰 추가   | 리뷰 추가                           | [준현](https://github.com/5anniversary) |
 
 
 
@@ -87,7 +87,6 @@
 <table>
     <tr align="center">
         <td><B>팀원<B></td>
-        <td width="100"><B>역할<B></td>
         <td><B>개인 목표<B></td>
     </tr>
     <tr align="center">
@@ -96,7 +95,6 @@
             <br>
             <a href="https://github.com/soogoon"><I>오준현</I></a>
         </td>
-        <td width="100">역할을 적어주세요!!</a></td>
         <td>앱스토어 출시!!</td>
     </tr>
     <tr align="center">
@@ -105,7 +103,6 @@
             <br>
             <a href="https://github.com/juyeonblue"><I>박주연</I></a>
         </td>
-        <td width="100">역할을 적어주세요!!</a></td>
         <td>목표를 적어주세요!!</td>
     </tr>
     <tr align="center">
@@ -114,7 +111,6 @@
             <br>
             <a href="https://github.com/profitjean"><I>이윤진</I></a>
         </td>
-        <td width="100">역할을 적어주세요!!</a></td>
         <td>iOS 실력 성장 && 앱스토어 출시</td>
     </tr>
     <tr align="center">
@@ -123,7 +119,6 @@
             <br>
             <a href="https://github.com/psychehose"><I>김호세</I></a>
         </td>
-        <td width="100">역할을 적어주세요!!</a></td>
         <td>목표를 적어주세요!!</td>
     </tr>
 </table>

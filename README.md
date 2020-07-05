@@ -2,15 +2,25 @@
 
 
 
+## <img src="resources/logo1.png" width="300">
+
+## We Are Ounce‼️
+
+### 당신의 떼껄룩을 위 한 Ounce
+
+
+
 ## 목차
 
 - [Coding-Convention](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Coding_Convention)
 - [Foldering](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Foldering)
 - [Scrum](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_iOS_Scrum)
 - [Work-flow](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Workflow)
+- [Github manage](https://github.com/We-are-Ounce/OUNCE_iOS/wiki/Git-manage)
 - [Library](#library)
 - [간단한 설명](#간단한-설명)
 - [기능 소개](#기능-소개)
+- [새롭게 알게된 기능](#새롭게-알게된-기능)
 - [Project](#projcet)
 - [팀원 소개](#팀원)
 
@@ -29,13 +39,38 @@
 
 
 
-### 간단한 설명
-
-
-
-
-
 ### 기능 소개
+
+| 기능        | 상세 기능                           | 담당                                    |
+| ----------- | ----------------------------------- | --------------------------------------- |
+| 스플래시    | 스플래시 (자동 로그인)              | [준현](https://github.com/5anniversary) |
+| 로그인      | 로그인                              | [준현](https://github.com/5anniversary) |
+| 회원가입    | 이메일 인증                         | [준현](https://github.com/5anniversary) |
+|             | 아이디 검증                         | [준현](https://github.com/5anniversary) |
+|             | 비밀번호 검증                       | [준현](https://github.com/5anniversary) |
+|             | 회원가입                            | [준현](https://github.com/5anniversary) |
+| 프로필 등록 | 프로필 등록                         | [준현](https://github.com/5anniversary) |
+| 홈 화면     | 정렬                                | [주연](https://github.com/juyeonblue)   |
+|             | 필터                                | [주연](https://github.com/juyeonblue)   |
+|             | 계정 선택                           | [주연](https://github.com/juyeonblue)   |
+|             | 계정 추가                           | [주연](https://github.com/juyeonblue)   |
+|             | 팔로워                              | [호세](https://github.com/psychehose)   |
+|             | 팔로잉                              | [호세](https://github.com/psychehose)   |
+|             | 설정                                | -                                       |
+|             | 프로필 수정                         | -                                       |
+| 설정        | 설정 메뉴 내부에서 프로필 삭제      | [주연](https://github.com/juyeonblue)   |
+| 기록하기    | 기록 하기                           | [윤진](https://github.com/profitjean)   |
+|             | 제품 검색                           | [윤진](https://github.com/profitjean)   |
+|             | 제품이 없을시 제품 생성과 함께 기록 | [윤진](https://github.com/profitjean)   |
+| 제품        | 제품 검색                           | [준현](https://github.com/5anniversary) |
+| 둘러보기    | 둘러보기 카드 뷰                    | [호세](https://github.com/psychehose)   |
+| 리뷰 추가   | 리뷰 추가                           | [준현](https://github.com/5anniversary) |
+
+
+
+### 새롭게 알게된 기능
+
+
 
 
 
@@ -52,7 +87,6 @@
 <table>
     <tr align="center">
         <td><B>팀원<B></td>
-        <td width="100"><B>역할<B></td>
         <td><B>개인 목표<B></td>
     </tr>
     <tr align="center">
@@ -61,7 +95,6 @@
             <br>
             <a href="https://github.com/soogoon"><I>오준현</I></a>
         </td>
-        <td width="100">역할을 적어주세요!!</a></td>
         <td>앱스토어 출시!!</td>
     </tr>
     <tr align="center">
@@ -70,7 +103,6 @@
             <br>
             <a href="https://github.com/juyeonblue"><I>박주연</I></a>
         </td>
-        <td width="100">역할을 적어주세요!!</a></td>
         <td>목표를 적어주세요!!</td>
     </tr>
     <tr align="center">
@@ -79,7 +111,6 @@
             <br>
             <a href="https://github.com/profitjean"><I>이윤진</I></a>
         </td>
-        <td width="100">역할을 적어주세요!!</a></td>
         <td>iOS 실력 성장 && 앱스토어 출시</td>
     </tr>
     <tr align="center">
@@ -88,7 +119,7 @@
             <br>
             <a href="https://github.com/psychehose"><I>김호세</I></a>
         </td>
-        <td width="100">역할을 적어주세요!!</a></td>
         <td>목표를 적어주세요!!</td>
     </tr>
 </table>
+

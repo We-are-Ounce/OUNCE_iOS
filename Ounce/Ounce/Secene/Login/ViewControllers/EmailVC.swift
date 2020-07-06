@@ -106,7 +106,7 @@ extension EmailVC {
         print(#function)
         let vc = UIStoryboard.init(name: "Login",
                                bundle: Bundle.main).instantiateViewController(
-                                withIdentifier: "PasswordVC") as? PasswordVC
+                                withIdentifier: "IDVC") as? IDVC
         
         vc?.modalPresentationStyle = .fullScreen
 

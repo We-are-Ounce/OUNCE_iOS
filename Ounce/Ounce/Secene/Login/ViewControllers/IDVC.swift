@@ -47,7 +47,7 @@ class IDVC: UIViewController {
         $0.backgroundColor = UIColor.init(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
         $0.setRounded(radius: 3)
     }
-
+    
     let nextButton = UIButton().then{
         $0.backgroundColor = .signatureColor
         $0.setRounded(radius: 8)
@@ -55,7 +55,7 @@ class IDVC: UIViewController {
         $0.titleLabel?.font = Font.dateLabel
         $0.addTarget(self, action: #selector(tapNextButton), for: .touchUpInside)
     }
-
+    
     // MARK: - Variables and Properties
     
     
@@ -64,8 +64,17 @@ class IDVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        constraint()
         setLabel()
+        constraint()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        initAnimate()
     }
     
     func setLabel(){
@@ -83,13 +92,35 @@ extension IDVC {
     @objc func tapNextButton() {
         print(#function)
         let vc = UIStoryboard.init(name: "Login",
-                               bundle: Bundle.main).instantiateViewController(
-                                withIdentifier: "IDVC") as? IDVC
+                                   bundle: Bundle.main).instantiateViewController(
+                                    withIdentifier: "PasswordVC") as? PasswordVC
         
         vc?.modalPresentationStyle = .fullScreen
-
+        
         self.present(vc!, animated: false, completion: nil)
+        
+    }
+}
 
+extension IDVC {
+    func initAnimate() {
+        UIView.animate(withDuration: 1,
+                       delay: 0.2,
+//                       usingSpringWithDamping: 0.6,
+//                       initialSpringVelocity: 1,
+                       options: [.curveEaseIn],
+                       animations: {
+                        
+//                        self.animateView.frame = .init(x: 0, y: 0, width: 100, height: 100)
+                        self.firstPageControllView.bounds = .init(x: 0, y: 0, width: 4, height: 17)
+                        self.firstPageControllView.backgroundColor = UIColor.init(red: 216/255,
+                                                                                  green: 216/255,
+                                                                                  blue: 216/255,
+                                                                                  alpha: 1)
+                        
+                        self.secondPageControllView.bounds = .init(x: -14, y: 0, width: 31, height: 17)
+                        self.secondPageControllView.backgroundColor = .signatureColor
+        }, completion: nil)
     }
 }
 

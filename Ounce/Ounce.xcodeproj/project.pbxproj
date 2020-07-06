@@ -54,6 +54,8 @@
 		5E69E8A824AC6CA1005D4DC1 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E8A724AC6CA1005D4DC1 /* LoginCell.swift */; };
 		5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0B01424B1D1A40051C352 /* TBC.swift */; };
 		5EA0B01724B1D1AC0051C352 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA0B01624B1D1AC0051C352 /* TabBar.storyboard */; };
+		777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */; };
+		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
 		7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */; };
 		7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */; };
 		7FC9385224AB1088002B0CA7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9385124AB1088002B0CA7 /* MainVC.swift */; };
@@ -115,6 +117,8 @@
 		5E69E8A724AC6CA1005D4DC1 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		5EA0B01424B1D1A40051C352 /* TBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBC.swift; sourceTree = "<group>"; };
 		5EA0B01624B1D1AC0051C352 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
+		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		7FC9384A24AB1088002B0CA7 /* Ounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			children = (
 				5E48BF1D24B1D79D0060EA7B /* BrowseCVCell.swift */,
 				5E48BF1E24B1D79D0060EA7B /* BrowseCVCell.xib */,
+				777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				5E48BF1924B1D7750060EA7B /* BrowseVC.swift */,
+				777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 			files = (
 				5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */,
 				5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */,
+				777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */,
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */,
 				5E5A43A024B23DED0017BA29 /* CALayer+Extension.swift in Sources */,
@@ -647,6 +654,7 @@
 				5E35795424AE38BE00043066 /* UIImageView+Extension.swift in Sources */,
 				5E69E8A824AC6CA1005D4DC1 /* LoginCell.swift in Sources */,
 				5E039CB524AFFEBD009B1BC6 /* IDVC+Constraint.swift in Sources */,
+				777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */,
 				5E48BF1F24B1D79D0060EA7B /* BrowseCVCell.swift in Sources */,
 				5E35795624AE38D100043066 /* Date+Extension.swift in Sources */,
 				5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */,

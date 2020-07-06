@@ -27,22 +27,24 @@
         <!--Browse-->
         <scene sceneID="ose-tZ-maW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Browse" id="soU-eg-tUB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CJo-a5-gHG"/>
-                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shu-Lo-duI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Browse" id="soU-eg-tUB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="CJo-a5-gHG">
+                        <color key="badgeColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
             </objects>
-            <point key="canvasLocation" x="1345" y="-59"/>
+            <point key="canvasLocation" x="1331" y="-58"/>
         </scene>
         <!--Main-->
         <scene sceneID="kt1-P7-arc">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w7p-sm-dJR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="Main" storyboardName="Main" id="oHP-Ip-rrf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="7vz-sT-HdO"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w7p-sm-dJR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="134"/>
+            <point key="canvasLocation" x="1320" y="135"/>
         </scene>
     </scenes>
 </document>

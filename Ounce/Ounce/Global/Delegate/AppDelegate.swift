@@ -15,7 +15,7 @@ import Gedatsu
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,7 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         Gedatsu.open()
         #endif
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()
+        window?.rootViewController = TBC()
         
+        UITabBar.appearance().tintColor = .tintColor
+
         return true
     }
 

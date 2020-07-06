@@ -16,11 +16,11 @@ class LoginVC: UIViewController {
     
     let logoImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
+        $0.image = UIImage(named: "imgLogo")
     }
     
     let idGuideLabel = UILabel().then {
         $0.font = Font.guideLabel
-        print($0.font.pointSize)
         $0.text = "아이디"
         $0.textColor = .signatureColor
     }
@@ -63,30 +63,40 @@ class LoginVC: UIViewController {
     let pwTextFieldGuideView = UIView().then {
         $0.backgroundColor = .brownGreyColor
     }
-    
-    let findGuideButton = UIButton().then {
-        $0.setTitle("비밀번호를 잊으셨나요?", for: .normal)
-        $0.setTitleColor(.brownGreyColor, for: .normal)
-        $0.titleLabel?.font = Font.smallGuideLabel
-        $0.addTarget(self, action: #selector(tapFindButton), for: .touchUpInside)
-    }
-    
+
     let loginButton = UIButton().then {
         $0.backgroundColor = .signatureColor
         $0.setTitle("로그인", for: .normal)
         $0.makeRounded(cornerRadius: 8)
         $0.addTarget(self, action: #selector(tapSignInButton), for: .touchUpInside)
     }
-    
-    let signUpGuideLabel = UILabel().then {
-        $0.font = Font.smallGuideLabel
-        $0.text = "ounce가 처음이신가요?"
+        
+    let findIDButton = UIButton().then {
+        $0.setTitle("아이디 찾기", for: .normal)
+        $0.setTitleColor(.brownGreyColor, for: .normal)
+        $0.titleLabel?.font = Font.smallGuideLabel
+        $0.addTarget(self, action: #selector(tapFindIDButton), for: .touchUpInside)
     }
     
+    let leftGuideView = UIView().then {
+        $0.backgroundColor = .brownGreyColor
+    }
+    
+    let findPWButton = UIButton().then {
+        $0.setTitle("비밀번호 찾기", for: .normal)
+        $0.setTitleColor(.brownGreyColor, for: .normal)
+        $0.titleLabel?.font = Font.smallGuideLabel
+        $0.addTarget(self, action: #selector(tapFindPWButton), for: .touchUpInside)
+    }
+    
+    let rightGuideView = UIView().then {
+        $0.backgroundColor = .brownGreyColor
+    }
+
     let signUpButton = UIButton().then {
         $0.setTitle("회원가입", for: .normal)
-        $0.setTitleColor(.signatureColor, for: .normal)
-        $0.titleLabel?.font = Font.smallButtonLabel
+        $0.setTitleColor(.brownGreyColor, for: .normal)
+        $0.titleLabel?.font = Font.smallGuideLabel
         $0.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)
     }
     
@@ -101,34 +111,58 @@ class LoginVC: UIViewController {
         
         constraint()
         
-        name.addAttribute(NSAttributedString.Key.underlineStyle,
-                          value: NSUnderlineStyle.single.rawValue,
-                          range: NSMakeRange(0, 4))
-        signUpButton.setAttributedTitle(name, for: .normal)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
     
-    @objc func tapFindButton() {
-        print(#function)
-    }
-    
-    
-    @objc func tapSignUpButton() {
-        print(#function)
-    }
 }
 
 extension LoginVC {
+    
     @objc func tapSignInButton() {
+        let vc = UIStoryboard.init(name: "TabBar",
+                               bundle: Bundle.main).instantiateViewController(
+                                withIdentifier: "TBC") as? TBC
         
-        let sb = UIStoryboard(name: "TabBar", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
-        vc.modalPresentationStyle = .fullScreen
+        vc?.modalPresentationStyle = .fullScreen
         
-        self.present(vc, animated: true)
+        self.present(vc!, animated: true, completion: nil)
     }
+
+    @objc func tapFindIDButton() {
+        let vc = UIStoryboard.init(name: "Login",
+                               bundle: Bundle.main).instantiateViewController(
+                                withIdentifier: "EmailVC") as? EmailVC
+        
+        vc?.modalPresentationStyle = .fullScreen
+
+        self.present(vc!, animated: false, completion: nil)
+    }
+
+    @objc func tapFindPWButton() {
+        print(#function)
+        
+        let vc = UIStoryboard.init(name: "Login",
+                               bundle: Bundle.main).instantiateViewController(
+                                withIdentifier: "EmailVC") as? EmailVC
+
+        vc?.modalPresentationStyle = .fullScreen
+
+        self.present(vc!, animated: false, completion: nil)
+    }
+
+    @objc func tapSignUpButton() {
+        print(#function)
+        
+        let vc = UIStoryboard.init(name: "Login",
+                               bundle: Bundle.main).instantiateViewController(
+                                withIdentifier: "EmailVC") as? EmailVC
+
+        vc?.modalPresentationStyle = .fullScreen
+
+        self.present(vc!, animated: false, completion: nil)
+    }
+
 }

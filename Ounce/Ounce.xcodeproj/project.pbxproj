@@ -60,6 +60,8 @@
 		7FC9385524AB1088002B0CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9385324AB1088002B0CA7 /* Main.storyboard */; };
 		7FC9385724AB108A002B0CA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9385624AB108A002B0CA7 /* Assets.xcassets */; };
 		7FC9385A24AB108A002B0CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9385824AB108A002B0CA7 /* LaunchScreen.storyboard */; };
+		7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B90B24B2DF71008D382F /* ReviewTableViewCell.swift */; };
+		7FD5B90E24B2DF71008D382F /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5B90C24B2DF71008D382F /* ReviewTableViewCell.xib */; };
 		F6389F4E06978797883A73B6 /* Pods_Ounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +123,8 @@
 		7FC9385624AB108A002B0CA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FC9385924AB108A002B0CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FC9385B24AB108A002B0CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FD5B90B24B2DF71008D382F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		7FD5B90C24B2DF71008D382F /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -372,6 +376,8 @@
 			isa = PBXGroup;
 			children = (
 				5E69E8A124AC6BF7005D4DC1 /* MainCell.swift */,
+				7FD5B90B24B2DF71008D382F /* ReviewTableViewCell.swift */,
+				7FD5B90C24B2DF71008D382F /* ReviewTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -542,6 +548,7 @@
 			files = (
 				5E48BF2824B1D7DA0060EA7B /* PostCVCell.xib in Resources */,
 				5E69E89224AC6769005D4DC1 /* ReferenceCVCell.xib in Resources */,
+				7FD5B90E24B2DF71008D382F /* ReviewTableViewCell.xib in Resources */,
 				5E075D3E24B0ABF70035C415 /* NotoSansKR-Regular.otf in Resources */,
 				5E075D3C24B0ABF70035C415 /* OFL.txt in Resources */,
 				7FC9385A24AB108A002B0CA7 /* LaunchScreen.storyboard in Resources */,
@@ -643,6 +650,7 @@
 				5E48BF1F24B1D79D0060EA7B /* BrowseCVCell.swift in Sources */,
 				5E35795624AE38D100043066 /* Date+Extension.swift in Sources */,
 				5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */,
+				7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */,
 				5E48BF1A24B1D7750060EA7B /* BrowseVC.swift in Sources */,
 				5E039CAD24AFFDAE009B1BC6 /* EmailVC.swift in Sources */,
 			);

@@ -104,5 +104,13 @@ class EmailVC: UIViewController {
 extension EmailVC {
     @objc func tapNextButton() {
         print(#function)
+        let vc = UIStoryboard.init(name: "Login",
+                               bundle: Bundle.main).instantiateViewController(
+                                withIdentifier: "PasswordVC") as? PasswordVC
+        
+        vc?.modalPresentationStyle = .fullScreen
+
+        self.present(vc!, animated: false, completion: nil)
+
     }
 }

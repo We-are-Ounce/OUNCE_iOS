@@ -47,7 +47,7 @@ extension EmailVC {
         }
         
         emailUnderBarView.snp.makeConstraints { (make) in
-            make.top.equalTo(emailTextField.snp.bottom).offset(8)
+            make.top.equalTo(emailTextField.snp.bottom).offset(3)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(1)
@@ -74,7 +74,7 @@ extension EmailVC {
         }
         
         certificationUnderBarView.snp.makeConstraints { (make) in
-            make.top.equalTo(certificationTextField.snp.bottom).offset(8)
+            make.top.equalTo(certificationTextField.snp.bottom).offset(3)
             make.leading.equalToSuperview().offset(16)
             make.width.equalTo(210)
             make.height.equalTo(1)
@@ -112,7 +112,7 @@ extension EmailVC {
             make.bottom.equalToSuperview().offset(-13)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(71)
+            make.height.equalTo(48)
         }
 
     }

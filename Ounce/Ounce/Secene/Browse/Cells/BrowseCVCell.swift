@@ -9,10 +9,34 @@
 import UIKit
 
 class BrowseCVCell: UICollectionViewCell {
+    let customView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 12
+        return view
+    }()
+
+    let imgCatView = UIImageView()
+    let imgRecommandFirst = UIImageView()
+    let imgRecommandSecond = UIImageView()
+    let imgRecommandThird = UIImageView()
+    let imgRecommandFourth = UIImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initial()
+
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
-}
+} //End of CardCell

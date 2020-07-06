@@ -38,6 +38,8 @@
 		5E48BF2424B1D7C20060EA7B /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E48BF2324B1D7C20060EA7B /* Post.storyboard */; };
 		5E48BF2724B1D7DA0060EA7B /* PostCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E48BF2524B1D7DA0060EA7B /* PostCVCell.swift */; };
 		5E48BF2824B1D7DA0060EA7B /* PostCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E48BF2624B1D7DA0060EA7B /* PostCVCell.xib */; };
+		5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E48BF2924B1ED810060EA7B /* CustomTabBar.swift */; };
+		5E5A43A024B23DED0017BA29 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A439F24B23DED0017BA29 /* CALayer+Extension.swift */; };
 		5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E88924AC672D005D4DC1 /* ReferenceVC.swift */; };
 		5E69E88D24AC673E005D4DC1 /* Reference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E69E88C24AC673E005D4DC1 /* Reference.storyboard */; };
 		5E69E89124AC6769005D4DC1 /* ReferenceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E88F24AC6769005D4DC1 /* ReferenceCVCell.swift */; };
@@ -97,6 +99,8 @@
 		5E48BF2324B1D7C20060EA7B /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		5E48BF2524B1D7DA0060EA7B /* PostCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCVCell.swift; sourceTree = "<group>"; };
 		5E48BF2624B1D7DA0060EA7B /* PostCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCVCell.xib; sourceTree = "<group>"; };
+		5E48BF2924B1ED810060EA7B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		5E5A439F24B23DED0017BA29 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		5E69E88924AC672D005D4DC1 /* ReferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceVC.swift; sourceTree = "<group>"; };
 		5E69E88C24AC673E005D4DC1 /* Reference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reference.storyboard; sourceTree = "<group>"; };
 		5E69E88F24AC6769005D4DC1 /* ReferenceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceCVCell.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 				5E35795724AE38E900043066 /* UITableView+Extension.swift */,
 				5E35795924AE38FC00043066 /* String+Extension.swift */,
 				5E35795B24AE391500043066 /* UITabBar+Extension.swift */,
+				5E5A439F24B23DED0017BA29 /* CALayer+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 			children = (
 				5EA0B01424B1D1A40051C352 /* TBC.swift */,
 				5EA0B01624B1D1AC0051C352 /* TabBar.storyboard */,
+				5E48BF2924B1ED810060EA7B /* CustomTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -615,10 +621,12 @@
 				5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */,
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */,
+				5E5A43A024B23DED0017BA29 /* CALayer+Extension.swift in Sources */,
 				5E039CAB24AFFDA0009B1BC6 /* PasswordVC.swift in Sources */,
 				5E69E89124AC6769005D4DC1 /* ReferenceCVCell.swift in Sources */,
 				5E48BF2224B1D7BB0060EA7B /* PostVC.swift in Sources */,
 				5E35795C24AE391500043066 /* UITabBar+Extension.swift in Sources */,
+				5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */,
 				5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */,
 				5E69E89824AC685C005D4DC1 /* UIView+Extension.swift in Sources */,
 				5E35795224AE38A900043066 /* UIButton+Extension.swift in Sources */,

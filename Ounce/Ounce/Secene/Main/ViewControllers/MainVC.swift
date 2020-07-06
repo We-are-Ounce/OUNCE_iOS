@@ -1,20 +1,22 @@
 //
-//  ViewController.swift
+//  MainVC.swift
 //  Ounce
 //
-//  Created by 박주연 on 2020/06/30.
+//  Created by 박주연 on 2020/07/07.
 //  Copyright © 2020 박주연. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
+      
+    }
+    
+
+    
 
 }
-

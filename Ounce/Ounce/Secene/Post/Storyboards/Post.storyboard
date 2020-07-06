@@ -7,20 +7,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--PostVC-->
         <scene sceneID="8T9-7k-E6k">
             <objects>
-                <viewController id="DM1-4u-bfJ" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PostVC" storyboardIdentifier="PostVC" id="DM1-4u-bfJ" customClass="PostVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gQb-1i-Egh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvF-Lh-NvE">
+                                <rect key="frame" x="68" y="87" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="out:" destination="DM1-4u-bfJ" eventType="touchUpInside" id="lgn-Ig-9wu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="M65-PN-Ci4"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVT-FR-s2F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="583" y="183"/>
+            <point key="canvasLocation" x="582.60869565217399" y="182.8125"/>
         </scene>
     </scenes>
 </document>

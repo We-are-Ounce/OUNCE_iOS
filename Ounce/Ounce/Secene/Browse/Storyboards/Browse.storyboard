@@ -17,10 +17,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Z9N-og-ajM"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="icLook" id="sng-dC-Fqd"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRg-sN-tc3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-232" y="126"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icLook" width="20" height="20"/>
+    </resources>
 </document>

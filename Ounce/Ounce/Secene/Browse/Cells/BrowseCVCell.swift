@@ -8,7 +8,13 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class BrowseCVCell: UICollectionViewCell {
+    
+    static let identifier: String = "BrowseCell"
+    
     let customView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -16,27 +22,83 @@ class BrowseCVCell: UICollectionViewCell {
         return view
     }()
 
-    let imgCatView = UIImageView()
-    let imgRecommandFirst = UIImageView()
-    let imgRecommandSecond = UIImageView()
-    let imgRecommandThird = UIImageView()
-    let imgRecommandFourth = UIImageView()
+//    let rightGuideView = UIView().then {
+//        $0.backgroundColor = .brownGreyColor
+//    }
+    
+    
+    let imgCatView = UIImageView().then {
+        $0.backgroundColor = .brownGreyColor
+    }
+    
+    
+//    let firstRecommandImg = UIImageView().then {
+//        $0.backgroundColor = .brownGreyColor
+//    }
+//
+//    let secondRecommandImg = UIImageView().then {
+//        $0.backgroundColor = .brownGreyColor
+//    }
+//    let thirdRecommandImg = UIImageView().then {
+//        $0.backgroundColor = .brownGreyColor
+//    }
+    
+    
+    let labelName = UILabel().then {
+        $0.textColor = .black
+        $0.backgroundColor = .white
+        $0.textAlignment = .center
+        $0.font = UIFont.systemFont(ofSize: 13)
+        $0.text = "가을이"
+    }
+    
+    let labelCoincidence = UILabel().then {
+        $0.backgroundColor = .white
+        $0.textColor = .black
+        $0.textAlignment = .center
+        $0.font = UIFont.systemFont(ofSize: 11)
+        $0.text = "77% 일치"
+    }
+    
+    //-Mark: stackview 안에 선언해서 넣을 수 있나? 의문점.
+    
+    let stackViewLabel = UIStackView().then {
+        
+        let firstRecommandImg = UIImageView().then {
+            $0.backgroundColor = .brownGreyColor
+        }
+        
+        let secondRecommandImg = UIImageView().then {
+            $0.backgroundColor = .purple
+        }
+        let thirdRecommandImg = UIImageView().then {
+            $0.backgroundColor = .red
+        }
+        
+        $0.addArrangedSubview(firstRecommandImg)
+        $0.addArrangedSubview(secondRecommandImg)
+        $0.addArrangedSubview(thirdRecommandImg)
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+        $0.spacing = 9
+        
+    }
+    
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initial()
+        self.initial()
 
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-
-
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
 
-} //End of CardCell
+
+}

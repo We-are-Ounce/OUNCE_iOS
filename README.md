@@ -2,15 +2,18 @@
 
 
 
-## <img src="resources/logo1.png" width="300">
+## <img src="resources/logo1.png" width="250">
 
-## We Are Ounce‼️
+#### We are Ounce‼️
 
-### 당신의 떼껄룩을 위 한 Ounce
+> 고양이들은 입맛이 까다로워, 집사들은 성공확률이 높은 시도를 위해 먹여본 캣푸드를 따로 기록하고 있습니다.
+> 저희는 이러한 집사들의 고민을 해결하기 위해 직관적인 기록, 서로의 목록 공유, 입맛이 비슷한 고양이 추천 기능을 제공하고 있습니다. 
+>
+> 기록부터 선택까지, 온스가 함께합니다.
 
 
 
-## 목차
+## 🍎 목차
 
 - [Coding-Convention](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Coding_Convention)
 - [Foldering](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Foldering)
@@ -25,7 +28,8 @@
 - [팀원 소개](#팀원)
 
 
-### Library
+
+#### 🛠 Library
 
 | 라이브러리           | 목적                             |
 | -------------------- | -------------------------------- |
@@ -39,7 +43,7 @@
 
 
 
-### 기능 소개
+#### 💻 기능 소개
 
 | 기능        | 상세 기능                           | 담당                                    |
 | ----------- | ----------------------------------- | --------------------------------------- |
@@ -68,13 +72,7 @@
 
 
 
-### 새롭게 알게된 기능
-
-
-
-
-
-### Projcet
+#### 📚 Project
 
 - [Week 1](https://github.com/We-are-Ounce/OUNCE_iOS/projects/1)
 - [Week 2](https://github.com/We-are-Ounce/OUNCE_iOS/projects/2)
@@ -83,43 +81,37 @@
 
 
 
-### 팀원
-<table>
-    <tr align="center">
-        <td><B>팀원<B></td>
-        <td><B>개인 목표<B></td>
-    </tr>
-    <tr align="center">
-        <td>
-            <img src="https://github.com/5anniversary.png?size=100">
-            <br>
-            <a href="https://github.com/soogoon"><I>오준현</I></a>
-        </td>
-        <td>앱스토어 출시!!</td>
-    </tr>
-    <tr align="center">
-        <td>
-            <img src="https://github.com/juyeonblue.png?size=100">
-            <br>
-            <a href="https://github.com/juyeonblue"><I>박주연</I></a>
-        </td>
-        <td>목표를 적어주세요!!</td>
-    </tr>
-    <tr align="center">
-        <td>
-            <img src="https://github.com/profitjean.png?size=100">
-            <br>
-            <a href="https://github.com/profitjean"><I>이윤진</I></a>
-        </td>
-        <td>iOS 실력 성장 && 앱스토어 출시</td>
-    </tr>
-    <tr align="center">
-        <td>
-            <img src="https://github.com/psychehose.png?size=100">
-            <br>
-            <a href="https://github.com/psychehose"><I>김호세</I></a>
-        </td>
-        <td>목표를 적어주세요!!</td>
-    </tr>
-</table>
+#### 😻 최강 아요 멤버
+
+<img src="https://user-images.githubusercontent.com/55732968/86827126-93937f80-c0cc-11ea-8d45-c726d63ee639.jpg" width="200" height="200">
+
+* [김호세]: https://github.com/psychehose	"성장"
+
+  <img src="https://user-images.githubusercontent.com/55732968/86831239-9e044800-c0d1-11ea-8ab9-408db0ed00ab.jpeg" width="50">
+
+  > carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
+
+* [박주연]: https://github.com/juyeonblue	"앱스토어 출시 & 협력 능력 향상"
+
+  <img src="https://user-images.githubusercontent.com/55732968/86831306-b07e8180-c0d1-11ea-807c-e7c5cbbd871e.jpeg" width="50">
+
+  > CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
+
+* [이윤진]: https://github.com/profitjean	"iOS 실력 성장 & 앱스토어 출시"
+
+  <img src="https://user-images.githubusercontent.com/55732968/86831405-d015aa00-c0d1-11ea-9cd5-2ac904324133.jpeg" width="50">
+
+  > NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
+
+* [오준현]: https://github.com/soogoon	"앱스토어 출시"
+
+  <img src="https://user-images.githubusercontent.com/55732968/86831496-eae81e80-c0d1-11ea-8e01-e6db7ea97d0a.jpeg" width="50">
+
+  > custom TabBar 도전하기 빠샤🥊
+
+  
+
+
+
+
 

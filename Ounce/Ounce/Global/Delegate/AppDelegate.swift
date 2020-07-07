@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         Gedatsu.open()
         #endif
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.white
-        window?.makeKeyAndVisible()
-        window?.rootViewController = TBC()
+//        window = UIWindow.init(frame: UIScreen.main.bounds)
+//        window?.backgroundColor = UIColor.white
+//        window?.makeKeyAndVisible()
+//        window?.rootViewController = TBC()
         
         UITabBar.appearance().tintColor = .tintColor
         UINavigationBar.appearance().tintColor = .black

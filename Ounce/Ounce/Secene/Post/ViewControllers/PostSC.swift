@@ -8,6 +8,13 @@
 
 import UIKit
 
-class PostSC:UIView{
+class PostSC:UIView {
     
+    @IBOutlet weak var memoTextView: UITextView!
+    func viewDidLoad(){
+       
+        self.memoTextView.layer.borderWidth = 1.0
+        self.memoTextView.layer.borderColor = UIColor.black.cgColor
+        self.memoTextView.layer.cornerRadius = 8.0
+    }
 }

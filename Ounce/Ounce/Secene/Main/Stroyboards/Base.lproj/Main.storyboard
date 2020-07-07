@@ -157,25 +157,35 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fTu-4p-EYj">
-                                                <rect key="frame" x="0.0" y="224" width="375" height="86"/>
+                                                <rect key="frame" x="0.0" y="224" width="375" height="121"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="86" id="8Zu-6J-f6W"/>
+                                                    <constraint firstAttribute="height" constant="121" id="8Zu-6J-f6W"/>
                                                     <constraint firstAttribute="width" constant="375" id="W6Z-z5-QGe"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ReviewTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewTableViewCell" rowHeight="86" id="IGI-Nz-dgt" customClass="ReviewTableViewCell" customModule="Ounce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="375" height="86"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ReviewTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewTableViewCell" rowHeight="68" id="IGI-Nz-dgt" customClass="ReviewTableViewCell" customModule="Ounce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IGI-Nz-dgt" id="djy-7N-aP0">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IGI-Nz-dgt" id="djy-7N-aP0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6t-OT-urx">
+                                                                    <rect key="frame" x="221" y="24" width="42" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="bQ2-0D-Kf6" firstAttribute="top" secondItem="ufU-g4-E9g" secondAttribute="top" id="LTy-8h-cti"/>
                                             <constraint firstItem="0jj-rM-aIM" firstAttribute="top" secondItem="bQ2-0D-Kf6" secondAttribute="bottom" id="PjX-8t-quh"/>
@@ -189,6 +199,9 @@
                                             <constraint firstItem="fTu-4p-EYj" firstAttribute="top" secondItem="0jj-rM-aIM" secondAttribute="bottom" id="nIv-ov-DhV"/>
                                             <constraint firstItem="bQ2-0D-Kf6" firstAttribute="leading" secondItem="ufU-g4-E9g" secondAttribute="leading" id="qjo-jV-Jk4"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="JFh-zK-144" appends="YES" id="BeG-0d-e26"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -201,6 +214,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="bT4-El-Isl" secondAttribute="bottom" id="1D7-En-HJR"/>
                             <constraint firstItem="bT4-El-Isl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mz7-Bp-AZW"/>
@@ -209,8 +223,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="ufU-g4-E9g" id="Ubm-fC-wyk"/>
+                        <outlet property="profileHeight" destination="BLI-Ja-hDc" id="NGm-ih-eVC"/>
+                        <outlet property="profileView" destination="bQ2-0D-Kf6" id="aKM-N7-Crs"/>
+                        <outlet property="reviewHeaderHeight" destination="4se-aV-bjj" id="tOX-Rf-QrQ"/>
+                        <outlet property="reviewView" destination="0jj-rM-aIM" id="EqY-nU-7EM"/>
+                        <outlet property="scrollView" destination="bT4-El-Isl" id="gqb-ui-mc5"/>
+                        <outlet property="tableView" destination="fTu-4p-EYj" id="e6Q-Da-xlL"/>
+                        <outlet property="tableViewHeight" destination="8Zu-6J-f6W" id="6j9-ua-CqL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="JFh-zK-144">
+                    <connections>
+                        <action selector="panAction:" destination="BYZ-38-t0r" id="2Mv-86-Ow8"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="129.31034482758622"/>
         </scene>

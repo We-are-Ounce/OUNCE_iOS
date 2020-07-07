@@ -19,6 +19,9 @@ class HomeVC: UIViewController {
         reviewTV.delegate = self
         reviewTV.dataSource = self
         
+        let nibName = UINib(nibName: "ReviewTableViewCell", bundle: nil)
+        
+        reviewTV.register(nibName, forCellReuseIdentifier: "ReviewTableViewCell")
     }
 
 }
@@ -53,7 +56,7 @@ extension HomeVC : UITableViewDataSource {
             return profileCell
         }
         else{
-        let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath)
+        let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath)
         
         return reviewCell
         }

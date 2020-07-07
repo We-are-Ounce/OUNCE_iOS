@@ -20,12 +20,11 @@
 - [Scrum](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_iOS_Scrum)
 - [Work-flow](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Workflow)
 - [Github manage](https://github.com/We-are-Ounce/OUNCE_iOS/wiki/Git-manage)
-- [Library](#library)
+- [Library](#-library)
 - [간단한 설명](#간단한-설명)
-- [기능 소개](#기능-소개)
-- [새롭게 알게된 기능](#새롭게-알게된-기능)
-- [Project](#projcet)
-- [팀원 소개](#팀원)
+- [기능 소개](#-기능-소개)
+- [Project](#-project)
+- [팀원 소개](#-최강-아요-멤버)
 
 
 

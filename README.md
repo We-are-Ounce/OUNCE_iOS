@@ -29,6 +29,8 @@
 
 
 
+
+
 ### 🛠 Library
 
 | 라이브러리           | 목적                             |
@@ -40,6 +42,11 @@
 | SwiftKeychainWrapper | 저장소 암호화를 위해서           |
 | Then                 | 컴포넌트 코드 작성의 용이를 위해 |
 | YPImagePicker        | 사진첩 사용                      |
+| UPCarouselFlowLayout | Carousel effect                  |
+| iOSDropDown          | DropDown 효과                    |
+| CHIPageControl       | 인디케이터                       |
+
+
 
 
 
@@ -78,6 +85,8 @@
 - [Week 2](https://github.com/We-are-Ounce/OUNCE_iOS/projects/2)
 - [Week 3](https://github.com/We-are-Ounce/OUNCE_iOS/projects/3)
 - [Help/Bug](https://github.com/We-are-Ounce/OUNCE_iOS/projects/4)
+
+
 
 
 

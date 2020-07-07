@@ -16,7 +16,7 @@ class LoginVC: UIViewController {
     
     let logoImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.image = UIImage(named: "imgLogo")
+        $0.image = UIImage(named: "imgLogoBlue")
     }
     
     let idGuideLabel = UILabel().then {
@@ -34,7 +34,7 @@ class LoginVC: UIViewController {
     
     let idTextField = UITextField().then {
         $0.font = Font.textField
-        $0.placeholder = "Ounce"
+        $0.placeholder = "ID"
     }
     
     let idTextFieldGuideView = UIView().then {
@@ -56,7 +56,7 @@ class LoginVC: UIViewController {
     
     let pwTextField = UITextField().then {
         $0.font = Font.textField
-        $0.placeholder = "OuncePW"
+        $0.placeholder = "Password"
         $0.isSecureTextEntry = true
     }
     
@@ -132,13 +132,14 @@ extension LoginVC {
     }
 
     @objc func tapFindIDButton() {
+        print(#function)
         let vc = UIStoryboard.init(name: "Login",
                                bundle: Bundle.main).instantiateViewController(
                                 withIdentifier: "EmailVC") as? EmailVC
         
         vc?.modalPresentationStyle = .fullScreen
 
-        self.present(vc!, animated: false, completion: nil)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 
     @objc func tapFindPWButton() {
@@ -147,7 +148,7 @@ extension LoginVC {
         let vc = UIStoryboard.init(name: "Login",
                                bundle: Bundle.main).instantiateViewController(
                                 withIdentifier: "EmailVC") as? EmailVC
-
+        
         vc?.modalPresentationStyle = .fullScreen
 
         self.present(vc!, animated: false, completion: nil)

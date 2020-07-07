@@ -12,6 +12,9 @@ import SnapKit
 
 extension IDVC {
     func constraint() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         self.view.addSubview(guideLabel)
         self.view.addSubview(idGuideLabel)
         self.view.addSubview(idTextField)
@@ -23,7 +26,7 @@ extension IDVC {
         self.view.addSubview(nextButton)
 
         guideLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(44)
+            make.top.equalToSuperview().offset(88)
             make.leading.equalToSuperview().offset(16)
             make.width.equalTo(210)
             make.height.equalTo(80)
@@ -38,13 +41,13 @@ extension IDVC {
 
         idTextField.snp.makeConstraints { (make) in
             make.top.equalTo(idGuideLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalToSuperview().offset(22)
             make.width.equalTo(210)
             make.height.equalTo(24)
         }
         
         idUnderBarView.snp.makeConstraints { (make) in
-            make.top.equalTo(idTextField.snp.bottom).offset(8)
+            make.top.equalTo(idTextField.snp.bottom).offset(4)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(1)
@@ -60,14 +63,14 @@ extension IDVC {
         firstPageControllView.snp.makeConstraints { (make) in
             make.bottom.equalTo(nextButton.snp.top).offset(-17)
             make.trailing.equalTo(secondPageControllView.snp.leading).offset(-5)
-            make.width.equalTo(31)
+            make.width.equalTo(17)
             make.height.equalTo(7)
         }
         
         secondPageControllView.snp.makeConstraints { (make) in
             make.bottom.equalTo(nextButton.snp.top).offset(-17)
             make.centerX.equalToSuperview()
-            make.width.equalTo(17)
+            make.width.equalTo(31)
             make.height.equalTo(7)
         }
         
@@ -82,7 +85,7 @@ extension IDVC {
             make.bottom.equalToSuperview().offset(-13)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(71)
+            make.height.equalTo(48)
         }
 
     }

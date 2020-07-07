@@ -54,6 +54,8 @@
 		5E69E8A824AC6CA1005D4DC1 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E8A724AC6CA1005D4DC1 /* LoginCell.swift */; };
 		5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0B01424B1D1A40051C352 /* TBC.swift */; };
 		5EA0B01724B1D1AC0051C352 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA0B01624B1D1AC0051C352 /* TabBar.storyboard */; };
+		5EA889FF24B3BEE300C4CEC4 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA889FE24B3BEE300C4CEC4 /* RegisterVC.swift */; };
+		5EA88A0124B3BEF600C4CEC4 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA88A0024B3BEF600C4CEC4 /* Register.storyboard */; };
 		777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */; };
 		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
 		7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */; };
@@ -120,6 +122,8 @@
 		5E69E8A724AC6CA1005D4DC1 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		5EA0B01424B1D1A40051C352 /* TBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBC.swift; sourceTree = "<group>"; };
 		5EA0B01624B1D1AC0051C352 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		5EA889FE24B3BEE300C4CEC4 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		5EA88A0024B3BEF600C4CEC4 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
 		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		7FC9384A24AB1088002B0CA7 /* Ounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +268,7 @@
 		5E69E87B24AC668B005D4DC1 /* Secene */ = {
 			isa = PBXGroup;
 			children = (
+				5EA889FA24B3BCAB00C4CEC4 /* Register */,
 				5E48BF1124B1D6F30060EA7B /* Post */,
 				5EA0B01324B1D1280051C352 /* Browse */,
 				5EA0B01224B1D1220051C352 /* TabBar */,
@@ -464,6 +469,31 @@
 			path = Browse;
 			sourceTree = "<group>";
 		};
+		5EA889FA24B3BCAB00C4CEC4 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				5EA889FC24B3BEAA00C4CEC4 /* Storyboards */,
+				5EA889FB24B3BEA300C4CEC4 /* ViewControllers */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		5EA889FB24B3BEA300C4CEC4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5EA889FE24B3BEE300C4CEC4 /* RegisterVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5EA889FC24B3BEAA00C4CEC4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5EA88A0024B3BEF600C4CEC4 /* Register.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		7FC9384124AB1088002B0CA7 = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +593,7 @@
 			files = (
 				5E48BF2824B1D7DA0060EA7B /* PostCVCell.xib in Resources */,
 				5E69E89224AC6769005D4DC1 /* ReferenceCVCell.xib in Resources */,
+				5EA88A0124B3BEF600C4CEC4 /* Register.storyboard in Resources */,
 				7FD5B90E24B2DF71008D382F /* ReviewTableViewCell.xib in Resources */,
 				5E075D3E24B0ABF70035C415 /* NotoSansKR-Regular.otf in Resources */,
 				5E075D3C24B0ABF70035C415 /* OFL.txt in Resources */,
@@ -644,6 +675,7 @@
 				5E48BF2224B1D7BB0060EA7B /* PostVC.swift in Sources */,
 				5E35795C24AE391500043066 /* UITabBar+Extension.swift in Sources */,
 				5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */,
+				5EA889FF24B3BEE300C4CEC4 /* RegisterVC.swift in Sources */,
 				5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */,
 				5E69E89824AC685C005D4DC1 /* UIView+Extension.swift in Sources */,
 				5E35795224AE38A900043066 /* UIButton+Extension.swift in Sources */,

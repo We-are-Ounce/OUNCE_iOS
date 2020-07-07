@@ -13,7 +13,7 @@ class IDVC: UIViewController {
     // MARK: - UI components
     
     let guideLabel = UILabel().then{
-        $0.font = Font.dateLabel
+        $0.font = Font.signUpSmallGuideLabel
     }
     
     let idGuideLabel = UILabel().then{

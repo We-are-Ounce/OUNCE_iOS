@@ -13,7 +13,7 @@ class PasswordVC: UIViewController {
     // MARK: - UI components
     
     let guideLabel = UILabel().then{
-        $0.font = Font.dateLabel
+        $0.font = Font.signUpSmallGuideLabel
     }
     
     let pwGuideLabel = UILabel().then{
@@ -116,7 +116,7 @@ extension PasswordVC {
         print(#function)
         let vc = UIStoryboard.init(name: "Login",
                                    bundle: Bundle.main).instantiateViewController(
-                                    withIdentifier: "IDVC") as? IDVC
+                                    withIdentifier: "SignUpCompleteVC") as? SignUpCompleteVC
         
         vc?.modalPresentationStyle = .fullScreen
         

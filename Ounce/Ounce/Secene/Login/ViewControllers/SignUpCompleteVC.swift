@@ -9,22 +9,49 @@
 import UIKit
 
 class SignUpCompleteVC: UIViewController {
-
+    
+    // MARK: - UI components
+    
+    @IBOutlet weak var guideLabel: UILabel!
+    @IBOutlet weak var completeButton: UIButton!
+    
+    // MARK: - Variables and Properties
+    
+    
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setLabel()
+        setButton()
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK: - Helpers 메소드 모두 따로 작성해주세요
+extension SignUpCompleteVC {
+    func setLabel() {
+        let attrString = NSMutableAttributedString(string: "회원가입이 \n완료되었습니다.")
+        attrString.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
+                                value: Font.signUpBigGuideLabel as Any, range: NSMakeRange(0, 4))
+        guideLabel.attributedText = attrString
+        guideLabel.numberOfLines = 2
     }
-    */
-
+    
+    func setButton(){
+        completeButton.addTarget(self,
+                                 action: #selector(didTapCompleteButton),
+                                 for: .touchUpInside)
+    }
+    
+    @objc func didTapCompleteButton(){
+        let vc = UIStoryboard.init(name: "Register",
+                               bundle: Bundle.main).instantiateViewController(
+                                withIdentifier: "RegisterVC") as? RegisterVC
+        
+        vc?.modalPresentationStyle = .fullScreen
+        
+        self.present(vc!, animated: true, completion: nil)
+    }
 }

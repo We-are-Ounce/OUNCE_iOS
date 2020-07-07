@@ -14,7 +14,7 @@ target 'Ounce' do
   pod 'SwiftKeychainWrapper'
   pod 'Then'
   pod 'YPImagePicker'  
-
+  pod 'UPCarouselFlowLayout'
 
 
 end

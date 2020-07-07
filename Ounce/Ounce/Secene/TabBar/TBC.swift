@@ -29,7 +29,7 @@ class TBC: UITabBarController {
     
     func addClick() {
         let sb = UIStoryboard(name: "Post", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
+        let vc = sb.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
         vc.modalPresentationStyle = .fullScreen
         
         self.present(vc, animated: true)

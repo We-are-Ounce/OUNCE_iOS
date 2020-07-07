@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = TBC()
         
         UITabBar.appearance().tintColor = .tintColor
+        UINavigationBar.appearance().tintColor = .black
 
         return true
     }

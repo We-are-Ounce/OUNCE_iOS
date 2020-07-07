@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wGp-aj-dMK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ku7-u0-it2">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -17,10 +17,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Bmr-jr-IUk"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6NK-bS-SgI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04G-ON-vXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="97"/>
+            <point key="canvasLocation" x="1122.4000000000001" y="96.798029556650249"/>
         </scene>
         <!--EmailVC-->
         <scene sceneID="Lsw-SE-tB3">
@@ -35,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmS-3U-aad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="97"/>
+            <point key="canvasLocation" x="1932" y="96.798029556650249"/>
         </scene>
         <!--IDVC-->
         <scene sceneID="r8N-Ni-gKL">
@@ -50,7 +51,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLg-cv-1BI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="97"/>
+            <point key="canvasLocation" x="2690.4000000000001" y="96.798029556650249"/>
+        </scene>
+        <!--Sign Up CompleteVC-->
+        <scene sceneID="nDP-Co-7G7">
+            <objects>
+                <viewController restorationIdentifier="SignUpCompleteVC" storyboardIdentifier="SignUpCompleteVC" id="lMe-OZ-GsN" customClass="SignUpCompleteVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BpE-b9-7Ry">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMj-7k-nDN">
+                                <rect key="frame" x="36" y="528" width="303" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="QVF-3o-jUK"/>
+                                </constraints>
+                                <state key="normal" title="고양이 등록"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-lQ-940">
+                                <rect key="frame" x="166.66666666666666" y="186" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1u9-b5-Msy" firstAttribute="trailing" secondItem="JMj-7k-nDN" secondAttribute="trailing" constant="36" id="H5L-xd-ivB"/>
+                            <constraint firstItem="mmp-lQ-940" firstAttribute="top" secondItem="1u9-b5-Msy" secondAttribute="top" constant="142" id="Jas-jv-obu"/>
+                            <constraint firstItem="mmp-lQ-940" firstAttribute="centerX" secondItem="1u9-b5-Msy" secondAttribute="centerX" id="YFm-7t-eUT"/>
+                            <constraint firstItem="JMj-7k-nDN" firstAttribute="leading" secondItem="1u9-b5-Msy" secondAttribute="leading" constant="36" id="idK-cv-8f0"/>
+                            <constraint firstItem="1u9-b5-Msy" firstAttribute="bottom" secondItem="JMj-7k-nDN" secondAttribute="bottom" constant="201" id="wp7-kO-dnB"/>
+                            <constraint firstItem="JMj-7k-nDN" firstAttribute="centerX" secondItem="1u9-b5-Msy" secondAttribute="centerX" id="zrG-p7-uys"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1u9-b5-Msy"/>
+                    </view>
+                    <connections>
+                        <outlet property="completeButton" destination="JMj-7k-nDN" id="qdF-bn-Zx0"/>
+                        <outlet property="guideLabel" destination="mmp-lQ-940" id="sn5-tY-pq7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pFn-9D-liT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3400.8000000000002" y="-571.18226600985224"/>
         </scene>
         <!--PasswordVC-->
         <scene sceneID="h7I-fn-hch">
@@ -65,7 +108,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ido-mD-80s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460" y="97"/>
+            <point key="canvasLocation" x="3402.4000000000001" y="96.798029556650249"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v1K-OG-qkf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ku7-u0-it2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vwg-FY-7PV">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wGp-aj-dMK" kind="relationship" relationship="rootViewController" id="MaA-b3-JdP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y14-t9-Ubh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="96.798029556650249"/>
         </scene>
     </scenes>
 </document>

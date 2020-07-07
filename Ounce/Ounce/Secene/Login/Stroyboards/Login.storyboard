@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wGp-aj-dMK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dWY-3H-gF8">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -17,10 +17,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Bmr-jr-IUk"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aDq-4f-hz6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04G-ON-vXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="97"/>
+            <point key="canvasLocation" x="1122.4000000000001" y="96.798029556650249"/>
         </scene>
         <!--EmailVC-->
         <scene sceneID="Lsw-SE-tB3">
@@ -35,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmS-3U-aad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="97"/>
+            <point key="canvasLocation" x="1932" y="96.798029556650249"/>
         </scene>
         <!--IDVC-->
         <scene sceneID="r8N-Ni-gKL">
@@ -50,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLg-cv-1BI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="97"/>
+            <point key="canvasLocation" x="2690.4000000000001" y="96.798029556650249"/>
         </scene>
         <!--PasswordVC-->
         <scene sceneID="h7I-fn-hch">
@@ -65,7 +66,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ido-mD-80s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460" y="97"/>
+            <point key="canvasLocation" x="3402.4000000000001" y="96.798029556650249"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UtB-El-2fP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dWY-3H-gF8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0wL-Gt-fv9">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wGp-aj-dMK" kind="relationship" relationship="rootViewController" id="jkn-cz-GeB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Amk-ck-E0I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="96.798029556650249"/>
         </scene>
     </scenes>
 </document>

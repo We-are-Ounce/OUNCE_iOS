@@ -10,7 +10,53 @@ import UIKit
 
 class SearchVC: UIViewController{
     
+    @IBOutlet weak var movePostView: UIButton!
+    
+    
+//    lazy leftBarItem = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNav()
+        /*movePostView.addTarget(self,
+                               action: #selector(didTapMoveButton),
+                               for: .touchUpInside)*/
+        print(navigationController)
+        
+    }
+    
+    @IBAction func downBarButton(_ sender: Any) {
+    // 뒤로가기.(화면 아래로 내려가는 액션)
+        self.dismiss(animated: true, completion: nil)
+
+    }
+//    @objc func downBarButton(_ sender: Any) {
+//    // 뒤로가기.(화면 아래로 내려가는 액션)
+//        self.dismiss(animated: true, completion: nil)
+//    
+//    }
+    /* @objc func didTapMoveButton(){
+        print(#function)
+        let sb = UIStoryboard(name: "Post", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
+
+        
+        self.navigationController?.pushViewController(vc, animated: true)*/
+
+//        self.present(showDetailNewsFeedVC, animated: true, completion: nil)
+    }
+    
+    
+
+
+
+extension SearchVC {
+    func setNav(){
+        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
     }
 }

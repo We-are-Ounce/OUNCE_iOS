@@ -121,13 +121,9 @@ class LoginVC: UIViewController {
 }
 
 extension LoginVC {
-<<<<<<< Updated upstream
-=======
     func setNav(){
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
-
->>>>>>> Stashed changes
     @objc func tapSignInButton() {
         let vc = UIStoryboard.init(name: "TabBar",
                                bundle: Bundle.main).instantiateViewController(

@@ -9,7 +9,7 @@ ted by https://www.gitignore.io/api/swift,xcode,firebase,cocoapods
 #           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
 Pods/
 .DS_Store
-**/With.xcworkspace/xcuserdata/
+**/Ounce.xcworkspace/xcuserdata/
 
 ### Firebase ###
 .idea

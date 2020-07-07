@@ -60,13 +60,40 @@
                     <view key="view" contentMode="scaleToFill" id="BpE-b9-7Ry">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMj-7k-nDN">
+                                <rect key="frame" x="36" y="528" width="303" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="QVF-3o-jUK"/>
+                                </constraints>
+                                <state key="normal" title="고양이 등록"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-lQ-940">
+                                <rect key="frame" x="166.66666666666666" y="186" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1u9-b5-Msy" firstAttribute="trailing" secondItem="JMj-7k-nDN" secondAttribute="trailing" constant="36" id="H5L-xd-ivB"/>
+                            <constraint firstItem="mmp-lQ-940" firstAttribute="top" secondItem="1u9-b5-Msy" secondAttribute="top" constant="142" id="Jas-jv-obu"/>
+                            <constraint firstItem="mmp-lQ-940" firstAttribute="centerX" secondItem="1u9-b5-Msy" secondAttribute="centerX" id="YFm-7t-eUT"/>
+                            <constraint firstItem="JMj-7k-nDN" firstAttribute="leading" secondItem="1u9-b5-Msy" secondAttribute="leading" constant="36" id="idK-cv-8f0"/>
+                            <constraint firstItem="1u9-b5-Msy" firstAttribute="bottom" secondItem="JMj-7k-nDN" secondAttribute="bottom" constant="201" id="wp7-kO-dnB"/>
+                            <constraint firstItem="JMj-7k-nDN" firstAttribute="centerX" secondItem="1u9-b5-Msy" secondAttribute="centerX" id="zrG-p7-uys"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1u9-b5-Msy"/>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="JMj-7k-nDN" id="qdF-bn-Zx0"/>
+                        <outlet property="guideLabel" destination="mmp-lQ-940" id="sn5-tY-pq7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFn-9D-liT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3402" y="-571"/>
+            <point key="canvasLocation" x="3400.8000000000002" y="-571.18226600985224"/>
         </scene>
         <!--PasswordVC-->
         <scene sceneID="h7I-fn-hch">

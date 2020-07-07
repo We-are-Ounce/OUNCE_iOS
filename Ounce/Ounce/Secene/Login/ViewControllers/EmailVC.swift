@@ -112,6 +112,7 @@ class EmailVC: UIViewController {
         constraint()
         setLabel()
         setTextField()
+        setNav()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,6 +137,11 @@ class EmailVC: UIViewController {
 }
 
 extension EmailVC {
+    
+    func setNav(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
     @objc func tapNextButton() {
         print(#function)
         let vc = UIStoryboard.init(name: "Login",

@@ -110,7 +110,8 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         
         constraint()
-        
+        setNav()
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -120,6 +121,13 @@ class LoginVC: UIViewController {
 }
 
 extension LoginVC {
+<<<<<<< Updated upstream
+=======
+    func setNav(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+
+>>>>>>> Stashed changes
     @objc func tapSignInButton() {
         let vc = UIStoryboard.init(name: "TabBar",
                                bundle: Bundle.main).instantiateViewController(
@@ -162,7 +170,9 @@ extension LoginVC {
 
         vc?.modalPresentationStyle = .fullScreen
 
-        self.present(vc!, animated: false, completion: nil)
+        self.navigationController?.pushViewController(vc!, animated: true)
+
+//        self.present(vc!, animated: false, completion: nil)
     }
 
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+import YPImagePicker
+
 class RegisterVC: UIViewController {
     
     // MARK: - UI components

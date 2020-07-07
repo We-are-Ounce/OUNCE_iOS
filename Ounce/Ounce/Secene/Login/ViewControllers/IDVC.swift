@@ -67,6 +67,7 @@ class IDVC: UIViewController {
         
         setLabel()
         constraint()
+        setNav()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,6 +91,10 @@ class IDVC: UIViewController {
 }
 
 extension IDVC {
+    func setNav(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+
     @objc func tapNextButton() {
         print(#function)
         let vc = UIStoryboard.init(name: "Login",

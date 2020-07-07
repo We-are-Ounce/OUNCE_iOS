@@ -87,6 +87,7 @@ class PasswordVC: UIViewController {
         
         constraint()
         setLabel()
+        setNav()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +107,11 @@ class PasswordVC: UIViewController {
 }
 
 extension PasswordVC {
+
+    func setNav(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+
     @objc func tapNextButton() {
         print(#function)
         let vc = UIStoryboard.init(name: "Login",

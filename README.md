@@ -85,23 +85,23 @@
 
 <img src="https://user-images.githubusercontent.com/55732968/86831239-9e044800-c0d1-11ea-8ab9-408db0ed00ab.jpeg" width="100" height = "100">  <img src="https://user-images.githubusercontent.com/55732968/86831306-b07e8180-c0d1-11ea-807c-e7c5cbbd871e.jpeg" width="100" height = "100" >  <img src="https://user-images.githubusercontent.com/55732968/86831405-d015aa00-c0d1-11ea-9cd5-2ac904324133.jpeg" width="100" height = "100 ">  <img src="https://user-images.githubusercontent.com/55732968/86831496-eae81e80-c0d1-11ea-8e01-e6db7ea97d0a.jpeg" height = "100" width = "100" >
 
-* [김호세]: https://github.com/psychehose
+[김호세]: https://github.com/psychehose
 
-  > carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
+> carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
 
-* [박주연]: https://github.com/juyeonblue
+[박주연]: https://github.com/juyeonblue
 
-  > CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
+> CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
 
-* [이윤진]: https://github.com/profitjean
+[이윤진]: https://github.com/profitjean
 
-  > NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
+> NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
 
-* [오준현]: https://github.com/soogoon
+[오준현]: https://github.com/soogoon	"앱스토어 출시"
 
-  > custom TabBar 도전하기 빠샤🥊
+> custom TabBar 도전하기 빠샤🥊
 
-  
+
 
 
 

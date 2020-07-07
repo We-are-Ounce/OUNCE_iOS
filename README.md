@@ -16,19 +16,40 @@
 ## 🍎 목차
 
 - [Coding-Convention](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Coding_Convention)
+
 - [Foldering](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Foldering)
+
 - [Scrum](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_iOS_Scrum)
+
 - [Work-flow](https://github.com/We-are-Ounce/Ounce_iOS/wiki/Ounce_Workflow)
+
 - [Github manage](https://github.com/We-are-Ounce/OUNCE_iOS/wiki/Git-manage)
+
 - [Library](#-library)
+
 - [간단한 설명](#간단한-설명)
+
 - [기능 소개](#-기능-소개)
+
 - [Project](#-project)
-- [팀원 소개](#-최강-아요-멤버)
 
+- [팀원 소개](#-최강-아요-멤버)   
 
+  
 
+### 📱  개발 환경
 
+* **Xcode 11.5**
+
+* **iOS 13.0**
+
+* **Swift 5**  
+
+   
+
+   
+
+  
 
 ### 🛠 Library
 
@@ -44,6 +65,8 @@
 | UPCarouselFlowLayout | Carousel effect                  |
 | iOSDropDown          | DropDown 효과                    |
 | CHIPageControl       | 인디케이터                       |
+
+
 
 
 
@@ -78,12 +101,55 @@
 
 
 
+
+
+### 📍 Screenshots
+
+1. Splash
+
+2. Login
+
+3. Signup
+
+4. Register
+
+5. Home
+
+6. Setting
+
+7. Post
+
+8. Browse  
+
+   
+
+   
+
+
+
 ### 📚 Project
 
 - [Week 1](https://github.com/We-are-Ounce/OUNCE_iOS/projects/1)
+
 - [Week 2](https://github.com/We-are-Ounce/OUNCE_iOS/projects/2)
+
 - [Week 3](https://github.com/We-are-Ounce/OUNCE_iOS/projects/3)
-- [Help/Bug](https://github.com/We-are-Ounce/OUNCE_iOS/projects/4)
+
+- [Help/Bug](https://github.com/We-are-Ounce/OUNCE_iOS/projects/4)  
+
+  
+
+
+
+### 💡새롭게 알게 된 것 
+
+> 김호세: carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
+
+> 박주연: CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
+
+> 이윤진: NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
+
+> 오준현: custom TabBar 도전하기 빠샤🥊  
 
 
 
@@ -95,19 +161,19 @@
 
 [김호세](https://github.com/psychehose )
 
-> carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
+> 성장
 
 [박주연](https://github.com/juyeonblue)
 
-> CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
+> 앱스토어 출시 & 협업 능력 성장 
 
 [이윤진](https://github.com/profitjean )
 
-> NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
+> iOS 실력 성장 & 앱스토어 출시
 
 [오준현](https://github.com/soogoon)
 
-> custom TabBar 도전하기 빠샤🥊
+> 앱스토어 출시
 
 
 

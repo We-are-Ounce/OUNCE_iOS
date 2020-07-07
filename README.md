@@ -4,7 +4,7 @@
 
 ## <img src="resources/logo1.png" width="250">
 
-#### We are Ounce‼️
+### We are Ounce‼️
 
 > 고양이들은 입맛이 까다로워, 집사들은 성공확률이 높은 시도를 위해 먹여본 캣푸드를 따로 기록하고 있습니다.
 > 저희는 이러한 집사들의 고민을 해결하기 위해 직관적인 기록, 서로의 목록 공유, 입맛이 비슷한 고양이 추천 기능을 제공하고 있습니다. 
@@ -29,7 +29,7 @@
 
 
 
-#### 🛠 Library
+### 🛠 Library
 
 | 라이브러리           | 목적                             |
 | -------------------- | -------------------------------- |
@@ -43,7 +43,7 @@
 
 
 
-#### 💻 기능 소개
+### 💻 기능 소개
 
 | 기능        | 상세 기능                           | 담당                                    |
 | ----------- | ----------------------------------- | --------------------------------------- |
@@ -72,7 +72,7 @@
 
 
 
-#### 📚 Project
+### 📚 Project
 
 - [Week 1](https://github.com/We-are-Ounce/OUNCE_iOS/projects/1)
 - [Week 2](https://github.com/We-are-Ounce/OUNCE_iOS/projects/2)
@@ -81,31 +81,23 @@
 
 
 
-#### 😻 최강 아요 멤버
+### 😻 최강 아요 멤버
 
-<img src="https://user-images.githubusercontent.com/55732968/86827126-93937f80-c0cc-11ea-8d45-c726d63ee639.jpg" width="200" height="200">
+<img src="https://user-images.githubusercontent.com/55732968/86831239-9e044800-c0d1-11ea-8ab9-408db0ed00ab.jpeg" width="104"><img src="https://user-images.githubusercontent.com/55732968/86831306-b07e8180-c0d1-11ea-807c-e7c5cbbd871e.jpeg" width="104"> <img src="https://user-images.githubusercontent.com/55732968/86831405-d015aa00-c0d1-11ea-9cd5-2ac904324133.jpeg" width="100" height = "100"><img src="https://user-images.githubusercontent.com/55732968/86831496-eae81e80-c0d1-11ea-8e01-e6db7ea97d0a.jpeg" height = "100" width = "100" >
 
 * [김호세]: https://github.com/psychehose	"성장"
-
-  <img src="https://user-images.githubusercontent.com/55732968/86831239-9e044800-c0d1-11ea-8ab9-408db0ed00ab.jpeg" width="50">
 
   > carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
 
 * [박주연]: https://github.com/juyeonblue	"앱스토어 출시 & 협력 능력 향상"
 
-  <img src="https://user-images.githubusercontent.com/55732968/86831306-b07e8180-c0d1-11ea-807c-e7c5cbbd871e.jpeg" width="50">
-
   > CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
 
 * [이윤진]: https://github.com/profitjean	"iOS 실력 성장 & 앱스토어 출시"
 
-  <img src="https://user-images.githubusercontent.com/55732968/86831405-d015aa00-c0d1-11ea-9cd5-2ac904324133.jpeg" width="50">
-
   > NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
 
 * [오준현]: https://github.com/soogoon	"앱스토어 출시"
-
-  <img src="https://user-images.githubusercontent.com/55732968/86831496-eae81e80-c0d1-11ea-8e01-e6db7ea97d0a.jpeg" width="50">
 
   > custom TabBar 도전하기 빠샤🥊
 

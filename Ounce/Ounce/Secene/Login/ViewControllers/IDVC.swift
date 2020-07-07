@@ -13,7 +13,7 @@ class IDVC: UIViewController {
     // MARK: - UI components
     
     let guideLabel = UILabel().then{
-        $0.font = Font.dateLabel
+        $0.font = Font.signUpSmallGuideLabel
     }
     
     let idGuideLabel = UILabel().then{
@@ -23,6 +23,7 @@ class IDVC: UIViewController {
     
     let idTextField = UITextField().then{
         $0.font = Font.dateLabel
+        $0.placeholder = "5자리 이상 입력해주세요."
     }
     
     let idUnderBarView = UIView().then {
@@ -66,11 +67,12 @@ class IDVC: UIViewController {
         
         setLabel()
         constraint()
+        setNav()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -89,6 +91,10 @@ class IDVC: UIViewController {
 }
 
 extension IDVC {
+    func setNav(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+
     @objc func tapNextButton() {
         print(#function)
         let vc = UIStoryboard.init(name: "Login",
@@ -97,21 +103,17 @@ extension IDVC {
         
         vc?.modalPresentationStyle = .fullScreen
         
-        self.present(vc!, animated: false, completion: nil)
-        
+                self.navigationController?.pushViewController(vc!, animated: true)
+//        self.present(vc!, animated: false)
     }
 }
 
 extension IDVC {
     func initAnimate() {
-        UIView.animate(withDuration: 1,
-                       delay: 0.2,
-//                       usingSpringWithDamping: 0.6,
-//                       initialSpringVelocity: 1,
+        UIView.animate(withDuration: 0.3,
+                       delay: 0,
                        options: [.curveEaseIn],
                        animations: {
-                        
-//                        self.animateView.frame = .init(x: 0, y: 0, width: 100, height: 100)
                         self.firstPageControllView.bounds = .init(x: 0, y: 0, width: 4, height: 17)
                         self.firstPageControllView.backgroundColor = UIColor.init(red: 216/255,
                                                                                   green: 216/255,
@@ -120,6 +122,12 @@ extension IDVC {
                         
                         self.secondPageControllView.bounds = .init(x: -14, y: 0, width: 31, height: 17)
                         self.secondPageControllView.backgroundColor = .signatureColor
+                        
+                        self.thirdPageControllView.bounds = .init(x: -14, y: 0, width: 31, height: 17)
+                        self.thirdPageControllView.backgroundColor = UIColor.init(red: 216/255,
+                                                                                  green: 216/255,
+                                                                                  blue: 216/255,
+                                                                                  alpha: 1)
         }, completion: nil)
     }
 }

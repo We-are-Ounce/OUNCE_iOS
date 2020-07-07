@@ -3,7 +3,10 @@ import UIKit
 import SnapKit
 
 extension LoginVC {
-    func constraint() {
+    func constraint() {        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
         self.view.addSubview(logoImageView)
         self.view.addSubview(idGuideLabel)
         self.view.addSubview(idErrorGuideLabel)

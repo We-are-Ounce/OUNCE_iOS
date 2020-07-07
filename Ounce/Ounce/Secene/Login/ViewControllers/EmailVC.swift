@@ -35,7 +35,18 @@ class EmailVC: UIViewController {
     }
     
     let emailErrorGuiedLabel = UILabel().then{
-        $0.font = Font.dateLabel
+        $0.font = Font.errorLabel
+        $0.alpha = 0
+        $0.text = "올바른 이메일을 입력해주세요."
+        $0.textColor = .pinkishColor
+    }
+    
+    let emailCertificationButton = UIButton().then{
+        $0.backgroundColor = .battleshipGrey
+        $0.makeRounded(cornerRadius: 8)
+        $0.setTitle("인증", for: .normal)
+        $0.titleLabel?.font = Font.buttonLabel
+        $0.tintColor = .white
     }
     
     let certificationGuideLabel = UILabel().then{
@@ -51,9 +62,19 @@ class EmailVC: UIViewController {
     let certificationUnderBarView = UIView().then{
         $0.backgroundColor = .brownGreyColor
     }
-
+    
     let certificationErrorGuideLabel = UILabel().then{
-        $0.font = Font.dateLabel
+        $0.font = Font.errorLabel
+        $0.text = "인증번호가 다릅니다."
+        $0.textColor = .pinkishColor
+        $0.alpha = 0
+    }
+    
+    let certificationButton = UIButton().then{
+        $0.backgroundColor = .veryLightPink
+        $0.makeRounded(cornerRadius: 8)
+        $0.setTitle("확인", for: .normal)
+        $0.titleLabel?.font = Font.buttonLabel
     }
     
     let firstPageControllView = UIView().then{
@@ -90,6 +111,48 @@ class EmailVC: UIViewController {
         
         constraint()
         setLabel()
+        setTextField()
+        setNav()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        initAnimate()
+    }
+    
+    
+    
+    func setTextField(){
+        emailTextField.delegate = self
+        certificationTextField.delegate = self
+        emailTextField.addTarget(self,
+                                 action: #selector(EmailVC.textFieldDidChange(_:)),
+                                 for: .editingChanged)
+        certificationTextField.addTarget(self,
+                                         action: #selector(EmailVC.textFieldDidChange(_:)),
+                                         for: .editingChanged)
+        
+    }
+    
+}
+
+extension EmailVC {
+    
+    func setNav(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    @objc func tapNextButton() {
+        print(#function)
+        let vc = UIStoryboard.init(name: "Login",
+                                   bundle: Bundle.main).instantiateViewController(
+                                    withIdentifier: "IDVC") as? IDVC
+        
+        vc?.modalPresentationStyle = .fullScreen
+        
+                self.navigationController?.pushViewController(vc!, animated: true)
+//        self.present(vc!, animated: false)
+        
     }
     
     func setLabel(){
@@ -99,18 +162,61 @@ class EmailVC: UIViewController {
         guideLabel.attributedText = attrString
         guideLabel.numberOfLines = 2
     }
+    
+    
+    
+}
+
+extension EmailVC : UITextFieldDelegate {
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if emailTextField.text?.validateEmail() == true {
+            emailUnderBarView.backgroundColor = .signatureColor
+            emailErrorGuiedLabel.alpha = 0
+        } else if emailTextField.text != "" {
+            emailUnderBarView.backgroundColor = .pinkishColor
+            emailErrorGuiedLabel.alpha = 1
+        } else {
+            emailUnderBarView.backgroundColor = .brownGreyColor
+        }
+    }
 }
 
 extension EmailVC {
-    @objc func tapNextButton() {
-        print(#function)
-        let vc = UIStoryboard.init(name: "Login",
-                               bundle: Bundle.main).instantiateViewController(
-                                withIdentifier: "IDVC") as? IDVC
-        
-        vc?.modalPresentationStyle = .fullScreen
+    func emailTextDidChange(){
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       options: [.curveEaseIn],
+                       animations: {
+                        self.emailUnderBarView.backgroundColor = .signatureColor
+        }, completion: nil)
+    }
+}
 
-        self.present(vc!, animated: false, completion: nil)
+extension EmailVC {
+    
+}
 
+extension EmailVC {
+    func initAnimate() {
+        UIView.animate(withDuration: 0.3,
+                       delay: 0,
+                       options: [.curveEaseIn],
+                       animations: {
+                        self.firstPageControllView.bounds = .init(x: 0, y: 0, width: 4, height: 17)
+                        self.firstPageControllView.backgroundColor = .signatureColor
+                        
+                        self.secondPageControllView.bounds = .init(x: -14, y: 0, width: 31, height: 17)
+                        self.secondPageControllView.backgroundColor = UIColor.init(red: 216/255,
+                                                                                   green: 216/255,
+                                                                                   blue: 216/255,
+                                                                                   alpha: 1)
+                        
+                        
+                        self.thirdPageControllView.bounds = .init(x: -14, y: 0, width: 31, height: 17)
+                        self.thirdPageControllView.backgroundColor = UIColor.init(red: 216/255,
+                                                                                  green: 216/255,
+                                                                                  blue: 216/255,
+                                                                                  alpha: 1)
+        }, completion: nil)
     }
 }

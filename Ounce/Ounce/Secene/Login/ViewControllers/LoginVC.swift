@@ -16,7 +16,7 @@ class LoginVC: UIViewController {
     
     let logoImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.image = UIImage(named: "imgLogo")
+        $0.image = UIImage(named: "imgLogoBlue")
     }
     
     let idGuideLabel = UILabel().then {
@@ -34,7 +34,7 @@ class LoginVC: UIViewController {
     
     let idTextField = UITextField().then {
         $0.font = Font.textField
-        $0.placeholder = "Ounce"
+        $0.placeholder = "ID"
     }
     
     let idTextFieldGuideView = UIView().then {
@@ -56,7 +56,7 @@ class LoginVC: UIViewController {
     
     let pwTextField = UITextField().then {
         $0.font = Font.textField
-        $0.placeholder = "OuncePW"
+        $0.placeholder = "Password"
         $0.isSecureTextEntry = true
     }
     
@@ -110,7 +110,8 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         
         constraint()
-        
+        setNav()
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -120,7 +121,9 @@ class LoginVC: UIViewController {
 }
 
 extension LoginVC {
-    
+    func setNav(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
     @objc func tapSignInButton() {
         let vc = UIStoryboard.init(name: "TabBar",
                                bundle: Bundle.main).instantiateViewController(
@@ -132,13 +135,14 @@ extension LoginVC {
     }
 
     @objc func tapFindIDButton() {
+        print(#function)
         let vc = UIStoryboard.init(name: "Login",
                                bundle: Bundle.main).instantiateViewController(
                                 withIdentifier: "EmailVC") as? EmailVC
         
         vc?.modalPresentationStyle = .fullScreen
 
-        self.present(vc!, animated: false, completion: nil)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 
     @objc func tapFindPWButton() {
@@ -147,7 +151,7 @@ extension LoginVC {
         let vc = UIStoryboard.init(name: "Login",
                                bundle: Bundle.main).instantiateViewController(
                                 withIdentifier: "EmailVC") as? EmailVC
-
+        
         vc?.modalPresentationStyle = .fullScreen
 
         self.present(vc!, animated: false, completion: nil)
@@ -162,7 +166,9 @@ extension LoginVC {
 
         vc?.modalPresentationStyle = .fullScreen
 
-        self.present(vc!, animated: false, completion: nil)
+        self.navigationController?.pushViewController(vc!, animated: true)
+
+//        self.present(vc!, animated: false, completion: nil)
     }
 
 }

@@ -21,6 +21,7 @@
 		5E075D3C24B0ABF70035C415 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5E075D3524B0ABF60035C415 /* OFL.txt */; };
 		5E075D3D24B0ABF70035C415 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E075D3624B0ABF60035C415 /* NotoSansKR-Black.otf */; };
 		5E075D3E24B0ABF70035C415 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E075D3724B0ABF70035C415 /* NotoSansKR-Regular.otf */; };
+		5E2C33F924B44E1A001F0FB4 /* SignUpCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2C33F824B44E1A001F0FB4 /* SignUpCompleteVC.swift */; };
 		5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35794B24AE37B300043066 /* UIViewController+Extension.swift */; };
 		5E35794E24AE37D400043066 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35794D24AE37D400043066 /* UIColor+Extension.swift */; };
 		5E35795024AE385500043066 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35794F24AE385500043066 /* UITextView+Extension.swift */; };
@@ -52,8 +53,11 @@
 		5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E8A324AC6C61005D4DC1 /* LoginVC.swift */; };
 		5E69E8A624AC6C97005D4DC1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E69E8A524AC6C97005D4DC1 /* Login.storyboard */; };
 		5E69E8A824AC6CA1005D4DC1 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E8A724AC6CA1005D4DC1 /* LoginCell.swift */; };
+		5E9236FA24B4387B00378C8C /* RegisterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9236F924B4387B00378C8C /* RegisterDetailVC.swift */; };
 		5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0B01424B1D1A40051C352 /* TBC.swift */; };
 		5EA0B01724B1D1AC0051C352 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA0B01624B1D1AC0051C352 /* TabBar.storyboard */; };
+		5EA889FF24B3BEE300C4CEC4 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA889FE24B3BEE300C4CEC4 /* RegisterVC.swift */; };
+		5EA88A0124B3BEF600C4CEC4 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA88A0024B3BEF600C4CEC4 /* Register.storyboard */; };
 		777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */; };
 		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
 		7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */; };
@@ -87,6 +91,7 @@
 		5E075D3524B0ABF60035C415 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		5E075D3624B0ABF60035C415 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		5E075D3724B0ABF70035C415 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		5E2C33F824B44E1A001F0FB4 /* SignUpCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompleteVC.swift; sourceTree = "<group>"; };
 		5E35794B24AE37B300043066 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E35794D24AE37D400043066 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5E35794F24AE385500043066 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
@@ -118,8 +123,11 @@
 		5E69E8A324AC6C61005D4DC1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5E69E8A524AC6C97005D4DC1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		5E69E8A724AC6CA1005D4DC1 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
+		5E9236F924B4387B00378C8C /* RegisterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailVC.swift; sourceTree = "<group>"; };
 		5EA0B01424B1D1A40051C352 /* TBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBC.swift; sourceTree = "<group>"; };
 		5EA0B01624B1D1AC0051C352 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		5EA889FE24B3BEE300C4CEC4 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		5EA88A0024B3BEF600C4CEC4 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
 		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		7FC9384A24AB1088002B0CA7 /* Ounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +272,7 @@
 		5E69E87B24AC668B005D4DC1 /* Secene */ = {
 			isa = PBXGroup;
 			children = (
+				5EA889FA24B3BCAB00C4CEC4 /* Register */,
 				5E48BF1124B1D6F30060EA7B /* Post */,
 				5EA0B01324B1D1280051C352 /* Browse */,
 				5EA0B01224B1D1220051C352 /* TabBar */,
@@ -424,6 +433,7 @@
 				5E039CB424AFFEBD009B1BC6 /* IDVC+Constraint.swift */,
 				5E039CAA24AFFDA0009B1BC6 /* PasswordVC.swift */,
 				5E039CB624AFFECF009B1BC6 /* Password+Constraint.swift */,
+				5E2C33F824B44E1A001F0FB4 /* SignUpCompleteVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -462,6 +472,32 @@
 				5E48BF1724B1D7140060EA7B /* ViewControllers */,
 			);
 			path = Browse;
+			sourceTree = "<group>";
+		};
+		5EA889FA24B3BCAB00C4CEC4 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				5EA889FC24B3BEAA00C4CEC4 /* Storyboards */,
+				5EA889FB24B3BEA300C4CEC4 /* ViewControllers */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		5EA889FB24B3BEA300C4CEC4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5EA889FE24B3BEE300C4CEC4 /* RegisterVC.swift */,
+				5E9236F924B4387B00378C8C /* RegisterDetailVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5EA889FC24B3BEAA00C4CEC4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5EA88A0024B3BEF600C4CEC4 /* Register.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		7FC9384124AB1088002B0CA7 = {
@@ -563,6 +599,7 @@
 			files = (
 				5E48BF2824B1D7DA0060EA7B /* PostCVCell.xib in Resources */,
 				5E69E89224AC6769005D4DC1 /* ReferenceCVCell.xib in Resources */,
+				5EA88A0124B3BEF600C4CEC4 /* Register.storyboard in Resources */,
 				7FD5B90E24B2DF71008D382F /* ReviewTableViewCell.xib in Resources */,
 				5E075D3E24B0ABF70035C415 /* NotoSansKR-Regular.otf in Resources */,
 				5E075D3C24B0ABF70035C415 /* OFL.txt in Resources */,
@@ -644,6 +681,8 @@
 				5E48BF2224B1D7BB0060EA7B /* PostVC.swift in Sources */,
 				5E35795C24AE391500043066 /* UITabBar+Extension.swift in Sources */,
 				5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */,
+				5EA889FF24B3BEE300C4CEC4 /* RegisterVC.swift in Sources */,
+				5E9236FA24B4387B00378C8C /* RegisterDetailVC.swift in Sources */,
 				5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */,
 				5E69E89824AC685C005D4DC1 /* UIView+Extension.swift in Sources */,
 				5E35795224AE38A900043066 /* UIButton+Extension.swift in Sources */,
@@ -656,6 +695,7 @@
 				5E35795024AE385500043066 /* UITextView+Extension.swift in Sources */,
 				5E039CB724AFFECF009B1BC6 /* Password+Constraint.swift in Sources */,
 				5E69E89424AC6828005D4DC1 /* Model.swift in Sources */,
+				5E2C33F924B44E1A001F0FB4 /* SignUpCompleteVC.swift in Sources */,
 				5E69E89A24AC689C005D4DC1 /* APIConstants.swift in Sources */,
 				5E69E89624AC6833005D4DC1 /* Font+Enum.swift in Sources */,
 				7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */,

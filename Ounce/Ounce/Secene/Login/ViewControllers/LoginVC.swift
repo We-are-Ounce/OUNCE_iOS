@@ -120,7 +120,6 @@ class LoginVC: UIViewController {
 }
 
 extension LoginVC {
-    
     @objc func tapSignInButton() {
         let vc = UIStoryboard.init(name: "TabBar",
                                bundle: Bundle.main).instantiateViewController(

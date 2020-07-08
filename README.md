@@ -74,30 +74,30 @@
 
 ### 💻 기능 소개
 
-| 기능        | 상세 기능                           | 담당                                    |
-| ----------- | ----------------------------------- | --------------------------------------- |
-| 스플래시    | 스플래시 (자동 로그인)              | [준현](https://github.com/5anniversary) |
-| 로그인      | 로그인                              | [준현](https://github.com/5anniversary) |
-| 회원가입    | 이메일 인증                         | [준현](https://github.com/5anniversary) |
-|             | 아이디 검증                         | [준현](https://github.com/5anniversary) |
-|             | 비밀번호 검증                       | [준현](https://github.com/5anniversary) |
-|             | 회원가입                            | [준현](https://github.com/5anniversary) |
-| 프로필 등록 | 프로필 등록                         | [준현](https://github.com/5anniversary) |
-| 홈 화면     | 정렬                                | [주연](https://github.com/juyeonblue)   |
-|             | 필터                                | [주연](https://github.com/juyeonblue)   |
-|             | 계정 선택                           | [주연](https://github.com/juyeonblue)   |
-|             | 계정 추가                           | [주연](https://github.com/juyeonblue)   |
-|             | 팔로워                              | [호세](https://github.com/psychehose)   |
-|             | 팔로잉                              | [호세](https://github.com/psychehose)   |
-|             | 설정                                | -                                       |
-|             | 프로필 수정                         | -                                       |
-| 설정        | 설정 메뉴 내부에서 프로필 삭제      | [주연](https://github.com/juyeonblue)   |
-| 기록하기    | 기록 하기                           | [윤진](https://github.com/profitjean)   |
-|             | 제품 검색                           | [윤진](https://github.com/profitjean)   |
-|             | 제품이 없을시 제품 생성과 함께 기록 | [윤진](https://github.com/profitjean)   |
-| 제품        | 제품 검색                           | [준현](https://github.com/5anniversary) |
-| 둘러보기    | 둘러보기 카드 뷰                    | [호세](https://github.com/psychehose)   |
-| 리뷰 추가   | 리뷰 추가                           | [준현](https://github.com/5anniversary) |
+| 기능        | 상세 기능                           | 담당                                    | 구현 여부 |
+| ----------- | ----------------------------------- | --------------------------------------- | --------- |
+| 스플래시    | 스플래시 (자동 로그인)              | [준현](https://github.com/5anniversary) | -         |
+| 로그인      | 로그인                              | [준현](https://github.com/5anniversary) | -         |
+| 회원가입    | 이메일 인증                         | [준현](https://github.com/5anniversary) | -         |
+|             | 아이디 검증                         | [준현](https://github.com/5anniversary) | -         |
+|             | 비밀번호 검증                       | [준현](https://github.com/5anniversary) | -         |
+|             | 회원가입                            | [준현](https://github.com/5anniversary) | -         |
+| 프로필 등록 | 프로필 등록                         | [준현](https://github.com/5anniversary) | -         |
+| 홈 화면     | 정렬                                | [주연](https://github.com/juyeonblue)   | -         |
+|             | 필터                                | [주연](https://github.com/juyeonblue)   | -         |
+|             | 계정 선택                           | [주연](https://github.com/juyeonblue)   | -         |
+|             | 계정 추가                           | [주연](https://github.com/juyeonblue)   | -         |
+|             | 팔로워                              | [호세](https://github.com/psychehose)   | -         |
+|             | 팔로잉                              | [호세](https://github.com/psychehose)   | -         |
+|             | 설정                                | -                                       | -         |
+|             | 프로필 수정                         | -                                       | -         |
+| 설정        | 설정 메뉴 내부에서 프로필 삭제      | [주연](https://github.com/juyeonblue)   | -         |
+| 기록하기    | 기록 하기                           | [윤진](https://github.com/profitjean)   | -         |
+|             | 제품 검색                           | [윤진](https://github.com/profitjean)   | -         |
+|             | 제품이 없을시 제품 생성과 함께 기록 | [윤진](https://github.com/profitjean)   | -         |
+| 제품        | 제품 검색                           | [준현](https://github.com/5anniversary) | -         |
+| 둘러보기    | 둘러보기 카드 뷰                    | [호세](https://github.com/psychehose)   | -         |
+| 리뷰 추가   | 리뷰 추가                           | [준현](https://github.com/5anniversary) | -         |
 
 
 
@@ -170,6 +170,125 @@
 > 이윤진: NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
 
 > 오준현: custom TabBar 도전하기 빠샤🥊  
+>
+> 디자인파트에서 원하는 커스텀 탭바가 있어 새롭게 커스텀 탭바를 도전해봤습다~!
+>
+> 먼저 커스텀 탭바를 구현해줄 클래스가 필요해 만들어줍니다.
+>
+> ~~~swift
+>     weak var addDelegate: RootTabBarDelegate?
+>     
+>     private lazy var addButton:UIButton = {
+>         return UIButton()
+>     }()
+>     
+>     override init(frame: CGRect) {
+>         super.init(frame: frame)
+>         UITabBar.clearShadow()
+>         addButton.setBackgroundImage(UIImage.init(named: "btnAdd"), for: .normal)
+>         addButton.addTarget(self,
+>                             action: #selector(CustomTabBar.addButtonClick),
+>                             for: .touchUpInside)
+>         self.addSubview(addButton)
+>     }
+>     
+>     required init?(coder aDecoder: NSCoder) {
+>         fatalError("init(coder:) has not been implemented")
+>     }
+>     
+>     @objc func addButtonClick(){
+>         if addDelegate != nil{
+>             addDelegate?.addClick()
+>         }
+>     }
+>     
+>     override func layoutSubviews() {
+>         
+>         super.layoutSubviews()
+>         
+>         let buttonX = self.frame.size.width/3
+>         var index = 0
+>         for barButton in self.subviews{
+>             
+>             if barButton.isKind(of: NSClassFromString("UITabBarButton")!){
+>                 
+>                 if index == 1{
+>                     /// Setting the Add Button Position
+>                     addButton.frame.size = CGSize.init(width: (addButton.currentBackgroundImage?.size.width)!, height: (addButton.currentBackgroundImage?.size.height)!)
+>                     addButton.center = CGPoint.init(x: self.center.x, y: self.frame.size.height/2 - 18)
+>                     index += 1
+>                 }
+>                 barButton.frame = CGRect.init(x: buttonX * CGFloat(index), y: 0, width: buttonX, height: self.frame.size.height)
+>                 index += 1
+>                 
+>             }
+>         }
+>         self.bringSubviewToFront(addButton)
+>     }
+>     
+>     /// Rewrite the hitTest method, listen for the button click to make the highlighted tabbar part respond to the click
+>     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+>         
+>         /// Determine whether it is the root controller
+>         if self.isHidden {
+>             /// tabbar hiding is not handled in the home page system
+>             return super.hitTest(point, with: event)
+>             
+>         }else{
+>             /// Converting Money Touch Points to Buttons to Generate New Points
+>             let onButton = self.convert(point, to: self.addButton)
+>             /// Determine whether the new point is on the button
+>             if self.addButton.point(inside: onButton, with: event){
+>                 return addButton
+>             }else{
+>                 /// No System Processing on the Button
+>                 return super.hitTest(point, with: event)
+>             }
+>         }
+>     }
+> 
+> ~~~
+>
+> 여기서 주입해줄 Delegate 패턴을 만들어줍니다
+>
+> ~~~swift
+> protocol RootTabBarDelegate:NSObjectProtocol {
+>     func addClick()
+> }
+> ~~~
+>
+> 그리고 마지막으로 탭바 컨트롤러에서 Delegate를 주입받고
+>
+> ~~~swift
+> extension TBC : RootTabBarDelegate{
+>     
+> }
+> ~~~
+>
+> ~~~swift
+>     override func viewDidLoad() {
+>         super.viewDidLoad()
+>         
+>         let tab = CustomTabBar()
+>         tab.addDelegate = self
+>         self.setValue(tab, forKey: "tabBar")
+>     }
+> ~~~
+>
+> addClick 즉 커스텀 할때 가운데에 들어갈 버튼을 클릭할때 실행될 코드를 작성해주시면 됩니다,
+>
+> ~~~swift
+>     func addClick() {
+>         let sb = UIStoryboard(name: "Post", bundle: nil)
+>         let vc = sb.instantiateViewController(withIdentifier: "PostNavVC") as! PostNavVC
+>         vc.modalPresentationStyle = .fullScreen
+>         
+>         self.present(vc, animated: true)
+>     }
+> 
+> ~~~
+>
+> 
 
 
 

@@ -107,39 +107,39 @@
 
 1. Splash
 
-   <img src="resources/splash.png" width="300">
+   <img src="resources/Splash.png" width="300">
 
 2. Login
 
-   <img src="resources/login.png" width="300">
+   <img src="resources/Login.png" width="300">
 
 3. Signup
 
-   <img src="resources/signup.png" width="300">
+   <img src="resources/SignUp.png" width="300">
 
-   <img src="resources/signup2.png" width="300">
+   <img src="resources/SignUp2.png" width="300">
 
-   <img src="resources/signup3.png" width="300">
+   <img src="resources/SignUp3.png" width="300">
 
 4. Register
 
 5. Home
 
-   <img src="resources/home.png" width="300">
+   <img src="resources/Home.png" width="300">
 
 6. Setting
 
 7. Post
 
-   <img src="resources/post.png" width="300">
+   <img src="resources/Post.png" width="300">
 
-   <img src="resources/post2.png" width="300">
+   <img src="resources/Post2.png" width="300">
 
-   <img src="resources/post3.png" width="300">
+   <img src="resources/Post3.png" width="300">
 
 8. Browse  
 
-   <img src="resources/browse.png" width="300">
+   <img src="resources/Browse.png" width="300">
 
    
 

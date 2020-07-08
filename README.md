@@ -168,6 +168,15 @@
 > 박주연: CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
 
 > 이윤진: NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
+>
+> xib 파일을 활용해서 뷰 재활용하는 걸 처음 시도해봤다,,,신기방기,,,
+>
+> ```swift 
+>     let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
+>         self.addScrollView.addSubview(custom)
+> ```
+>
+> 
 
 > 오준현: custom TabBar 도전하기 빠샤🥊  
 

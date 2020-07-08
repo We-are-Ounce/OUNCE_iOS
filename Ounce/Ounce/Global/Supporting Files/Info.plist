@@ -29,6 +29,12 @@
 		<string>NotoSansKR-Bold.otf</string>
 		<string>NotoSansKR-Black.otf</string>
 	</array>
+    <key>NSCameraUsageDescription</key>
+    <string>카메라 사용을 위한 설명</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>녹음기 사용을 위한 설명</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>사진첩 사용을 위한 설명</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

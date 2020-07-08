@@ -43,12 +43,16 @@ extension SignUpCompleteVC {
         completeButton.addTarget(self,
                                  action: #selector(didTapCompleteButton),
                                  for: .touchUpInside)
+        completeButton.backgroundColor = .wheatColor
+        completeButton.setRounded(radius: 8)
+        completeButton.titleLabel?.font = Font.guideLabel
+        completeButton.tintColor = .black
     }
     
     @objc func didTapCompleteButton(){
         let vc = UIStoryboard.init(name: "Register",
                                bundle: Bundle.main).instantiateViewController(
-                                withIdentifier: "RegisterVC") as? RegisterVC
+                                withIdentifier: "RegisterNavVC") as? RegisterNavVC
         
         vc?.modalPresentationStyle = .fullScreen
         

@@ -42,6 +42,8 @@ class RegisterVC: UIViewController {
         setProfileIMG()
         setGuideLabel()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        let image = UIImage(named: "smallLogo")
+        navigationItem.titleView = UIImageView(image: image)
 
     }
     

@@ -32,29 +32,29 @@ extension PasswordVC {
 
         guideLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(88)
-            make.leading.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(116)
             make.width.equalTo(210)
             make.height.equalTo(80)
         }
         
         pwGuideLabel.snp.makeConstraints { (make) in
             make.top.equalTo(guideLabel.snp.bottom).offset(45)
-            make.leading.equalToSuperview().offset(16)
+            make.leading.equalTo(guideLabel.snp.leading)
             make.width.equalTo(210)
             make.height.equalTo(24)
         }
 
         pwTextField.snp.makeConstraints { (make) in
             make.top.equalTo(pwGuideLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(22)
+            make.leading.equalTo(guideLabel.snp.leading).offset(6)
             make.width.equalTo(210)
             make.height.equalTo(24)
         }
         
         pwUnderBarView.snp.makeConstraints { (make) in
             make.top.equalTo(pwTextField.snp.bottom).offset(4)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalTo(guideLabel.snp.leading)
+            make.trailing.equalToSuperview().offset(86)
             make.height.equalTo(1)
         }
         
@@ -67,22 +67,22 @@ extension PasswordVC {
         
         pwCertificationGuideLabel.snp.makeConstraints { (make) in
             make.top.equalTo(pwUnderBarView.snp.bottom).offset(25)
-            make.leading.equalToSuperview().offset(16)
+            make.leading.equalTo(guideLabel.snp.leading)
             make.width.equalTo(210)
             make.height.equalTo(24)
         }
         
         pwCertificationTextField.snp.makeConstraints { (make) in
             make.top.equalTo(pwCertificationGuideLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(22)
+            make.leading.equalTo(guideLabel.snp.leading).offset(6)
             make.width.equalTo(210)
             make.height.equalTo(24)
         }
         
         pwCertificationUnderBarView.snp.makeConstraints { (make) in
             make.top.equalTo(pwCertificationTextField.snp.bottom).offset(4)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalTo(guideLabel.snp.leading)
+            make.trailing.equalToSuperview().offset(86)
             make.height.equalTo(1)
         }
         

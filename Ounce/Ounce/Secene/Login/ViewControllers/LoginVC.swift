@@ -158,17 +158,11 @@ extension LoginVC {
     }
 
     @objc func tapSignUpButton() {
-        print(#function)
-        
         let vc = UIStoryboard.init(name: "Login",
                                bundle: Bundle.main).instantiateViewController(
                                 withIdentifier: "EmailVC") as? EmailVC
-
         vc?.modalPresentationStyle = .fullScreen
-
         self.navigationController?.pushViewController(vc!, animated: true)
-
-//        self.present(vc!, animated: false, completion: nil)
     }
 
 }

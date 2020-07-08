@@ -164,6 +164,31 @@
 ### 💡새롭게 알게 된 것 
 
 > 김호세: carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
+>
+> ~~~swift
+> let labelName = UILabel().then {
+>      $0.textColor = .black
+>      $0.backgroundColor = .white
+>      $0.textAlignment = .center
+>      $0.font = UIFont.systemFont(ofSize: 13)
+>      $0.text = "가을이"
+>  } // Then을 이용해서, 라벨을 생성하고 가독성을 위해서 BrowseCvCell의 extension BrowseCVCell + constranint 을 만들었습니다. 그 후에
+> 
+> func initial() {  // Snapkit을 이용하여 programmatically autolayout을 설정 해주었습니다.
+> contentView.addSubview(labelName) //contentView 안에 그려주고
+> 
+> labelName.snp.makeConstraints { (make) in
+>          make.leading.equalTo(contentView.snp.leading).inset(88) // label의 leading을 contentView의 leading에 constraint를 걸었습니다.
+>                                
+>          make.trailing.equalTo(contentView.snp.trailing).inset(87) // label의 trailing을 contentView의 trailing에 constraint를 걸었습니다.
+>                                
+>          make.top.equalTo(imgCatView.snp.bottom).inset(-10) 
+> // label의 top을 그 label 위에 있는 컴포넌트 (imgCatView)의 bottom에 걸었습니다. 기준이 bottom 이므로 Inset 값을 음수로 설정하였습니다.                        
+>      }  
+> }
+> 
+> ~~~
+>
 
 > 박주연: CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
 

@@ -103,7 +103,7 @@ extension IDVC {
         
         vc?.modalPresentationStyle = .fullScreen
         
-                self.navigationController?.pushViewController(vc!, animated: true)
+                self.navigationController?.pushViewController(vc!, animated: false)
 //        self.present(vc!, animated: false)
     }
 }

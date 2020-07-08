@@ -26,6 +26,9 @@ class RegisterVC: UIViewController {
     
     // MARK: - Variables and Properties
     
+    var selectedItems = [YPMediaItem]()
+
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -79,30 +82,30 @@ extension RegisterVC {
         config.gallery.hidesRemoveButton = false
         config.hidesBottomBar = false
         config.hidesStatusBar = false
-//        config.library.preselectedItems = selectedItems
         config.overlayView = UIView()
         
         let picker = YPImagePicker(configuration: config)
         
         picker.didFinishPicking { [unowned picker] items, cancelled in
-//            self.pickedIMG = []
+            
             if cancelled {
                 picker.dismiss(animated: true, completion: nil)
                 return
             }
-            for item in items {
-                switch item {
-//                case .photo(let p):
-//                    self.pickedIMG.append(p.image)
-                    
+
+            self.selectedItems = items
+            if let firstItem = items.first {
+                switch firstItem {
+                case .photo(let photo):
+                    self.profileIMG.image = photo.image
+                    picker.dismiss(animated: true, completion: nil)
+
                 default:
                     print("")
-                    
                 }
             }
-            picker.dismiss(animated: true) {
-//                self.imageCV.reloadData()
-            }
+
+            picker.dismiss(animated: true)
         }
         present(picker, animated: true, completion: nil)
     }

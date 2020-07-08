@@ -35,7 +35,11 @@
 
 - [팀원 소개](#-최강-아요-멤버)   
 
-  
+
+<br/>   
+<br/>   
+
+
 
 ### 📱  개발 환경
 
@@ -45,9 +49,8 @@
 
 * **Swift 5**  
 
-   
-
-   
+<br/>   
+<br/>   
 
   
 
@@ -67,9 +70,8 @@
 | [CHIPageControl](https://github.com/ChiliLabs/CHIPageControl) | 인디케이터                       |
 
 
-
-
-
+<br/>   
+<br/>   
 
 
 ### 💻 기능 소개
@@ -99,8 +101,8 @@
 | 둘러보기    | 둘러보기 카드 뷰                    | [호세](https://github.com/psychehose)   | -         |
 | 리뷰 추가   | 리뷰 추가                           | [준현](https://github.com/5anniversary) | -         |
 
-
-
+<br/>   
+<br/>   
 
 
 ### 📍 Screenshots
@@ -141,10 +143,9 @@
 
    <img src="resources/Browse.png" width="300">
 
-   
 
-   
-
+<br/>   
+<br/>   
 
 
 ### 📚 Project
@@ -157,13 +158,17 @@
 
 - [Help/Bug](https://github.com/We-are-Ounce/OUNCE_iOS/projects/4)  
 
+
+<br/>   
+<br/>   
   
 
 
 
 ### 💡새롭게 알게 된 것 
 
-> 김호세: carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
+> 김호세   
+#### carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
 >
 > ~~~swift
 > let labelName = UILabel().then {
@@ -188,13 +193,50 @@
 > }
 > 
 > ~~~
->
+>   
 
-> 박주연: CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
+<br/>   
 
-> 이윤진: NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
->
-> xib 파일을 활용해서 뷰 재활용하는 걸 처음 시도해봤다,,,신기방기,,,
+
+> 박주연   
+#### CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤   
+##### TableView middle cell 헤더에 고정시키기   
+
+```swift 
+func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 1{
+            return 49
+        }
+        else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 1 {
+            
+             let headerCell = reviewTV.dequeueReusableCell(withIdentifier: "HeaderCell")
+            
+            return headerCell
+        }
+        else{
+            let rect = CGRect(x: 0, y: 0, width: 0, height: 0)
+            let myView = UIView(frame: rect)
+            
+            return myView
+        }
+        
+    }
+   ```   
+   
+<br/>   
+
+    
+> 이윤진   
+#### NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
+##### xib 파일을 활용해서 뷰 재활용하는 걸 처음 시도해봤다,,,신기방기,,,
 >
 > ```swift 
 >     let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
@@ -203,10 +245,13 @@
 >
 > 
 
-> 오준현: custom TabBar 도전하기 빠샤🥊  
->
-> 디자인파트에서 원하는 커스텀 탭바가 있어 새롭게 커스텀 탭바를 도전해봤습다~!
->
+<br/>    
+
+> 오준현   
+
+#### custom TabBar 도전하기 빠샤🥊  
+
+##### 디자인파트에서 원하는 커스텀 탭바가 있어 새롭게 커스텀 탭바를 도전해봤습다~!
 > 먼저 커스텀 탭바를 구현해줄 클래스가 필요해 만들어줍니다.
 >
 > ~~~swift
@@ -324,6 +369,8 @@
 >
 > 
 
+<br/>   
+<br/>   
 
 
 

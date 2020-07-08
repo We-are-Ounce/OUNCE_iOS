@@ -211,10 +211,10 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="075-mp-ucQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="750" constant="812" id="6hc-EC-MCn"/>
+                                            <constraint firstAttribute="height" priority="750" constant="900" id="6hc-EC-MCn"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -261,6 +261,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bE-cj-YGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="671" y="89"/>
         </scene>
     </scenes>
     <resources>

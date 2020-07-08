@@ -35,7 +35,11 @@
 
 - [팀원 소개](#-최강-아요-멤버)   
 
-  
+
+<br/>   
+<br/>   
+
+
 
 ### 📱  개발 환경
 
@@ -45,9 +49,8 @@
 
 * **Swift 5**  
 
-   
-
-   
+<br/>   
+<br/>   
 
   
 
@@ -67,9 +70,8 @@
 | [CHIPageControl](https://github.com/ChiliLabs/CHIPageControl) | 인디케이터                       |
 
 
-
-
-
+<br/>   
+<br/>   
 
 
 ### 💻 기능 소개
@@ -99,8 +101,8 @@
 | 둘러보기    | 둘러보기 카드 뷰                    | [호세](https://github.com/psychehose)   | -         |
 | 리뷰 추가   | 리뷰 추가                           | [준현](https://github.com/5anniversary) | -         |
 
-
-
+<br/>   
+<br/>   
 
 
 ### 📍 Screenshots
@@ -141,10 +143,9 @@
 
    <img src="resources/Browse.png" width="300">
 
-   
 
-   
-
+<br/>   
+<br/>   
 
 
 ### 📚 Project
@@ -157,22 +158,100 @@
 
 - [Help/Bug](https://github.com/We-are-Ounce/OUNCE_iOS/projects/4)  
 
+
+<br/>   
+<br/>   
   
 
 
 
 ### 💡새롭게 알게 된 것 
 
-> 김호세: carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
-
-> 박주연: CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤
-
-> 이윤진: NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
-
-> 오준현: custom TabBar 도전하기 빠샤🥊  
+> 김호세   
+#### carousel effect에 대해 알게되었슴당 및 autoLayout를 programmatically로 구현 방법을 알게되었슴당 히힛😝
 >
-> 디자인파트에서 원하는 커스텀 탭바가 있어 새롭게 커스텀 탭바를 도전해봤습다~!
+> ~~~swift
+> let labelName = UILabel().then {
+>      $0.textColor = .black
+>      $0.backgroundColor = .white
+>      $0.textAlignment = .center
+>      $0.font = UIFont.systemFont(ofSize: 13)
+>      $0.text = "가을이"
+>  } // Then을 이용해서, 라벨을 생성하고 가독성을 위해서 BrowseCvCell의 extension BrowseCVCell + constranint 을 만들었습니다. 그 후에
+> 
+> func initial() {  // Snapkit을 이용하여 programmatically autolayout을 설정 해주었습니다.
+> contentView.addSubview(labelName) //contentView 안에 그려주고
+> 
+> labelName.snp.makeConstraints { (make) in
+>          make.leading.equalTo(contentView.snp.leading).inset(88) // label의 leading을 contentView의 leading에 constraint를 걸었습니다.
+>                                
+>          make.trailing.equalTo(contentView.snp.trailing).inset(87) // label의 trailing을 contentView의 trailing에 constraint를 걸었습니다.
+>                                
+>          make.top.equalTo(imgCatView.snp.bottom).inset(-10) 
+> // label의 top을 그 label 위에 있는 컴포넌트 (imgCatView)의 bottom에 걸었습니다. 기준이 bottom 이므로 Inset 값을 음수로 설정하였습니다.                        
+>      }  
+> }
+> 
+> ~~~
+>   
+
+<br/>   
+
+
+> 박주연   
+#### CollectionView보다 TableView가 더 좋다^^ 다 내꺼 호로록🥤   
+##### TableView middle cell 헤더에 고정시키기   
+
+```swift 
+func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 1{
+            return 49
+        }
+        else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 1 {
+            
+             let headerCell = reviewTV.dequeueReusableCell(withIdentifier: "HeaderCell")
+            
+            return headerCell
+        }
+        else{
+            let rect = CGRect(x: 0, y: 0, width: 0, height: 0)
+            let myView = UIView(frame: rect)
+            
+            return myView
+        }
+        
+    }
+   ```   
+   
+<br/>   
+
+    
+> 이윤진   
+#### NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
+##### xib 파일을 활용해서 뷰 재활용하는 걸 처음 시도해봤다,,,신기방기,,,
 >
+> ```swift 
+>     let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
+>         self.addScrollView.addSubview(custom)
+> ```
+>
+> 
+
+<br/>    
+
+> 오준현   
+
+#### custom TabBar 도전하기 빠샤🥊  
+
+##### 디자인파트에서 원하는 커스텀 탭바가 있어 새롭게 커스텀 탭바를 도전해봤습다~!
 > 먼저 커스텀 탭바를 구현해줄 클래스가 필요해 만들어줍니다.
 >
 > ~~~swift
@@ -290,6 +369,8 @@
 >
 > 
 
+<br/>   
+<br/>   
 
 
 

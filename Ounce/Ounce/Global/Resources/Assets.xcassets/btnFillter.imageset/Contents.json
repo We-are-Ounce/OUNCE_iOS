@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "icFavoriteUnselected.png",
       "idiom" : "universal",
+      "filename" : "btnFillter.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icFavoriteUnselected@2x.png",
+      "filename" : "btnFillter@2x.png",
       "scale" : "2x"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "icFavoriteUnselected@3x.png"
+      "scale" : "3x",
+      "filename" : "btnFillter@3x.png"
     }
   ],
   "info" : {

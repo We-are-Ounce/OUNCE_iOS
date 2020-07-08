@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "imgStatusSelected.png"
+      "filename" : "icDelete.png",
+      "scale" : "1x"
     },
     {
+      "filename" : "icDelete@2x.png",
       "scale" : "2x",
-      "filename" : "imgStatusSelected@2x.png",
       "idiom" : "universal"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "imgStatusSelected@3x.png"
+      "scale" : "3x",
+      "filename" : "icDelete@3x.png"
     }
   ],
   "info" : {

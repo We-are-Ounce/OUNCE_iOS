@@ -41,6 +41,7 @@
 		5E48BF2824B1D7DA0060EA7B /* PostCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E48BF2624B1D7DA0060EA7B /* PostCVCell.xib */; };
 		5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E48BF2924B1ED810060EA7B /* CustomTabBar.swift */; };
 		5E5A43A024B23DED0017BA29 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A439F24B23DED0017BA29 /* CALayer+Extension.swift */; };
+		5E5C668724B5AF4C007C35E6 /* RegisterNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C668624B5AF4C007C35E6 /* RegisterNavVC.swift */; };
 		5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E88924AC672D005D4DC1 /* ReferenceVC.swift */; };
 		5E69E88D24AC673E005D4DC1 /* Reference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E69E88C24AC673E005D4DC1 /* Reference.storyboard */; };
 		5E69E89124AC6769005D4DC1 /* ReferenceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E88F24AC6769005D4DC1 /* ReferenceCVCell.swift */; };
@@ -115,6 +116,7 @@
 		5E48BF2624B1D7DA0060EA7B /* PostCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCVCell.xib; sourceTree = "<group>"; };
 		5E48BF2924B1ED810060EA7B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		5E5A439F24B23DED0017BA29 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		5E5C668624B5AF4C007C35E6 /* RegisterNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavVC.swift; sourceTree = "<group>"; };
 		5E69E88924AC672D005D4DC1 /* ReferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceVC.swift; sourceTree = "<group>"; };
 		5E69E88C24AC673E005D4DC1 /* Reference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reference.storyboard; sourceTree = "<group>"; };
 		5E69E88F24AC6769005D4DC1 /* ReferenceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceCVCell.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 			children = (
 				5EA889FE24B3BEE300C4CEC4 /* RegisterVC.swift */,
 				5E9236F924B4387B00378C8C /* RegisterDetailVC.swift */,
+				5E5C668624B5AF4C007C35E6 /* RegisterNavVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				5E48BF2724B1D7DA0060EA7B /* PostCVCell.swift in Sources */,
 				F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */,
 				7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */,
+				5E5C668724B5AF4C007C35E6 /* RegisterNavVC.swift in Sources */,
 				5E039CAF24AFFDBE009B1BC6 /* IDVC.swift in Sources */,
 				5E35795424AE38BE00043066 /* UIImageView+Extension.swift in Sources */,
 				F29B7CCE24B450F40042089B /* SearchCollectCell.swift in Sources */,

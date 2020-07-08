@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "female.png",
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "imgStatusSelected.png"
+      "scale" : "1x"
     },
     {
       "scale" : "2x",
-      "filename" : "imgStatusSelected@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "female@2x.png"
     },
     {
       "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "imgStatusSelected@3x.png"
+      "filename" : "female@3x.png"
     }
   ],
   "info" : {

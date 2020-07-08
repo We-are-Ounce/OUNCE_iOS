@@ -53,18 +53,18 @@
 
 ### 🛠 Library
 
-| 라이브러리           | 목적                             |
-| -------------------- | -------------------------------- |
-| Alamofire            | 서버 통신                        |
-| Gedatsu              | 오토레이아웃 에러 디버깅 검출    |
-| Kingfisher           | 이미지 처리                      |
-| SnapKit              | 코드 레이아웃 작성               |
-| SwiftKeychainWrapper | 저장소 암호화를 위해서           |
-| Then                 | 컴포넌트 코드 작성의 용이를 위해 |
-| YPImagePicker        | 사진첩 사용                      |
-| UPCarouselFlowLayout | Carousel effect                  |
-| iOSDropDown          | DropDown 효과                    |
-| CHIPageControl       | 인디케이터                       |
+| 라이브러리                                                   | 목적                             |
+| ------------------------------------------------------------ | -------------------------------- |
+| [Alamofire](https://github.com/Alamofire/Alamofire)          | 서버 통신                        |
+| [Gedatsu](https://github.com/bannzai/Gedatsu)                | 오토레이아웃 에러 디버깅 검출    |
+| [Kingfisher](https://github.com/onevcat/Kingfisher)          | 이미지 처리                      |
+| [SnapKit](https://github.com/SnapKit/SnapKit)                | 코드 레이아웃 작성               |
+| [SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper) | 저장소 암호화를 위해서           |
+| [Then](https://github.com/devxoul/Then)                      | 컴포넌트 코드 작성의 용이를 위해 |
+| [YPImagePicker](https://github.com/Yummypets/YPImagePicker)  | 사진첩 사용                      |
+| [UPCarouselFlowLayout](https://github.com/ink-spot/UPCarouselFlowLayout) | Carousel effect                  |
+| [iOSDropDown](https://github.com/jriosdev/iOSDropDown)       | DropDown 효과                    |
+| [CHIPageControl](https://github.com/ChiliLabs/CHIPageControl) | 인디케이터                       |
 
 
 
@@ -107,19 +107,39 @@
 
 1. Splash
 
+   <img src="resources/splash.png" width="300">
+
 2. Login
 
+   <img src="resources/login.png" width="300">
+
 3. Signup
+
+   <img src="resources/signup.png" width="300">
+
+   <img src="resources/signup2.png" width="300">
+
+   <img src="resources/signup3.png" width="300">
 
 4. Register
 
 5. Home
 
+   <img src="resources/home.png" width="300">
+
 6. Setting
 
 7. Post
 
+   <img src="resources/post.png" width="300">
+
+   <img src="resources/post2.png" width="300">
+
+   <img src="resources/post3.png" width="300">
+
 8. Browse  
+
+   <img src="resources/browse.png" width="300">
 
    
 

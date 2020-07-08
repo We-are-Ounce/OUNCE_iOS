@@ -39,29 +39,32 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.098039215690000001" green="0.80784313730000001" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="총점 순" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="AAw-Wn-pX4" customClass="DropDown" customModule="iOSDropDown">
-                                <rect key="frame" x="223" y="8" width="85" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vvM-CV-mSw">
+                                <rect key="frame" x="253" y="14" width="58" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
-                                        <real key="value" value="200"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
-                                        <color key="value" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
-                                        <real key="value" value="32"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="dropDown:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="WGh-C3-jBq"/>
-                                </connections>
-                            </textField>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="추천">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="순">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
@@ -69,7 +72,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="dropDown" destination="AAw-Wn-pX4" id="PNs-Kc-n3Z"/>
+                <outlet property="countLabel" destination="vI7-yX-RSr" id="elH-Vj-Ma6"/>
+                <outlet property="filterBtn" destination="uwp-H3-0g8" id="5sg-i3-V0P"/>
+                <outlet property="reviewLabel" destination="ttJ-KZ-kHi" id="P5t-V3-SKt"/>
+                <outlet property="sortingBtn" destination="vvM-CV-mSw" id="Pln-cD-yoL"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="152.34375"/>
         </tableViewCell>

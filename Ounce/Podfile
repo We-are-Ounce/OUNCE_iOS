@@ -15,7 +15,7 @@ target 'Ounce' do
   pod 'Then'
   pod 'YPImagePicker'  
   pod 'UPCarouselFlowLayout'
-  pod 'iOSDropDown'
+  pod 'DropDown'
   pod 'CHIPageControl', '~> 0.1.3'
 
 

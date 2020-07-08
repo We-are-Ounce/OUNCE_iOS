@@ -2,7 +2,7 @@
 
 
 
-## <img src="resources/logo1.png" width="250">
+## <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/logo1.png?raw=true" width="400">
 
 ### We are Ounce‼️
 
@@ -109,39 +109,39 @@
 
 1. Splash
 
-   <img src="resources/Splash.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Splash.png?raw=true" width="300">
 
 2. Login
 
-   <img src="resources/Login.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Login.png?raw=true" width="300">
 
 3. Signup
 
-   <img src="resources/SignUp.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/SignUp.png?raw=true" width="300">
 
-   <img src="resources/SignUp2.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/SignUp2.png?raw=true" width="300">
 
-   <img src="resources/SignUp3.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/SignUp3.png?raw=true" width="300">
 
 4. Register
 
 5. Home
 
-   <img src="resources/Home.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Home.png?raw=true" width="300">
 
 6. Setting
 
 7. Post
 
-   <img src="resources/Post.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Post.png?raw=true" width="300">
 
-   <img src="resources/Post2.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Post2.png?raw=true" width="300">
 
-   <img src="resources/Post3.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Post3.png?raw=true" width="300">
 
 8. Browse  
 
-   <img src="resources/Browse.png" width="300">
+   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Browse.png?raw=true" width="300">
 
 
 <br/>   
@@ -161,7 +161,7 @@
 
 <br/>   
 <br/>   
-  
+
 
 
 
@@ -229,11 +229,11 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
         }
         
     }
-   ```   
-   
+```
+
 <br/>   
 
-    
+
 > 이윤진   
 #### NavigationController 연결 및 xib 활용 방법을 내가 정복했다🏋️‍♂️
 ##### xib 파일을 활용해서 뷰 재활용하는 걸 처음 시도해봤다,,,신기방기,,,

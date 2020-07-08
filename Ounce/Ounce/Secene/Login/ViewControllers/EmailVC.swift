@@ -150,8 +150,7 @@ extension EmailVC {
         
         vc?.modalPresentationStyle = .fullScreen
         
-                self.navigationController?.pushViewController(vc!, animated: false)
-//        self.present(vc!, animated: false)
+        self.navigationController?.pushViewController(vc!, animated: false)
         
     }
     
@@ -198,7 +197,7 @@ extension EmailVC {
 
 extension EmailVC {
     func initAnimate() {
-        UIView.animate(withDuration: 0.3,
+        UIView.animate(withDuration: 0.5,
                        delay: 0,
                        options: [.curveEaseIn],
                        animations: {

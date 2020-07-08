@@ -14,24 +14,29 @@ class IDVC: UIViewController {
     
     let guideLabel = UILabel().then{
         $0.font = Font.signUpSmallGuideLabel
+        $0.alpha = 0
     }
     
     let idGuideLabel = UILabel().then{
         $0.font = Font.dateLabel
         $0.text = "아이디"
+        $0.alpha = 0
     }
     
     let idTextField = UITextField().then{
         $0.font = Font.dateLabel
         $0.placeholder = "5자리 이상 입력해주세요."
+        $0.alpha = 0
     }
     
     let idUnderBarView = UIView().then {
         $0.backgroundColor = .signatureColor
+        $0.alpha = 0
     }
     
     let idErrorGuiedLabel = UILabel().then{
         $0.font = Font.dateLabel
+        $0.alpha = 0
     }
     
     let firstPageControllView = UIView().then{
@@ -70,13 +75,10 @@ class IDVC: UIViewController {
         setNav()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-    }
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
         initAnimate()
+        viewAnimate()
     }
     
     func setLabel(){
@@ -103,14 +105,13 @@ extension IDVC {
         
         vc?.modalPresentationStyle = .fullScreen
         
-                self.navigationController?.pushViewController(vc!, animated: false)
-//        self.present(vc!, animated: false)
+        self.navigationController?.pushViewController(vc!, animated: false)
     }
 }
 
 extension IDVC {
     func initAnimate() {
-        UIView.animate(withDuration: 0.3,
+        UIView.animate(withDuration: 0.5,
                        delay: 0,
                        options: [.curveEaseIn],
                        animations: {
@@ -130,5 +131,26 @@ extension IDVC {
                                                                                   alpha: 1)
         }, completion: nil)
     }
-}
+    
+    func viewAnimate(){
+        UIView.animate(withDuration: 1.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.85,
+                       initialSpringVelocity: 1,
+                       options: [.curveEaseIn],
+                       animations: {
+                        // self를 항상 붙여줘야함 (클로저 안에서)
+                        self.guideLabel.alpha = 1
+                        self.guideLabel.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.idGuideLabel.alpha = 1
+                        self.idGuideLabel.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.idTextField.alpha = 1
+                        self.idTextField.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.idUnderBarView.alpha = 1
+                        self.idUnderBarView.transform = CGAffineTransform.init(translationX: -100, y: 0)
 
+                        
+        })
+
+    }
+}

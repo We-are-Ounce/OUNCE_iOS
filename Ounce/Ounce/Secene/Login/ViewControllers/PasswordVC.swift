@@ -14,44 +14,53 @@ class PasswordVC: UIViewController {
     
     let guideLabel = UILabel().then{
         $0.font = Font.signUpSmallGuideLabel
+        $0.alpha = 0
     }
     
     let pwGuideLabel = UILabel().then{
         $0.font = Font.dateLabel
         $0.text = "비밀번호"
+        $0.alpha = 0
     }
     
     let pwTextField = UITextField().then{
         $0.font = Font.dateLabel
         $0.placeholder = "5자리 이상 입력해주세요."
         $0.isSecureTextEntry = true
+        $0.alpha = 0
     }
     
     let pwUnderBarView = UIView().then {
         $0.backgroundColor = .signatureColor
+        $0.alpha = 0
     }
     
     let pwErrorGuiedLabel = UILabel().then{
         $0.font = Font.dateLabel
+        $0.alpha = 0
     }
     
     let pwCertificationGuideLabel = UILabel().then{
         $0.font = Font.dateLabel
         $0.text = "비밀번호 재확인"
+        $0.alpha = 0
     }
     
     let pwCertificationTextField = UITextField().then{
         $0.font = Font.dateLabel
         $0.placeholder = "5자리 이상 입력해주세요."
         $0.isSecureTextEntry = true
+        $0.alpha = 0
     }
     
     let pwCertificationUnderBarView = UIView().then {
         $0.backgroundColor = .signatureColor
+        $0.alpha = 0
     }
 
     let pwCertificationErrorGuiedLabel = UILabel().then{
         $0.font = Font.dateLabel
+        $0.alpha = 0
     }
     
     let firstPageControllView = UIView().then{
@@ -93,6 +102,7 @@ class PasswordVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         initAnimate()
+        viewAnimate()
     }
     
     func setLabel(){
@@ -121,13 +131,12 @@ extension PasswordVC {
         vc?.modalPresentationStyle = .fullScreen
         
         self.present(vc!, animated: false)
-//        self.present(vc!, animated: false, completion: nil)
     }
 }
 
 extension PasswordVC {
     func initAnimate() {
-        UIView.animate(withDuration: 0.3,
+        UIView.animate(withDuration: 0.5,
                        delay: 0,
                        options: [.curveEaseIn],
                        animations: {
@@ -149,4 +158,33 @@ extension PasswordVC {
                         self.thirdPageControllView.backgroundColor = .signatureColor
         }, completion: nil)
     }
+    
+    func viewAnimate(){
+        UIView.animate(withDuration: 1.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.85,
+                       initialSpringVelocity: 1,
+                       options: [.curveEaseIn],
+                       animations: {
+                        // self를 항상 붙여줘야함 (클로저 안에서)
+                        self.guideLabel.alpha = 1
+                        self.guideLabel.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.pwGuideLabel.alpha = 1
+                        self.pwGuideLabel.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.pwTextField.alpha = 1
+                        self.pwTextField.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.pwUnderBarView.alpha = 1
+                        self.pwUnderBarView.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.pwCertificationGuideLabel.alpha = 1
+                        self.pwCertificationGuideLabel.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.pwCertificationTextField.alpha = 1
+                        self.pwCertificationTextField.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.pwCertificationUnderBarView.alpha = 1
+                        self.pwCertificationUnderBarView.transform = CGAffineTransform.init(translationX: -100, y: 0)
+
+                        
+        })
+
+    }
+
 }

@@ -67,6 +67,9 @@
 		7FC9385A24AB108A002B0CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9385824AB108A002B0CA7 /* LaunchScreen.storyboard */; };
 		7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B90B24B2DF71008D382F /* ReviewTableViewCell.swift */; };
 		7FD5B90E24B2DF71008D382F /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5B90C24B2DF71008D382F /* ReviewTableViewCell.xib */; };
+		7FD5B91F24B59DCA008D382F /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91E24B59DCA008D382F /* ProfileCell.swift */; };
+		7FD5B92224B59E03008D382F /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B92024B59E03008D382F /* HeaderCell.swift */; };
+		7FD5B92324B59E03008D382F /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5B92124B59E03008D382F /* HeaderCell.xib */; };
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
 		F2940AD624B2548D003C3047 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2940AD524B2548D003C3047 /* SearchVC.swift */; };
@@ -144,6 +147,9 @@
 		7FD5B90B24B2DF71008D382F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7FD5B90C24B2DF71008D382F /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		7FD5B91724B466E8008D382F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = Ounce/Secene/Main/Stroyboards/HomeVC.swift; sourceTree = SOURCE_ROOT; };
+		7FD5B91E24B59DCA008D382F /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		7FD5B92024B59E03008D382F /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		7FD5B92124B59E03008D382F /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F248FD3E24B4727A0055D753 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F2940AD524B2548D003C3047 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -414,6 +420,9 @@
 				5E69E8A124AC6BF7005D4DC1 /* MainCell.swift */,
 				7FD5B90B24B2DF71008D382F /* ReviewTableViewCell.swift */,
 				7FD5B90C24B2DF71008D382F /* ReviewTableViewCell.xib */,
+				7FD5B91E24B59DCA008D382F /* ProfileCell.swift */,
+				7FD5B92024B59E03008D382F /* HeaderCell.swift */,
+				7FD5B92124B59E03008D382F /* HeaderCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -619,6 +628,7 @@
 				5E075D3D24B0ABF70035C415 /* NotoSansKR-Black.otf in Resources */,
 				5EA0B01724B1D1AC0051C352 /* TabBar.storyboard in Resources */,
 				5E48BF1C24B1D77D0060EA7B /* Browse.storyboard in Resources */,
+				7FD5B92324B59E03008D382F /* HeaderCell.xib in Resources */,
 				5E075D3824B0ABF70035C415 /* NotoSansKR-Medium.otf in Resources */,
 				5E69E8A624AC6C97005D4DC1 /* Login.storyboard in Resources */,
 				5E075D3B24B0ABF70035C415 /* NotoSansKR-Bold.otf in Resources */,
@@ -727,8 +737,10 @@
 				7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */,
 				5E48BF1A24B1D7750060EA7B /* BrowseVC.swift in Sources */,
 				F29B7CCA24B364D00042089B /* PostNavVC.swift in Sources */,
+				7FD5B91F24B59DCA008D382F /* ProfileCell.swift in Sources */,
 				F2940AD624B2548D003C3047 /* SearchVC.swift in Sources */,
 				5E039CAD24AFFDAE009B1BC6 /* EmailVC.swift in Sources */,
+				7FD5B92224B59E03008D382F /* HeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,9 +19,15 @@ class HomeVC: UIViewController {
         reviewTV.delegate = self
         reviewTV.dataSource = self
         
+        // ReviewTableViewCell xib 연결
         let nibName = UINib(nibName: "ReviewTableViewCell", bundle: nil)
         
+        // HeaderCell xib 연결
+        let nibName1 = UINib(nibName: "HeaderCell", bundle: nil)
+
         reviewTV.register(nibName, forCellReuseIdentifier: "ReviewTableViewCell")
+        
+        reviewTV.register(nibName1, forCellReuseIdentifier: "HeaderCell")
     }
 
 }

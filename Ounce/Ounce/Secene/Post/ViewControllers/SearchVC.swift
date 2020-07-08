@@ -23,8 +23,6 @@ class SearchVC: UIViewController{
         /*movePostView.addTarget(self,
                                action: #selector(didTapMoveButton),
                                for: .touchUpInside)*/
-        print(navigationController)
-        
     }
     
     @IBAction func downBarButton(_ sender: Any) {

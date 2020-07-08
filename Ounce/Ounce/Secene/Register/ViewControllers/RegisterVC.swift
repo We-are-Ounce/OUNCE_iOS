@@ -6,7 +6,10 @@
 //  Copyright © 2020 박주연. All rights reserved.
 //
 
+import AVFoundation
+import AVKit
 import UIKit
+import Photos
 
 import YPImagePicker
 
@@ -32,6 +35,7 @@ class RegisterVC: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+        profileSetButton.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
         setProfileIMG()
         setGuideLabel()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -62,4 +66,45 @@ extension RegisterVC {
         guideLabel.attributedText = attrString
         guideLabel.numberOfLines = 2
     }
+    
+    @objc func showPicker() {
+        var config = YPImagePickerConfiguration()
+        
+        config.showsPhotoFilters = false
+        config.shouldSaveNewPicturesToAlbum = true
+        config.startOnScreen = .library
+        config.wordings.libraryTitle = "갤러리"
+        config.maxCameraZoomFactor = 2.0
+        config.library.maxNumberOfItems = 1
+        config.gallery.hidesRemoveButton = false
+        config.hidesBottomBar = false
+        config.hidesStatusBar = false
+//        config.library.preselectedItems = selectedItems
+        config.overlayView = UIView()
+        
+        let picker = YPImagePicker(configuration: config)
+        
+        picker.didFinishPicking { [unowned picker] items, cancelled in
+//            self.pickedIMG = []
+            if cancelled {
+                picker.dismiss(animated: true, completion: nil)
+                return
+            }
+            for item in items {
+                switch item {
+//                case .photo(let p):
+//                    self.pickedIMG.append(p.image)
+                    
+                default:
+                    print("")
+                    
+                }
+            }
+            picker.dismiss(animated: true) {
+//                self.imageCV.reloadData()
+            }
+        }
+        present(picker, animated: true, completion: nil)
+    }
+
 }

@@ -8,13 +8,270 @@
 
 import UIKit
 
-class PostSC:UIView {
+class PostSC:UIView, UITextViewDelegate {
     
     @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var productImg: UIImageView!
+    @IBOutlet weak var companyName: UILabel!
+    @IBOutlet weak var productName: UILabel!
+    
+    @IBOutlet weak var scoreBtn1: UIButton!
+    @IBOutlet weak var scoreBtn2: UIButton!
+    @IBOutlet weak var scoreBtn3: UIButton!
+    @IBOutlet weak var scoreBtn4: UIButton!
+    @IBOutlet weak var scoreBtn5: UIButton!
+    
+    @IBOutlet weak var likeBtn1: UIButton!
+    @IBOutlet weak var likeBtn2: UIButton!
+    @IBOutlet weak var likeBtn3: UIButton!
+    @IBOutlet weak var likeBtn4: UIButton!
+    @IBOutlet weak var likeBtn5: UIButton!
+    
+    
+    @IBOutlet weak var pooState1: UIButton!
+    @IBOutlet weak var pooState2: UIButton!
+    
+    @IBOutlet weak var pooState3: UIButton!
+    
+    @IBOutlet weak var pooState4: UIButton!
+    
+    @IBOutlet weak var pooState5: UIButton!
+    
+    
+    @IBOutlet weak var pooSmell1: UIButton!
+    
+    @IBOutlet weak var pooSmell2: UIButton!
+    
+    
+    @IBOutlet weak var pooSmell3: UIButton!
+    
+    
+    @IBOutlet weak var pooSmell4: UIButton!
+    
+    @IBOutlet weak var pooSmell5: UIButton!
+    
+    var rootVC: UIViewController?
+    
+    @IBAction func scoreBtn1selected(_ sender: Any) {
+        scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn2.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        scoreBtn3.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        scoreBtn4.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+    }
+    @IBAction func scoreBtn2selected(_ sender: Any) {
+        scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn2.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn3.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        scoreBtn4.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+    }
+    
+    @IBAction func scoreBtn3selected(_ sender: Any) {
+        scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn2.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn4.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        
+    }
+    
+    
+    @IBAction func scoreBtn4selected(_ sender: Any) {
+        scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn2.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn4.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        
+        
+    }
+    @IBAction func scoreBtn5selected(_ sender: Any) {
+        
+        scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn2.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn4.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+        scoreBtn5.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+    }
+    
+    @IBAction func likeBtn1selected(_ sender: Any) {
+        
+        likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn2.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        likeBtn3.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        likeBtn4.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        likeBtn5.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+    }
+    
+    @IBAction func likeBtn2selected(_ sender: Any) {
+        
+        likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn2.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn3.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        likeBtn4.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        likeBtn5.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        
+    }
+    @IBAction func likeBtn3selected(_ sender: Any) {
+        likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn2.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn4.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        likeBtn5.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        
+    }
+    @IBAction func likeBtn4selected(_ sender: Any) {
+        likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn2.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn4.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn5.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+        
+    }
+    
+    @IBAction func likeBtn5selected(_ sender: Any) {
+        likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn2.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn4.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+        likeBtn5.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+    }
+    
+    
+    
+    @IBAction func pooState1selected(_ sender: Any) {
+        
+        pooState1.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        
+    }
+    
+    @IBAction func pooState2selected(_ sender: Any) {
+        
+        pooState1.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState2.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        
+    }
+    
+    
+    @IBAction func pooState3selected(_ sender: Any) {
+        
+        pooState1.setImage(UIImage(named:"imgStatus"), for: .normal)
+               pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
+               pooState3.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+               pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
+               pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+    }
+    
+    @IBAction func pooState4selected(_ sender: Any) {
+        
+        pooState1.setImage(UIImage(named:"imgStatus"), for: .normal)
+                    pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
+                    pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
+                    pooState4.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+                    pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+    }
+    
+    @IBAction func pooState5selected(_ sender: Any) {
+        
+        pooState1.setImage(UIImage(named:"imgStatus"), for: .normal)
+                           pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
+                           pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
+                           pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
+                           pooState5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+    }
+    
+    @IBAction func pooSmell1selected(_ sender: Any) {
+    
+    pooSmell1.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+                              pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
+                              pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
+                              pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
+                              pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+    }
+    
+    
+    @IBAction func pooSmell2selected(_ sender: Any) {
+        
+        pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                     pooSmell2.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+                                     pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                     pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                     pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+    }
+    
+    @IBAction func pooSmell3selected(_ sender: Any) {
+        
+        pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                        pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                        pooSmell3.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+                                        pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                        pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+    }
+    @IBAction func pooSmell4selected(_ sender: Any) {
+        
+        
+        pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                        pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                        pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                        pooSmell4.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+                                        pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+    }
+    @IBAction func pooSmell5selected(_ sender: Any) {
+        
+        
+        
+          pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                          pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                          pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                          pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
+                                          pooSmell5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+    }
     func viewDidLoad(){
-       
+        
         self.memoTextView.layer.borderWidth = 1.0
         self.memoTextView.layer.borderColor = UIColor.black.cgColor
         self.memoTextView.layer.cornerRadius = 8.0
+        // 버튼 눌렸을때 이미지 설정
+        
+        memoTextView.delegate = self
+        
+        
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.rootVC?.view.endEditing(true)
+        
+    }
+
+}
+
+extension PostSC: UITextFieldDelegate {
+    
+    private func addKeyboardObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+    }
+    
+    private func closeKeyboardObserver(){
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+        UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
+            self.memoTextView.transform = .init(translationX: 0, y: -300)
+        })
     }
 }

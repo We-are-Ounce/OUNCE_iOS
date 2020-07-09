@@ -88,13 +88,16 @@ extension HomeVC : UITableViewDataSource {
             
             let headerCell = reviewTV.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
             
-            let option = Options()
+            // HeaderCell 안 sorting DropDown 적용시키기
+            let option = Options() //sorting Data
             
             headerCell.sortingTextField.optionArray = option.number
             headerCell.sortingTextField.checkMarkEnabled = false
             
+            //DropDown 안에 세모 크기
             headerCell.sortingTextField.arrowSize = 10
-            
+          
+            headerCell.sortingTextField.arrowColor = .black
             
             return headerCell
         }

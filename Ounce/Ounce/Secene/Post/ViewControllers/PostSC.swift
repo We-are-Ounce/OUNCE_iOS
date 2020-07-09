@@ -14,42 +14,41 @@ class PostSC:UIView, UITextViewDelegate {
     @IBOutlet weak var productImg: UIImageView!
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var productName: UILabel!
-    
     @IBOutlet weak var scoreBtn1: UIButton!
     @IBOutlet weak var scoreBtn2: UIButton!
     @IBOutlet weak var scoreBtn3: UIButton!
     @IBOutlet weak var scoreBtn4: UIButton!
     @IBOutlet weak var scoreBtn5: UIButton!
-    
     @IBOutlet weak var likeBtn1: UIButton!
     @IBOutlet weak var likeBtn2: UIButton!
     @IBOutlet weak var likeBtn3: UIButton!
     @IBOutlet weak var likeBtn4: UIButton!
     @IBOutlet weak var likeBtn5: UIButton!
-    
-    
+    /*변상태 설정 버튼*/
     @IBOutlet weak var pooState1: UIButton!
     @IBOutlet weak var pooState2: UIButton!
-    
     @IBOutlet weak var pooState3: UIButton!
-    
     @IBOutlet weak var pooState4: UIButton!
-    
     @IBOutlet weak var pooState5: UIButton!
-    
-    
+    /*변냄새 설정 버튼*/
     @IBOutlet weak var pooSmell1: UIButton!
-    
     @IBOutlet weak var pooSmell2: UIButton!
-    
-    
     @IBOutlet weak var pooSmell3: UIButton!
-    
-    
     @IBOutlet weak var pooSmell4: UIButton!
-    
     @IBOutlet weak var pooSmell5: UIButton!
+    /*trouble*/
+    @IBOutlet weak var eyeTrouble: UIButton!
+    @IBOutlet weak var earTrouble: UIButton!
+    @IBOutlet weak var furTrouble: UIButton!
+    @IBOutlet weak var vomitTrouble: UIButton!
     
+    
+    
+    
+    var eye: Bool = false
+    var ear: Bool = false
+    var fur: Bool = false
+    var vomit: Bool = false
     var rootVC: UIViewController?
     
     @IBAction func scoreBtn1selected(_ sender: Any) {
@@ -234,12 +233,97 @@ class PostSC:UIView, UITextViewDelegate {
                                           pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
                                           pooSmell5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
     }
+    
+    
+    @IBAction func eyeTroubleselected(_ sender: Any) {
+        //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+        //eyeTrouble.layer.backgroundColor = UIColor.battleshipGrey.cgColor
+        //eyeTrouble.setTitleColor(.white, for: .normal)
+        if !eye{
+            eye = true
+            eyeTrouble.borderColor = .battleshipGrey
+            eyeTrouble.backgroundColor = .battleshipGrey
+            //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+            eyeTrouble.setTitleColor(.white, for: .normal)
+            
+        }else{
+            eye = false
+            eyeTrouble.borderColor = .lightGray
+            eyeTrouble.backgroundColor = .white
+            //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+            eyeTrouble.setTitleColor(.battleshipGrey, for: .normal)
+            
+        }
+        
+        
+    }
+    
+    @IBAction func earTroubleselected(_ sender: Any) {
+        
+        if !ear{
+             ear = true
+             earTrouble.borderColor = .battleshipGrey
+             earTrouble.backgroundColor = .battleshipGrey
+             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+             earTrouble.setTitleColor(.white, for: .normal)
+             
+         }else{
+             ear = false
+             earTrouble.borderColor = .lightGray
+             earTrouble.backgroundColor = .white
+             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+             earTrouble.setTitleColor(.battleshipGrey, for: .normal)
+             
+         }
+        
+    }
+    @IBAction func furTroubleselected(_ sender: Any) {
+        
+        if !fur{
+             fur = true
+             furTrouble.borderColor = .battleshipGrey
+             furTrouble.backgroundColor = .battleshipGrey
+             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+             furTrouble.setTitleColor(.white, for: .normal)
+             
+         }else{
+             fur = false
+             furTrouble.borderColor = .lightGray
+             furTrouble.backgroundColor = .white
+             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+             furTrouble.setTitleColor(.battleshipGrey, for: .normal)
+             
+         }
+    }
+    
+    @IBAction func vomitTroubleselected(_ sender: Any) {
+        if !vomit{
+             vomit = true
+             vomitTrouble.borderColor = .battleshipGrey
+             vomitTrouble.backgroundColor = .battleshipGrey
+             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+             vomitTrouble.setTitleColor(.white, for: .normal)
+             
+         }else{
+            vomit = false
+             vomitTrouble.borderColor = .lightGray
+             vomitTrouble.backgroundColor = .white
+             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
+             vomitTrouble.setTitleColor(.battleshipGrey, for: .normal)
+             
+         }
+    }
     func viewDidLoad(){
         
         self.memoTextView.layer.borderWidth = 1.0
-        self.memoTextView.layer.borderColor = UIColor.black.cgColor
+        self.memoTextView.layer.borderColor = UIColor.lightGray.cgColor
         self.memoTextView.layer.cornerRadius = 8.0
-        // 버튼 눌렸을때 이미지 설정
+        
+        
+        self.eyeTrouble.setTitleColor(.battleshipGrey,for: .normal)
+        self.earTrouble.setTitleColor(.battleshipGrey,for: .normal)
+        self.furTrouble.setTitleColor(.battleshipGrey, for: .normal)
+        self.vomitTrouble.setTitleColor(.battleshipGrey, for: .normal)
         
         memoTextView.delegate = self
         

@@ -20,10 +20,8 @@ extension IDVC {
         self.view.addSubview(idTextField)
         self.view.addSubview(idUnderBarView)
         self.view.addSubview(idErrorGuiedLabel)
-        self.view.addSubview(firstPageControllView)
-        self.view.addSubview(secondPageControllView)
-        self.view.addSubview(thirdPageControllView)
         self.view.addSubview(nextButton)
+        self.view.addSubview(pageControl)
 
         guideLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(88)
@@ -59,33 +57,17 @@ extension IDVC {
             make.width.equalTo(210)
             make.height.equalTo(18)
         }
-        
-        firstPageControllView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(nextButton.snp.top).offset(-17)
-            make.trailing.equalTo(secondPageControllView.snp.leading).offset(-5)
-            make.width.equalTo(17)
-            make.height.equalTo(7)
-        }
-        
-        secondPageControllView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(nextButton.snp.top).offset(-17)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(31)
-            make.height.equalTo(7)
-        }
-        
-        thirdPageControllView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(nextButton.snp.top).offset(-17)
-            make.leading.equalTo(secondPageControllView.snp.trailing).offset(5)
-            make.width.equalTo(17)
-            make.height.equalTo(7)
-        }
 
         nextButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-13)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(48)
+        }
+
+        pageControl.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(nextButton.snp.top).offset(-17)
         }
 
     }

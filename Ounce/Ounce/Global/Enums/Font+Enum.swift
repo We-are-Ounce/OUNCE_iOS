@@ -23,7 +23,7 @@ enum Font {
 
     
     // 회원가입
-    static let signUpBigGuideLabel = UIFont.systemFont(ofSize: 24)
+    static let signUpBigGuideLabel = UIFont.boldSystemFont(ofSize: 24)
     static let signUpSmallGuideLabel = UIFont.systemFont(ofSize: 24)
     static let errorLabel = UIFont.systemFont(ofSize: 12)
     static let buttonLabel = UIFont.systemFont(ofSize: 14)

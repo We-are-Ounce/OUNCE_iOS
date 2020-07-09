@@ -101,8 +101,8 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" image="icHomeUnselected"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKc-t8-ZSv">
-                                                            <rect key="frame" x="179" y="141" width="53" height="30"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKc-t8-ZSv">
+                                                            <rect key="frame" x="178" y="139" width="63" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" title="팔로워 0">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -197,6 +197,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy9-0x-UEl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-314.39999999999998" y="-19.211822660098523"/>
+        </scene>
+        <!--FilterVC-->
+        <scene sceneID="dCn-2u-4ez">
+            <objects>
+                <viewController restorationIdentifier="FilterVC" storyboardIdentifier="FilterVC" title="FilterVC" id="cT6-HK-8Db" customClass="FilterVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4h6-Kb-XLb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b17-rl-hda">
+                                <rect key="frame" x="0.0" y="44" width="375" height="397"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eHK-Zc-AQa" firstAttribute="bottom" secondItem="b17-rl-hda" secondAttribute="bottom" constant="337" id="Xgu-3z-hXQ"/>
+                            <constraint firstItem="b17-rl-hda" firstAttribute="top" secondItem="eHK-Zc-AQa" secondAttribute="top" id="g9t-Pf-rIw"/>
+                            <constraint firstItem="b17-rl-hda" firstAttribute="leading" secondItem="eHK-Zc-AQa" secondAttribute="leading" id="ge3-tI-UTH"/>
+                            <constraint firstItem="b17-rl-hda" firstAttribute="trailing" secondItem="eHK-Zc-AQa" secondAttribute="trailing" id="z1x-al-vFg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eHK-Zc-AQa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71K-jz-VH6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="352.80000000000001" y="-19.211822660098523"/>
         </scene>
     </scenes>
     <resources>

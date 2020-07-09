@@ -31,6 +31,12 @@ class HomeVC: UIViewController {
         
         reviewTV.register(nibName1, forCellReuseIdentifier: "HeaderCell")
         
+        
+        //테이블 셀 라인 없애기
+        //self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
+        let pvc = FilterVC(nibName: "FilterVC", bundle: nil)
+
     }
     
 }
@@ -71,6 +77,7 @@ extension HomeVC : UITableViewDataSource {
         }
     }
     
+    
     // MARK: - header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
@@ -87,6 +94,8 @@ extension HomeVC : UITableViewDataSource {
         if section == 1 {
             
             let headerCell = reviewTV.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
+            
+            headerCell.rootVC = self
             
             // HeaderCell 안 sorting DropDown 적용시키기
             let option = Options() //sorting Data

@@ -38,6 +38,9 @@
                                 <rect key="frame" x="326" y="8" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.098039215690000001" green="0.80784313730000001" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="clickFilter:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yGa-qq-5ux"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="날짜 순" borderStyle="roundedRect" minimumFontSize="12" background="1650" translatesAutoresizingMaskIntoConstraints="NO" id="AuJ-IY-48p" customClass="DropDown" customModule="iOSDropDown">
                                 <rect key="frame" x="203" y="9" width="97" height="34"/>

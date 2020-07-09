@@ -75,6 +75,7 @@
 		7FD5B92324B59E03008D382F /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5B92124B59E03008D382F /* HeaderCell.xib */; };
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
+		F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */; };
 		F2940AD624B2548D003C3047 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2940AD524B2548D003C3047 /* SearchVC.swift */; };
 		F2940ADA24B2F180003C3047 /* PostSC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2940AD924B2F180003C3047 /* PostSC.xib */; };
 		F2940ADE24B2F462003C3047 /* PostSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2940ADD24B2F462003C3047 /* PostSC.swift */; };
@@ -158,6 +159,7 @@
 		7FD5B92124B59E03008D382F /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F248FD3E24B4727A0055D753 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIScroll+Extension.swift"; path = "Ounce/Global/Delegate/UIScroll+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		F2940AD524B2548D003C3047 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		F2940AD924B2F180003C3047 /* PostSC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostSC.xib; sourceTree = "<group>"; };
 		F2940ADD24B2F462003C3047 /* PostSC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSC.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				5E35795924AE38FC00043066 /* String+Extension.swift */,
 				5E35795B24AE391500043066 /* UITabBar+Extension.swift */,
 				5E5A439F24B23DED0017BA29 /* CALayer+Extension.swift */,
+				F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				5E35795C24AE391500043066 /* UITabBar+Extension.swift in Sources */,
 				5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */,
 				5EA889FF24B3BEE300C4CEC4 /* RegisterVC.swift in Sources */,
+				F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */,
 				5E9236FA24B4387B00378C8C /* RegisterDetailVC.swift in Sources */,
 				5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */,
 				5E69E89824AC685C005D4DC1 /* UIView+Extension.swift in Sources */,

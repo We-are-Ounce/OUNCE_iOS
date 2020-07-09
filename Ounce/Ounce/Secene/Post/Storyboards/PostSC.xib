@@ -679,6 +679,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="companyName" destination="7f2-ZG-WTE" id="zil-Xb-v8z"/>
+                <outlet property="criticTextField" destination="0sx-vr-1Wj" id="pr2-Js-pkT"/>
                 <outlet property="earTrouble" destination="sqn-bc-S5e" id="kRK-fo-rQi"/>
                 <outlet property="eyeTrouble" destination="mEq-zp-en2" id="FlA-ze-Eoe"/>
                 <outlet property="furTrouble" destination="dov-zq-4L8" id="Kvm-4t-zfI"/>

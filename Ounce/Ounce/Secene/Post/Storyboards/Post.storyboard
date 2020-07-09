@@ -109,20 +109,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-nb-Sqb">
                                 <rect key="frame" x="16" y="97" width="342" height="44"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색어를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5q-ik-7dm">
-                                        <rect key="frame" x="37" y="13" width="113" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색어를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5q-ik-7dm">
+                                        <rect key="frame" x="37" y="12" width="113" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="BOa-9w-LuN"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icSearch" translatesAutoresizingMaskIntoConstraints="NO" id="QGK-4g-ZvG">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSearch" translatesAutoresizingMaskIntoConstraints="NO" id="QGK-4g-ZvG">
                                         <rect key="frame" x="8" y="10" width="24" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="F5t-Sp-8gb"/>
+                                    <constraint firstAttribute="bottom" secondItem="i5q-ik-7dm" secondAttribute="bottom" constant="12" id="M9M-Lg-DBd"/>
+                                    <constraint firstItem="i5q-ik-7dm" firstAttribute="top" secondItem="fcm-nb-Sqb" secondAttribute="top" constant="12" id="QKs-Gm-jJB"/>
+                                    <constraint firstAttribute="bottom" secondItem="QGK-4g-ZvG" secondAttribute="bottom" constant="10" id="fH3-cL-Ryb"/>
+                                    <constraint firstItem="QGK-4g-ZvG" firstAttribute="leading" secondItem="fcm-nb-Sqb" secondAttribute="leading" constant="8" id="jrM-ca-ImG"/>
+                                    <constraint firstItem="i5q-ik-7dm" firstAttribute="leading" secondItem="QGK-4g-ZvG" secondAttribute="trailing" constant="5" id="pm1-s3-iam"/>
+                                    <constraint firstItem="QGK-4g-ZvG" firstAttribute="top" secondItem="fcm-nb-Sqb" secondAttribute="top" constant="10" id="z21-aK-oxz"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nd9-P4-gwQ">

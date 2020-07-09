@@ -8,8 +8,9 @@
 
 import UIKit
 
-class PostSC:UIView, UITextViewDelegate {
+class PostSC:UIView,UITextViewDelegate {
     
+    @IBOutlet weak var criticTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
     @IBOutlet weak var productImg: UIImageView!
     @IBOutlet weak var companyName: UILabel!
@@ -320,13 +321,14 @@ class PostSC:UIView, UITextViewDelegate {
         self.memoTextView.layer.cornerRadius = 8.0
         
         
+        
         self.eyeTrouble.setTitleColor(.battleshipGrey,for: .normal)
         self.earTrouble.setTitleColor(.battleshipGrey,for: .normal)
         self.furTrouble.setTitleColor(.battleshipGrey, for: .normal)
         self.vomitTrouble.setTitleColor(.battleshipGrey, for: .normal)
         
         memoTextView.delegate = self
-        
+        criticTextField.delegate = self
         
         
     }

@@ -20,15 +20,26 @@ extension BrowseCVCell{
         contentView.addSubview(labelName)
         contentView.addSubview(labelCoincidence)
         contentView.addSubview(stackViewLabel)
+    
         
-        print(contentView.frame.size)
+ 
+        customView.layer.shadowColor = UIColor.gray.cgColor
+        customView.layer.shadowOpacity = 0.3
+        customView.layer.shadowOffset = .zero
+        customView.layer.shadowRadius = 4
         
         
-
-        customView.layer.borderWidth = 0.5
-        customView.layer.borderColor = UIColor.gray.cgColor
-
-        contentView.backgroundColor = .brown
+        customView.snp.makeConstraints{ ( make ) in
+            
+            make.leading.equalTo(contentView.snp.leading)
+            make.trailing.equalTo(contentView.snp.trailing)
+            make.top.equalTo(contentView.snp.top)
+            make.bottom.equalTo(contentView.snp.bottom)
+                
+        }
+        
+        
+        
         
         imgCatView.snp.makeConstraints { (make) in
             make.leading.equalTo(contentView.snp.leading).inset(64)
@@ -43,7 +54,6 @@ extension BrowseCVCell{
             make.leading.equalTo(contentView.snp.leading).inset(88)
             make.trailing.equalTo(contentView.snp.trailing).inset(87)
             make.top.equalTo(imgCatView.snp.bottom).inset(-10)
-            
         }
         
         labelCoincidence.snp.makeConstraints{ (make) in

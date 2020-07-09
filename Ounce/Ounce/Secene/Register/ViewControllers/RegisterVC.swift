@@ -27,21 +27,26 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var contentTextField: UITextField!
     @IBOutlet weak var contentUnderBarView: UIView!
     @IBOutlet weak var profileSetButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var bottomYLayoutConstraint: NSLayoutConstraint!
-        
-    let pageControl = CHIPageControlAji().then {
-        $0.numberOfPages = 2
-        $0.radius = 5
-        $0.currentPageTintColor = .battleshipGrey
-        $0.tintColor = .brownGreyColor
-    }
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
+    @IBOutlet weak var neutralizationRoundButton: UIButton!
+    @IBOutlet weak var sexGuideLabel: UILabel!
+    @IBOutlet weak var neutralizationButton: UIButton!
+    @IBOutlet weak var ageGuideLabel: UILabel!
+    @IBOutlet weak var ageCountLabel: UILabel!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var ageUnderBarView: UIView!
+    @IBOutlet weak var weightGuideLabel: UILabel!
+    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var weightUnderBarView: UIView!
+    @IBOutlet weak var weightCountLabel: UILabel!
 
-    
     // MARK: - Variables and Properties
     
     var selectedItems = [YPMediaItem]()
-    
+    var sex: Int = 4
+    var isNeutralization : Bool = false
+
     
     // MARK: - Life Cycle
     
@@ -51,26 +56,28 @@ class RegisterVC: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
-        profileSetButton.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
-        setProfileIMG()
+//        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+//        profileSetButton.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
+//        setProfileIMG()
+//        setGuideLabel()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        constraints()
+//        addKeyboardNotification()
         setGuideLabel()
+        setButton()
+        setTextField()
+        constraints()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         let image = UIImage(named: "smallLogo")
         navigationItem.titleView = UIImageView(image: image)
-        constraints()
         addKeyboardNotification()
+
     }
     
 }
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension RegisterVC {
-    @objc func didTapNextButton(){
-        let sb = UIStoryboard(name: "Register", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "RegisterDetailVC") as! RegisterDetailVC
-        self.navigationController?.pushViewController(vc, animated: false)
-    }
     
     func setProfileIMG(){
         profileIMG.backgroundColor = .yellow
@@ -127,16 +134,91 @@ extension RegisterVC {
         present(picker, animated: true, completion: nil)
     }
     
+    @objc func didTapNextButton(){
+        let sb = UIStoryboard(name: "TabBar", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+        
+    func setButton() {
+        maleButton.setRounded(radius: 8)
+        maleButton.borderColor = .battleshipGrey
+        maleButton.setTitleColor(.battleshipGrey, for: .normal)
+        maleButton.borderWidth = 1.5
+        maleButton.addTarget(self, action: #selector(didTapMaleButton), for: .touchUpInside)
+        femaleButton.setRounded(radius: 8)
+        femaleButton.borderColor = .battleshipGrey
+        femaleButton.setTitleColor(.battleshipGrey, for: .normal)
+        femaleButton.borderWidth = 1.5
+        femaleButton.addTarget(self, action: #selector(didTapFemaleButton), for: .touchUpInside)
+        neutralizationRoundButton.setRounded(radius: nil)
+        neutralizationRoundButton.borderWidth = 0.1
+        neutralizationRoundButton.addTarget(self, action: #selector(didTapNButton), for: .touchUpInside)
+        neutralizationRoundButton.borderColor = .battleshipGrey
+        neutralizationRoundButton.setImage(UIImage(), for: .normal)
+        neutralizationButton.setTitleColor(.battleshipGrey, for: .normal)
+        neutralizationButton.addTarget(self, action: #selector(didTapNButton), for: .touchUpInside)
+        
+    }
+    
+    func setTextField() {
+        ageTextField.keyboardType = .numberPad
+        weightTextField.keyboardType = .decimalPad
+    }
+    
+    @objc func didTapMaleButton(){
+        if (sex != 0) {
+            sex = 0
+            maleButton.backgroundColor = .battleshipGrey
+            maleButton.setTitleColor(.white, for: .normal)
+            femaleButton.backgroundColor = .white
+            femaleButton.setTitleColor(.battleshipGrey, for: .normal)
+        } else {
+            sex = 2
+            maleButton.backgroundColor = .white
+            maleButton.setTitleColor(.battleshipGrey, for: .normal)
+        }
+    }
+    
+    @objc func didTapFemaleButton(){
+        if (sex != 1) {
+            sex = 1
+            femaleButton.backgroundColor = .battleshipGrey
+            femaleButton.setTitleColor(.white, for: .normal)
+            maleButton.backgroundColor = .white
+            maleButton.setTitleColor(.battleshipGrey, for: .normal)
+        } else {
+            sex = 2
+            femaleButton.backgroundColor = .white
+            femaleButton.setTitleColor(.battleshipGrey, for: .normal)
+            
+        }
+        
+    }
+    
+    @objc func didTapNButton(){
+        if !isNeutralization {
+            isNeutralization = true
+            neutralizationRoundButton.setImage(UIImage(named: "1735"), for: .normal)
+            neutralizationRoundButton.borderColor = .white
+        } else {
+            isNeutralization = false
+            neutralizationRoundButton.setImage(UIImage(), for: .normal)
+            neutralizationRoundButton.borderColor = .battleshipGrey
+        }
+    }
+
 }
 
 extension RegisterVC {
     func constraints(){
-        view.addSubview(pageControl)
+//        view.addSubview(pageControl)
 
-        pageControl.snp.makeConstraints { (make) in
-            make.bottom.equalTo(nextButton.snp.top).offset(-17)
-            make.centerX.equalToSuperview()
-        }
+//        pageControl.snp.makeConstraints { (make) in
+//            make.bottom.equalTo(nextButton.snp.top).offset(-17)
+//            make.centerX.equalToSuperview()
+//        }
     }
 }
 
@@ -191,9 +273,6 @@ extension RegisterVC {
                 .filter({$0.isKeyWindow}).first
             let bottomPadding = keyWindow?.safeAreaInsets.bottom
             
-            bottomYLayoutConstraint.constant = (keyboardHeight - (bottomPadding ?? 0))
-            isEditing()
-            
             self.view.setNeedsLayout()
             UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
                 self.view.layoutIfNeeded()
@@ -206,8 +285,6 @@ extension RegisterVC {
             let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
             let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
             
-            bottomYLayoutConstraint.constant = 34
-            endEditing()
             
             self.view.setNeedsLayout()
             UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {

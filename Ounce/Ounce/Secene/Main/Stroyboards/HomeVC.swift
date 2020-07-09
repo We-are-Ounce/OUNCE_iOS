@@ -9,10 +9,12 @@
 import UIKit
 
 class HomeVC: UIViewController {
-
+    
     @IBOutlet weak var reviewTV: UITableView!
     
     var stringList = ["주연", "주연","주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,12 +26,13 @@ class HomeVC: UIViewController {
         
         // HeaderCell xib 연결
         let nibName1 = UINib(nibName: "HeaderCell", bundle: nil)
-
+        
         reviewTV.register(nibName, forCellReuseIdentifier: "ReviewTableViewCell")
         
         reviewTV.register(nibName1, forCellReuseIdentifier: "HeaderCell")
+        
     }
-
+    
 }
 
 extension HomeVC : UITableViewDelegate {
@@ -41,7 +44,7 @@ extension HomeVC : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
@@ -57,18 +60,18 @@ extension HomeVC : UITableViewDataSource {
         
         if indexPath.section == 0 {
             
-        let profileCell = reviewTV.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath)
-        
+            let profileCell = reviewTV.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath)
+            
             return profileCell
         }
         else{
-        let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath)
-        
-        return reviewCell
+            let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath)
+            
+            return reviewCell
         }
     }
     
-     // MARK: - header
+    // MARK: - header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 1{
@@ -83,7 +86,15 @@ extension HomeVC : UITableViewDataSource {
         
         if section == 1 {
             
-             let headerCell = reviewTV.dequeueReusableCell(withIdentifier: "HeaderCell")
+            let headerCell = reviewTV.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
+            
+            let option = Options()
+            
+            headerCell.sortingTextField.optionArray = option.number
+            headerCell.sortingTextField.checkMarkEnabled = false
+            
+            headerCell.sortingTextField.arrowSize = 10
+            
             
             return headerCell
         }
@@ -97,3 +108,5 @@ extension HomeVC : UITableViewDataSource {
     }
     
 }
+
+

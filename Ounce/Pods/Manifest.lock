@@ -17,8 +17,8 @@ PODS:
   - CHIPageControl/Jaloro (0.1.8)
   - CHIPageControl/Paprika (0.1.8)
   - CHIPageControl/Puya (0.1.8)
-  - DropDown (2.3.13)
   - Gedatsu (1.2.0)
+  - iOSDropDown (0.3.4)
   - Kingfisher (5.14.0):
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
@@ -35,8 +35,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - CHIPageControl (~> 0.1.3)
-  - DropDown
   - Gedatsu
+  - iOSDropDown
   - Kingfisher
   - SnapKit (~> 5.0.0)
   - SwiftKeychainWrapper
@@ -48,8 +48,8 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CHIPageControl
-    - DropDown
     - Gedatsu
+    - iOSDropDown
     - Kingfisher
     - PryntTrimmerView
     - SnapKit
@@ -62,8 +62,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   CHIPageControl: 76b35c8309d8dd155e869c109cc6ffc0aaa465ff
-  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Gedatsu: 13a21a3cbf7978f9ff671eca5715b94a4309d9a8
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   PryntTrimmerView: 67e67573ffd4c073f1308effa66aefd0cfa667a0
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
@@ -73,6 +73,6 @@ SPEC CHECKSUMS:
   UPCarouselFlowLayout: 4c7d2c43a10ebb1597bde502a53699d378341dad
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 53b80f16bce5356f54e3d7eca09bea0d14834e4f
+PODFILE CHECKSUM: 53af00f960f1aa98d3196dc1551e7a5df92b4c87
 
 COCOAPODS: 1.9.1

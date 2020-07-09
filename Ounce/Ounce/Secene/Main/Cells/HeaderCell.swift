@@ -7,35 +7,23 @@
 //
 
 import UIKit
-import DropDown
+import iOSDropDown
 
 class HeaderCell: UITableViewCell {
     
     static let identifier: String = "HeaderCell"
     
-    var dropDown:DropDown?
-    
+
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var sortingBtn: UIButton!
+    @IBOutlet weak var sortingTextField: DropDown!
     @IBOutlet weak var filterBtn: UIButton!
     
-    
-    @objc func dropDownButton(){
-        
-        dropDown?.show()
-    }
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        dropDown = DropDown()
-        dropDown?.anchorView = sortingBtn
-        dropDown?.dataSource = ["기호도 순", "추천 순", "날짜 순"]
-        sortingBtn.addTarget(self, action: #selector(dropDownButton), for: .touchUpInside)
-        
-        dropDown?.selectionAction = { [unowned self] (index: Int, item: String) in self.sortingBtn.setTitle(item, for: .normal)
-        }
+
           
     }
     

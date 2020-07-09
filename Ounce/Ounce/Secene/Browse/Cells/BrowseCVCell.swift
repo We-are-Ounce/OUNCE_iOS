@@ -13,36 +13,21 @@ import Then
 
 class BrowseCVCell: UICollectionViewCell {
     
-    static let identifier: String = "BrowseCell"
+//    let customView: UIView = {
+//        let view = UIView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.layer.cornerRadius = 12
+//        return view
+//    }()
     
-    let customView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 12
-        return view
-    }()
-
-//    let rightGuideView = UIView().then {
-//        $0.backgroundColor = .brownGreyColor
-//    }
-    
-    
-    let imgCatView = UIImageView().then {
-        $0.backgroundColor = .brownGreyColor
+    let customView = UIView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     
-//    let firstRecommandImg = UIImageView().then {
-//        $0.backgroundColor = .brownGreyColor
-//    }
-//
-//    let secondRecommandImg = UIImageView().then {
-//        $0.backgroundColor = .brownGreyColor
-//    }
-//    let thirdRecommandImg = UIImageView().then {
-//        $0.backgroundColor = .brownGreyColor
-//    }
-    
+    let imgCatView = UIImageView().then {
+        $0.backgroundColor = .white
+    }
     
     let labelName = UILabel().then {
         $0.textColor = .black
@@ -60,8 +45,6 @@ class BrowseCVCell: UICollectionViewCell {
         $0.text = "77% 일치"
     }
     
-    //-Mark: stackview 안에 선언해서 넣을 수 있나? 의문점.
-    
     let stackViewLabel = UIStackView().then {
         
         let firstRecommandImg = UIImageView().then {
@@ -74,24 +57,21 @@ class BrowseCVCell: UICollectionViewCell {
         let thirdRecommandImg = UIImageView().then {
             $0.backgroundColor = .red
         }
-        
         $0.addArrangedSubview(firstRecommandImg)
         $0.addArrangedSubview(secondRecommandImg)
         $0.addArrangedSubview(thirdRecommandImg)
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.spacing = 9
-        
     }
     
-   
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initial()
 
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

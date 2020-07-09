@@ -26,7 +26,7 @@ class LoginVC: UIViewController {
     }
     
     let idErrorGuideLabel = UILabel().then {
-        $0.font = Font.smallGuideLabel
+        $0.font = Font.errorLabel
         $0.text = "아이디 혹은 비밀번호가 잘못되었습니다."
         $0.alpha = 0
         $0.textColor = .red
@@ -48,7 +48,7 @@ class LoginVC: UIViewController {
     }
     
     let pwErrorGuideLabel = UILabel().then {
-        $0.font = Font.smallGuideLabel
+        $0.font = Font.errorLabel
         $0.text = "아이디 혹은 비밀번호가 잘못되었습니다."
         $0.alpha = 0
         $0.textColor = .red
@@ -166,3 +166,4 @@ extension LoginVC {
     }
 
 }
+

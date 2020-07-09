@@ -8,6 +8,7 @@
 
 import UIKit
 
+import CHIPageControl
 import Then
 
 class EmailVC: UIViewController {
@@ -100,9 +101,16 @@ class EmailVC: UIViewController {
         $0.addTarget(self, action: #selector(tapNextButton), for: .touchUpInside)
     }
     
+    let pageControl = CHIPageControlAji().then {
+        $0.numberOfPages = 3
+        $0.radius = 5
+        $0.currentPageTintColor = .battleshipGrey
+        $0.tintColor = .brownGreyColor
+    }
+    
     // MARK: - Variables and Properties
     
-    
+    var email: String?
     
     // MARK: - Life Cycle
     
@@ -113,6 +121,7 @@ class EmailVC: UIViewController {
         setLabel()
         setTextField()
         setNav()
+        addKeyboardNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,12 +152,11 @@ extension EmailVC {
     }
     
     @objc func tapNextButton() {
-        print(#function)
         let vc = UIStoryboard.init(name: "Login",
                                    bundle: Bundle.main).instantiateViewController(
                                     withIdentifier: "IDVC") as? IDVC
         
-        vc?.modalPresentationStyle = .fullScreen
+        vc?.email = email ?? ""
         
         self.navigationController?.pushViewController(vc!, animated: false)
         
@@ -192,10 +200,6 @@ extension EmailVC {
 }
 
 extension EmailVC {
-    
-}
-
-extension EmailVC {
     func initAnimate() {
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -218,4 +222,101 @@ extension EmailVC {
                                                                                   alpha: 1)
         }, completion: nil)
     }
+    
+    func isEditing(_ keyboardHeight: CGFloat) {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.curveEaseIn],
+                       animations: {
+                        self.guideLabel.alpha = 0
+                        self.emailTextField.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.emailGuideLabel.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.emailUnderBarView.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.emailErrorGuiedLabel.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.emailCertificationButton.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.certificationTextField.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.certificationButton.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.certificationGuideLabel.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.certificationUnderBarView.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.certificationErrorGuideLabel.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        self.certificationTextField.transform = CGAffineTransform.init(translationX: 0, y: -90)
+                        
+                        
+                        self.nextButton.transform = CGAffineTransform.init(translationX: 0, y: -keyboardHeight)
+                        self.firstPageControllView.transform = CGAffineTransform.init(translationX: 0, y: -keyboardHeight)
+                        self.secondPageControllView.transform = CGAffineTransform.init(translationX: 0, y: -keyboardHeight)
+                        self.thirdPageControllView.transform = CGAffineTransform.init(translationX: 0, y: -keyboardHeight)
+        }, completion: nil)
+    }
+
+    func endEditing() {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.curveEaseIn],
+                       animations: {
+                        self.guideLabel.alpha = 1
+                        self.emailTextField.transform = .identity
+                        self.emailGuideLabel.transform = .identity
+                        self.emailUnderBarView.transform = .identity
+                        self.emailErrorGuiedLabel.transform = .identity
+                        self.emailCertificationButton.transform = .identity
+                        self.certificationTextField.transform = .identity
+                        self.certificationButton.transform = .identity
+                        self.certificationGuideLabel.transform = .identity
+                        self.certificationUnderBarView.transform = .identity
+                        self.certificationErrorGuideLabel.transform = .identity
+                        self.certificationTextField.transform = .identity
+
+                        self.nextButton.transform = .identity
+                        self.firstPageControllView.transform = .identity
+                        self.secondPageControllView.transform = .identity
+                        self.thirdPageControllView.transform = .identity
+        }, completion: nil)
+    }
+
+}
+
+extension EmailVC {
+    func addKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification)  {
+        if let info = notification.userInfo {
+            let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+            let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardHeight = keyboardFrame.height
+            let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+            let bottomPadding = keyWindow?.safeAreaInsets.bottom
+            
+            isEditing((keyboardHeight - (bottomPadding ?? 0)))
+            
+            self.view.setNeedsLayout()
+            UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        if let info = notification.userInfo {
+            let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+            
+            endEditing()
+            
+            self.view.setNeedsLayout()
+            UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
 }

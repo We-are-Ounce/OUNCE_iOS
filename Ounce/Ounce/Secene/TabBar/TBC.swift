@@ -21,10 +21,8 @@ class TBC: UITabBarController {
         let tab = CustomTabBar()
         tab.addDelegate = self
         self.setValue(tab, forKey: "tabBar")
-
         UITabBar.clearShadow()
         self.tabBar.layer.applyShadow(color: .gray, alpha: 0.3, x: 0, y: 0, blur: 6)
-        // Do any additional setup after loading the view.
     }
     
     func addClick() {

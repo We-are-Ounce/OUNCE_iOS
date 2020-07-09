@@ -512,8 +512,8 @@
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아주 맛있는 퍼펙트한 사료였다 0u0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sx-vr-1Wj">
-                    <rect key="frame" x="50" y="383.5" width="198" height="20"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="한 줄 평가를 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sx-vr-1Wj">
+                    <rect key="frame" x="50" y="383.5" width="137" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="PTm-Ye-rK2"/>
                     </constraints>

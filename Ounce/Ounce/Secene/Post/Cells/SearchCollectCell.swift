@@ -13,6 +13,8 @@ class SearchCollectCell: UICollectionViewCell{
     
     static let identfier = "productCell"
     
+   
+    
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var manufacturerName: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostVC: UIViewController,UITextViewDelegate, UITextFieldDelegate {
+class PostVC: UIViewController {
     
     //    @IBAction func out(_ sender: Any) {
     //        self.dismiss(animated: true, completion: nil)
@@ -20,13 +20,26 @@ class PostVC: UIViewController,UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    var text: String?
+    var product: Product? //구조체
+    var imageNameVC: UIImage?
+    var companyNameVC: String?
+    var productNameVC: String?
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        print(product)
+        //print(text)
+        print(companyNameVC)
+        print(productNameVC)
         //self.setNavigationBar()
         self.navigationController?.navigationBar.tintColor = .greyish_brown // 네비게이션컨트롤러 뒤로가기 버튼 색깔 변경
         self.navigationController?.navigationBar.topItem?.title = "" //뒤로가기 버튼 텍스트 변경
         let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
+        custom.companyName.text = companyNameVC
+        custom.productName.text = productNameVC
+        custom.productImg.image = imageNameVC
         self.addScrollView.addSubview(custom)
         custom.viewDidLoad()
         custom.rootVC = self
@@ -34,14 +47,6 @@ class PostVC: UIViewController,UITextViewDelegate, UITextFieldDelegate {
         custom.memoTextView.delegate = self
         addScrollView.delegate = self
         addKeyboardNotification()
-        
-        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),name: .KeyboardWillShowNotification, object: nil)
-        //
-        //
-        //
-        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHideNotification, object: nil)
-        //
-        //            }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             
@@ -182,4 +187,12 @@ extension PostVC {
 extension PostVC: UIScrollViewDelegate {
     
 
+}
+
+extension PostVC: UITextViewDelegate{
+    
+}
+
+extension PostVC: UITextFieldDelegate{
+    
 }

@@ -15,9 +15,7 @@ class PostSC:UIView,UITextViewDelegate {
     @IBOutlet weak var productImg: UIImageView! // 제품사진
     @IBOutlet weak var companyName: UILabel! // 회사명
     @IBOutlet weak var productName: UILabel! // 제품이름
-    var imageName: String = ""
-    var company: String = ""
-    var product: String = ""
+   
     
     @IBOutlet weak var scoreBtn1: UIButton!
     @IBOutlet weak var scoreBtn2: UIButton!
@@ -46,9 +44,6 @@ class PostSC:UIView,UITextViewDelegate {
     @IBOutlet weak var earTrouble: UIButton!
     @IBOutlet weak var furTrouble: UIButton!
     @IBOutlet weak var vomitTrouble: UIButton!
-    
-    
-    
     
     var eye: Bool = false
     var ear: Bool = false
@@ -334,18 +329,10 @@ class PostSC:UIView,UITextViewDelegate {
         memoTextView.delegate = self
         criticTextField.delegate = self
         
-        initview()
-        
-        
-    }
-    
-    private func initview(){
-        
-        productImg.image = UIImage(named: imageName)
-        companyName.text = company
-        productName.text = product
+
         
     }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.rootVC?.view.endEditing(true)
         

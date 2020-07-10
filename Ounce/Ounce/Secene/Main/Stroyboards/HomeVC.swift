@@ -35,7 +35,6 @@ class HomeVC: UIViewController {
         //테이블 셀 라인 없애기
         //self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        let pvc = FilterVC(nibName: "FilterVC", bundle: nil)
 
     }
     
@@ -47,6 +46,7 @@ extension HomeVC : UITableViewDelegate {
 
 extension HomeVC : UITableViewDataSource {
     
+    // MARK: - TableView Section
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -77,12 +77,22 @@ extension HomeVC : UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 0 {
+            
+            return 179
+        }
+        else{
+            return 86
+        }
+    }
     
     // MARK: - header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 1{
-            return 49
+            return 47
         }
         else {
             return 0
@@ -95,19 +105,9 @@ extension HomeVC : UITableViewDataSource {
             
             let headerCell = reviewTV.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
             
+            // xib 파일 - headerCell
             headerCell.rootVC = self
-            
-            // HeaderCell 안 sorting DropDown 적용시키기
-            let option = Options() //sorting Data
-            
-            headerCell.sortingTextField.optionArray = option.number
-            headerCell.sortingTextField.checkMarkEnabled = false
-            
-            //DropDown 안에 세모 크기
-            headerCell.sortingTextField.arrowSize = 10
-          
-            headerCell.sortingTextField.arrowColor = .black
-            
+   
             return headerCell
         }
         else{

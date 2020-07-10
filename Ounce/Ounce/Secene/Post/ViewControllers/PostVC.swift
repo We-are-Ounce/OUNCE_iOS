@@ -98,7 +98,7 @@ class PostVC: UIViewController,UITextViewDelegate, UITextFieldDelegate {
      self.backgroundView.transform = .identity
      })
      }
-     
+
      @objc func keyboardWillShow(_ notification: Notification) {
      let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
      //let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey]as! NSValue).cgRectValue
@@ -109,17 +109,12 @@ class PostVC: UIViewController,UITextViewDelegate, UITextFieldDelegate {
      let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
      UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
      self.backgroundView.transform = .init(translationX: 0, y: -300)
-     
      })
      }
-     
      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
      print(#function)
      self.backgroundView.endEditing(true)
      }
-     
-     
-     
      }*/
     
 }

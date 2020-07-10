@@ -49,6 +49,11 @@
                                     <constraint firstItem="Aux-YB-DY3" firstAttribute="top" secondItem="x9T-Li-1f0" secondAttribute="top" constant="10" id="xfA-AU-78e"/>
                                     <constraint firstItem="qsy-c8-zLw" firstAttribute="top" secondItem="x9T-Li-1f0" secondAttribute="top" constant="12" id="zL8-3N-YFN"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YTU-Bx-CnQ">
                                 <rect key="frame" x="16" y="153" width="343" height="128"/>
@@ -66,7 +71,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQj-Yt-zK8">
-                                <rect key="frame" x="109" y="423" width="156" height="30"/>
+                                <rect key="frame" x="109" y="513" width="156" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="move to collectionview"/>
                                 <connections>
@@ -131,6 +136,11 @@
                                     <constraint firstItem="i5q-ik-7dm" firstAttribute="leading" secondItem="QGK-4g-ZvG" secondAttribute="trailing" constant="5" id="pm1-s3-iam"/>
                                     <constraint firstItem="QGK-4g-ZvG" firstAttribute="top" secondItem="fcm-nb-Sqb" secondAttribute="top" constant="10" id="z21-aK-oxz"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nd9-P4-gwQ">
                                 <rect key="frame" x="16" y="151" width="343" height="606"/>
@@ -252,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSh-Ld-1fD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928.8" y="183.99014778325125"/>
+            <point key="canvasLocation" x="2015" y="1017"/>
         </scene>
         <!--Post NavVC-->
         <scene sceneID="x9q-97-I4o">

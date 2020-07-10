@@ -115,7 +115,7 @@ class BrowseVC: UIViewController {
         pageControl.snp.makeConstraints{( make ) in
             make.leading.equalToSuperview().inset(153)
             make.trailing.equalToSuperview().inset(153)
-            make.centerY.equalTo(self.view.frame.height).inset(614)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(50)
         }
         
                
@@ -158,26 +158,23 @@ class BrowseVC: UIViewController {
         
     }
     
-    // MARK -
     
-//    func getLengthName(_ name: String) -> Int {
-//        let inputStr = name.components(separatedBy: "와")
-//
-//        return
-//    }
-//
+    // MARK - originCatName을 받고, postPositionText을 이용해서 조사를 붙여준다.
     
     func setNameLabel(){
+        
+        let origin_userCatName = "준현"
         
         let userCatName1 = postPositionText("호세")
         let userCatName2 = postPositionText("준현")
         let userCatName3 = postPositionText("준현이")
         
         
-        let attributedStr = NSMutableAttributedString(string: userCatName1 + "\n입맛이 비슷해요.")
+        
+        let attributedStr = NSMutableAttributedString(string: userCatName2 + "\n입맛이 비슷해요.")
     
-//        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
-//                                   value: UIFont.systemFont(ofSize: 33,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, 3))
+        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
+                                   value: UIFont.systemFont(ofSize: 33,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count))
         
         
         guideNameLabel.attributedText = attributedStr
@@ -223,13 +220,7 @@ class BrowseVC: UIViewController {
         spacingLayout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 60)
 
         self.collectionView?.backgroundColor = UIColor.white
-        
-        
-        
-        
         self.view.addSubview(self.collectionView!)
-       
-        
     }
 
     // MARK: - Card Collection Delegate & DataSource

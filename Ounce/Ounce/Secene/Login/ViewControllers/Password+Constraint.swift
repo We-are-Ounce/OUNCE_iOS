@@ -25,8 +25,6 @@ extension PasswordVC {
         self.view.addSubview(pwCertificationTextField)
         self.view.addSubview(pwCertificationUnderBarView)
         self.view.addSubview(pwCertificationErrorGuiedLabel)
-        self.view.addSubview(nextButton)
-        self.view.addSubview(pageControl)
 
         guideLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(88)
@@ -91,17 +89,6 @@ extension PasswordVC {
             make.height.equalTo(18)
         }
 
-        nextButton.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-13)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(48)
-        }
-
-        pageControl.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(nextButton.snp.top).offset(-17)
-        }
 
     }
 

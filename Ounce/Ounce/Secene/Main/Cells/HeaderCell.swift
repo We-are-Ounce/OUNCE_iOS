@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import iOSDropDown
 
 class HeaderCell: UITableViewCell {
     
@@ -18,7 +17,7 @@ class HeaderCell: UITableViewCell {
 
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var sortingTextField: DropDown!
+    @IBOutlet weak var sortingLabel: UILabel!
     @IBOutlet weak var filterBtn: UIButton!
     
     override func awakeFromNib() {

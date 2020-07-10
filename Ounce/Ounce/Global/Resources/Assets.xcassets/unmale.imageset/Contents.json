@@ -1,23 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "male.png",
+      "filename" : "unMale.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "unMale@2x.png",
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "male@2x.png"
+      "scale" : "2x"
     },
     {
-      "filename" : "male@3x.png",
+      "filename" : "unMale@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

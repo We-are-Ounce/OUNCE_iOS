@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "filename" : "btnEdit.png",
-      "scale" : "1x"
+      "filename" : "imgMyprofile.png",
+      "scale" : "1x",
+      "idiom" : "universal"
     },
     {
+      "filename" : "imgMyprofile@2x.png",
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "btnEdit@2x.png"
+      "scale" : "2x"
     },
     {
+      "filename" : "imgMyprofile@3x.png",
       "scale" : "3x",
-      "filename" : "btnEdit@3x.png",
       "idiom" : "universal"
     }
   ],

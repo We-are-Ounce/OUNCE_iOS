@@ -23,8 +23,13 @@ class CustomTabBar: UITabBar {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addButton.setBackgroundImage(UIImage.init(named: "btnWrite"), for: .normal)
+        addButton.setBackgroundImage(UIImage.init(named: "btnWrite"), for: .selected)
+        addButton.setBackgroundImage(UIImage.init(named: "btnWrite"), for: .highlighted)
+        if model() {
+            addButton.transform = CGAffineTransform(translationX: 0, y: 14)
+        }
         UITabBar.clearShadow()
-        addButton.setBackgroundImage(UIImage.init(named: "btnAdd"), for: .normal)
         addButton.addTarget(self,
                             action: #selector(CustomTabBar.addButtonClick),
                             for: .touchUpInside)
@@ -86,6 +91,28 @@ class CustomTabBar: UITabBar {
         }
     }
     
+    func model() -> Bool {
+        switch UIDevice.current.name {
+        case "iPhone SE (2nd generation)":
+            return true
+        case "iPhone SE":
+            return true
+        case "iPhone 8":
+            return true
+        case "iPhone 8 Plus":
+            return true
+        case "iPhone 7":
+            return true
+        case "iPhone 7 Plus":
+            return true
+        case "iPhone 6":
+            return true
+        case "iPhone 6 Plus":
+            return true
+        default:
+            return false
+        }
+    }
     
 }
 

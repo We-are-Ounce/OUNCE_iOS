@@ -25,8 +25,6 @@ extension EmailVC {
         self.view.addSubview(certificationUnderBarView)
         self.view.addSubview(certificationErrorGuideLabel)
         self.view.addSubview(certificationButton)
-        self.view.addSubview(nextButton)
-        self.view.addSubview(pageControl)
 
         guideLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(88)
@@ -104,17 +102,5 @@ extension EmailVC {
             make.height.equalTo(31)
         }
         
-        nextButton.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-13)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(48)
-        }
-        
-        pageControl.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(nextButton.snp.top).offset(-17)
-        }
-
     }
 }

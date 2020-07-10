@@ -43,21 +43,15 @@ class IDVC: UIViewController {
         $0.text = "5자리 이상 입력해주세요."
     }
     
-    let nextButton = UIButton().then{
-        $0.backgroundColor = .signatureColor
-        $0.setRounded(radius: 8)
-        $0.setTitle("확인", for: .normal)
-        $0.titleLabel?.font = Font.dateLabel
-        $0.addTarget(self, action: #selector(tapNextButton), for: .touchUpInside)
-    }
-    
-    let pageControl = CHIPageControlAji().then {
-        $0.numberOfPages = 3
-        $0.radius = 5
-        $0.currentPageTintColor = .battleshipGrey
-        $0.tintColor = .brownGreyColor
+    lazy var rightButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "다음",
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(tapNextButton))
         
-    }
+        return button
+        
+    }()
 
     
     // MARK: - Variables and Properties
@@ -72,8 +66,8 @@ class IDVC: UIViewController {
         setLabel()
         constraint()
         setNav()
-        addKeyboardNotification()
-        pageControl.set(progress: 1, animated: true)
+//        addKeyboardNotification()
+//        pageControl.set(progress: 1, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,7 +88,11 @@ class IDVC: UIViewController {
 
 extension IDVC {
     func setNav(){
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                           style: .plain,
+                                                           target: nil,
+                                                           action: nil)
+        navigationItem.rightBarButtonItem = rightButton
     }
 
     @objc func tapNextButton() {
@@ -133,68 +131,68 @@ extension IDVC {
 
     }
     
-    func isEditing(_ keyboardHeight: CGFloat) {
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       options: [.curveEaseIn],
-                       animations: {
-                        self.nextButton.transform = CGAffineTransform.init(translationX: 0, y: -keyboardHeight)
-        }, completion: nil)
-    }
-
-    func endEditing() {
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       options: [.curveEaseIn],
-                       animations: {
-                        self.guideLabel.alpha = 1
-                        
-                        self.nextButton.transform = .identity
-        }, completion: nil)
-    }
+//    func isEditing(_ keyboardHeight: CGFloat) {
+//        UIView.animate(withDuration: 0.5,
+//                       delay: 0,
+//                       options: [.curveEaseIn],
+//                       animations: {
+//                        self.nextButton.transform = CGAffineTransform.init(translationX: 0, y: -keyboardHeight)
+//        }, completion: nil)
+//    }
+//
+//    func endEditing() {
+//        UIView.animate(withDuration: 0.5,
+//                       delay: 0,
+//                       options: [.curveEaseIn],
+//                       animations: {
+//                        self.guideLabel.alpha = 1
+//
+//                        self.nextButton.transform = .identity
+//        }, completion: nil)
+//    }
 }
 
-extension IDVC {
-    func addKeyboardNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-    }
-    
-    @objc private func keyboardWillShow(_ notification: Notification)  {
-        if let info = notification.userInfo {
-            let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-            let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-            let keyboardHeight = keyboardFrame.height
-            let keyWindow = UIApplication.shared.connectedScenes
-                .filter({$0.activationState == .foregroundActive})
-                .map({$0 as? UIWindowScene})
-                .compactMap({$0})
-                .first?.windows
-                .filter({$0.isKeyWindow}).first
-            let bottomPadding = keyWindow?.safeAreaInsets.bottom
-            
-            isEditing((keyboardHeight - (bottomPadding ?? 0)))
-            
-            self.view.setNeedsLayout()
-            UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
-                self.view.layoutIfNeeded()
-            })
-        }
-    }
-    
-    @objc private func keyboardWillHide(_ notification: Notification) {
-        if let info = notification.userInfo {
-            let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-            
-            endEditing()
-            
-            self.view.setNeedsLayout()
-            UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
-                self.view.layoutIfNeeded()
-            })
-        }
-    }
-    
-}
+//extension IDVC {
+//    func addKeyboardNotification() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//    }
+//
+//    @objc private func keyboardWillShow(_ notification: Notification)  {
+//        if let info = notification.userInfo {
+//            let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+//            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+//            let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//            let keyboardHeight = keyboardFrame.height
+//            let keyWindow = UIApplication.shared.connectedScenes
+//                .filter({$0.activationState == .foregroundActive})
+//                .map({$0 as? UIWindowScene})
+//                .compactMap({$0})
+//                .first?.windows
+//                .filter({$0.isKeyWindow}).first
+//            let bottomPadding = keyWindow?.safeAreaInsets.bottom
+//
+//            isEditing((keyboardHeight - (bottomPadding ?? 0)))
+//
+//            self.view.setNeedsLayout()
+//            UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
+//                self.view.layoutIfNeeded()
+//            })
+//        }
+//    }
+//
+//    @objc private func keyboardWillHide(_ notification: Notification) {
+//        if let info = notification.userInfo {
+//            let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+//            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+//
+//            endEditing()
+//
+//            self.view.setNeedsLayout()
+//            UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
+//                self.view.layoutIfNeeded()
+//            })
+//        }
+//    }
+//
+//}

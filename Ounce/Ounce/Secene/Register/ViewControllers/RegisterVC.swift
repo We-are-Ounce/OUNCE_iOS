@@ -18,6 +18,7 @@ class RegisterVC: UIViewController {
     
     // MARK: - UI components
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var guideLabel: UILabel!
     @IBOutlet weak var profileIMG: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -40,13 +41,21 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var weightUnderBarView: UIView!
     @IBOutlet weak var weightCountLabel: UILabel!
+    lazy var rightButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "완료",
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(didTapNextButton))
+        
+        return button
+        
+    }()
 
     // MARK: - Variables and Properties
     
     var selectedItems = [YPMediaItem]()
     var sex: Int = 4
     var isNeutralization : Bool = false
-
     
     // MARK: - Life Cycle
     
@@ -56,22 +65,16 @@ class RegisterVC: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-//        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
-//        profileSetButton.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
-//        setProfileIMG()
-//        setGuideLabel()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        constraints()
-//        addKeyboardNotification()
         setGuideLabel()
         setButton()
         setTextField()
-        constraints()
+        setProfileIMG()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         let image = UIImage(named: "smallLogo")
         navigationItem.titleView = UIImageView(image: image)
         addKeyboardNotification()
-
+        setNav()
     }
     
 }
@@ -79,10 +82,12 @@ class RegisterVC: UIViewController {
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension RegisterVC {
     
+    func setNav(){
+        navigationItem.rightBarButtonItem = rightButton
+    }
+    
     func setProfileIMG(){
-        profileIMG.backgroundColor = .yellow
         profileIMG.setRounded(radius: nil)
-        profileSetButton.backgroundColor = .black
         profileSetButton.setRounded(radius: nil)
     }
     
@@ -154,17 +159,21 @@ extension RegisterVC {
         femaleButton.addTarget(self, action: #selector(didTapFemaleButton), for: .touchUpInside)
         neutralizationRoundButton.setRounded(radius: nil)
         neutralizationRoundButton.borderWidth = 0.1
-        neutralizationRoundButton.addTarget(self, action: #selector(didTapNButton), for: .touchUpInside)
+        neutralizationRoundButton.addTarget(self, action: #selector(didTapNeutralizationButton), for: .touchUpInside)
         neutralizationRoundButton.borderColor = .battleshipGrey
         neutralizationRoundButton.setImage(UIImage(), for: .normal)
         neutralizationButton.setTitleColor(.battleshipGrey, for: .normal)
-        neutralizationButton.addTarget(self, action: #selector(didTapNButton), for: .touchUpInside)
-        
+        neutralizationButton.addTarget(self, action: #selector(didTapNeutralizationButton), for: .touchUpInside)
+        profileSetButton.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
     }
     
     func setTextField() {
         ageTextField.keyboardType = .numberPad
         weightTextField.keyboardType = .decimalPad
+        ageTextField.delegate = self
+        nameTextField.delegate = self
+        weightTextField.delegate = self
+        contentTextField.delegate = self
     }
     
     @objc func didTapMaleButton(){
@@ -197,7 +206,7 @@ extension RegisterVC {
         
     }
     
-    @objc func didTapNButton(){
+    @objc func didTapNeutralizationButton(){
         if !isNeutralization {
             isNeutralization = true
             neutralizationRoundButton.setImage(UIImage(named: "1735"), for: .normal)
@@ -211,45 +220,12 @@ extension RegisterVC {
 
 }
 
-extension RegisterVC {
-    func constraints(){
-//        view.addSubview(pageControl)
-
-//        pageControl.snp.makeConstraints { (make) in
-//            make.bottom.equalTo(nextButton.snp.top).offset(-17)
-//            make.centerX.equalToSuperview()
-//        }
-    }
-}
-
-extension RegisterVC {
-    func isEditing(){
-        UIView.animate(withDuration: 0.5, delay: 0,options: [.curveEaseIn], animations: {
-            self.guideLabel.alpha = 0
-            self.profileIMG.transform = CGAffineTransform.init(translationX: 0, y: -84)
-            self.nameTextField.transform = CGAffineTransform.init(translationX: 0, y: -84)
-            self.nameGuideLabel.transform = CGAffineTransform.init(translationX: 0, y: -84)
-            self.nameUnderBarView.transform = CGAffineTransform.init(translationX: 0, y: -84)
-            self.contentTextField.transform = CGAffineTransform.init(translationX: 0, y: -84)
-            self.contentGuideLabel.transform = CGAffineTransform.init(translationX: 0, y: -84)
-            self.contentUnderBarView.transform = CGAffineTransform.init(translationX: 0, y: -84)
-            self.profileSetButton.transform = CGAffineTransform.init(translationX: 0, y: -84)
-        })
-    }
-    
-    func endEditing(){
-        UIView.animate(withDuration: 0.5, delay: 0,options: [.curveEaseIn], animations: {
-            self.guideLabel.alpha = 0
-            self.profileIMG.transform = .identity
-            self.nameTextField.transform = .identity
-            self.nameGuideLabel.transform = .identity
-            self.nameUnderBarView.transform = .identity
-            self.contentTextField.transform = .identity
-            self.contentGuideLabel.transform = .identity
-            self.contentUnderBarView.transform = .identity
-            self.profileSetButton.transform = .identity
-        })
-
+extension RegisterVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollView.scrollRectToVisible(CGRect(x: 0,
+                                              y: -(textField.frame.origin.y+100),
+                                              width: 0, height: 0),
+                                       animated: true)
     }
 }
 
@@ -273,6 +249,10 @@ extension RegisterVC {
                 .filter({$0.isKeyWindow}).first
             let bottomPadding = keyWindow?.safeAreaInsets.bottom
             
+            var contentInset:UIEdgeInsets = self.scrollView.contentInset
+            contentInset.bottom = (keyboardHeight - (bottomPadding ?? 0))
+            scrollView.contentInset = contentInset
+            
             self.view.setNeedsLayout()
             UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
                 self.view.layoutIfNeeded()
@@ -285,6 +265,8 @@ extension RegisterVC {
             let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
             let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
             
+            let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+            scrollView.contentInset = contentInset
             
             self.view.setNeedsLayout()
             UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {

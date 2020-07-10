@@ -23,11 +23,11 @@ class CustomTabBar: UITabBar {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addButton.setBackgroundImage(UIImage.init(named: "btnWrite"), for: .normal)
+        addButton.setBackgroundImage(UIImage.init(named: "btnWrite"), for: .selected)
+        addButton.setBackgroundImage(UIImage.init(named: "btnWrite"), for: .highlighted)
         if model() {
-            addButton.setBackgroundImage(UIImage.init(named: "btnWrite"), for: .normal)
-            addButton.transform = CGAffineTransform(translationX: 0, y: 13.5)
-        } else {
-            addButton.setBackgroundImage(UIImage.init(named: "1924"), for: .normal)
+            addButton.transform = CGAffineTransform(translationX: 0, y: 14)
         }
         UITabBar.clearShadow()
         addButton.addTarget(self,

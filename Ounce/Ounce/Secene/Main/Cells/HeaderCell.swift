@@ -43,7 +43,7 @@ class HeaderCell: UITableViewCell {
         
         let dvc = MainStoryBoard.instantiateViewController(identifier: "FilterVC") as! FilterVC
 
-        dvc.modalPresentationStyle = .overCurrentContext
+        dvc.modalPresentationStyle = .fullScreen
 
         self.rootVC?.present(dvc, animated: true, completion: nil)
 

@@ -74,10 +74,18 @@ class RegisterDetailVC: UIViewController {
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension RegisterDetailVC {
     @objc func didTapNextButton(){
-        let sb = UIStoryboard(name: "TabBar", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+//        let sb = UIStoryboard(name: "TabBar", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
+//        vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true)
+        
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
+          let registerVC = RegisterVC()
+          registerVC.modalPresentationStyle = .fullScreen
+          let appDelegate = UIApplication.shared.delegate as! AppDelegate
+          appDelegate.window?.rootViewController?.present(registerVC, animated: true, completion: nil)
+        })
+
     }
     
     func setGuideLabel() {
@@ -101,11 +109,11 @@ extension RegisterDetailVC {
         femaleButton.addTarget(self, action: #selector(didTapFemaleButton), for: .touchUpInside)
         neutralizationRoundButton.setRounded(radius: nil)
         neutralizationRoundButton.borderWidth = 0.1
-        neutralizationRoundButton.addTarget(self, action: #selector(didTapNButton), for: .touchUpInside)
+        neutralizationRoundButton.addTarget(self, action: #selector(didTapNeutralizationButton), for: .touchUpInside)
         neutralizationRoundButton.borderColor = .battleshipGrey
         neutralizationRoundButton.setImage(UIImage(), for: .normal)
         neutralizationButton.setTitleColor(.battleshipGrey, for: .normal)
-        neutralizationButton.addTarget(self, action: #selector(didTapNButton), for: .touchUpInside)
+        neutralizationButton.addTarget(self, action: #selector(didTapNeutralizationButton), for: .touchUpInside)
         
     }
     
@@ -144,7 +152,7 @@ extension RegisterDetailVC {
         
     }
     
-    @objc func didTapNButton(){
+    @objc func didTapNeutralizationButton(){
         if !isNeutralization {
             isNeutralization = true
             neutralizationRoundButton.setImage(UIImage(named: "1735"), for: .normal)

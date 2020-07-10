@@ -8,12 +8,17 @@
 
 import UIKit
 
-class PostSC:UIView, UITextViewDelegate {
+class PostSC:UIView,UITextViewDelegate {
     
+    @IBOutlet weak var criticTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
-    @IBOutlet weak var productImg: UIImageView!
-    @IBOutlet weak var companyName: UILabel!
-    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productImg: UIImageView! // 제품사진
+    @IBOutlet weak var companyName: UILabel! // 회사명
+    @IBOutlet weak var productName: UILabel! // 제품이름
+    var imageName: String = ""
+    var company: String = ""
+    var product: String = ""
+    
     @IBOutlet weak var scoreBtn1: UIButton!
     @IBOutlet weak var scoreBtn2: UIButton!
     @IBOutlet weak var scoreBtn3: UIButton!
@@ -320,17 +325,27 @@ class PostSC:UIView, UITextViewDelegate {
         self.memoTextView.layer.cornerRadius = 8.0
         
         
+        
         self.eyeTrouble.setTitleColor(.battleshipGrey,for: .normal)
         self.earTrouble.setTitleColor(.battleshipGrey,for: .normal)
         self.furTrouble.setTitleColor(.battleshipGrey, for: .normal)
         self.vomitTrouble.setTitleColor(.battleshipGrey, for: .normal)
         
         memoTextView.delegate = self
+        criticTextField.delegate = self
         
+        initview()
         
         
     }
     
+    private func initview(){
+        
+        productImg.image = UIImage(named: imageName)
+        companyName.text = company
+        productName.text = product
+        
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.rootVC?.view.endEditing(true)
         

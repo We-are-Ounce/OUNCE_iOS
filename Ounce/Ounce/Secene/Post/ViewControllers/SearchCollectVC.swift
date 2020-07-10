@@ -69,6 +69,15 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let reviewView = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as? PostSC else {return}
+        //reviewView.imageName = productInformations[indexPath.row].
+        /*guard let detailViewController = self.storyboard?.instantiateViewController(identifier:
+        "PostVC") as? PostVC else { return }
+        detailViewController. productInformations[indexPath.row].
+        detailViewController. = productInformations[indexPath.row].date
+        detailViewController.subTitle = dateInformations[indexPath.row].subTitle
+        self.present(detailViewController, animated: true, completion: nil)*/
+    }
     
 }

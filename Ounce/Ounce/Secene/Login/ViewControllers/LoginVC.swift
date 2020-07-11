@@ -36,10 +36,11 @@ class LoginVC: UIViewController {
         $0.font = Font.textField
         $0.placeholder = "ID"
         $0.tintColor = .black
+        $0.clearButtonMode = .always
     }
     
     let idTextFieldGuideView = UIView().then {
-        $0.backgroundColor = .brownGreyColor
+        $0.backgroundColor = .pale
     }
     
     let pwGuideLabel = UILabel().then {
@@ -60,17 +61,20 @@ class LoginVC: UIViewController {
         $0.placeholder = "Password"
         $0.isSecureTextEntry = true
         $0.tintColor = .black
+        $0.clearButtonMode = .always
     }
     
     let pwTextFieldGuideView = UIView().then {
-        $0.backgroundColor = .brownGreyColor
+        $0.backgroundColor = .pale
     }
     
     let loginButton = UIButton().then {
-        $0.backgroundColor = .signatureColor
+        $0.backgroundColor = .pale
         $0.setTitle("로그인", for: .normal)
         $0.makeRounded(cornerRadius: 8)
+        $0.titleLabel?.font = Font.guideLabel
         $0.addTarget(self, action: #selector(tapSignInButton), for: .touchUpInside)
+//        $0.isEnabled = false
     }
     
     let findIDButton = UIButton().then {
@@ -113,7 +117,7 @@ class LoginVC: UIViewController {
         
         constraint()
         setNav()
-        
+        setTextField()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -125,7 +129,10 @@ class LoginVC: UIViewController {
 extension LoginVC {
     
     func setNav(){
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                           style: .plain,
+                                                           target: nil,
+                                                           action: nil)
     }
     
     func setTextField(){
@@ -182,9 +189,11 @@ extension LoginVC {
 extension LoginVC: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if idTextField.text != "" && pwTextField.text != "" {
-            loginButton.isEnabled = true
+//            loginButton.isEnabled = true
+//            loginButton.backgroundColor = .signatureColor
         } else {
-            
+//            loginButton.isEnabled = false
+//            loginButton.backgroundColor = .blackTwo
         }
     }
 }

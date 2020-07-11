@@ -13,6 +13,8 @@ class SearchCollectCell: UICollectionViewCell{
     
     static let identfier = "productCell"
     
+    var rootVC: UIViewController?
+    
    
     
     @IBOutlet weak var productImageView: UIImageView!
@@ -24,6 +26,9 @@ class SearchCollectCell: UICollectionViewCell{
         productName.text = productInfo.itemName
         manufacturerName.text = productInfo.companyName
     }
+    
+    
+    
     
     
 }

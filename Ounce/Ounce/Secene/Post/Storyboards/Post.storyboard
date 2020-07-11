@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNA-Lc-VPq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="1018"/>
+            <point key="canvasLocation" x="681" y="1017"/>
         </scene>
         <!--PostVC-->
         <scene sceneID="fkc-jq-cl7">
@@ -250,7 +250,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gGt-uB-6Dn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Y87-cc-1rY"/>
+                    <navigationItem key="navigationItem" id="v0m-1M-MSs"/>
                     <connections>
                         <outlet property="addScrollView" destination="eZK-Gb-amn" id="enZ-OK-O2H"/>
                         <outlet property="backgroundView" destination="075-mp-ucQ" id="3Ho-4C-E31"/>
@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSh-Ld-1fD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015" y="1017"/>
+            <point key="canvasLocation" x="1418" y="1017"/>
         </scene>
         <!--Post NavVC-->
         <scene sceneID="x9q-97-I4o">

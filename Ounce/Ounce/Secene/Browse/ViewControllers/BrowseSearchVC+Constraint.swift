@@ -21,6 +21,7 @@ extension BrowseSearchVC {
         view.addSubview(searchTextField)
         view.addSubview(backButton)
         
+        
         highlightView.backgroundColor = .signatureColor
         
         tabCV.delegate = self

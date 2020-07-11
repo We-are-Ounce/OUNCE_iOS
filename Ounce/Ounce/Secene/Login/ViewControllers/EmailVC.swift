@@ -22,6 +22,7 @@ class EmailVC: UIViewController {
     let emailGuideLabel = UILabel().then{
         $0.font = Font.dateLabel
         $0.text = "이메일"
+        $0.textColor = .dark
     }
     
     let emailTextField = UITextField().then{
@@ -31,30 +32,31 @@ class EmailVC: UIViewController {
     }
     
     let emailUnderBarView = UIView().then{
-        $0.backgroundColor = .brownGreyColor
+        $0.backgroundColor = .pale
     }
     
     let emailErrorGuiedLabel = UILabel().then{
         $0.font = Font.errorLabel
         $0.alpha = 0
         $0.text = "올바른 이메일을 입력해주세요."
-        $0.textColor = .pinkishColor
+        $0.textColor = .darkPeach
     }
     
     let emailCertificationButton = UIButton().then{
-        $0.backgroundColor = .veryLightPink
+        $0.backgroundColor = .darkPeach
         $0.makeRounded(cornerRadius: 8)
         $0.setTitle("인증", for: .normal)
         $0.titleLabel?.font = Font.buttonLabel
         $0.tintColor = .white
         $0.addTarget(self,
-        action: #selector(tapEmailCertificationButton),
-        for: .touchUpInside)
+                     action: #selector(tapEmailCertificationButton),
+                     for: .touchUpInside)
     }
     
     let certificationGuideLabel = UILabel().then{
         $0.font = Font.dateLabel
         $0.text = "인증번호"
+        $0.textColor = .dark
     }
     
     let certificationTextField = UITextField().then{
@@ -63,21 +65,23 @@ class EmailVC: UIViewController {
     }
     
     let certificationUnderBarView = UIView().then{
-        $0.backgroundColor = .brownGreyColor
+        $0.backgroundColor = .pale
     }
     
     let certificationErrorGuideLabel = UILabel().then{
         $0.font = Font.errorLabel
         $0.text = "인증번호가 다릅니다."
-        $0.textColor = .pinkishColor
+        $0.textColor = .darkPeach
         $0.alpha = 0
     }
     
     let certificationButton = UIButton().then{
-        $0.backgroundColor = .veryLightPink
+        $0.backgroundColor = .pale
         $0.makeRounded(cornerRadius: 8)
         $0.setTitle("확인", for: .normal)
         $0.titleLabel?.font = Font.buttonLabel
+        $0.setTitleColor(.putty, for: .normal)
+        $0.addTarget(self, action: #selector(tapCertificationButton), for: .touchUpInside)
     }
         
     lazy var rightButton: UIBarButtonItem = {
@@ -85,7 +89,6 @@ class EmailVC: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(tapNextButton))
-        
         return button
         
     }()
@@ -110,20 +113,7 @@ class EmailVC: UIViewController {
         super.viewWillAppear(true)
         
     }
-    
-    
-    
-    func setTextField(){
-        emailTextField.delegate = self
-        certificationTextField.delegate = self
-        emailTextField.addTarget(self,
-                                 action: #selector(EmailVC.textFieldDidChange(_:)),
-                                 for: .editingChanged)
-        certificationTextField.addTarget(self,
-                                         action: #selector(EmailVC.textFieldDidChange(_:)),
-                                         for: .editingChanged)
-    }
-    
+        
 }
 
 extension EmailVC {
@@ -136,6 +126,17 @@ extension EmailVC {
 //        rightButton.isEnabled = false
     }
     
+    func setTextField(){
+        emailTextField.delegate = self
+        certificationTextField.delegate = self
+        emailTextField.addTarget(self,
+                                 action: #selector(EmailVC.textFieldDidChange(_:)),
+                                 for: .editingChanged)
+        certificationTextField.addTarget(self,
+                                         action: #selector(EmailVC.textFieldDidChange(_:)),
+                                         for: .editingChanged)
+    }
+
     @objc func tapNextButton() {
         let vc = UIStoryboard.init(name: "Login",
                                    bundle: Bundle.main).instantiateViewController(
@@ -152,11 +153,11 @@ extension EmailVC {
     }
     
     @objc func tapCertificationButton(){
-        
+        print(#function)
     }
     
     func setLabel(){
-        let attrString = NSMutableAttributedString(string: "회원가입을 위한 \n정보를 입력해주세요")
+        let attrString = NSMutableAttributedString(string: "회원가입을 위한 \n이메일을 입력해주세요")
         attrString.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
                                 value: Font.signUpBigGuideLabel as Any, range: NSMakeRange(0, 4))
         guideLabel.attributedText = attrString
@@ -164,8 +165,8 @@ extension EmailVC {
     }
     
     func setButton() {
-        emailCertificationButton.isEnabled = false
-        certificationButton.isEnabled = false
+//        emailCertificationButton.isEnabled = false
+//        certificationButton.isEnabled = false
     }
     
 }

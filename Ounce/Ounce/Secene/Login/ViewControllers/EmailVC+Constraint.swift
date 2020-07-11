@@ -29,7 +29,7 @@ extension EmailVC {
         guideLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(88)
             make.leading.equalToSuperview().offset(16)
-            make.width.equalTo(210)
+            make.trailing.equalToSuperview()
             make.height.equalTo(80)
         }
         
@@ -55,7 +55,7 @@ extension EmailVC {
         }
         
         emailErrorGuiedLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(emailUnderBarView.snp.bottom).offset(5)
+            make.top.equalTo(emailUnderBarView.snp.bottom).offset(3)
             make.leading.equalToSuperview().offset(22)
             make.width.equalTo(210)
             make.height.equalTo(18)
@@ -89,10 +89,10 @@ extension EmailVC {
         }
 
         certificationErrorGuideLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(certificationUnderBarView.snp.bottom).offset(5)
-            make.leading.equalToSuperview().offset(16)
+            make.top.equalTo(certificationUnderBarView.snp.bottom).offset(3)
+            make.leading.equalToSuperview().offset(22)
             make.width.equalTo(210)
-            make.height.equalTo(71)
+            make.height.equalTo(18)
         }
         
         certificationButton.snp.makeConstraints { (make) in

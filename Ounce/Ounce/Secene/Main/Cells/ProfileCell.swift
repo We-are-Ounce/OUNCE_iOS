@@ -8,8 +8,15 @@
 
 import UIKit
 
-class ProfileCell: UITableViewCell {
-
+class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAdaptivePresentationControllerDelegate {
+    
+    static let identfier = "ProfileCell"
+    
+    var  rootVC: UIViewController?
+       
+    @IBOutlet weak var settingButton: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +28,24 @@ class ProfileCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func settingBtn(_ sender: Any) {
+        
+        print(#function)
+
+        let MainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+        let dvc = MainStoryBoard.instantiateViewController(identifier: "SettingVC") as! SettingVC
+
+        dvc.transitioningDelegate = self
+        
+//
+        
+//        self.rootVC.push(dvc, animated: true)
+        
+        //  dvc.view.alpha = 0.5
+              
+               
+    
+        
+    }
 }

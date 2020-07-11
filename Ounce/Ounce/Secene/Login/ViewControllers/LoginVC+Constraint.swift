@@ -38,16 +38,16 @@ extension LoginVC {
         }
         
         idErrorGuideLabel.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview()
-            make.top.equalToSuperview()
+            make.leading.equalTo(idTextField.snp.leading)
+            make.top.equalTo(idTextFieldGuideView.snp.bottom)
             make.width.equalToSuperview()
             make.height.equalTo(27.5)
         }
         
         idTextField.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(22)
             make.top.equalTo(idGuideLabel.snp.bottom).offset(7)
-            make.width.equalTo(self.view.frame.width / 3 * 2)
+            make.trailing.equalToSuperview().offset(-22)
             make.height.equalTo(24)
         }
         
@@ -66,30 +66,30 @@ extension LoginVC {
         }
         
         pwErrorGuideLabel.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview()
-            make.top.equalToSuperview()
+            make.leading.equalTo(idTextField.snp.leading)
+            make.top.equalTo(pwTextFieldGuideView.snp.bottom)
             make.width.equalToSuperview()
             make.height.equalTo(27.5)
         }
         
         pwTextField.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(22)
             make.top.equalTo(pwGuideLabel.snp.bottom).offset(7)
-            make.width.equalTo(self.view.frame.width / 3 * 2)
+            make.trailing.equalToSuperview().offset(-22)
             make.height.equalTo(24)
         }
         
         pwTextFieldGuideView.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.top.equalTo(pwTextField.snp.bottom).offset(8)
+            make.bottom.equalTo(pwTextField.snp.bottom).offset(8)
             make.height.equalTo(1)
         }
         
         loginButton.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.top.equalTo(pwTextFieldGuideView.snp.bottom).offset(41)
+            make.centerY.equalTo(view.snp.centerY).offset(80)
             make.height.equalTo(48)
         }
         

@@ -21,7 +21,6 @@ extension BrowseSearchVC {
         view.addSubview(searchTextField)
         view.addSubview(backButton)
         
-        
         highlightView.backgroundColor = .signatureColor
         
         tabCV.delegate = self
@@ -31,7 +30,7 @@ extension BrowseSearchVC {
         
         searchView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
-            make.leading.equalToSuperview().offset(16)
+            make.leading.equalTo(backButton.snp.trailing).offset(15)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(44)
         }
@@ -64,11 +63,17 @@ extension BrowseSearchVC {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
         
-        
         highlightView.snp.makeConstraints { (make) in
             make.top.equalTo(tabCV.snp.bottom).offset(-3)
             make.width.equalTo(self.view.frame.width / 2)
             make.height.equalTo(3)
+        }
+        
+        backButton.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.leading.equalToSuperview().offset(16)
+            make.height.equalTo(29)
+            make.width.equalTo(18)
         }
     }
 }

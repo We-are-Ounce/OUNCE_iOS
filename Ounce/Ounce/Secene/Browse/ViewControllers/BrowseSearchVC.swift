@@ -43,6 +43,8 @@ class BrowseSearchVC: UIViewController {
     let userTV = UITableView()
     let backButton = UIButton().then {
         $0.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
+        $0.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        $0.tintColor = .black
     }
 //    let productTV = UITableView(frame: CGRect.init(), style: .grouped).then{
 //        $0.backgroundView?.backgroundColor = .white
@@ -68,10 +70,6 @@ class BrowseSearchVC: UIViewController {
         super.viewDidLoad()
         
         constraint()
-        self.navigationController?.navigationBar.topItem?.title = "둘러보기"
-        self.navigationController?.navigationBar.backItem?.backBarButtonItem =
-            .init(title: "", style: .plain, target: self, action: nil)
-
     }
     
 }
@@ -82,8 +80,10 @@ extension BrowseSearchVC {
     }
     
     @objc func didTapBackButton(){
-        print(#function)
+        navigationController?.popViewController(animated: true)
     }
+    
+    
 }
 
 extension BrowseSearchVC: UIScrollViewDelegate {

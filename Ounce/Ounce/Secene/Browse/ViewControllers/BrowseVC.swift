@@ -28,14 +28,15 @@ class BrowseVC: UIViewController {
     let searchField = UITextField().then {
         $0.text = ""
         $0.placeholder = "검색어를 입력해주세요."
-        $0.textColor = .black
+        $0.textColor = .veryLightPinkFive
         $0.textAlignment = .left
-        $0.font = UIFont.systemFont(ofSize: 14)
+        $0.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
     }
     
     let searchView = UIView().then {
         
-        $0.backgroundColor = UIColor.init(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+        $0.backgroundColor = .whiteThree
+        $0.cornerRadius = 8
     }
     
     let searchImg = UIImageView().then {
@@ -44,7 +45,7 @@ class BrowseVC: UIViewController {
     }
     
     let guideNameLabel = UILabel().then{
-        $0.font = UIFont.systemFont(ofSize: 33.0, weight: UIFont.Weight.light)
+        $0.font = UIFont.systemFont(ofSize: 24.0, weight: UIFont.Weight.light)
         
         
         let attributedStr = NSMutableAttributedString(string: "")
@@ -56,8 +57,8 @@ class BrowseVC: UIViewController {
         $0.frame = .init(x: 0, y: 0, width: 100, height: 10)
         $0.numberOfPages = 5
         $0.radius = 4
-        $0.tintColor = .red
-        $0.currentPageTintColor = .green
+        $0.tintColor = .veryLightPinkTwo
+        $0.currentPageTintColor = .pinkishTan
         $0.padding = 6
     }
     
@@ -179,7 +180,7 @@ class BrowseVC: UIViewController {
         let attributedStr = NSMutableAttributedString(string: userCatName2 + "\n입맛이 비슷해요.")
         
         attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
-                                   value: UIFont.systemFont(ofSize: 33,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count))
+                                   value: UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count))
         
         
         guideNameLabel.attributedText = attributedStr

@@ -24,7 +24,7 @@ extension IDVC {
         guideLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(88)
             make.leading.equalToSuperview().offset(116)
-            make.width.equalTo(210)
+            make.trailing.equalToSuperview()
             make.height.equalTo(80)
         }
         
@@ -38,7 +38,7 @@ extension IDVC {
         idTextField.snp.makeConstraints { (make) in
             make.top.equalTo(idGuideLabel.snp.bottom).offset(8)
             make.leading.equalTo(guideLabel.snp.leading).offset(6)
-            make.width.equalTo(210)
+            make.trailing.equalTo(idUnderBarView.snp.trailing)
             make.height.equalTo(24)
         }
         
@@ -50,8 +50,8 @@ extension IDVC {
         }
         
         idErrorGuiedLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(idErrorGuiedLabel.snp.bottom).offset(5)
-            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(idUnderBarView.snp.bottom).offset(3)
+            make.leading.equalToSuperview().offset(22)
             make.width.equalTo(210)
             make.height.equalTo(18)
         }

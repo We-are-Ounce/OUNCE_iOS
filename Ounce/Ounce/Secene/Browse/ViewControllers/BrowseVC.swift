@@ -45,7 +45,7 @@ class BrowseVC: UIViewController {
     
     let guideNameLabel = UILabel().then{
         $0.font = UIFont.systemFont(ofSize: 33.0, weight: UIFont.Weight.light)
-            
+        
         
         let attributedStr = NSMutableAttributedString(string: "")
     }
@@ -60,9 +60,9 @@ class BrowseVC: UIViewController {
         $0.currentPageTintColor = .green
         $0.padding = 6
     }
-
+    
     var colors : [UIColor] = [.white, .white, .white, .white, .white]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addCollectionView()
@@ -71,17 +71,21 @@ class BrowseVC: UIViewController {
         self.setNameLabel()
         //self.collectionView?.backgroundColor = .brownGreyColor
         self.collectionView?.showsHorizontalScrollIndicator = false
-        
+        searchField.delegate = self
     }
     
     func setupLayout(){
-        
+//        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.topItem?.title = "둘러보기"
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
         self.view.addSubview(searchView)
         self.searchView.addSubview(searchField)
         self.searchView.addSubview(searchImg)
         self.view.addSubview(guideNameLabel)
         self.view.addSubview(pageControl)
-
+        
         
         searchImg.snp.makeConstraints { (make) in
             make.leading.equalTo(searchView.snp.leading).inset(11)
@@ -118,15 +122,15 @@ class BrowseVC: UIViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(50)
         }
         
-               
         
-       
+        
+        
     }
     
     // MARK: - collectiovView 조정
     
     func setupCollectionLayout(){
-    
+        
         //let pointEstimator = RelativeLayoutUtilityClass(referenceFrameSize: self.view.frame.size)
         
         self.collectionView?.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -147,11 +151,11 @@ class BrowseVC: UIViewController {
         let unicodeVal = UnicodeScalar(String(lastText))?.value // 유니코드 전환
         
         guard let value = unicodeVal else { return name }
-
+        
         if (value < 0xAC00 || value > 0xD7A3) { return name }   // 한글아니면 반환
-
+        
         let last = (value - 0xAC00) % 28                        // 종성인지 확인
-
+        
         let str = last > 0 ? "이와" : "와"      // 받침있으면 과 없으면 와 반환
         
         return name + str
@@ -172,7 +176,7 @@ class BrowseVC: UIViewController {
         
         
         let attributedStr = NSMutableAttributedString(string: userCatName2 + "\n입맛이 비슷해요.")
-    
+        
         attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
                                    value: UIFont.systemFont(ofSize: 33,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count))
         
@@ -184,9 +188,9 @@ class BrowseVC: UIViewController {
     // MARK: - contentView size 조정
     
     func addCollectionView(){
-
-//        let pointEstimator = RelativeLayoutUtilityClass(referenceFrameSize: self.view.frame.size)
-
+        
+        //        let pointEstimator = RelativeLayoutUtilityClass(referenceFrameSize: self.view.frame.size)
+        
         
         let layout = UpCarouselFlowLayout()
         
@@ -194,7 +198,7 @@ class BrowseVC: UIViewController {
         
         layout.scrollDirection = .horizontal
         
-
+        
         // MARK: - Collection view initialization, the collectionView must be
         // MARK: - initialized with a layout object.
         
@@ -204,7 +208,7 @@ class BrowseVC: UIViewController {
         
         self.collectionView?.translatesAutoresizingMaskIntoConstraints = false
         
-
+        
         
         // MARK: - CollectionView delegates and dataSource:
         
@@ -214,90 +218,81 @@ class BrowseVC: UIViewController {
         // MARK: - Registering the class for the collection view cells
         
         self.collectionView?.register(BrowseCVCell.self, forCellWithReuseIdentifier: "cellId")
-
+        
         // Spacing between cells:
         let spacingLayout = self.collectionView?.collectionViewLayout as! UpCarouselFlowLayout
         spacingLayout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 60)
-
+        
         self.collectionView?.backgroundColor = UIColor.white
         self.view.addSubview(self.collectionView!)
     }
-
-    // MARK: - Card Collection Delegate & DataSource
-
     
-    // MARK: - UIScrollViewDelegate
-
-    
-    
-    
-    
-    
-    
-
 }
 
 class RelativeLayoutUtilityClass {
-
+    
     var heightFrame: CGFloat?
     var widthFrame: CGFloat?
-
+    
     init(referenceFrameSize: CGSize){
         heightFrame = referenceFrameSize.height
         widthFrame = referenceFrameSize.width
     }
-
+    
     func relativeHeight(multiplier: CGFloat) -> CGFloat{
-
+        
         return multiplier * self.heightFrame!
     }
-
+    
     func relativeWidth(multiplier: CGFloat) -> CGFloat{
         return multiplier * self.widthFrame!
-
+        
     }
-
-
+    
+    
 }
 
 extension BrowseVC: UIScrollViewDelegate {
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let layout = self.collectionView?.collectionViewLayout as! UpCarouselFlowLayout
         let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
         let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
         currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
         
-       self.pageControl.set(progress: currentPage, animated: true)
+        self.pageControl.set(progress: currentPage, animated: true)
     }
-
-}
-
-extension BrowseVC: UICollectionViewDelegate {
-    
     
 }
 
-
+extension BrowseVC: UICollectionViewDelegate { }
 extension BrowseVC: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! BrowseCVCell
-
+        
         cell.customView.backgroundColor = colors[indexPath.row]
         return cell
     }
 }
 
-
-
-
-
+extension BrowseVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == searchField {
+            view.endEditing(true)
+            let sb = UIStoryboard(name: "Browse", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "BrowseSearchVC") as! BrowseSearchVC
+            
+            vc.navigationItem.backBarButtonItem?.title = ""
+            
+            self.navigationController?.pushViewController(vc,animated: true)
+        }
+    }
+}

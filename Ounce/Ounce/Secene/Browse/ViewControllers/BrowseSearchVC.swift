@@ -55,8 +55,8 @@ class BrowseSearchVC: UIViewController {
         $0.setImage(UIImage(named: "icSearch"), for: .normal)
     }
     
-    var userInfo: [String] = ["","",""]
-    var productInfo: [String] = ["","",""]
+    var userInfo: [String] = ["","","","","","","","","","","","","","",""]
+    var productInfo: [String] = ["","","","","","","","","","","","","","",""]
     var direction: CGFloat?
     var constraints: [NSLayoutConstraint] = []
     
@@ -64,6 +64,10 @@ class BrowseSearchVC: UIViewController {
         super.viewDidLoad()
         
         constraint()
+        self.navigationController?.navigationBar.topItem?.title = "둘러보기"
+        self.navigationController?.navigationBar.backItem?.backBarButtonItem =
+            .init(title: "", style: .plain, target: self, action: nil)
+
     }
     
 }

@@ -16,30 +16,33 @@ class IDVC: UIViewController {
     
     let guideLabel = UILabel().then{
         $0.font = Font.signUpSmallGuideLabel
-        $0.alpha = 0
+        $0.alpha = 1
     }
     
     let idGuideLabel = UILabel().then{
         $0.font = Font.dateLabel
         $0.text = "아이디"
-        $0.alpha = 0
+        $0.alpha = 1
     }
     
     let idTextField = UITextField().then{
         $0.font = Font.dateLabel
         $0.placeholder = "5자리 이상 입력해주세요."
-        $0.alpha = 0
+        $0.alpha = 1
+        $0.clearButtonMode = .always
+        $0.returnKeyType = .next
+        $0.tintColor = .black
     }
     
     let idUnderBarView = UIView().then {
-        $0.backgroundColor = .signatureColor
-        $0.alpha = 0
+        $0.backgroundColor = .pale
+        $0.alpha = 1
     }
     
     let idErrorGuiedLabel = UILabel().then{
         $0.font = Font.errorLabel
         $0.alpha = 0
-        $0.textColor = .pinkishColor
+        $0.textColor = .darkPeach
         $0.text = "5자리 이상 입력해주세요."
     }
     
@@ -66,23 +69,13 @@ class IDVC: UIViewController {
         setLabel()
         constraint()
         setNav()
-//        addKeyboardNotification()
-//        pageControl.set(progress: 1, animated: true)
+        setTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewAnimate()
     }
-    
-    func setLabel(){
-        let attrString = NSMutableAttributedString(string: "회원가입을 위한 \n정보를 입력해주세요")
-        attrString.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
-                                value: Font.signUpBigGuideLabel as Any, range: NSMakeRange(0, 4))
-        guideLabel.attributedText = attrString
-        guideLabel.numberOfLines = 2
-    }
-    
     
 }
 
@@ -94,6 +87,19 @@ extension IDVC {
                                                            action: nil)
         navigationItem.rightBarButtonItem = rightButton
     }
+    
+    func setTextField(){
+        idTextField.delegate = self
+        idTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+
+    func setLabel(){
+        let attrString = NSMutableAttributedString(string: "회원가입을 위한 \n아이디를 입력해주세요")
+        attrString.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
+                                value: Font.signUpBigGuideLabel as Any, range: NSMakeRange(0, 4))
+        guideLabel.attributedText = attrString
+        guideLabel.numberOfLines = 2
+    }
 
     @objc func tapNextButton() {
         let vc = UIStoryboard.init(name: "Login",
@@ -104,6 +110,18 @@ extension IDVC {
         vc?.id = idTextField.text
         
         self.navigationController?.pushViewController(vc!, animated: false)
+    }
+}
+
+extension IDVC: UITextFieldDelegate {
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if idTextField.text?.count ?? 0 > 5 {
+            idUnderBarView.backgroundColor = .pale
+            idErrorGuiedLabel.alpha = 0
+        } else {
+            idUnderBarView.backgroundColor = .darkPeach
+            idErrorGuiedLabel.alpha = 1
+        }
     }
 }
 
@@ -130,69 +148,4 @@ extension IDVC {
         })
 
     }
-    
-//    func isEditing(_ keyboardHeight: CGFloat) {
-//        UIView.animate(withDuration: 0.5,
-//                       delay: 0,
-//                       options: [.curveEaseIn],
-//                       animations: {
-//                        self.nextButton.transform = CGAffineTransform.init(translationX: 0, y: -keyboardHeight)
-//        }, completion: nil)
-//    }
-//
-//    func endEditing() {
-//        UIView.animate(withDuration: 0.5,
-//                       delay: 0,
-//                       options: [.curveEaseIn],
-//                       animations: {
-//                        self.guideLabel.alpha = 1
-//
-//                        self.nextButton.transform = .identity
-//        }, completion: nil)
-//    }
 }
-
-//extension IDVC {
-//    func addKeyboardNotification() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//    }
-//
-//    @objc private func keyboardWillShow(_ notification: Notification)  {
-//        if let info = notification.userInfo {
-//            let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-//            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-//            let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-//            let keyboardHeight = keyboardFrame.height
-//            let keyWindow = UIApplication.shared.connectedScenes
-//                .filter({$0.activationState == .foregroundActive})
-//                .map({$0 as? UIWindowScene})
-//                .compactMap({$0})
-//                .first?.windows
-//                .filter({$0.isKeyWindow}).first
-//            let bottomPadding = keyWindow?.safeAreaInsets.bottom
-//
-//            isEditing((keyboardHeight - (bottomPadding ?? 0)))
-//
-//            self.view.setNeedsLayout()
-//            UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
-//                self.view.layoutIfNeeded()
-//            })
-//        }
-//    }
-//
-//    @objc private func keyboardWillHide(_ notification: Notification) {
-//        if let info = notification.userInfo {
-//            let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-//            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-//
-//            endEditing()
-//
-//            self.view.setNeedsLayout()
-//            UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
-//                self.view.layoutIfNeeded()
-//            })
-//        }
-//    }
-//
-//}

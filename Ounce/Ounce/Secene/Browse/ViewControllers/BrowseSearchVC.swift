@@ -41,9 +41,13 @@ class BrowseSearchVC: UIViewController {
     let headerView = UIView()
     let highlightView = UIView()
     let userTV = UITableView()
-    let productTV = UITableView(frame: CGRect.init(), style: .grouped).then{
-        $0.backgroundView?.backgroundColor = .white
+    let backButton = UIButton().then {
+        $0.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
     }
+//    let productTV = UITableView(frame: CGRect.init(), style: .grouped).then{
+//        $0.backgroundView?.backgroundColor = .white
+//    }
+    let productTV = UITableView()
     let searchView = UIView().then {
         $0.backgroundColor = .whiteThree
         $0.setRounded(radius: 8)
@@ -74,6 +78,10 @@ class BrowseSearchVC: UIViewController {
 
 extension BrowseSearchVC {
     @objc func didTapSortButton(){
+        print(#function)
+    }
+    
+    @objc func didTapBackButton(){
         print(#function)
     }
 }

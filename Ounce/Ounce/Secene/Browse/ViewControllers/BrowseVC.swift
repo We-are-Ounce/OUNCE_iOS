@@ -79,7 +79,8 @@ class BrowseVC: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = "둘러보기"
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         self.view.addSubview(searchView)
         self.searchView.addSubview(searchField)
         self.searchView.addSubview(searchImg)

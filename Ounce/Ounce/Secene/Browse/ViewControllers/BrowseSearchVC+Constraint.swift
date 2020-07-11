@@ -13,12 +13,13 @@ import SnapKit
 
 extension BrowseSearchVC {
     func constraint() {
-        self.view.addSubview(tabCV)
-        self.view.addSubview(pageCV)
-        self.view.addSubview(highlightView)
-        self.view.addSubview(searchView)
-        self.view.addSubview(searchButton)
-        self.view.addSubview(searchTextField)
+        view.addSubview(tabCV)
+        view.addSubview(pageCV)
+        view.addSubview(highlightView)
+        view.addSubview(searchView)
+        view.addSubview(searchButton)
+        view.addSubview(searchTextField)
+        view.addSubview(backButton)
         
         highlightView.backgroundColor = .signatureColor
         

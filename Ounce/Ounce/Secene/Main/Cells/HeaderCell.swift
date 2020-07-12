@@ -8,16 +8,17 @@
 
 import UIKit
 
-class HeaderCell: UITableViewCell, UIViewControllerTransitioningDelegate {
+class HeaderCell: UITableViewCell {
     
     static let identifier: String = "HeaderCell"
     
     var  rootVC: UIViewController?
     
-    var transparentView = UIView()
-    var tableView = UITableView()
+//    var transparentView = UIView()
     
-    let height : CGFloat = 200
+//    var tableView = UITableView()
+//
+//    let height : CGFloat = 200
     
     
     @IBOutlet weak var reviewLabel: UILabel!
@@ -44,7 +45,7 @@ class HeaderCell: UITableViewCell, UIViewControllerTransitioningDelegate {
         
         let dvc = sb.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
         
-        dvc.modalPresentationStyle = .overCurrentContext
+        dvc.modalPresentationStyle = .overFullScreen
         
         self.rootVC?.present(dvc, animated: false)
         
@@ -59,7 +60,7 @@ class HeaderCell: UITableViewCell, UIViewControllerTransitioningDelegate {
         
         let dvc = sb.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
         
-        dvc.modalPresentationStyle = .overCurrentContext
+        dvc.modalPresentationStyle = .overFullScreen
         
         self.rootVC?.present(dvc, animated: false)
         

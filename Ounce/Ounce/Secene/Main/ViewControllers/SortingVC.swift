@@ -9,20 +9,17 @@
 import UIKit
 
 class SortingVC: UIViewController {
-
+    
     @IBOutlet var backView: UIView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var touchView: UIView!
-    @IBOutlet weak var sortingTV: UITableView!
-
-
+    @IBOutlet weak var popView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         backView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         
         self.backgroundDismiss()
-
+        
     }
     
     func backgroundDismiss(){
@@ -35,5 +32,5 @@ class SortingVC: UIViewController {
         
     }
     
-
+    
 }

@@ -85,6 +85,9 @@
 		7FD5B92324B59E03008D382F /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5B92124B59E03008D382F /* HeaderCell.xib */; };
 		7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA4D24BA2481004CD853 /* SettingVC.swift */; };
 		7FE5EA5C24BA8089004CD853 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA5B24BA8089004CD853 /* CustomTableViewCell.swift */; };
+		7FE5EA6024BA8B25004CD853 /* SecondSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */; };
+		7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */; };
+		7FE5EA6424BA8B52004CD853 /* ThirdSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6324BA8B52004CD853 /* ThirdSettingTC.swift */; };
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
 		F2940AD624B2548D003C3047 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2940AD524B2548D003C3047 /* SearchVC.swift */; };
@@ -180,6 +183,9 @@
 		7FD5B92124B59E03008D382F /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		7FE5EA4D24BA2481004CD853 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		7FE5EA5B24BA8089004CD853 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSettingTC.swift; sourceTree = "<group>"; };
+		7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSettingTC.swift; sourceTree = "<group>"; };
+		7FE5EA6324BA8B52004CD853 /* ThirdSettingTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSettingTC.swift; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F248FD3E24B4727A0055D753 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F2940AD524B2548D003C3047 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -457,6 +463,9 @@
 				7FD5B92124B59E03008D382F /* HeaderCell.xib */,
 				7F7CE9C424B9000F00CB2476 /* SortingCell.swift */,
 				7FE5EA5B24BA8089004CD853 /* CustomTableViewCell.swift */,
+				7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */,
+				7FE5EA6324BA8B52004CD853 /* ThirdSettingTC.swift */,
+				7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -793,6 +802,7 @@
 				5E039CAB24AFFDA0009B1BC6 /* PasswordVC.swift in Sources */,
 				5E69E89124AC6769005D4DC1 /* ReferenceCVCell.swift in Sources */,
 				7F7CE9BF24B7668000CB2476 /* FilterVC.swift in Sources */,
+				7FE5EA6424BA8B52004CD853 /* ThirdSettingTC.swift in Sources */,
 				5E48BF2224B1D7BB0060EA7B /* PostVC.swift in Sources */,
 				5E35795C24AE391500043066 /* UITabBar+Extension.swift in Sources */,
 				5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */,
@@ -819,6 +829,7 @@
 				5E48BF2724B1D7DA0060EA7B /* PostCVCell.swift in Sources */,
 				F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */,
 				7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */,
+				7FE5EA6024BA8B25004CD853 /* SecondSettingTC.swift in Sources */,
 				5E5C668724B5AF4C007C35E6 /* RegisterNavVC.swift in Sources */,
 				7F7CE9C124B898E100CB2476 /* SortingVC.swift in Sources */,
 				5E039CAF24AFFDBE009B1BC6 /* IDVC.swift in Sources */,
@@ -834,6 +845,7 @@
 				5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */,
 				7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */,
 				5E48BF1A24B1D7750060EA7B /* BrowseVC.swift in Sources */,
+				7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */,
 				F29B7CCA24B364D00042089B /* PostNavVC.swift in Sources */,
 				7FD5B91F24B59DCA008D382F /* ProfileCell.swift in Sources */,
 				F2940AD624B2548D003C3047 /* SearchVC.swift in Sources */,

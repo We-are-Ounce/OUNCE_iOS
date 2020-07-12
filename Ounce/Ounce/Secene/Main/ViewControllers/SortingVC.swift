@@ -10,14 +10,30 @@ import UIKit
 
 class SortingVC: UIViewController {
 
+    @IBOutlet var backView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var touchView: UIView!
     @IBOutlet weak var sortingTV: UITableView!
 
 
     override func viewDidLoad() {
-         super.viewDidLoad()
+        super.viewDidLoad()
+        
+        backView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        
+        self.backgroundDismiss()
+
+    }
+    
+    func backgroundDismiss(){
+        backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.backgroundTap(_:))))
+    }
+    
+    
+    @IBAction func backgroundTap(_ sender: UITapGestureRecognizer){
+        self.dismiss(animated: false, completion: nil)
         
     }
+    
 
 }

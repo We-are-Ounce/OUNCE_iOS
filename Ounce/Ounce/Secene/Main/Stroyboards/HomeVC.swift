@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeVC: UIViewController {
-    
+        
     @IBOutlet weak var reviewTV: UITableView!
     
     var stringList = ["주연", "주연","주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ]
@@ -37,6 +37,7 @@ class HomeVC: UIViewController {
         //self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.setupLayout()
+//        self.backgroundDismiss()
         
         
 
@@ -47,6 +48,7 @@ class HomeVC: UIViewController {
 
 }
     
+
 }
 
 

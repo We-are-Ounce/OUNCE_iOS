@@ -40,23 +40,17 @@ class HeaderCell: UITableViewCell, UIViewControllerTransitioningDelegate {
     
     @IBAction func clickSorting(_ sender: UIButton) {
         
-        print(#function)
+        let sb = UIStoryboard(name: "Main", bundle: nil)
         
-         let MainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let dvc = sb.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
         
-              let dvc = MainStoryBoard.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
-   
-        dvc.definesPresentationContext = true
-        dvc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        dvc.transitioningDelegate = self
+        dvc.modalPresentationStyle = .overCurrentContext
         
-        dvc.view.backgroundColor = UIColor.darkGray
+        self.rootVC?.present(dvc, animated: false)
         
-      self.rootVC?.present(dvc, animated: true, completion: nil)
+    }
         
-        self.rootVC?.preferredContentSize = CGSize(width: 375, height: 200)
-        }
-    
+       
     
   
     @IBAction func clickFilter(_ sender: UIButton) {

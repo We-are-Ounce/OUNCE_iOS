@@ -32,6 +32,7 @@ class SettingVC: UIViewController, UIAdaptivePresentationControllerDelegate {
         
        
     }
+ 
     
 }
 

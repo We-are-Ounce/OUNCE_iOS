@@ -84,7 +84,6 @@
 		7FD5B92224B59E03008D382F /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B92024B59E03008D382F /* HeaderCell.swift */; };
 		7FD5B92324B59E03008D382F /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5B92124B59E03008D382F /* HeaderCell.xib */; };
 		7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA4D24BA2481004CD853 /* SettingVC.swift */; };
-		7FE5EA5C24BA8089004CD853 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA5B24BA8089004CD853 /* CustomTableViewCell.swift */; };
 		7FE5EA6024BA8B25004CD853 /* SecondSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */; };
 		7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */; };
 		7FE5EA6424BA8B52004CD853 /* ThirdSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6324BA8B52004CD853 /* ThirdSettingTC.swift */; };
@@ -182,7 +181,6 @@
 		7FD5B92024B59E03008D382F /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		7FD5B92124B59E03008D382F /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		7FE5EA4D24BA2481004CD853 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
-		7FE5EA5B24BA8089004CD853 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSettingTC.swift; sourceTree = "<group>"; };
 		7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSettingTC.swift; sourceTree = "<group>"; };
 		7FE5EA6324BA8B52004CD853 /* ThirdSettingTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSettingTC.swift; sourceTree = "<group>"; };
@@ -462,7 +460,6 @@
 				7FD5B92024B59E03008D382F /* HeaderCell.swift */,
 				7FD5B92124B59E03008D382F /* HeaderCell.xib */,
 				7F7CE9C424B9000F00CB2476 /* SortingCell.swift */,
-				7FE5EA5B24BA8089004CD853 /* CustomTableViewCell.swift */,
 				7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */,
 				7FE5EA6324BA8B52004CD853 /* ThirdSettingTC.swift */,
 				7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */,
@@ -796,7 +793,6 @@
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				773384CA24B792EA00D05E8F /* SocialVC.swift in Sources */,
 				5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */,
-				7FE5EA5C24BA8089004CD853 /* CustomTableViewCell.swift in Sources */,
 				F248FD3F24B4727A0055D753 /* Product.swift in Sources */,
 				5E5A43A024B23DED0017BA29 /* CALayer+Extension.swift in Sources */,
 				5E039CAB24AFFDA0009B1BC6 /* PasswordVC.swift in Sources */,

@@ -49,6 +49,7 @@ class SocialVC: UIViewController {
 //        $0.text = "이겨울"
 //        $0.font = UIFont.systemFont(ofSize: 16)
 //    }
+    
     let scrollView = UIScrollView()
     let contentView = UIView()
     let followerTV = UITableView()
@@ -63,18 +64,8 @@ class SocialVC: UIViewController {
     // view 계층에서 navigation은 아래에 위치하는데, 뷰 위에 왜 있는 지. bar와 item의 차이점
     func setSocialNV(catSocialName: String){
         self.navigationItem.title = catSocialName
-//        let navi2 = self.navigationItem.compactAppearance
-//        let str2 = navi2?.titleTextAttributes
-//
-//        let navi = UINavigationBar.appearance()
-//        navi.tintColor = .green
-//        navi.barTintColor = .purple
-//
         
     }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         set()
@@ -210,6 +201,7 @@ extension SocialVC: UICollectionViewDataSource{
         case self.tabCV:
             guard let tabCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCVC", for: indexPath) as? TabCVC else {return UICollectionViewCell()}
             tabCell.backgroundColor = .white
+            
             if indexPath.row == 0 {
                 tabCell.titleLabel.text = "팔로워"
             } else {
@@ -226,6 +218,11 @@ extension SocialVC: UICollectionViewDataSource{
             followerTV.dataSource = self
             followingTV.delegate = self
             followingTV.dataSource = self
+            
+            followerTV.separatorStyle = .none
+            followingTV.separatorStyle = .none
+            
+            
             
             if indexPath.row == 0 {
                 pageCell.addSubview(followerTV)
@@ -247,7 +244,7 @@ extension SocialVC: UICollectionViewDataSource{
                 self.followingTV.register(AcquaintanceTVC.self, forCellReuseIdentifier: "AcquaintanceTVC")
             }
             pageCV.backgroundColor = .white
-            
+            //userTV.separatorStyle = .none
             return pageCell
             
         default:

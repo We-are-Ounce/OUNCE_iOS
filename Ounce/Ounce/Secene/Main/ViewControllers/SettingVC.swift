@@ -22,17 +22,10 @@ class SettingVC: UIViewController, UIAdaptivePresentationControllerDelegate {
         
         settingTV.delegate = self
         settingTV.dataSource = self
-        
+        navigationController?.isNavigationBarHidden = false
        
     }
-    
-    @IBAction func backBtn(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil)
-        
-       
-    }
- 
+
     
 }
 

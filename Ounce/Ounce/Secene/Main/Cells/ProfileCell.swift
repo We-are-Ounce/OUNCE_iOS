@@ -13,7 +13,7 @@ class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAda
     static let identfier = "ProfileCell"
     
     var  rootVC: UIViewController?
-       
+    
     @IBOutlet weak var settingButton: UIButton!
     
     
@@ -21,31 +21,37 @@ class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAda
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
     @IBAction func settingBtn(_ sender: Any) {
         
-        print(#function)
-
-        let MainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
-        let dvc = MainStoryBoard.instantiateViewController(identifier: "SettingVC") as! SettingVC
-
-        dvc.transitioningDelegate = self
+        let sb = UIStoryboard(name: "Main", bundle: nil)
         
+        let dvc = sb.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+        
+        
+        
+//        self.push(dvc, animated: true)
+//        
+//        dvc.modalPresentationStyle = .overFullScreen
+//
+//        self.rootVC?.present(dvc, animated: false)
 //
         
-//        self.rootVC.push(dvc, animated: true)
+        
+        //
+        
+        //        self.rootVC.push(dvc, animated: true)
         
         //  dvc.view.alpha = 0.5
-              
-               
-    
+        
+        
+        
         
     }
 }

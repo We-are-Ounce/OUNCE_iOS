@@ -59,87 +59,16 @@ class HeaderCell: UITableViewCell, UIViewControllerTransitioningDelegate {
     
     
   
-    @IBAction func clickFilter(_ sender: Any) {
+    @IBAction func clickFilter(_ sender: UIButton) {
         
-       // let MainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let sb = UIStoryboard(name: "Main", bundle: nil)
         
-        //     let pvc = MainStoryBoard.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        let dvc = sb.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
         
-        //        pvc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        //
-        //        self.present(pvc, animated: true, completion:nil)
+        dvc.modalPresentationStyle = .overCurrentContext
         
-//      
-//      let dvc = MainStoryBoard.instantiateViewController(identifier: "FilterVC") as! FilterVC
-//        
-////        dvc.modalPresentationStyle = .fullScreen
-//        
-////        self.rootVC?.present(dvc, animated: true, completion: nil)
-//        
-//        dvc.definesPresentationContext = true
-//             
-////        dvc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        
-//        
-////               dvc.transitioningDelegate = self
-//               
-//        dvc.view.backgroundColor = .darkPeach
-//               
-//               self.rootVC?.present(dvc, animated: true, completion: nil)
-//               
-////        self.rootVC?.preferredContentSize = CGSize(width: 375, height: 100)
-//        
-//        
-//        
-//        dvc.modalPresentationStyle = .overFullScreen
-//       dvc.modalTransitionStyle = .crossDissolve
-//        
-    
+        self.rootVC?.present(dvc, animated: false)
         
-//         self.rootVC?.present(dvc, animated: true, completion: nil)
-        
-        
-        
-        
-//        let MainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//             let pvc = MainStoryBoard.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
-//        
-        
-        
-        print(#function)
-        let window = UIApplication.shared.keyWindow
-        
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        
-        transparentView.frame = CGRect(x: 0, y: transparentView.frame.height, width: transparentView.frame.width, height: 150)
-        
-        window?.addSubview(transparentView)
-        
-        let screenSize = UIScreen.main.bounds.size
-        
-        tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: height)
-        
-        window?.addSubview(tableView)
-        
-        
-        transparentView.alpha = 0.5
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
-
-        transparentView.addGestureRecognizer(tapGesture)
-
-        transparentView.alpha = 0
-
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {self.transparentView.alpha = 0.5; self.tableView.frame = CGRect(x: 0, y: screenSize.height - self.height, width: screenSize.width, height: self.height) }, completion: nil)
-    }
-
-    @objc func onClickTransparentView(){
-
-        let screenSize = UIScreen.main.bounds.size
-
-         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {self.transparentView.alpha = 0; self.tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: self.height) }, completion: nil)
-
-    }
 }
 
+}

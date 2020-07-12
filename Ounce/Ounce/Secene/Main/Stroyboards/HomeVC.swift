@@ -36,9 +36,16 @@ class HomeVC: UIViewController {
         //테이블 셀 라인 없애기
         //self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
+        self.setupLayout()
+        
         
 
     }
+    
+    func setupLayout() {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
+}
     
 }
 

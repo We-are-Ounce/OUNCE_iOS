@@ -10,6 +10,7 @@ import UIKit
 
 class FilterVC: UIViewController {
 
+    @IBOutlet var backView: UIView!
     @IBOutlet weak var backImg: UIView!
    
   
@@ -17,28 +18,22 @@ class FilterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backImg.backgroundColor = .black
-        backImg.isOpaque = false
-        
-      
-        // 이거 처리해도 적용 안됨..
-        self.preferredContentSize = CGSize(width: 375, height: 200)
-        
-        view.frame = CGRect(x: 0, y: 0, width:375, height:  200 )
-           
+        backView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
 
+      
         
     }
     
-//    func filter(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-//
-//
-//
-//        self.preferredContentSize = CGSize(width: 375, height: 200)
-//
-//     return filter(forPresented: HomeVC, presenting: FilterVC, source: UIViewController)
-//
-//
-//
-//}
+    func backgroundDisMiss(){
+      
+        backView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+        action:Selector(("backgroundTap:"))))
+    }
+    
+    
+    @IBAction func backgroundTap( _sender
+        : UITapGestureRecognizer){
+        self.dismiss(animated: false, completion: nil)
+    }
+
 }

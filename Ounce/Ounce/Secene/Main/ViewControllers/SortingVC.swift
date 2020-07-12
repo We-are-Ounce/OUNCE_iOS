@@ -1,27 +1,25 @@
+////
+////  SortingVC.swift
+////  Ounce
+////
+////  Created by 박주연 on 2020/07/10.
+////  Copyright © 2020 박주연. All rights reserved.
+////
 //
-//  FilterVC.swift
-//  Ounce
-//
-//  Created by 박주연 on 2020/07/09.
-//  Copyright © 2020 박주연. All rights reserved.
-//
-
 import UIKit
 
-class FilterVC: UIViewController {
-  
+class SortingVC: UIViewController {
+    
     @IBOutlet var backView: UIView!
-    @IBOutlet weak var backImg: UIView!
-   
-  
-
+    @IBOutlet weak var popView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         backView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         
         self.backgroundDismiss()
-
+        
     }
     
     func backgroundDismiss(){
@@ -33,5 +31,6 @@ class FilterVC: UIViewController {
         self.dismiss(animated: false, completion: nil)
         
     }
+    
     
 }

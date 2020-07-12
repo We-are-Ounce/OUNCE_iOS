@@ -14,16 +14,24 @@ class HeaderCell: UITableViewCell {
     
     var  rootVC: UIViewController?
     
-
+//    var transparentView = UIView()
+    
+//    var tableView = UITableView()
+//
+//    let height : CGFloat = 200
+    
+    
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var sortingLabel: UILabel!
     @IBOutlet weak var filterBtn: UIButton!
     
+    @IBOutlet weak var sortingBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
-          
+        
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,25 +39,31 @@ class HeaderCell: UITableViewCell {
         
     }
     
-    @IBAction func clickFilter(_ sender: Any) {
+    @IBAction func clickSorting(_ sender: UIButton) {
         
-    let MainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
-//     let pvc = MainStoryBoard.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        let sb = UIStoryboard(name: "Main", bundle: nil)
         
-//        pvc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//
-//        self.present(pvc, animated: true, completion:nil)
+        let dvc = sb.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
         
-        let dvc = MainStoryBoard.instantiateViewController(identifier: "FilterVC") as! FilterVC
-
-        dvc.modalPresentationStyle = .fullScreen
-
-        self.rootVC?.present(dvc, animated: true, completion: nil)
-
+        dvc.modalPresentationStyle = .overFullScreen
         
-        
+        self.rootVC?.present(dvc, animated: false)
         
     }
+        
+       
+    
+  
+    @IBAction func clickFilter(_ sender: UIButton) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        let dvc = sb.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        
+        dvc.modalPresentationStyle = .overFullScreen
+        
+        self.rootVC?.present(dvc, animated: false)
+        
 }
 
+}

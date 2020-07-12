@@ -9,11 +9,12 @@
 import UIKit
 
 class HomeVC: UIViewController {
-    
+        
     @IBOutlet weak var reviewTV: UITableView!
     
     var stringList = ["주연", "주연","주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ]
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class HomeVC: UIViewController {
         
         // HeaderCell xib 연결
         let nibName1 = UINib(nibName: "HeaderCell", bundle: nil)
-        
+
         reviewTV.register(nibName, forCellReuseIdentifier: "ReviewTableViewCell")
         
         reviewTV.register(nibName1, forCellReuseIdentifier: "HeaderCell")
@@ -35,10 +36,25 @@ class HomeVC: UIViewController {
         //테이블 셀 라인 없애기
         //self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
+        self.setupLayout()
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    func setupLayout() {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
 }
+    
+
+}
+
+
 
 extension HomeVC : UITableViewDelegate {
     
@@ -72,6 +88,8 @@ extension HomeVC : UITableViewDataSource {
         }
         else{
             let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath)
+            
+            
             
             return reviewCell
         }

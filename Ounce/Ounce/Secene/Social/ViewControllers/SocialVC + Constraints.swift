@@ -14,8 +14,9 @@ extension SocialVC {
     func set() {
         self.view.addSubview(contentView)
         self.contentView.addSubview(tabCV)
-        self.contentView.addSubview(catNameLabel)
+        //self.contentView.addSubview(catNameLabel)
         self.contentView.addSubview(pageCV)
+        //self.view.addSubview()
         
         tabCV.delegate = self
         tabCV.dataSource = self
@@ -29,17 +30,12 @@ extension SocialVC {
             make.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
         
-        catNameLabel.snp.makeConstraints{ (make) in
-            make.top.equalTo(contentView.snp.top).inset(9)
-            make.leading.equalTo(contentView.snp.leading).inset(165)
-            make.trailing.equalTo(contentView.snp.trailing).inset(165)
-            make.height.equalTo(24)
-        }
+
         tabCV.snp.makeConstraints{ ( make ) in
             make.leading.equalTo(contentView.snp.leading)
             make.trailing.equalTo(contentView.snp.trailing)
             make.height.equalTo(48)
-            make.top.equalTo(catNameLabel.snp.bottom).inset(-10)
+            make.top.equalTo(contentView.snp.top)
         }
         pageCV.snp.makeConstraints{ ( make ) in
             make.top.equalTo(tabCV.snp.bottom)

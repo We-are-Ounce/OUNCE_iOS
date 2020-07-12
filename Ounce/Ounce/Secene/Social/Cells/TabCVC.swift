@@ -12,18 +12,18 @@ class TabCVC: UICollectionViewCell {
     static let identifier = "TabBarCell"
     
     let titleLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 20)
+        $0.font = UIFont.systemFont(ofSize: 16,weight: UIFont.Weight.medium)
     }
     
     
     override var isSelected: Bool {
         willSet {
             if newValue {
-                titleLabel.textColor = .signatureColor
-                titleLabel.font = UIFont.systemFont(ofSize: 20,weight: UIFont.Weight.thin)
+                titleLabel.textColor = .blackTwo
+                titleLabel.font = UIFont.systemFont(ofSize: 16,weight: UIFont.Weight.medium)
             } else {
-                titleLabel.textColor = .veryLightPink
-                titleLabel.font = UIFont.systemFont(ofSize: 20)
+                titleLabel.textColor = .putty
+                titleLabel.font = UIFont.systemFont(ofSize: 16)
             }
         }
     }

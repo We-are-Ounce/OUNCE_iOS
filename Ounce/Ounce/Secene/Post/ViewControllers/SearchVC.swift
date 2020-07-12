@@ -39,6 +39,7 @@ class SearchVC: UIViewController{
         //self.navigationItem.title = "기록하기"
         
     }
+}
 //    @objc func downBarButton(_ sender: Any) {
 //    // 뒤로가기.(화면 아래로 내려가는 액션)
 //        self.dismiss(animated: true, completion: nil)
@@ -50,11 +51,11 @@ class SearchVC: UIViewController{
         let vc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
 
         
-        self.navigationController?.pushViewController(vc, animated: true)*/
+        self.navigationController?.pushViewController(vc, animated: true)
 
 //        self.present(showDetailNewsFeedVC, animated: true, completion: nil)
     }
-    
+    */
     
 
 
@@ -69,3 +70,5 @@ extension SearchVC {
         self.navigationItem.title = "기록하기"
     }
 }
+
+

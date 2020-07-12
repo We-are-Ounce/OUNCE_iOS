@@ -86,6 +86,7 @@ class PostVC: UIViewController {
         let rightButton = UIBarButtonItem()
         //rightButton.title = "완료"
         rightButton.image = UIImage(named:"icMore")
+        
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
         rightButton.action = #selector(editButtonDidTap)
         rightButton.target = self
@@ -97,17 +98,20 @@ class PostVC: UIViewController {
     
     @objc private func editButtonDidTap(){
         
-        let settingAlert = UIAlertController(title: nil, message:nil , preferredStyle: .actionSheet)
-        
+        let settingAlert = UIAlertController(title: nil, message: nil , preferredStyle: .actionSheet)
+       
         let firstAction = UIAlertAction(title: "수정", style: .default, handler: nil)
-
-        let secondAction = UIAlertAction(title: "삭제", style: .default, handler: nil)
+       
+        let secondAction = UIAlertAction(title: "삭제", style: .destructive, handler: nil)
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
         
         settingAlert.addAction(firstAction)
         settingAlert.addAction(secondAction)
         settingAlert.addAction(cancelAction)
+        settingAlert.view.tintColor = UIColor.black
+        
         present(settingAlert,animated: true,completion: nil)
         
     }

@@ -12,43 +12,45 @@ class ProductDetailTVCell: UITableViewCell {
 
     // MARK: - UI components
 
-    let profileIMG = UIImageView().then {
+    private let profileIMG = UIImageView().then {
         $0.backgroundColor = .pale
         $0.frame = .init(x: 0, y: 0, width: 62, height: 62)
         $0.setRounded(radius: 31)
     }
     
-    let profileNameLabel = UILabel().then {
+    private let profileNameLabel = UILabel().then {
         $0.text = "준현"
         $0.font = UIFont.systemFont(ofSize: 15,weight: .medium)
         $0.textColor = .greyishBrownTwo
     }
     
-    let profileAgeLabel = UILabel().then {
+    private let profileAgeLabel = UILabel().then {
         $0.text = "26살"
         $0.textColor = .greyishBrown
         $0.font = UIFont.systemFont(ofSize: 12)
     }
     
-    let productContentLabel = UILabel().then {
+    private let productContentLabel = UILabel().then {
         $0.text = "배가 매우 고프고 집에 가고 싶어"
         $0.textColor = .putty
         $0.font = Font.errorLabel
     }
     
-    let starIMG = UIImageView().then {
+    private let starIMG = UIImageView().then {
         $0.image = UIImage(named: "icTotalSelected")
     }
     
-    let starLabel = UILabel().then {
+    private let starLabel = UILabel().then {
         $0.text = "0"
         $0.font = Font.buttonLabel
         $0.textColor = .putty
     }
-    let hartIMG = UIImageView().then {
+    
+    private let hartIMG = UIImageView().then {
         $0.image = UIImage(named: "icFavoriteSelected")
     }
-    let hartLabel = UILabel().then {
+    
+    private let hartLabel = UILabel().then {
         $0.text = "0"
         $0.font = Font.buttonLabel
         $0.textColor = .putty
@@ -56,6 +58,7 @@ class ProductDetailTVCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

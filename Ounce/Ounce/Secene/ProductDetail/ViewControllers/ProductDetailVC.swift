@@ -135,6 +135,10 @@ class ProductDetailVC: UIViewController {
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension ProductDetailVC {
+    func setNav(){
+        
+    }
+    
     func setTableView(){
         productTV.delegate = self
         productTV.dataSource = self
@@ -159,6 +163,7 @@ extension ProductDetailVC: UITableViewDataSource {
                                                  for: indexPath) as! ProductDetailTVCell
         cell.backgroundColor = .whiteTwo
         cell.cellConstraint()
+        cell.selectionStyle = .none
         return cell
     }
     

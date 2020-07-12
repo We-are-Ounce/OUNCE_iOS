@@ -1,5 +1,3 @@
-
-
 extension ProductDetailVC {
     
     func contraint(){

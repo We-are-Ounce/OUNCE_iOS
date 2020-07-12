@@ -42,11 +42,11 @@ class HeaderCell: UITableViewCell {
     @IBAction func clickSorting(_ sender: UIButton) {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        
+
         let dvc = sb.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
-        
+
         dvc.modalPresentationStyle = .overFullScreen
-        
+
         self.rootVC?.present(dvc, animated: false)
         
     }

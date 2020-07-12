@@ -100,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="1008.8" y="183.99014778325125"/>
         </scene>
-        <!--Search CollectVC-->
+        <!--기록하기-->
         <scene sceneID="nmp-oD-Pms">
             <objects>
                 <viewController id="EMp-qg-vp8" customClass="SearchCollectVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
@@ -204,7 +204,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h94-qW-N5A"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BjG-Ng-I18"/>
+                    <navigationItem key="navigationItem" title="기록하기" id="BjG-Ng-I18"/>
                     <connections>
                         <outlet property="searchCollectionView" destination="Nd9-P4-gwQ" id="9Jq-JA-Shm"/>
                     </connections>
@@ -235,7 +235,7 @@
                                 <constraints>
                                     <constraint firstItem="075-mp-ucQ" firstAttribute="width" secondItem="eZK-Gb-amn" secondAttribute="width" id="0Xu-XM-g8p"/>
                                     <constraint firstItem="075-mp-ucQ" firstAttribute="leading" secondItem="eZK-Gb-amn" secondAttribute="leading" id="5FM-FR-M9c"/>
-                                    <constraint firstItem="075-mp-ucQ" firstAttribute="top" secondItem="eZK-Gb-amn" secondAttribute="top" id="5hQ-eM-K8H"/>
+                                    <constraint firstAttribute="top" secondItem="075-mp-ucQ" secondAttribute="top" id="5hQ-eM-K8H"/>
                                     <constraint firstAttribute="trailing" secondItem="075-mp-ucQ" secondAttribute="trailing" id="QVL-3q-oNo"/>
                                     <constraint firstAttribute="height" constant="724" id="kVS-rB-4c4"/>
                                     <constraint firstAttribute="bottom" secondItem="075-mp-ucQ" secondAttribute="bottom" id="zbh-MA-PJo"/>
@@ -250,7 +250,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gGt-uB-6Dn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="v0m-1M-MSs"/>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="v0m-1M-MSs"/>
                     <connections>
                         <outlet property="addScrollView" destination="eZK-Gb-amn" id="enZ-OK-O2H"/>
                         <outlet property="backgroundView" destination="075-mp-ucQ" id="3Ho-4C-E31"/>

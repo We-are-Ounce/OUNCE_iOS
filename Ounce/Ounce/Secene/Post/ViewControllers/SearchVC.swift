@@ -23,12 +23,21 @@ class SearchVC: UIViewController{
         /*movePostView.addTarget(self,
                                action: #selector(didTapMoveButton),
                                for: .touchUpInside)*/
+        
     }
     
     @IBAction func downBarButton(_ sender: Any) {
     // 뒤로가기.(화면 아래로 내려가는 액션)
         self.dismiss(animated: true, completion: nil)
 
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        //self.navigationItem.title = "기록하기"
+        
     }
 //    @objc func downBarButton(_ sender: Any) {
 //    // 뒤로가기.(화면 아래로 내려가는 액션)
@@ -55,6 +64,8 @@ extension SearchVC {
         self.navigationController?.navigationBar.backgroundColor = .white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-
+        //self.navigationController?.navigationBar.topItem?.title = ""
+        //self.navigationItem.backBarButtonItem?.title = ""
+        self.navigationItem.title = "기록하기"
     }
 }

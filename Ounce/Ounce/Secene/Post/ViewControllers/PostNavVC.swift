@@ -12,9 +12,14 @@ class PostNavVC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         self.navigationController?.navigationBar.topItem?.title = "기록하기"
         // Do any additional setup after loading the view.
 }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.topItem?.title = ""
+
+    }
     
 
     /*

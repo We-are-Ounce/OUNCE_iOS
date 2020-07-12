@@ -25,18 +25,25 @@ class PostVC: UIViewController {
     var imageNameVC: UIImage?
     var companyNameVC: String?
     var productNameVC: String?
+  
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        print(product)
-        //print(text)
-        print(companyNameVC)
-        print(productNameVC)
-        //self.setNavigationBar()
-        self.navigationController?.navigationBar.tintColor = .greyish_brown // 네비게이션컨트롤러 뒤로가기 버튼 색깔 변경
-        self.navigationController?.navigationBar.topItem?.title = "" //뒤로가기 버튼 텍스트 변경
+
+     
+        self.navigationItem.title = "기록하기"
+       
+//        view.backgroundColor = .blue
+//        self.navigationItem.backBarButtonItem?.title = ""
+//        let backButton = UIBarButtonItem()
+//        backButton.title = ""
+//        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        
+        
         let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
+        
         custom.companyName.text = companyNameVC
         custom.productName.text = productNameVC
         custom.productImg.image = imageNameVC
@@ -45,10 +52,11 @@ class PostVC: UIViewController {
         custom.rootVC = self
         custom.criticTextField.delegate = self
         custom.memoTextView.delegate = self
+        
         addScrollView.delegate = self
         addKeyboardNotification()
         
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        /*func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             
             textField.resignFirstResponder()
             
@@ -67,60 +75,51 @@ class PostVC: UIViewController {
             self.view.frame.origin.y = 0 // Move view to original position
             
         }
+        */
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    
+    }
+    override func viewDidAppear(_ animated: Bool) {
         
+        let rightButton = UIBarButtonItem()
+        //rightButton.title = "완료"
+        rightButton.image = UIImage(named:"icMore")
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
+        rightButton.action = #selector(editButtonDidTap)
+        rightButton.target = self
         
-        
-        
-        // Do any additional setup after loading the view.
-        //addKeyboardObserver()
-        //closeKeyboardObserver()
+    
+        // 중간수정버튼 만들기
         
     }
     
-    
-    
-    /*
-     extension PostVC: UITextFieldDelegate {
-     
-     private func addKeyboardObserver() {
-     
-     
-     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-     }
-     
-     private func closeKeyboardObserver(){
-     
-     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-     }
-     
-     
-     @objc func keyboardWillHide(_ notification: Notification) {
-     let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-     let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-     UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
-     self.backgroundView.transform = .identity
-     })
-     }
+    @objc private func editButtonDidTap(){
+        
+        let settingAlert = UIAlertController(title: nil, message:nil , preferredStyle: .actionSheet)
+        
+        let firstAction = UIAlertAction(title: "수정", style: .default, handler: nil)
 
-     @objc func keyboardWillShow(_ notification: Notification) {
-     let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-     //let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey]as! NSValue).cgRectValue
-     //let keyWindow = UIApplication.shared.connectedScenes
-     //let bottomPadding = keyWindow?.safeAreaInsets.bottom
-     //let keyboardHeight = keyboardFrame.height
-     //bottomConstraint.constant = (keyboardHeight)
-     let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-     UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
-     self.backgroundView.transform = .init(translationX: 0, y: -300)
-     })
-     }
-     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-     print(#function)
-     self.backgroundView.endEditing(true)
-     }
-     }*/
+        let secondAction = UIAlertAction(title: "삭제", style: .default, handler: nil)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        settingAlert.addAction(firstAction)
+        settingAlert.addAction(secondAction)
+        settingAlert.addAction(cancelAction)
+        present(settingAlert,animated: true,completion: nil)
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        
+        
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+    }
     
 }
 
@@ -129,7 +128,7 @@ extension PostVC {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
-
+    
     @objc private func keyboardWillShow(_ notification: Notification)  {
         if let info = notification.userInfo {
             let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
@@ -143,20 +142,20 @@ extension PostVC {
                 .first?.windows
                 .filter({$0.isKeyWindow}).first
             let bottomPadding = keyWindow?.safeAreaInsets.bottom
-
+            
             var contentInset:UIEdgeInsets = self.addScrollView.contentInset
             contentInset.bottom = keyboardHeight - (bottomPadding ?? 0)
-
+            
             addScrollView.contentInset = contentInset
             addScrollView.scrollToBottom()
-
+            
             self.view.setNeedsLayout()
             UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
                 self.view.layoutIfNeeded()
             })
         }
     }
-
+    
     @objc private func keyboardWillHide(_ notification: Notification) {
         if let info = notification.userInfo {
             let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
@@ -170,7 +169,7 @@ extension PostVC {
                 .first?.windows
                 .filter({$0.isKeyWindow}).first
             let bottomPadding = keyWindow?.safeAreaInsets.bottom
-
+            
             let contentInset:UIEdgeInsets = UIEdgeInsets.zero
             addScrollView.contentInset = contentInset
             
@@ -181,12 +180,12 @@ extension PostVC {
             })
         }
     }
-
+    
 }
 
 extension PostVC: UIScrollViewDelegate {
     
-
+    
 }
 
 extension PostVC: UITextViewDelegate{

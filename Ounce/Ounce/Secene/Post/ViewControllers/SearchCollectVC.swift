@@ -17,14 +17,47 @@ class SearchCollectVC: UIViewController{
     
     private var productInformations:[Product] = []
     var rootVC: UIViewController?
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*네비게이션 바 뒤로가기 버튼 타이틀 없애는 코드~~~참고하세요^^,,,왜 버튼아이템을 만들어줘야할까...존나빡쳐...개빡쳐...엑코 뒤져*/
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+       
+        self.navigationItem.title = "기록하기"
+       
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
         setProductList()
-        //print(product1)
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationItem.title = "기록하기"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationItem.title = ""
+        
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        //let backButton = UIBarButtonItem()
+        //backButton.title = ""
+        //self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    
+        
+    }
     func setProductList(){
         let product1 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "icFavoriteSelected")
         let product2 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
@@ -80,6 +113,7 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
         pvc.companyNameVC = productInformations[indexPath.row].companyName
         pvc.productNameVC = productInformations[indexPath.row].itemName
         self.navigationController?.pushViewController(pvc, animated: true)
+        // 네비게이션 이동. pvc view로 이동
     }
     
 }

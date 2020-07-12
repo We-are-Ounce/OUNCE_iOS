@@ -326,6 +326,8 @@ class PostSC:UIView,UITextViewDelegate {
         self.furTrouble.setTitleColor(.battleshipGrey, for: .normal)
         self.vomitTrouble.setTitleColor(.battleshipGrey, for: .normal)
         
+        
+               
         memoTextView.delegate = self
         criticTextField.delegate = self
         

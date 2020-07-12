@@ -13,22 +13,31 @@ class AcquaintanceTVC: UITableViewCell {
     // MARK: - UI components
 
     let catSocialNameLabel = UILabel().then {
-        $0.font = UIFont.boldSystemFont(ofSize: 16)
+        $0.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
+        $0.sizeToFit()
+        
     }
     
     let catSocialWeightLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
+        $0.font = UIFont.systemFont(ofSize: 12)
+        $0.textColor = .putty
+        $0.sizeToFit()
+        
     }
     let catSocialAgeLabel = UILabel().then {
-           $0.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
+        $0.font = UIFont.systemFont(ofSize: 12)
+        $0.textColor = .putty
+        $0.sizeToFit()
        }
     
     let catSocialImg = UIImageView().then{
-        $0.backgroundColor = .gray
+        $0.backgroundColor = .pale
+        $0.cornerRadius = 30
+        //$0.image = UIImage()
     }
     
     let catSexImg = UIImageView().then {
-        $0.backgroundColor = .green
+        $0.image = UIImage(named: "unfemale")
     }
 
     override func awakeFromNib() {
@@ -39,8 +48,8 @@ class AcquaintanceTVC: UITableViewCell {
     func setDataInformation(catSocialName: String, catSocialWeight: String, catSocialAge: String){
         
         catSocialNameLabel.text = catSocialName
-        catSocialWeightLabel.text = catSocialWeight
-        catSocialAgeLabel.text = catSocialAge
+        catSocialWeightLabel.text = catSocialWeight + "kg"
+        catSocialAgeLabel.text = catSocialAge + "살"
     }
     
     
@@ -68,32 +77,22 @@ class AcquaintanceTVC: UITableViewCell {
         }
         
         catSocialWeightLabel.snp.makeConstraints{ ( make ) in
-            make.height.equalTo(18)
-            make.width.equalTo(38)
             make.top.equalTo(catSocialNameLabel.snp.bottom).inset(-4)
             make.leading.equalTo(catSocialImg.snp.trailing).inset(-14)
         }
         catSocialAgeLabel.snp.makeConstraints { ( make ) in
-            make.height.equalTo(18)
-            make.width.equalTo(25)
+
             make.top.equalTo(catSocialNameLabel.snp.bottom).inset(-4)
             make.leading.equalTo(catSocialWeightLabel.snp.trailing).inset(-16)
         }
         catSexImg.snp.makeConstraints { ( make ) in
         
-            make.height.equalTo(14)
-            make.width.equalTo(8)
             make.top.equalTo(catSocialNameLabel.snp.bottom).inset(-6)
             make.leading.equalTo(catSocialAgeLabel.snp.trailing).inset(-16)
         }
     }
-
-    
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-    
     }
     
 }

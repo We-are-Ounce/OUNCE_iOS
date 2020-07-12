@@ -23,8 +23,8 @@ extension BrowseCVCell{
     
         
  
-        customView.layer.shadowColor = UIColor.gray.cgColor
-        customView.layer.shadowOpacity = 0.3
+        customView.layer.shadowColor = UIColor.battleshipGrey.cgColor
+        customView.layer.shadowOpacity = 0.2
         customView.layer.shadowOffset = .zero
         customView.layer.shadowRadius = 4
         

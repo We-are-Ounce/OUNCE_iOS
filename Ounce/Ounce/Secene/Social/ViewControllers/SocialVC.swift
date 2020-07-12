@@ -26,6 +26,7 @@ class SocialVC: UIViewController {
         cv.register(TabCVC.self, forCellWithReuseIdentifier: "TabCVC")
         // scrollIndicatorInsets 의 기능이 무엇이고 왜 . zero인가
         cv.scrollIndicatorInsets = .zero
+        cv.backgroundColor = .white
         return cv
     }()
     
@@ -44,11 +45,10 @@ class SocialVC: UIViewController {
         return cv
     }()
     
-    let catNameLabel = UILabel().then {
-        $0.text = "이겨울"
-        $0.font = UIFont.systemFont(ofSize: 16)
-    }
-    
+//    let catNameLabel = UILabel().then {
+//        $0.text = "이겨울"
+//        $0.font = UIFont.systemFont(ofSize: 16)
+//    }
     let scrollView = UIScrollView()
     let contentView = UIView()
     let followerTV = UITableView()
@@ -60,6 +60,18 @@ class SocialVC: UIViewController {
     var followingInfo: [SocialList] = []
     var direction: CGFloat?
     
+    // view 계층에서 navigation은 아래에 위치하는데, 뷰 위에 왜 있는 지. bar와 item의 차이점
+    func setSocialNV(catSocialName: String){
+        self.navigationItem.title = catSocialName
+//        let navi2 = self.navigationItem.compactAppearance
+//        let str2 = navi2?.titleTextAttributes
+//
+//        let navi = UINavigationBar.appearance()
+//        navi.tintColor = .green
+//        navi.barTintColor = .purple
+//
+        
+    }
     
     
     
@@ -68,6 +80,7 @@ class SocialVC: UIViewController {
         set()
         setTabbar()
         setFollowerData()
+        setSocialNV(catSocialName: "겨울이")
     }
     
     
@@ -201,7 +214,8 @@ extension SocialVC: UICollectionViewDataSource{
                 tabCell.titleLabel.text = "팔로워"
             } else {
                 tabCell.titleLabel.text = "팔로잉"
-                tabCell.titleLabel.textColor = .veryLightPink
+                tabCell.titleLabel.textColor = .putty
+                //초기 tabCV 셀렉 안되어 있을 때, 색깔 셋팅 여기에서.
             }
             return tabCell
             
@@ -251,7 +265,7 @@ extension SocialVC: UICollectionViewDataSource{
     }
     
 }
-////////여기서 다시 이해하고 TabCVC부터 생각
+
 
 extension SocialVC: UITableViewDelegate{}
 

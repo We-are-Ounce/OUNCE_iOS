@@ -30,32 +30,32 @@ class BrowseCVCell: UICollectionViewCell {
     }
     
     let labelName = UILabel().then {
-        $0.textColor = .black
+        $0.textColor = .greyishBrown
         $0.backgroundColor = .white
-        $0.textAlignment = .center
-        $0.font = UIFont.systemFont(ofSize: 13)
+        $0.textAlignment = .left
+        $0.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
         $0.text = "가을이"
     }
     
     let labelCoincidence = UILabel().then {
         $0.backgroundColor = .white
-        $0.textColor = .black
-        $0.textAlignment = .center
-        $0.font = UIFont.systemFont(ofSize: 11)
+        $0.textColor = .brownGrey
+        $0.textAlignment = .left
+        $0.font = UIFont.systemFont(ofSize: 13)
         $0.text = "77% 일치"
     }
     
     let stackViewLabel = UIStackView().then {
         
         let firstRecommandImg = UIImageView().then {
-            $0.backgroundColor = .brownGreyColor
+            $0.backgroundColor = .whiteThree
         }
         
         let secondRecommandImg = UIImageView().then {
-            $0.backgroundColor = .purple
+            $0.backgroundColor = .whiteThree
         }
         let thirdRecommandImg = UIImageView().then {
-            $0.backgroundColor = .red
+            $0.backgroundColor = .whiteThree
         }
         $0.addArrangedSubview(firstRecommandImg)
         $0.addArrangedSubview(secondRecommandImg)

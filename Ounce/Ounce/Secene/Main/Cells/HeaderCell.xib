@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -53,6 +53,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-4f-Ape">
+                                <rect key="frame" x="194" y="9" width="99" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="clickSorting:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="g05-Lu-RWG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
@@ -63,6 +70,7 @@
                 <outlet property="countLabel" destination="vI7-yX-RSr" id="elH-Vj-Ma6"/>
                 <outlet property="filterBtn" destination="uwp-H3-0g8" id="5sg-i3-V0P"/>
                 <outlet property="reviewLabel" destination="ttJ-KZ-kHi" id="P5t-V3-SKt"/>
+                <outlet property="sortingBtn" destination="Tgs-4f-Ape" id="tbc-P4-N5p"/>
                 <outlet property="sortingLabel" destination="aFP-Wq-bP6" id="thY-io-JXS"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="152.34375"/>

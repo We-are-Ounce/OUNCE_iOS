@@ -37,9 +37,6 @@ class HomeVC: UIViewController {
         //self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.setupLayout()
-//        self.backgroundDismiss()
-        
-        
 
     }
     

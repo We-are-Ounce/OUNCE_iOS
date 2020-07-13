@@ -16,6 +16,7 @@ class PostSC:UIView,UITextViewDelegate {
     @IBOutlet weak var companyName: UILabel! // 회사명
     @IBOutlet weak var productName: UILabel! // 제품이름
    
+    @IBOutlet weak var textLineView: UIView!
     
     @IBOutlet weak var scoreBtn1: UIButton!
     @IBOutlet weak var scoreBtn2: UIButton!
@@ -241,17 +242,16 @@ class PostSC:UIView,UITextViewDelegate {
         //eyeTrouble.setTitleColor(.white, for: .normal)
         if !eye{
             eye = true
-            eyeTrouble.borderColor = .battleshipGrey
-            eyeTrouble.backgroundColor = .battleshipGrey
-            //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-            eyeTrouble.setTitleColor(.white, for: .normal)
+            eyeTrouble.borderColor = .black
+            eyeTrouble.backgroundColor = .white
+            eyeTrouble.setTitleColor(.black, for: .normal)
             
         }else{
             eye = false
-            eyeTrouble.borderColor = .lightGray
+         
+            eyeTrouble.borderColor = .pale
             eyeTrouble.backgroundColor = .white
-            //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-            eyeTrouble.setTitleColor(.battleshipGrey, for: .normal)
+            eyeTrouble.setTitleColor(.black, for: .normal)
             
         }
         
@@ -262,17 +262,15 @@ class PostSC:UIView,UITextViewDelegate {
         
         if !ear{
              ear = true
-             earTrouble.borderColor = .battleshipGrey
-             earTrouble.backgroundColor = .battleshipGrey
-             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-             earTrouble.setTitleColor(.white, for: .normal)
+             earTrouble.borderColor = .black
+             earTrouble.backgroundColor = .white
+             earTrouble.setTitleColor(.black, for: .normal)
              
          }else{
              ear = false
-             earTrouble.borderColor = .lightGray
+             earTrouble.borderColor = .pale
              earTrouble.backgroundColor = .white
-             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-             earTrouble.setTitleColor(.battleshipGrey, for: .normal)
+             earTrouble.setTitleColor(.black, for: .normal)
              
          }
         
@@ -281,17 +279,15 @@ class PostSC:UIView,UITextViewDelegate {
         
         if !fur{
              fur = true
-             furTrouble.borderColor = .battleshipGrey
-             furTrouble.backgroundColor = .battleshipGrey
-             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-             furTrouble.setTitleColor(.white, for: .normal)
+             furTrouble.borderColor = .black
+             furTrouble.backgroundColor = .white
+             furTrouble.setTitleColor(.black, for: .normal)
              
          }else{
              fur = false
-             furTrouble.borderColor = .lightGray
+             furTrouble.borderColor = .pale
              furTrouble.backgroundColor = .white
-             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-             furTrouble.setTitleColor(.battleshipGrey, for: .normal)
+             furTrouble.setTitleColor(.black, for: .normal)
              
          }
     }
@@ -299,33 +295,34 @@ class PostSC:UIView,UITextViewDelegate {
     @IBAction func vomitTroubleselected(_ sender: Any) {
         if !vomit{
              vomit = true
-             vomitTrouble.borderColor = .battleshipGrey
-             vomitTrouble.backgroundColor = .battleshipGrey
-             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-             vomitTrouble.setTitleColor(.white, for: .normal)
+             vomitTrouble.borderColor = .black
+             vomitTrouble.backgroundColor = .white
+             vomitTrouble.setTitleColor(.black, for: .normal)
              
          }else{
             vomit = false
-             vomitTrouble.borderColor = .lightGray
+             vomitTrouble.borderColor = .pale
              vomitTrouble.backgroundColor = .white
-             //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-             vomitTrouble.setTitleColor(.battleshipGrey, for: .normal)
+             vomitTrouble.setTitleColor(.black, for: .normal)
              
          }
     }
     func viewDidLoad(){
         
         self.memoTextView.layer.borderWidth = 1.0
-        self.memoTextView.layer.borderColor = UIColor.lightGray.cgColor
+        self.memoTextView.layer.borderColor = UIColor.pale.cgColor
         self.memoTextView.layer.cornerRadius = 8.0
         
         
-        
-        self.eyeTrouble.setTitleColor(.battleshipGrey,for: .normal)
-        self.earTrouble.setTitleColor(.battleshipGrey,for: .normal)
-        self.furTrouble.setTitleColor(.battleshipGrey, for: .normal)
-        self.vomitTrouble.setTitleColor(.battleshipGrey, for: .normal)
-        
+        self.eyeTrouble.borderColor = .pale
+        self.earTrouble.borderColor = .pale
+        self.furTrouble.borderColor = .pale
+        self.vomitTrouble.borderColor = .pale
+        /*self.eyeTrouble.setTitleColor(.black,for: .normal)
+        self.earTrouble.setTitleColor(.black,for: .normal)
+        self.furTrouble.setTitleColor(.black, for: .normal)
+        self.vomitTrouble.setTitleColor(.black, for: .normal)
+        */
         
                
         memoTextView.delegate = self
@@ -336,8 +333,8 @@ class PostSC:UIView,UITextViewDelegate {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        // 키보드 바깥 뷰 아무데나 터치하면 키보드 다시 들어가는 코드
         self.rootVC?.view.endEditing(true)
-        
     }
 
 }

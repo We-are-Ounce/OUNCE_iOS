@@ -101,6 +101,7 @@
 		7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA4D24BA2481004CD853 /* SettingVC.swift */; };
 		7FE5EA6024BA8B25004CD853 /* SecondSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */; };
 		7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */; };
+
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
 		F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */; };
@@ -875,6 +876,7 @@
 				777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */,
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				773384EC24B8E91200D05E8F /* SocialVC.swift in Sources */,
+				F23316A124BB5F6800BA6023 /* SortingVC.swift in Sources */,
 				5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */,
 				F248FD3F24B4727A0055D753 /* Product.swift in Sources */,
 				5EFD2DC624BB01070054B357 /* ProductDetailTVCell.swift in Sources */,

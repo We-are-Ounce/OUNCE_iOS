@@ -59,7 +59,7 @@ class SearchCollectVC: UIViewController{
         
     }
     func setProductList(){
-        let product1 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "btnAdd")
+        let product1 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
         let product2 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
         let product3 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
         let product4 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
@@ -86,12 +86,12 @@ extension SearchCollectVC: UICollectionViewDataSource{
 extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
         indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.height)
+        return CGSize(width: (collectionView.frame.width) / 2 ,height: (collectionView.frame.height)/3)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 16, bottom: 0, right:16 )
+        return UIEdgeInsets(top: 10, left: 16, bottom: 8, right:16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,

@@ -82,7 +82,8 @@
 		773384F724B9174A00D05E8F /* AcquaintanceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773384F524B9174A00D05E8F /* AcquaintanceTVC.swift */; };
 		773384F824B9174A00D05E8F /* AcquaintanceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773384F624B9174A00D05E8F /* AcquaintanceTVC.xib */; };
 		773384FC24B9D65A00D05E8F /* SocialVC + Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773384FB24B9D65A00D05E8F /* SocialVC + Constraints.swift */; };
-		7747FF6724BA04D3006F5738 /* SoicialList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747FF6624BA04D3006F5738 /* SoicialList.swift */; };
+		7747FF6724BA04D3006F5738 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747FF6624BA04D3006F5738 /* Follow.swift */; };
+		7754C98A24BCBCA0001F3A0F /* FollowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754C98924BCBCA0001F3A0F /* FollowService.swift */; };
 		777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */; };
 		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
 		7F7CE9BD24B721C200CB2476 /* sortingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE9BC24B721C200CB2476 /* sortingData.swift */; };
@@ -101,7 +102,6 @@
 		7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA4D24BA2481004CD853 /* SettingVC.swift */; };
 		7FE5EA6024BA8B25004CD853 /* SecondSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */; };
 		7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */; };
-
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
 		F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */; };
@@ -191,7 +191,8 @@
 		773384F524B9174A00D05E8F /* AcquaintanceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcquaintanceTVC.swift; sourceTree = "<group>"; };
 		773384F624B9174A00D05E8F /* AcquaintanceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcquaintanceTVC.xib; sourceTree = "<group>"; };
 		773384FB24B9D65A00D05E8F /* SocialVC + Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SocialVC + Constraints.swift"; sourceTree = "<group>"; };
-		7747FF6624BA04D3006F5738 /* SoicialList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoicialList.swift; sourceTree = "<group>"; };
+		7747FF6624BA04D3006F5738 /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
+		7754C98924BCBCA0001F3A0F /* FollowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowService.swift; sourceTree = "<group>"; };
 		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
 		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		7F7CE9BC24B721C200CB2476 /* sortingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortingData.swift; sourceTree = "<group>"; };
@@ -415,7 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				5EFD2DCA24BC68290054B357 /* ResponseResult.swift */,
-				7747FF6624BA04D3006F5738 /* SoicialList.swift */,
+				7747FF6624BA04D3006F5738 /* Follow.swift */,
 				5EFD2DCE24BC6E430054B357 /* SignIn.swift */,
 			);
 			path = Models;
@@ -437,6 +438,7 @@
 				5E69E89924AC689C005D4DC1 /* APIConstants.swift */,
 				5EFD2DC824BC66100054B357 /* NetworkResult.swift */,
 				5EFD2DCC24BC69CC0054B357 /* UserService.swift */,
+				7754C98924BCBCA0001F3A0F /* FollowService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -870,13 +872,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7754C98A24BCBCA0001F3A0F /* FollowService.swift in Sources */,
 				5EA7C46124B8EE5B00EB95EA /* BrowseUserTVCell.swift in Sources */,
 				5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */,
 				5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */,
 				777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */,
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				773384EC24B8E91200D05E8F /* SocialVC.swift in Sources */,
-				F23316A124BB5F6800BA6023 /* SortingVC.swift in Sources */,
 				5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */,
 				F248FD3F24B4727A0055D753 /* Product.swift in Sources */,
 				5EFD2DC624BB01070054B357 /* ProductDetailTVCell.swift in Sources */,
@@ -921,7 +923,7 @@
 				7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */,
 				7FE5EA6024BA8B25004CD853 /* SecondSettingTC.swift in Sources */,
 				5E5C668724B5AF4C007C35E6 /* RegisterNavVC.swift in Sources */,
-				7747FF6724BA04D3006F5738 /* SoicialList.swift in Sources */,
+				7747FF6724BA04D3006F5738 /* Follow.swift in Sources */,
 				5E039CAF24AFFDBE009B1BC6 /* IDVC.swift in Sources */,
 				5E35795424AE38BE00043066 /* UIImageView+Extension.swift in Sources */,
 				7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */,

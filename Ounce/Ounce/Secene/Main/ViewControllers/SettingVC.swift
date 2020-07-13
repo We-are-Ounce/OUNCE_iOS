@@ -24,6 +24,14 @@ class SettingVC: UIViewController {
         settingTV.dataSource = self
         
         navigationController?.isNavigationBarHidden = false
+        //        self.settingTV.register(FirstSettingTC.self,
+        //                             forCellReuseIdentifier: "FirstSettingTC")
+        //        self.settingTV.register(SecondSettingTC.self,
+        //                             forCellReuseIdentifier: "SecondSettingTC")
+        //        self.settingTV.register(Thir.self,
+        //                             forCellReuseIdentifier: "SecondSettingTC")
+        
+        
         
     }
     
@@ -52,85 +60,86 @@ extension SettingVC : UITableViewDataSource {
         
         if indexPath.section == 0 {
             let firstCell = settingTV.dequeueReusableCell(withIdentifier: "FirstSettingTC", for: indexPath)
-            
+            firstCell.backgroundColor = .blue
             return firstCell
         }
         else if indexPath.section == 1 {
             let secondCell = settingTV.dequeueReusableCell(withIdentifier: "SecondSettingTC", for: indexPath)
-            
+            secondCell.backgroundColor = .red
             return secondCell
             
-        } else{
+        } else {
             let thirdCell = settingTV.dequeueReusableCell(withIdentifier: "ThirdSettingTC", for: indexPath)
-            
+            thirdCell.backgroundColor = .yellow
             return thirdCell
-        }
-        
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            
-            if indexPath.section == 0 {
-                
-                return 80
-            }
-            else if indexPath.section == 1 {
-                
-                return 100
-            }
-            else{
-                return 40
-            }
-        }
-        
-        // Set the spacing between sections
-        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            
-            if section == 1 {
-                return 10
-            }
-            else if section == 2{
-                return 10
-            }
-            else {
-                return 0
-            }
-            
-        }
-        
-        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            
-            if section == 0 {
-                
-                let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
-                let myView = UIView(frame: rect)
-                myView.backgroundColor = UIColor.black
-                return myView
-            }
-            
-            if section == 1 {
-                
-                let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
-                let myView = UIView(frame: rect)
-                myView.backgroundColor = UIColor.black
-                return myView
-            }
-            if section == 2 {
-                
-                let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
-                let myView = UIView(frame: rect)
-                myView.backgroundColor = UIColor.black
-                return myView
-            }
-            else{
-                
-                let rect = CGRect(x: 0, y: 0, width: 375, height: 300)
-                let myView = UIView(frame: rect)
-                myView.backgroundColor = UIColor.black
-                return myView
-            }
-            
         }
     }
     
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 0 {
+            
+            return 80
+        }
+        else if indexPath.section == 1 {
+            
+            return 100
+        }
+        else{
+            return 40
+        }
+    }
+    
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 1 {
+            return 10
+        }
+        else if section == 2{
+            return 10
+        }
+        else {
+            return 0
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 0 {
+            
+            let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
+            let myView = UIView(frame: rect)
+            myView.backgroundColor = UIColor.black
+            return myView
+        }
+        
+        if section == 1 {
+            
+            let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
+            let myView = UIView(frame: rect)
+            myView.backgroundColor = UIColor.black
+            return myView
+        }
+        if section == 2 {
+            
+            let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
+            let myView = UIView(frame: rect)
+            myView.backgroundColor = UIColor.black
+            return myView
+        }
+        else{
+            
+            let rect = CGRect(x: 0, y: 0, width: 375, height: 300)
+            let myView = UIView(frame: rect)
+            myView.backgroundColor = UIColor.black
+            return myView
+        }
+        
+    }
 }
+
+
+

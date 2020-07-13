@@ -70,6 +70,7 @@ class IDVC: UIViewController {
         constraint()
         setNav()
         setTextField()
+        rightButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,14 +103,7 @@ extension IDVC {
     }
 
     @objc func tapNextButton() {
-        let vc = UIStoryboard.init(name: "Login",
-                                   bundle: Bundle.main).instantiateViewController(
-                                    withIdentifier: "PasswordVC") as? PasswordVC
-        
-        vc?.email = email
-        vc?.id = idTextField.text
-        
-        self.navigationController?.pushViewController(vc!, animated: false)
+        checkID(idTextField.text ?? "")
     }
 }
 
@@ -118,9 +112,11 @@ extension IDVC: UITextFieldDelegate {
         if idTextField.text?.count ?? 0 > 5 {
             idUnderBarView.backgroundColor = .pale
             idErrorGuiedLabel.alpha = 0
+            rightButton.isEnabled = true
         } else {
             idUnderBarView.backgroundColor = .darkPeach
             idErrorGuiedLabel.alpha = 1
+            rightButton.isEnabled = false
         }
     }
 }
@@ -136,16 +132,56 @@ extension IDVC {
                        animations: {
                         // self를 항상 붙여줘야함 (클로저 안에서)
                         self.guideLabel.alpha = 1
-                        self.guideLabel.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.guideLabel.transform = CGAffineTransform.init(translationX: -100,
+                                                                           y: 0)
                         self.idGuideLabel.alpha = 1
-                        self.idGuideLabel.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.idGuideLabel.transform = CGAffineTransform.init(translationX: -100,
+                                                                             y: 0)
                         self.idTextField.alpha = 1
-                        self.idTextField.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.idTextField.transform = CGAffineTransform.init(translationX: -100,
+                                                                            y: 0)
                         self.idUnderBarView.alpha = 1
-                        self.idUnderBarView.transform = CGAffineTransform.init(translationX: -100, y: 0)
+                        self.idUnderBarView.transform = CGAffineTransform.init(translationX: -100,
+                                                                               y: 0)
 
                         
         })
 
     }
+}
+
+extension IDVC {
+    func checkID(_ id: String){
+        UserService.shared.checkID(id){ responsedata in
+            switch responsedata {
+            case .success(_) :
+                let vc = UIStoryboard.init(name: "Login",
+                                           bundle: Bundle.main).instantiateViewController(
+                                            withIdentifier: "PasswordVC") as? PasswordVC
+                
+                vc?.email = self.email
+                vc?.id = self.idTextField.text
+                
+                self.navigationController?.pushViewController(vc!, animated: false)
+            case .requestErr(_):
+                self.idErrorGuiedLabel.alpha = 1
+                self.idErrorGuiedLabel.text = "이미 사용 중인 아이디입니다."
+                
+            case .pathErr:
+                self.idErrorGuiedLabel.alpha = 1
+                self.idErrorGuiedLabel.text = "이미 사용 중인 아이디입니다."
+                
+            case .serverErr:
+                self.idErrorGuiedLabel.alpha = 1
+                self.idErrorGuiedLabel.text = "서버 에러입니다."
+                
+            case .networkFail :
+                self.idErrorGuiedLabel.alpha = 1
+                self.idErrorGuiedLabel.text = "이미 사용 중인 아이디입니다."
+                
+            }
+            
+        }
+    }
+    
 }

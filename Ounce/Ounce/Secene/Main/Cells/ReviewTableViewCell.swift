@@ -10,15 +10,27 @@ import UIKit
 
 class ReviewTableViewCell: UITableViewCell {
 
+    var rootVC: UIViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        print(#function)
+//        let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
+//
+//        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
+//
+//        dvc.modalPresentationStyle = .overFullScreen
+//
+//        self.rootVC?.present(dvc, animated: false)
 
-      
+    
     }
     
 }

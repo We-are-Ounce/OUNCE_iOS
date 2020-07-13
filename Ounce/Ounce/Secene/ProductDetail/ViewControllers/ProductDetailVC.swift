@@ -136,7 +136,7 @@ class ProductDetailVC: UIViewController {
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension ProductDetailVC {
     func setNav(){
-        
+//        navigationController?.isNavigationBarHidden = false
     }
     
     func setTableView(){

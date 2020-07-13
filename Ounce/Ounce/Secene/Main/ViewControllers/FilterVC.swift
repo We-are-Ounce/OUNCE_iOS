@@ -12,7 +12,9 @@ class FilterVC: UIViewController {
   
     @IBOutlet var backView: UIView!
     @IBOutlet weak var backImg: UIView!
-   
+    @IBOutlet weak var touchView: UIView!
+    @IBOutlet weak var filterCollectionView: UICollectionView!
+    
   
 
     override func viewDidLoad() {

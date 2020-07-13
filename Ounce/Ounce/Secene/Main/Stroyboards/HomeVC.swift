@@ -11,6 +11,7 @@ import UIKit
 class HomeVC: UIViewController {
         
     @IBOutlet weak var reviewTV: UITableView!
+   
     
     var stringList = ["주연", "주연","주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ]
     
@@ -34,7 +35,7 @@ class HomeVC: UIViewController {
         
         
         //테이블 셀 라인 없애기
-        //self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
+        self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.setupLayout()
 
@@ -58,6 +59,13 @@ class HomeVC: UIViewController {
 
 extension HomeVC : UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
+        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailNVC") as! ProductDetailNVC
+        dvc.modalPresentationStyle = .overFullScreen
+        self.present(dvc, animated: false)
+    }
+    
 }
 
 extension HomeVC : UITableViewDataSource {
@@ -73,7 +81,7 @@ extension HomeVC : UITableViewDataSource {
             return 1
         }
         else {
-            return stringList.count
+            return 4
         }
     }
     
@@ -87,8 +95,8 @@ extension HomeVC : UITableViewDataSource {
             return profileCell
         }
         else{
-            let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath)
-            
+            let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
+            reviewCell.rootVC = self
             
             
             return reviewCell
@@ -106,6 +114,8 @@ extension HomeVC : UITableViewDataSource {
         }
     }
     
+    
+
     // MARK: - header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         

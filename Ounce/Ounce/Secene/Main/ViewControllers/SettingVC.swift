@@ -38,6 +38,11 @@ class SettingVC: UIViewController {
     
 }
 
+extension SettingVC {
+    func setNav(){
+        
+    }
+}
 extension SettingVC : UITableViewDelegate { }
 extension SettingVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

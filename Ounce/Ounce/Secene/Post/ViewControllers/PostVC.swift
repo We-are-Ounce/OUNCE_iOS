@@ -29,19 +29,7 @@ class PostVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-
-     
         self.navigationItem.title = "기록하기"
-       
-//        view.backgroundColor = .blue
-//        self.navigationItem.backBarButtonItem?.title = ""
-//        let backButton = UIBarButtonItem()
-//        backButton.title = ""
-//        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
-        
-        
         let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
         
         custom.companyName.text = companyNameVC

@@ -22,10 +22,12 @@ class HeaderCell: UITableViewCell {
     
     
     @IBOutlet weak var reviewLabel: UILabel!
+    
+    // MARK: - headerCell 데이터 받아오기 
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var sortingLabel: UILabel!
-    @IBOutlet weak var filterBtn: UIButton!
     
+    @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var sortingBtn: UIButton!
     
     func sortingRound() {

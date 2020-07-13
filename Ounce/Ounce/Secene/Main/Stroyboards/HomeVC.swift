@@ -61,9 +61,10 @@ extension HomeVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
-        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailNVC") as! ProductDetailNVC
+        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
         dvc.modalPresentationStyle = .overFullScreen
-        self.present(dvc, animated: false)
+        navigationController?.isNavigationBarHidden = false
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
     
 }

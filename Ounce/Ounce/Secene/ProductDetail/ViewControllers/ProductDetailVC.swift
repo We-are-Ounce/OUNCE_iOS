@@ -169,6 +169,7 @@ extension ProductDetailVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         headerView.backgroundColor = .white
+        
         headerView.addSubview(headerIMG)
         headerView.addSubview(headerCompanyNameLabel)
         headerView.addSubview(headerProductNameLabel)

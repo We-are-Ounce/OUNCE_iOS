@@ -119,6 +119,8 @@ class LoginVC: UIViewController {
         constraint()
         setNav()
         setTextField()
+        idTextField.text = "1231232222q"
+        pwTextField.text = "Qq111111"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){

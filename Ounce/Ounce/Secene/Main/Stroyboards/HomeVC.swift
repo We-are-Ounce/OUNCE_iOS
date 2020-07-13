@@ -60,13 +60,10 @@ class HomeVC: UIViewController {
 extension HomeVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.section == 1 {
-            
-            // 데이터 넣기, 뷰 전환 연결하기
-
-            print(indexPath)
-        }
+        let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
+        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailNVC") as! ProductDetailNVC
+        dvc.modalPresentationStyle = .overFullScreen
+        self.present(dvc, animated: false)
     }
     
 }
@@ -84,7 +81,7 @@ extension HomeVC : UITableViewDataSource {
             return 1
         }
         else {
-            return stringList.count
+            return 4
         }
     }
     
@@ -98,8 +95,8 @@ extension HomeVC : UITableViewDataSource {
             return profileCell
         }
         else{
-            let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath)
-            
+            let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
+            reviewCell.rootVC = self
             
             
             return reviewCell
@@ -117,6 +114,8 @@ extension HomeVC : UITableViewDataSource {
         }
     }
     
+    
+
     // MARK: - header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         

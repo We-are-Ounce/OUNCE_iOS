@@ -40,12 +40,12 @@
                                     <constraint firstAttribute="height" constant="32" id="gAB-3a-9k9"/>
                                     <constraint firstAttribute="width" constant="32" id="l7g-l2-ShC"/>
                                 </constraints>
-                                <state key="normal" image="btnFillter"/>
+                                <state key="normal" image="btnFilter"/>
                                 <connections>
                                     <action selector="clickFilter:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yGa-qq-5ux"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnDropdown" translatesAutoresizingMaskIntoConstraints="NO" id="pmr-0V-gVq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1927" translatesAutoresizingMaskIntoConstraints="NO" id="pmr-0V-gVq">
                                 <rect key="frame" x="300" y="20" width="11" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="ExW-1o-JxU"/>
@@ -111,7 +111,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="btnDropdown" width="10" height="5"/>
-        <image name="btnFillter" width="32" height="32"/>
+        <image name="1927" width="12" height="12"/>
+        <image name="btnFilter" width="32" height="32"/>
     </resources>
 </document>

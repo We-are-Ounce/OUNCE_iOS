@@ -8,8 +8,17 @@
 
 import UIKit
 
-class SortingCell: UITableViewCell {
+import Then
+import SnapKit
 
+class SortingCell: UITableViewCell {
+    
+    let sortLabel = UILabel().then {
+        $0.textColor = .putty
+        $0.text = "12312312"
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +30,12 @@ class SortingCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func constraint(){
+        contentView.addSubview(sortLabel)
+        
+        sortLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(contentView.snp.top).offset(12)
+            make.centerX.equalToSuperview()
+        }
+    }
 }

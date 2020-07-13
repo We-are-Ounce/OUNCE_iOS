@@ -28,7 +28,7 @@ class SortingVC: UIViewController {
         
         self.backgroundDismiss()
         
-//        self.sortingTV.separatorStyle = UITableViewCell.SeparatorStyle.none
+        self.sortingTV.separatorStyle = UITableViewCell.SeparatorStyle.none
      
     }
     
@@ -44,6 +44,7 @@ class SortingVC: UIViewController {
     }
 }
 
+
 extension SortingVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,8 +54,24 @@ extension SortingVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let sortingCell = sortingTV.dequeueReusableCell(withIdentifier: "SortingCell", for: indexPath) as? SortingCell else{return UITableViewCell()}
-        
+        let sortingCell = sortingTV.dequeueReusableCell(withIdentifier: "SortingCell", for: indexPath) as! SortingCell
+        sortingCell.constraint()
+        sortingCell.sortLabel.text = sortingList[indexPath.row]
+//        if sortingList[indexPath.row] == "날짜 순" {
+//            sortingCell.backgroundColor = .black
+//            sortingCell.textLabel?.textColor = .putty
+//        }
+//        else if sortingList[indexPath.row] == "기호도 순" {
+//
+//            sortingCell.backgroundColor = .white
+//            sortingCell.textLabel?.textColor = .putty
+//
+//        }
+//        else {
+//
+//            sortingCell.backgroundColor = .white
+//            sortingCell.textLabel?.textColor = .putty
+//        }
         return sortingCell
     }
     
@@ -63,10 +80,6 @@ extension SortingVC: UITableViewDelegate, UITableViewDataSource {
          return 44
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-    
-        return sortingList.count
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

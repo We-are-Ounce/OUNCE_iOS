@@ -11,9 +11,16 @@ import UIKit
 // MARK: - tableViewCell 오토 잡아야 함, 코드는 다 입력,,
 class SettingVC: UIViewController {
     
-    var FirstList = ["로그아웃", "정보수정요청"]
-    var SecondList = ["이용약관", "버전정보", "FAQ", "문제보고"]
-    var ThirdList = ["계정삭제"]
+    var list = ["",
+                "로그아웃",
+                "정보수정요청",
+                "",
+                "이용약관",
+                "버전정보",
+                "FAQ",
+                "문제보고",
+                "",
+                "계정삭제"]
     
     @IBOutlet weak var settingTV: UITableView!
     
@@ -22,122 +29,38 @@ class SettingVC: UIViewController {
         
         settingTV.delegate = self
         settingTV.dataSource = self
+        settingTV.separatorStyle = .none
         
         navigationController?.isNavigationBarHidden = false
-        //        self.settingTV.register(FirstSettingTC.self,
-        //                             forCellReuseIdentifier: "FirstSettingTC")
-        //        self.settingTV.register(SecondSettingTC.self,
-        //                             forCellReuseIdentifier: "SecondSettingTC")
-        //        self.settingTV.register(Thir.self,
-        //                             forCellReuseIdentifier: "SecondSettingTC")
-        
-        
         
     }
     
     
 }
 
-extension SettingVC : UITableViewDelegate {
-    
-}
-
+extension SettingVC : UITableViewDelegate { }
 extension SettingVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            return FirstList.count
-        }
-        else if section == 1 {
-            return SecondList.count
-        }
-        else{
-            return ThirdList.count
-        }
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.section == 0 {
-            let firstCell = settingTV.dequeueReusableCell(withIdentifier: "FirstSettingTC", for: indexPath)
-            firstCell.backgroundColor = .blue
-            return firstCell
-        }
-        else if indexPath.section == 1 {
-            let secondCell = settingTV.dequeueReusableCell(withIdentifier: "SecondSettingTC", for: indexPath)
-            secondCell.backgroundColor = .red
-            return secondCell
-            
+        let firstCell = settingTV.dequeueReusableCell(withIdentifier: "FirstSettingTC", for: indexPath)
+        if list[indexPath.row] == "" {
+            firstCell.backgroundColor = .whiteTwo
         } else {
-            let thirdCell = settingTV.dequeueReusableCell(withIdentifier: "ThirdSettingTC", for: indexPath)
-            thirdCell.backgroundColor = .yellow
-            return thirdCell
+            firstCell.textLabel?.text = list[indexPath.row]
         }
+        return firstCell
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.section == 0 {
-            
-            return 80
+        if list[indexPath.row] == "" {
+            return 9
+        } else {
+            return 64
         }
-        else if indexPath.section == 1 {
-            
-            return 100
-        }
-        else{
-            return 40
-        }
-    }
-    
-    // Set the spacing between sections
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        if section == 1 {
-            return 10
-        }
-        else if section == 2{
-            return 10
-        }
-        else {
-            return 0
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        if section == 0 {
-            
-            let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
-            let myView = UIView(frame: rect)
-            myView.backgroundColor = UIColor.black
-            return myView
-        }
-        
-        if section == 1 {
-            
-            let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
-            let myView = UIView(frame: rect)
-            myView.backgroundColor = UIColor.black
-            return myView
-        }
-        if section == 2 {
-            
-            let rect = CGRect(x: 0, y: 0, width: 375, height: 10)
-            let myView = UIView(frame: rect)
-            myView.backgroundColor = UIColor.black
-            return myView
-        }
-        else{
-            
-            let rect = CGRect(x: 0, y: 0, width: 375, height: 300)
-            let myView = UIView(frame: rect)
-            myView.backgroundColor = UIColor.black
-            return myView
-        }
-        
     }
 }
 

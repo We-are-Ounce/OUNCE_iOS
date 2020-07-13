@@ -103,9 +103,17 @@
 		7FD5B92324B59E03008D382F /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5B92124B59E03008D382F /* HeaderCell.xib */; };
 		7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA4D24BA2481004CD853 /* SettingVC.swift */; };
 		7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */; };
+<<<<<<< Updated upstream
 		F23316A324BCB84C00BA6023 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A224BCB84C00BA6023 /* ReviewService.swift */; };
 		F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A424BCBE2400BA6023 /* ReviewData.swift */; };
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 		7FE7BA5C24BD108700D57089 /* ProductDetailNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BA5B24BD108700D57089 /* ProductDetailNVC.swift */; };
+=======
+		F23316A324BCB84C00BA6023 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A224BCB84C00BA6023 /* ReviewService.swift */; };
+		F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A424BCBE2400BA6023 /* ReviewData.swift */; };
+>>>>>>> Feature/#85
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
 		F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */; };
@@ -425,8 +433,15 @@
 				5EFD2DCA24BC68290054B357 /* ResponseResult.swift */,
 				7747FF6624BA04D3006F5738 /* Follow.swift */,
 				5EFD2DCE24BC6E430054B357 /* SignIn.swift */,
+<<<<<<< Updated upstream
 				F23316A424BCBE2400BA6023 /* ReviewData.swift */,
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 				5E179B0724BCC1DA0061A498 /* Token.swift */,
+=======
+				F23316A424BCBE2400BA6023 /* ReviewData.swift */,
+>>>>>>> Feature/#85
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -447,9 +462,16 @@
 				5E69E89924AC689C005D4DC1 /* APIConstants.swift */,
 				5EFD2DC824BC66100054B357 /* NetworkResult.swift */,
 				5EFD2DCC24BC69CC0054B357 /* UserService.swift */,
+<<<<<<< Updated upstream
 				F23316A224BCB84C00BA6023 /* ReviewService.swift */,
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 				7754C98924BCBCA0001F3A0F /* FollowService.swift */,
 				5E179B0924BCCCC50061A498 /* ContentService.swift */,
+=======
+				F23316A224BCB84C00BA6023 /* ReviewService.swift */,
+>>>>>>> Feature/#85
 			);
 			path = Services;
 			sourceTree = "<group>";

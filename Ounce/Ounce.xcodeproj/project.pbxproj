@@ -70,6 +70,8 @@
 		5EFD2DC424BB006A0054B357 /* ProductDetail+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD2DC324BB006A0054B357 /* ProductDetail+Constraint.swift */; };
 		5EFD2DC624BB01070054B357 /* ProductDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD2DC524BB01070054B357 /* ProductDetailTVCell.swift */; };
 		5EFD2DC724BB5DBC0054B357 /* SortingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE9C024B898E100CB2476 /* SortingVC.swift */; };
+		5EFD2DC924BC66100054B357 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD2DC824BC66100054B357 /* NetworkResult.swift */; };
+		5EFD2DCB24BC68290054B357 /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD2DCA24BC68290054B357 /* ResponseResult.swift */; };
 		773384C624B791C400D05E8F /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773384C524B791C400D05E8F /* Social.storyboard */; };
 		773384EC24B8E91200D05E8F /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773384EB24B8E91200D05E8F /* SocialVC.swift */; };
 		773384EF24B8EAF200D05E8F /* TabCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773384ED24B8EAF200D05E8F /* TabCVC.swift */; };
@@ -175,6 +177,8 @@
 		5EFD2DC124BAFE300054B357 /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
 		5EFD2DC324BB006A0054B357 /* ProductDetail+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductDetail+Constraint.swift"; sourceTree = "<group>"; };
 		5EFD2DC524BB01070054B357 /* ProductDetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTVCell.swift; sourceTree = "<group>"; };
+		5EFD2DC824BC66100054B357 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		5EFD2DCA24BC68290054B357 /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
 		773384C524B791C400D05E8F /* Social.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Social.storyboard; sourceTree = "<group>"; };
 		773384EB24B8E91200D05E8F /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		773384ED24B8EAF200D05E8F /* TabCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCVC.swift; sourceTree = "<group>"; };
@@ -409,6 +413,7 @@
 			children = (
 				5E69E89324AC6828005D4DC1 /* Model.swift */,
 				7747FF6624BA04D3006F5738 /* SoicialList.swift */,
+				5EFD2DCA24BC68290054B357 /* ResponseResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				5E69E89924AC689C005D4DC1 /* APIConstants.swift */,
+				5EFD2DC824BC66100054B357 /* NetworkResult.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -917,11 +923,13 @@
 				7F7CE9C524B9000F00CB2476 /* SortingCell.swift in Sources */,
 				5E69E8A824AC6CA1005D4DC1 /* LoginCell.swift in Sources */,
 				5E039CB524AFFEBD009B1BC6 /* IDVC+Constraint.swift in Sources */,
+				5EFD2DC924BC66100054B357 /* NetworkResult.swift in Sources */,
 				777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */,
 				5E48BF1F24B1D79D0060EA7B /* BrowseCVCell.swift in Sources */,
 				5EA7C45F24B8EAAD00EB95EA /* BrowsePageCVCell.swift in Sources */,
 				5E35795624AE38D100043066 /* Date+Extension.swift in Sources */,
 				5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */,
+				5EFD2DCB24BC68290054B357 /* ResponseResult.swift in Sources */,
 				7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */,
 				5E48BF1A24B1D7750060EA7B /* BrowseVC.swift in Sources */,
 				7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */,
@@ -1079,9 +1087,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-
 				DEVELOPMENT_TEAM = K7PMZ9X55K;
-
 				INFOPLIST_FILE = "Ounce/Global/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1103,7 +1109,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-
 				DEVELOPMENT_TEAM = 78A867AHKF;
 				INFOPLIST_FILE = "Ounce/Global/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

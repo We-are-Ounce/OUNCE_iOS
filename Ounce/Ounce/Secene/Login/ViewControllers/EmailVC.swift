@@ -45,11 +45,11 @@ class EmailVC: UIViewController {
     }
     
     let emailCertificationButton = UIButton().then{
-        $0.backgroundColor = .darkPeach
+        $0.backgroundColor = .pale
         $0.makeRounded(cornerRadius: 8)
         $0.setTitle("인증", for: .normal)
         $0.titleLabel?.font = Font.buttonLabel
-        $0.tintColor = .putty
+        $0.setTitleColor(.putty, for: .normal)
         $0.addTarget(self,
                      action: #selector(tapEmailCertificationButton),
                      for: .touchUpInside)
@@ -155,6 +155,7 @@ extension EmailVC {
     
     @objc func tapEmailCertificationButton(){
         // 인증번호 생성
+        email = emailTextField.text ?? ""
         let randomNumber = arc4random_uniform(899999) + 100000
         verificationNumber = String(randomNumber)
         print(verificationNumber ?? "")

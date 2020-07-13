@@ -29,7 +29,7 @@ extension PasswordVC {
         guideLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(88)
             make.leading.equalToSuperview().offset(116)
-            make.width.equalTo(210)
+            make.width.equalToSuperview()
             make.height.equalTo(80)
         }
         
@@ -43,7 +43,7 @@ extension PasswordVC {
         pwTextField.snp.makeConstraints { (make) in
             make.top.equalTo(pwGuideLabel.snp.bottom).offset(8)
             make.leading.equalTo(guideLabel.snp.leading).offset(6)
-            make.width.equalTo(210)
+            make.trailing.equalTo(pwUnderBarView.snp.trailing)
             make.height.equalTo(24)
         }
         
@@ -57,7 +57,7 @@ extension PasswordVC {
         pwErrorGuiedLabel.snp.makeConstraints { (make) in
             make.top.equalTo(pwUnderBarView.snp.bottom).offset(5)
             make.leading.equalToSuperview().offset(24)
-            make.width.equalTo(210)
+            make.trailing.equalTo(pwUnderBarView.snp.trailing)
             make.height.equalTo(18)
         }
         
@@ -71,7 +71,7 @@ extension PasswordVC {
         pwCertificationTextField.snp.makeConstraints { (make) in
             make.top.equalTo(pwCertificationGuideLabel.snp.bottom).offset(8)
             make.leading.equalTo(guideLabel.snp.leading).offset(6)
-            make.width.equalTo(210)
+            make.trailing.equalTo(pwUnderBarView.snp.trailing)
             make.height.equalTo(24)
         }
         
@@ -85,7 +85,7 @@ extension PasswordVC {
         pwCertificationErrorGuiedLabel.snp.makeConstraints { (make) in
             make.top.equalTo(pwCertificationUnderBarView.snp.bottom).offset(5)
             make.leading.equalToSuperview().offset(24)
-            make.width.equalTo(210)
+            make.trailing.equalTo(pwUnderBarView.snp.trailing)
             make.height.equalTo(18)
         }
 

@@ -26,7 +26,7 @@ struct UserService {
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
         ]
-        
+        print(URL)
         let body : Parameters = [
             "id": id,
             "password": password,
@@ -39,6 +39,7 @@ struct UserService {
                           encoding: JSONEncoding.default,
                           headers: headers).responseData{
             response in
+            dump(body)
             
             switch response.result {
                 
@@ -46,12 +47,14 @@ struct UserService {
                 // parameter 위치
                 if let value = response.result.value {
                     if let status = response.response?.statusCode {
+                        print(status)
                         switch status {
                         case 200:
                             do{
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(ResponseResult<String>.self, from: value)
-                                completion(.success(result))
+                                let result = try decoder.decode(ResponseSimpleResult<Token>.self,
+                                                                from: value)
+                                completion(.success(result.data ?? Token.self))
                             } catch {
                                 completion(.pathErr)
                             }
@@ -107,7 +110,8 @@ struct UserService {
                         case 200:
                             do{
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(ResponseSimpleResult<SignIn>.self, from: value)
+                                let result = try decoder.decode(ResponseSimpleResult<SignIn>.self,
+                                                                from: value)
                                 completion(.success(result.data ?? SignIn.self))
                             } catch {
                                 completion(.pathErr)

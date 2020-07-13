@@ -14,6 +14,8 @@ class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAda
     
     var  rootVC: UIViewController?
     
+    @IBOutlet weak var follower: UIButton!
+    @IBOutlet weak var following: UIButton!
     @IBOutlet weak var settingButton: UIButton!
     
     // MARK: - profile : 받아오는 데이터
@@ -24,10 +26,22 @@ class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAda
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var introduceLabel: UILabel!
     
+
+    func round(){
+        
+        follower.setRounded(radius: 8)
+        follower.setBorder(borderColor: .pale, borderWidth: 0.5)
+        
+       following.setRounded(radius: 8)
+       following.setBorder(borderColor: .pale, borderWidth: 0.5)
+    }
     
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        round()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

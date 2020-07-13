@@ -101,7 +101,8 @@
 		7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA4D24BA2481004CD853 /* SettingVC.swift */; };
 		7FE5EA6024BA8B25004CD853 /* SecondSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA5F24BA8B25004CD853 /* SecondSettingTC.swift */; };
 		7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */; };
-
+		F23316A324BCB84C00BA6023 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A224BCB84C00BA6023 /* ReviewService.swift */; };
+		F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A424BCBE2400BA6023 /* ReviewData.swift */; };
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
 		F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */; };
@@ -217,6 +218,8 @@
 		7FE5EA6324BA8B52004CD853 /* ThirdSettingTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSettingTC.swift; sourceTree = "<group>"; };
 		7FE7BA5424BB49B000D57089 /* MainNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNaviVC.swift; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23316A224BCB84C00BA6023 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
+		F23316A424BCBE2400BA6023 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		F248FD3E24B4727A0055D753 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIScroll+Extension.swift"; path = "Ounce/Global/Delegate/UIScroll+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		F2940AD524B2548D003C3047 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -417,6 +420,7 @@
 				5EFD2DCA24BC68290054B357 /* ResponseResult.swift */,
 				7747FF6624BA04D3006F5738 /* SoicialList.swift */,
 				5EFD2DCE24BC6E430054B357 /* SignIn.swift */,
+				F23316A424BCBE2400BA6023 /* ReviewData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -437,6 +441,7 @@
 				5E69E89924AC689C005D4DC1 /* APIConstants.swift */,
 				5EFD2DC824BC66100054B357 /* NetworkResult.swift */,
 				5EFD2DCC24BC69CC0054B357 /* UserService.swift */,
+				F23316A224BCB84C00BA6023 /* ReviewService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -876,7 +881,6 @@
 				777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */,
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				773384EC24B8E91200D05E8F /* SocialVC.swift in Sources */,
-				F23316A124BB5F6800BA6023 /* SortingVC.swift in Sources */,
 				5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */,
 				F248FD3F24B4727A0055D753 /* Product.swift in Sources */,
 				5EFD2DC624BB01070054B357 /* ProductDetailTVCell.swift in Sources */,
@@ -938,10 +942,12 @@
 				5EFD2DCB24BC68290054B357 /* ResponseResult.swift in Sources */,
 				7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */,
 				5E48BF1A24B1D7750060EA7B /* BrowseVC.swift in Sources */,
+				F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */,
 				7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */,
 				F29B7CCA24B364D00042089B /* PostNavVC.swift in Sources */,
 				7FD5B91F24B59DCA008D382F /* ProfileCell.swift in Sources */,
 				773384F724B9174A00D05E8F /* AcquaintanceTVC.swift in Sources */,
+				F23316A324BCB84C00BA6023 /* ReviewService.swift in Sources */,
 				F2940AD624B2548D003C3047 /* SearchVC.swift in Sources */,
 				773384F324B8EE6B00D05E8F /* PageCVC.swift in Sources */,
 				5E039CAD24AFFDAE009B1BC6 /* EmailVC.swift in Sources */,

@@ -15,7 +15,7 @@ class PostSC:UIView,UITextViewDelegate {
     @IBOutlet weak var productImg: UIImageView! // 제품사진
     @IBOutlet weak var companyName: UILabel! // 회사명
     @IBOutlet weak var productName: UILabel! // 제품이름
-   
+    
     @IBOutlet weak var textLineView: UIView!
     
     @IBOutlet weak var scoreBtn1: UIButton!
@@ -46,13 +46,23 @@ class PostSC:UIView,UITextViewDelegate {
     @IBOutlet weak var furTrouble: UIButton!
     @IBOutlet weak var vomitTrouble: UIButton!
     
-    var eye: Bool = false
-    var ear: Bool = false
-    var fur: Bool = false
-    var vomit: Bool = false
+    var rating: Int = 1
+    var prefer: Int = 1
+    var review: String = "리뷰"
+    var memo: String = "메모"
+    var pooState: Int = 1
+    var pooSmell : Int = 1
+    var eye: Int = 0
+    var ear: Int = 0
+    var fur: Int = 0
+    var vomit: Int = 0
+    var date: String = "해떴다"
+    var foodIndex: Int = 10
+    var profileIndex: Int = 19
     var rootVC: UIViewController?
     
     @IBAction func scoreBtn1selected(_ sender: Any) {
+        rating = 1
         scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn2.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
         scoreBtn3.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
@@ -60,6 +70,7 @@ class PostSC:UIView,UITextViewDelegate {
         scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
     }
     @IBAction func scoreBtn2selected(_ sender: Any) {
+        rating = 2
         scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn2.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn3.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
@@ -68,16 +79,19 @@ class PostSC:UIView,UITextViewDelegate {
     }
     
     @IBAction func scoreBtn3selected(_ sender: Any) {
+        rating = 3
         scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn2.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn4.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
         scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        print(rating)
         
     }
     
     
     @IBAction func scoreBtn4selected(_ sender: Any) {
+        rating = 4
         scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn2.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
@@ -87,7 +101,7 @@ class PostSC:UIView,UITextViewDelegate {
         
     }
     @IBAction func scoreBtn5selected(_ sender: Any) {
-        
+        rating = 5
         scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn2.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
@@ -96,7 +110,7 @@ class PostSC:UIView,UITextViewDelegate {
     }
     
     @IBAction func likeBtn1selected(_ sender: Any) {
-        
+        prefer = 1
         likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn2.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
         likeBtn3.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
@@ -105,7 +119,7 @@ class PostSC:UIView,UITextViewDelegate {
     }
     
     @IBAction func likeBtn2selected(_ sender: Any) {
-        
+        prefer = 2
         likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn2.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn3.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
@@ -114,6 +128,7 @@ class PostSC:UIView,UITextViewDelegate {
         
     }
     @IBAction func likeBtn3selected(_ sender: Any) {
+        prefer = 3
         likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn2.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
@@ -122,6 +137,7 @@ class PostSC:UIView,UITextViewDelegate {
         
     }
     @IBAction func likeBtn4selected(_ sender: Any) {
+        prefer = 4
         likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn2.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
@@ -131,6 +147,7 @@ class PostSC:UIView,UITextViewDelegate {
     }
     
     @IBAction func likeBtn5selected(_ sender: Any) {
+        prefer = 5
         likeBtn1.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn2.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
@@ -141,7 +158,7 @@ class PostSC:UIView,UITextViewDelegate {
     
     
     @IBAction func pooState1selected(_ sender: Any) {
-        
+        pooState = 1
         pooState1.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
         pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
@@ -151,7 +168,7 @@ class PostSC:UIView,UITextViewDelegate {
     }
     
     @IBAction func pooState2selected(_ sender: Any) {
-        
+        pooState = 2
         pooState1.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState2.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
         pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
@@ -162,93 +179,94 @@ class PostSC:UIView,UITextViewDelegate {
     
     
     @IBAction func pooState3selected(_ sender: Any) {
-        
+        pooState = 3
         pooState1.setImage(UIImage(named:"imgStatus"), for: .normal)
-               pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
-               pooState3.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
-               pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
-               pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState3.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
     }
     
     @IBAction func pooState4selected(_ sender: Any) {
         
+        pooState = 4
         pooState1.setImage(UIImage(named:"imgStatus"), for: .normal)
-                    pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
-                    pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
-                    pooState4.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
-                    pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState4.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
     }
     
     @IBAction func pooState5selected(_ sender: Any) {
         
+        pooState = 5
         pooState1.setImage(UIImage(named:"imgStatus"), for: .normal)
-                           pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
-                           pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
-                           pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
-                           pooState5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooState2.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooState5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
     }
     
     @IBAction func pooSmell1selected(_ sender: Any) {
-    
-    pooSmell1.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
-                              pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
-                              pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
-                              pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
-                              pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        
+        pooSmell = 1
+        pooSmell1.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
     }
     
     
     @IBAction func pooSmell2selected(_ sender: Any) {
         
+        pooSmell = 2
         pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                     pooSmell2.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
-                                     pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                     pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                     pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell2.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
     }
     
     @IBAction func pooSmell3selected(_ sender: Any) {
-        
+        pooSmell = 3
         pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                        pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                        pooSmell3.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
-                                        pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                        pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell3.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
     }
     @IBAction func pooSmell4selected(_ sender: Any) {
         
-        
+        pooSmell = 4
         pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                        pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                        pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                        pooSmell4.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
-                                        pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell4.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
     }
     @IBAction func pooSmell5selected(_ sender: Any) {
         
         
-        
-          pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                          pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                          pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                          pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
-                                          pooSmell5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+        pooSmell = 5
+        pooSmell1.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell2.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
+        pooSmell5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
     }
     
     
     @IBAction func eyeTroubleselected(_ sender: Any) {
-        //eyeTrouble.layer.borderColor = UIColor.battleshipGrey.cgColor
-        //eyeTrouble.layer.backgroundColor = UIColor.battleshipGrey.cgColor
-        //eyeTrouble.setTitleColor(.white, for: .normal)
-        if !eye{
-            eye = true
+        if eye == 0 {
+            eye = 1
             eyeTrouble.borderColor = .black
             eyeTrouble.backgroundColor = .white
             eyeTrouble.setTitleColor(.black, for: .normal)
             
-        }else{
-            eye = false
-         
+        }else {
+            eye = 0
+            
             eyeTrouble.borderColor = .pale
             eyeTrouble.backgroundColor = .white
             eyeTrouble.setTitleColor(.black, for: .normal)
@@ -260,52 +278,52 @@ class PostSC:UIView,UITextViewDelegate {
     
     @IBAction func earTroubleselected(_ sender: Any) {
         
-        if !ear{
-             ear = true
-             earTrouble.borderColor = .black
-             earTrouble.backgroundColor = .white
-             earTrouble.setTitleColor(.black, for: .normal)
-             
-         }else{
-             ear = false
-             earTrouble.borderColor = .pale
-             earTrouble.backgroundColor = .white
-             earTrouble.setTitleColor(.black, for: .normal)
-             
-         }
+        if ear == 0 {
+            ear = 1
+            earTrouble.borderColor = .black
+            earTrouble.backgroundColor = .white
+            earTrouble.setTitleColor(.black, for: .normal)
+            
+        }else{
+            ear = 0
+            earTrouble.borderColor = .pale
+            earTrouble.backgroundColor = .white
+            earTrouble.setTitleColor(.black, for: .normal)
+            
+        }
         
     }
     @IBAction func furTroubleselected(_ sender: Any) {
         
-        if !fur{
-             fur = true
-             furTrouble.borderColor = .black
-             furTrouble.backgroundColor = .white
-             furTrouble.setTitleColor(.black, for: .normal)
-             
-         }else{
-             fur = false
-             furTrouble.borderColor = .pale
-             furTrouble.backgroundColor = .white
-             furTrouble.setTitleColor(.black, for: .normal)
-             
-         }
+        if fur == 0 {
+            fur = 1
+            furTrouble.borderColor = .black
+            furTrouble.backgroundColor = .white
+            furTrouble.setTitleColor(.black, for: .normal)
+            
+        }else {
+            fur = 0
+            furTrouble.borderColor = .pale
+            furTrouble.backgroundColor = .white
+            furTrouble.setTitleColor(.black, for: .normal)
+            
+        }
     }
     
     @IBAction func vomitTroubleselected(_ sender: Any) {
-        if !vomit{
-             vomit = true
-             vomitTrouble.borderColor = .black
-             vomitTrouble.backgroundColor = .white
-             vomitTrouble.setTitleColor(.black, for: .normal)
-             
-         }else{
-            vomit = false
-             vomitTrouble.borderColor = .pale
-             vomitTrouble.backgroundColor = .white
-             vomitTrouble.setTitleColor(.black, for: .normal)
-             
-         }
+        if vomit == 0 {
+            vomit = 1
+            vomitTrouble.borderColor = .black
+            vomitTrouble.backgroundColor = .white
+            vomitTrouble.setTitleColor(.black, for: .normal)
+            
+        }else{
+            vomit = 0
+            vomitTrouble.borderColor = .pale
+            vomitTrouble.backgroundColor = .white
+            vomitTrouble.setTitleColor(.black, for: .normal)
+            
+        }
     }
     func viewDidLoad(){
         
@@ -318,25 +336,19 @@ class PostSC:UIView,UITextViewDelegate {
         self.earTrouble.borderColor = .pale
         self.furTrouble.borderColor = .pale
         self.vomitTrouble.borderColor = .pale
-        /*self.eyeTrouble.setTitleColor(.black,for: .normal)
-        self.earTrouble.setTitleColor(.black,for: .normal)
-        self.furTrouble.setTitleColor(.black, for: .normal)
-        self.vomitTrouble.setTitleColor(.black, for: .normal)
-        */
         
-               
         memoTextView.delegate = self
         criticTextField.delegate = self
         
-
+        
         
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         // 키보드 바깥 뷰 아무데나 터치하면 키보드 다시 들어가는 코드
         self.rootVC?.view.endEditing(true)
     }
-
+    
 }
 
 extension PostSC: UITextFieldDelegate {

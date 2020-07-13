@@ -11,6 +11,7 @@ import UIKit
 class HomeVC: UIViewController {
         
     @IBOutlet weak var reviewTV: UITableView!
+   
     
     var stringList = ["주연", "주연","주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ]
     

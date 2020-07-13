@@ -2,17 +2,14 @@
 //  SortingCell.swift
 //  Ounce
 //
-//  Created by 박주연 on 2020/07/11.
+//  Created by 박주연 on 2020/07/14.
 //  Copyright © 2020 박주연. All rights reserved.
 //
 
 import UIKit
 
 class SortingCell: UITableViewCell {
-    
 
-    @IBOutlet weak var sortingLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

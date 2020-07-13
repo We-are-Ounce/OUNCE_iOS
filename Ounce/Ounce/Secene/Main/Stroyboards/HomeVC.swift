@@ -11,6 +11,7 @@ import UIKit
 class HomeVC: UIViewController {
         
     @IBOutlet weak var reviewTV: UITableView!
+   
     
     var stringList = ["주연", "주연","주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ]
     
@@ -34,7 +35,7 @@ class HomeVC: UIViewController {
         
         
         //테이블 셀 라인 없애기
-        //self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
+        self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.setupLayout()
 
@@ -57,6 +58,16 @@ class HomeVC: UIViewController {
 
 
 extension HomeVC : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 {
+            
+            // 데이터 넣기, 뷰 전환 연결하기
+
+            print(indexPath)
+        }
+    }
     
 }
 

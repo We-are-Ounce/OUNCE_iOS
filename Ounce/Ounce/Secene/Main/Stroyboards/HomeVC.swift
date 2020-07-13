@@ -59,6 +59,16 @@ class HomeVC: UIViewController {
 
 extension HomeVC : UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 {
+            
+            // 데이터 넣기, 뷰 전환 연결하기
+
+            print(indexPath)
+        }
+    }
+    
 }
 
 extension HomeVC : UITableViewDataSource {

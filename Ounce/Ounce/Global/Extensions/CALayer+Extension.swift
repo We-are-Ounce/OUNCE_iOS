@@ -13,13 +13,13 @@ extension CALayer {
         color: UIColor = .black,
         alpha: Float = 0.5,
         x: CGFloat = 0,
-        y: CGFloat = 2,
+        y: CGFloat = 10,
         blur: CGFloat = 4
     ) {
         shadowColor = color.cgColor
         shadowOpacity = alpha
         shadowOffset = CGSize(width: x, height: y)
-        shadowRadius = blur / 2.0
+        shadowRadius = blur / 1.0
     }
 
 }

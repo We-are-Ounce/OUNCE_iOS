@@ -207,13 +207,7 @@ extension ProductDetailVC: UITableViewDataSource {
             make.leading.equalTo(headerCompanyNameLabel.snp.leading)
             make.height.equalTo(24)
         }
-        
-        firstCategoryLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(firstCategoryView.snp.top).offset(3)
-            make.leading.equalTo(firstCategoryView.snp.leading).offset(10.5)
-            make.height.equalTo(18)
-        }
-        
+   
         firstCategoryView.snp.makeConstraints { (make) in
             make.top.equalTo(headerView.snp.top).offset(79)
             make.leading.equalTo(headerIMG.snp.trailing).offset(20)

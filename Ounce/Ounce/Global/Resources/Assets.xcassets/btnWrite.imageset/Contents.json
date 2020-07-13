@@ -1,18 +1,18 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
       "filename" : "btnWrite.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "scale" : "1x"
     },
     {
       "scale" : "2x",
-      "filename" : "btnWrite@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "btnWrite@2x.png"
     },
     {
-      "idiom" : "universal",
       "filename" : "btnWrite@3x.png",
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],

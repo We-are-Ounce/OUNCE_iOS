@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 import Alamofire
 import SwiftKeychainWrapper
 
@@ -235,5 +236,59 @@ struct UserService {
 
     }
     
+    func enrollProfile(_ profileIMG: UIImage,
+                       _ profileName: String,
+                       _ profileWeight: String,
+                       _ profileGender: String,
+                       _ profileNeutral: String,
+                       _ profileAge: Int,
+                       _ profileInfo: String,
+                       completion: @escaping (NetworkResult<Any>) -> Void){
+        
+        let URL = APIConstants.registerProfile
+        let token = KeychainWrapper.standard.string(forKey: "Token")
+        var age = profileAge
+        var userIndex = KeychainWrapper.standard.string(forKey: "userIndex")
+        let headers: HTTPHeaders = [
+            "Content-Type": "multipart/form-data",
+            "token" : token ?? ""
+        ]
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            if let imageData = profileIMG.jpegData(compressionQuality: 0.3) {
+                multipartFormData.append(imageData,
+                                         withName: "profileImg",
+                                         fileName: "image.jpg",
+                                         mimeType: "image/jpg")
+            }
+            multipartFormData.append(Data(bytes: &userIndex, count: 10),
+                                     withName: "userIdx")
+            multipartFormData.append(profileName.data(using: .utf8) ?? Data(),
+                                     withName: "profileName")
+            multipartFormData.append(profileWeight.data(using: .utf8) ?? Data(),
+                                     withName: "profileWeight")
+            multipartFormData.append(profileGender.data(using: .utf8) ?? Data(),
+                                     withName: "profileGender")
+            multipartFormData.append(profileNeutral.data(using: .utf8) ?? Data(),
+                                     withName: "profileNeutral")
+            multipartFormData.append(Data(bytes: &age, count: 2),
+                                     withName: "profileAge")
+            multipartFormData.append(profileInfo.data(using: .utf8) ?? Data(),
+                                     withName: "profileInfo")
 
+        }, to: URL, method: .post, headers: headers) { (encodingResult) in
+            
+            switch encodingResult {
+                
+            case .success(let upload, _, _):
+                print("success")
+                upload.responseJSON { (response) in
+                    completion(.success(response.result.value as Any))
+                }
+            case .failure(let encodingError):
+                print(encodingError.localizedDescription)
+            }
+        }
+
+    }
 }

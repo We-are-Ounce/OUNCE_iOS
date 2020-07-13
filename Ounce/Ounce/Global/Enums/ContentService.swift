@@ -8,3 +8,13 @@
 
 import Foundation
 
+import Alamofire
+import SwiftKeychainWrapper
+
+struct ContentService {
+    private init() {}
+    
+    static let shared = ContentService()
+    
+
+}

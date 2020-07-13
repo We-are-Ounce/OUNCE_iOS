@@ -50,7 +50,7 @@ class RegisterVC: UIViewController {
         return button
         
     }()
-
+    
     // MARK: - Variables and Properties
     
     var selectedItems = [YPMediaItem]()
@@ -140,12 +140,15 @@ extension RegisterVC {
     }
     
     @objc func didTapNextButton(){
-        let sb = UIStoryboard(name: "TabBar", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        enroll(profileIMG.image ?? UIImage(),
+               nameTextField.text ?? "",
+               weightTextField.text ?? "",
+               (sex  == 0) ? "남" : "여",
+               isNeutralization ? "true" : "false",
+               Int(ageTextField.text ?? "") ?? 0,
+               contentTextField.text ?? "")
     }
-        
+    
     func setButton() {
         maleButton.setRounded(radius: 8)
         maleButton.borderColor = .battleshipGrey
@@ -217,7 +220,7 @@ extension RegisterVC {
             neutralizationRoundButton.borderColor = .battleshipGrey
         }
     }
-
+    
 }
 
 extension RegisterVC: UITextFieldDelegate {
@@ -277,3 +280,47 @@ extension RegisterVC {
     
 }
 
+
+extension RegisterVC {
+    func enroll(_ profileIMG: UIImage,
+                _ profileName: String,
+                _ profileWeight: String,
+                _ profileGender: String,
+                _ profileNeutral: String,
+                _ profileAge: Int,
+                _ profileInfo: String){
+        UserService.shared.enrollProfile(profileIMG,
+                                         profileName,
+                                         profileWeight,
+                                         profileGender,
+                                         profileNeutral,
+                                         profileAge,
+                                         profileInfo){
+                                            [weak self]
+                                            data in
+                                            
+                                            guard let `self` = self else { return }
+                                            
+                                            switch data {
+                                            case .success:
+                                                let sb = UIStoryboard(name: "TabBar", bundle: nil)
+                                                let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
+                                                vc.modalPresentationStyle = .fullScreen
+                                                self.present(vc, animated: true)
+                                            case .requestErr:
+                                                self.simpleAlert(title: "실패", message: "")
+                                                
+                                            case .pathErr:
+                                                print(".pathErr")
+                                                
+                                            case .serverErr:
+                                                print(".serverErr")
+                                                
+                                            case .networkFail:
+                                                print(".networkFail")
+                                                
+                                            }
+                                            
+        }
+    }
+}

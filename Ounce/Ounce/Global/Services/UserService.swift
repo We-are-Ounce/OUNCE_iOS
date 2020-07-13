@@ -137,7 +137,6 @@ struct UserService {
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
-        print(URL)
         let body : Parameters = [
             "email" : email,
             "myName" : "Ounce",
@@ -158,7 +157,6 @@ struct UserService {
                 // parameter 위치
                 if let _ = response.value {
                     if let status = response.response?.statusCode {
-                        print(status)
                         switch status {
                         case 200:
                             completion(.success("이메일 전송 성공"))

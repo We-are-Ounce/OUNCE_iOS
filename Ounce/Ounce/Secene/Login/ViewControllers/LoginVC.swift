@@ -9,6 +9,7 @@
 import UIKit
 
 import Then
+import SwiftKeychainWrapper
 
 class LoginVC: UIViewController {
     
@@ -147,13 +148,8 @@ extension LoginVC {
     }
     
     @objc func tapSignInButton() {
-        let vc = UIStoryboard.init(name: "TabBar",
-                                   bundle: Bundle.main).instantiateViewController(
-                                    withIdentifier: "TBC") as? TBC
+        signInService(idTextField.text ?? "", pwTextField.text ?? "")
         
-        vc?.modalPresentationStyle = .fullScreen
-        
-        self.present(vc!, animated: true, completion: nil)
     }
     
     @objc func tapFindIDButton() {
@@ -196,4 +192,40 @@ extension LoginVC: UITextFieldDelegate {
 //            loginButton.backgroundColor = .blackTwo
         }
     }
+}
+
+extension LoginVC {
+    func signInService(_ id: String, _ password: String) {
+        UserService.shared.signIn(id, password) { responsedata in
+            switch responsedata {
+            case .success(let res):
+                let response: SignIn = res as! SignIn
+                let sb = UIStoryboard(name: "TabBar", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
+                vc.modalPresentationStyle = .fullScreen
+                KeychainWrapper.standard.set(response.accessToken,
+                                             forKey: "Token")
+                KeychainWrapper.standard.set(response.profileIdx,
+                                             forKey: "currentProfile")
+                KeychainWrapper.standard.set(response.profileCount,
+                                             forKey: "currentProfileCount")
+                
+                self.present(vc, animated: true)
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+        
+    }
+
 }

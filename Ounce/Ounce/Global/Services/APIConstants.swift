@@ -8,7 +8,7 @@
 
 struct APIConstants {
     
-    static let BaseURL = "52.79.90.119:3000/"
+    static let BaseURL = "http://52.79.90.119:3000/"
     
     // POST 회원가입
     static let signUp = BaseURL + "user/signup"
@@ -16,6 +16,8 @@ struct APIConstants {
     static let signIn = BaseURL + "user/signin"
     // POST
     static let checkID = BaseURL + "user/checkId"
+    // POST
+    static let email = "https://ounce.herokuapp.com/emailto"
     
     // POST 고양이 프로필 등록
     static let registerProfile = BaseURL + "profile/register"

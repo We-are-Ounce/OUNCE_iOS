@@ -87,7 +87,7 @@ class EmailVC: UIViewController {
         $0.setTitleColor(.putty, for: .normal)
         $0.addTarget(self, action: #selector(tapCertificationButton), for: .touchUpInside)
     }
-        
+    
     lazy var rightButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "다음",
                                      style: .plain,
@@ -117,7 +117,7 @@ class EmailVC: UIViewController {
         super.viewWillAppear(true)
         
     }
-        
+    
 }
 
 extension EmailVC {
@@ -127,7 +127,7 @@ extension EmailVC {
                                                            target: nil,
                                                            action: nil)
         navigationItem.rightBarButtonItem = rightButton
-//        rightButton.isEnabled = false
+        //        rightButton.isEnabled = false
     }
     
     func setTextField(){
@@ -140,7 +140,7 @@ extension EmailVC {
                                          action: #selector(EmailVC.textFieldDidChange(_:)),
                                          for: .editingChanged)
     }
-
+    
     @objc func tapNextButton() {
         let vc = UIStoryboard.init(name: "Login",
                                    bundle: Bundle.main).instantiateViewController(
@@ -153,7 +153,11 @@ extension EmailVC {
     }
     
     @objc func tapEmailCertificationButton(){
-        print(#function)
+        // 인증번호 생성
+        let randomNumber = arc4random_uniform(899999) + 100000
+        let verificationNumber = String(randomNumber)
+        print(verificationNumber)
+        sendEmail(to: emailTextField.text!, verificationNumber: verificationNumber)
     }
     
     @objc func tapCertificationButton(){
@@ -169,8 +173,8 @@ extension EmailVC {
     }
     
     func setButton() {
-//        emailCertificationButton.isEnabled = false
-//        certificationButton.isEnabled = false
+        //        emailCertificationButton.isEnabled = false
+        //        certificationButton.isEnabled = false
     }
     
 }
@@ -227,9 +231,9 @@ extension EmailVC {
                         self.certificationErrorGuideLabel.transform = CGAffineTransform.init(translationX: 0, y: -90)
                         self.certificationTextField.transform = CGAffineTransform.init(translationX: 0, y: -90)
                         
-            }, completion: nil)
+        }, completion: nil)
     }
-
+    
     func endEditing() {
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -247,7 +251,35 @@ extension EmailVC {
                         self.certificationUnderBarView.transform = .identity
                         self.certificationErrorGuideLabel.transform = .identity
                         self.certificationTextField.transform = .identity
-
+                        
         }, completion: nil)
+    }
+}
+
+extension EmailVC {
+    func sendEmail(to email: String, verificationNumber: String) {
+        UserService.shared.sendEmail(
+            email,
+            "인증번호를 입력해주세요. \n인증번호: \(verificationNumber)") { result in
+                
+                switch result {
+                case .success(_):
+                    UserDefaults.standard.set(verificationNumber, forKey: "emailVerificationID")
+//                    self.conditionMessageLabel.isHidden = false
+//                    self.conditionMessageLabel.text = "해당 이메일에서 인증번호를 확인해 주시기 바랍니다."
+//                    self.conditionMessageLabel.textColor = .systemBlue
+//                    self.verificationAnimate()
+//
+                case .requestErr(_):
+                    print(".requestErr")
+                case .pathErr:
+                    print(".pathErr")
+                case .serverErr:
+                    print(".serverErr")
+                case .networkFail:
+                    print(".networkFail")
+                }
+                
+        }
     }
 }

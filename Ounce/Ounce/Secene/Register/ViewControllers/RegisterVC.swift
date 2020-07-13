@@ -143,7 +143,7 @@ extension RegisterVC {
         enroll(profileIMG.image ?? UIImage(),
                nameTextField.text ?? "",
                weightTextField.text ?? "",
-               (sex  == 0) ? "남" : "여",
+               (sex == 0) ? "male" : "female",
                isNeutralization ? "true" : "false",
                Int(ageTextField.text ?? "") ?? 0,
                contentTextField.text ?? "")

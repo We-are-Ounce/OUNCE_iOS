@@ -17,6 +17,7 @@ extension SocialVC {
         //self.contentView.addSubview(catNameLabel)
         self.contentView.addSubview(pageCV)
         //self.view.addSubview()
+        self.contentView.addSubview(highlightLineView)
         
         tabCV.delegate = self
         tabCV.dataSource = self
@@ -37,6 +38,14 @@ extension SocialVC {
             make.height.equalTo(48)
             make.top.equalTo(contentView.snp.top)
         }
+        
+        highlightLineView.snp.makeConstraints { ( make ) in
+            make.top.equalTo(tabCV.snp.bottom).inset(-3)
+            make.width.equalTo(self.view.frame.width / 2)
+            make.height.equalTo(3)
+            
+        }
+        
         pageCV.snp.makeConstraints{ ( make ) in
             make.top.equalTo(tabCV.snp.bottom)
             make.leading.equalTo(contentView.snp.leading)

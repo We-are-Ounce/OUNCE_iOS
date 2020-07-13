@@ -54,7 +54,11 @@ class SocialVC: UIViewController {
     let contentView = UIView()
     let followerTV = UITableView()
     let followingTV = UITableView()
+    let highlightLineView = UIView()
     
+    
+    
+    var constraints : [NSLayoutConstraint] = []
     var userSocialInfo: SocialList?
     
     var followerInfo: [SocialList] = []
@@ -257,6 +261,25 @@ extension SocialVC: UICollectionViewDataSource{
     //
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabCV {
+            
+            guard let cell = tabCV.cellForItem(at: indexPath) as?
+                TabCVC else{
+                    NSLayoutConstraint.deactivate(constraints)
+                    constraints = [highlightLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor), highlightLineView.widthAnchor.constraint(equalToConstant: 80)
+                    ]
+                    NSLayoutConstraint.activate(constraints)
+                    return
+            }
+            NSLayoutConstraint.deactivate(constraints)
+            highlightLineView.translatesAutoresizingMaskIntoConstraints = false
+            constraints = [
+                highlightLineView.leadingAnchor.constraint(equalTo: cell.leadingAnchor), highlightLineView.trailingAnchor.constraint(equalTo: cell.trailingAnchor)
+            ]
+            NSLayoutConstraint.activate(constraints)
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+            
             pageCV.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }

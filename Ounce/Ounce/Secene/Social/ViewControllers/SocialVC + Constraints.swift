@@ -14,10 +14,10 @@ extension SocialVC {
     func set() {
         self.view.addSubview(contentView)
         self.contentView.addSubview(tabCV)
-        //self.contentView.addSubview(catNameLabel)
         self.contentView.addSubview(pageCV)
-        //self.view.addSubview()
         self.contentView.addSubview(highlightLineView)
+        
+        highlightLineView.backgroundColor = .darkPeach
         
         tabCV.delegate = self
         tabCV.dataSource = self
@@ -39,12 +39,6 @@ extension SocialVC {
             make.top.equalTo(contentView.snp.top)
         }
         
-        highlightLineView.snp.makeConstraints { ( make ) in
-            make.top.equalTo(tabCV.snp.bottom).inset(-3)
-            make.width.equalTo(self.view.frame.width / 2)
-            make.height.equalTo(3)
-            
-        }
         
         pageCV.snp.makeConstraints{ ( make ) in
             make.top.equalTo(tabCV.snp.bottom)
@@ -52,6 +46,12 @@ extension SocialVC {
             make.trailing.equalTo(contentView.snp.trailing)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
+
+        highlightLineView.snp.makeConstraints { (make) in
+            make.top.equalTo(tabCV.snp.bottom)
+            make.height.equalTo(2)
+        }
+        
         
     }
 }

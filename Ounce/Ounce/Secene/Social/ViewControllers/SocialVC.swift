@@ -59,10 +59,10 @@ class SocialVC: UIViewController {
     
     
     var constraints : [NSLayoutConstraint] = []
-    var userSocialInfo: SocialList?
+    var userSocialInfo: Follow?
     
-    var followerInfo: [SocialList] = []
-    var followingInfo: [SocialList] = []
+    var followerInfo: [Follow] = []
+    var followingInfo: [Follow] = []
     var direction: CGFloat?
     
     // view 계층에서 navigation은 아래에 위치하는데, 뷰 위에 왜 있는 지. bar와 item의 차이점
@@ -97,25 +97,8 @@ class SocialVC: UIViewController {
     }
 
     private func setFollowerData(){
-        let datum_1 = SocialList(catName: "호세", catWeight: "65", catAge: "25")
-        let datum_2 = SocialList(catName: "정균", catWeight: "75", catAge: "37")
-        let datum_3 = SocialList(catName: "준현", catWeight: "65", catAge: "26")
-        let datum_4 = SocialList(catName: "현우", catWeight: "90", catAge: "24")
-        let datum_5 = SocialList(catName: "효원", catWeight: "30", catAge: "24")
-        let datum_6 = SocialList(catName: "예지", catWeight: "30", catAge: "23")
-        let datum_7 = SocialList(catName: "주예", catWeight: "30", catAge: "23")
-        let datum_8 = SocialList(catName: "민구", catWeight: "30", catAge: "23")
-        let datum_9 = SocialList(catName: "예인", catWeight: "30", catAge: "23")
-        let datum_10 = SocialList(catName: "주연", catWeight: "30", catAge: "23")
-        let datum_11 = SocialList(catName: "윤진", catWeight: "30", catAge: "23")
-        let datum_12 = SocialList(catName: "유경", catWeight: "30", catAge: "23")
-        let datum_13 = SocialList(catName: "리원", catWeight: "30", catAge: "23")
-        let datum_14 = SocialList(catName: "아경", catWeight: "30", catAge: "23")
-        let datum_15 = SocialList(catName: "혜리", catWeight: "30", catAge: "23")
-        let datum_16 = SocialList(catName: "현정", catWeight: "30", catAge: "23")
         
         
-        followerInfo = [datum_1,datum_2,datum_3,datum_4,datum_5,datum_6,datum_7,datum_8,datum_9,datum_10,datum_11,datum_12,datum_13,datum_14,datum_15,datum_16]
     }
     
 
@@ -318,7 +301,6 @@ extension SocialVC: UITableViewDataSource{
         
         followerCell.addContenView()
         
-        followerCell.setDataInformation(catSocialName: followerInfo[indexPath.row].catName, catSocialWeight: followerInfo[indexPath.row].catWeight, catSocialAge: followerInfo[indexPath.row].catAge)
         return followerCell
     }
 }

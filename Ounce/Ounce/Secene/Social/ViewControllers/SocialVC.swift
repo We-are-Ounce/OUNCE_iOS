@@ -76,6 +76,10 @@ class SocialVC: UIViewController {
         setTabbar()
         setFollowerData()
         setSocialNV(catSocialName: "겨울이")
+        //self.collectionView?.showsHorizontalScrollIndicator = false
+        self.pageCV.showsHorizontalScrollIndicator = false
+        self.followerTV.showsVerticalScrollIndicator = false
+        self.followingTV.showsVerticalScrollIndicator = false
     }
     
     
@@ -98,8 +102,20 @@ class SocialVC: UIViewController {
         let datum_3 = SocialList(catName: "준현", catWeight: "65", catAge: "26")
         let datum_4 = SocialList(catName: "현우", catWeight: "90", catAge: "24")
         let datum_5 = SocialList(catName: "효원", catWeight: "30", catAge: "24")
+        let datum_6 = SocialList(catName: "예지", catWeight: "30", catAge: "23")
+        let datum_7 = SocialList(catName: "주예", catWeight: "30", catAge: "23")
+        let datum_8 = SocialList(catName: "민구", catWeight: "30", catAge: "23")
+        let datum_9 = SocialList(catName: "예인", catWeight: "30", catAge: "23")
+        let datum_10 = SocialList(catName: "주연", catWeight: "30", catAge: "23")
+        let datum_11 = SocialList(catName: "윤진", catWeight: "30", catAge: "23")
+        let datum_12 = SocialList(catName: "유경", catWeight: "30", catAge: "23")
+        let datum_13 = SocialList(catName: "리원", catWeight: "30", catAge: "23")
+        let datum_14 = SocialList(catName: "아경", catWeight: "30", catAge: "23")
+        let datum_15 = SocialList(catName: "혜리", catWeight: "30", catAge: "23")
+        let datum_16 = SocialList(catName: "현정", catWeight: "30", catAge: "23")
         
-        followerInfo = [datum_1,datum_2,datum_3,datum_4,datum_5]
+        
+        followerInfo = [datum_1,datum_2,datum_3,datum_4,datum_5,datum_6,datum_7,datum_8,datum_9,datum_10,datum_11,datum_12,datum_13,datum_14,datum_15,datum_16]
     }
     
 
@@ -163,15 +179,6 @@ extension SocialVC: UICollectionViewDelegate{
             
         }
         
-        if scrollView == self.scrollView {
-            followerTV.isScrollEnabled = (self.scrollView.contentOffset.y >= 40)
-            followingTV.isScrollEnabled = (self.scrollView.contentOffset.y >= 40)
-        }
-
-        if scrollView == self.followerTV || scrollView == self.followingTV {
-            self.followerTV.isScrollEnabled = (followerTV.contentOffset.y > 0)
-            self.followingTV.isScrollEnabled = (followingTV.contentOffset.y > 0)
-        }
 
     }
 }
@@ -208,6 +215,8 @@ extension SocialVC: UICollectionViewDataSource{
             
             if indexPath.row == 0 {
                 tabCell.titleLabel.text = "팔로워"
+                tabCell.isSelected = true //?
+                
             } else {
                 tabCell.titleLabel.text = "팔로잉"
                 tabCell.titleLabel.textColor = .putty
@@ -225,7 +234,7 @@ extension SocialVC: UICollectionViewDataSource{
             
             followerTV.separatorStyle = .none
             followingTV.separatorStyle = .none
-            
+            followerTV.isScrollEnabled = true
             
             
             if indexPath.row == 0 {
@@ -248,7 +257,7 @@ extension SocialVC: UICollectionViewDataSource{
                 self.followingTV.register(AcquaintanceTVC.self, forCellReuseIdentifier: "AcquaintanceTVC")
             }
             pageCV.backgroundColor = .white
-            //userTV.separatorStyle = .none
+            
             return pageCell
             
         default:
@@ -265,17 +274,20 @@ extension SocialVC: UICollectionViewDataSource{
             guard let cell = tabCV.cellForItem(at: indexPath) as?
                 TabCVC else{
                     NSLayoutConstraint.deactivate(constraints)
-                    constraints = [highlightLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor), highlightLineView.widthAnchor.constraint(equalToConstant: 80)
+                    constraints = [highlightLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                   highlightLineView.widthAnchor.constraint(equalToConstant: self.view.frame.width/2)
                     ]
                     NSLayoutConstraint.activate(constraints)
                     return
             }
+            
             NSLayoutConstraint.deactivate(constraints)
             highlightLineView.translatesAutoresizingMaskIntoConstraints = false
             constraints = [
                 highlightLineView.leadingAnchor.constraint(equalTo: cell.leadingAnchor), highlightLineView.trailingAnchor.constraint(equalTo: cell.trailingAnchor)
             ]
             NSLayoutConstraint.activate(constraints)
+            
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
             }

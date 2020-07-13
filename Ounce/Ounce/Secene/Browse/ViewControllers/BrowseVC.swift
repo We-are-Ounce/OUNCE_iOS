@@ -10,7 +10,6 @@ import UIKit
 
 import CHIPageControl
 
-import Then //추가 해야되는 지..
 
 
 class BrowseVC: UIViewController {

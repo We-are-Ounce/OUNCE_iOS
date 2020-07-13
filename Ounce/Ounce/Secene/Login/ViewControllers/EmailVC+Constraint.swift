@@ -57,7 +57,7 @@ extension EmailVC {
         emailErrorGuiedLabel.snp.makeConstraints { (make) in
             make.top.equalTo(emailUnderBarView.snp.bottom).offset(3)
             make.leading.equalToSuperview().offset(22)
-            make.width.equalTo(210)
+//            make.width.equalTo(210)
             make.height.equalTo(18)
         }
         

@@ -49,7 +49,7 @@ class EmailVC: UIViewController {
         $0.makeRounded(cornerRadius: 8)
         $0.setTitle("인증", for: .normal)
         $0.titleLabel?.font = Font.buttonLabel
-        $0.tintColor = .white
+        $0.tintColor = .putty
         $0.addTarget(self,
                      action: #selector(tapEmailCertificationButton),
                      for: .touchUpInside)
@@ -100,6 +100,7 @@ class EmailVC: UIViewController {
     // MARK: - Variables and Properties
     
     var email: String?
+    var verificationNumber: String?
     
     // MARK: - Life Cycle
     
@@ -127,7 +128,7 @@ extension EmailVC {
                                                            target: nil,
                                                            action: nil)
         navigationItem.rightBarButtonItem = rightButton
-        //        rightButton.isEnabled = false
+        rightButton.isEnabled = false
     }
     
     func setTextField(){
@@ -155,13 +156,24 @@ extension EmailVC {
     @objc func tapEmailCertificationButton(){
         // 인증번호 생성
         let randomNumber = arc4random_uniform(899999) + 100000
-        let verificationNumber = String(randomNumber)
-        print(verificationNumber)
-        sendEmail(to: emailTextField.text!, verificationNumber: verificationNumber)
+        verificationNumber = String(randomNumber)
+        print(verificationNumber ?? "")
+        sendEmail(to: emailTextField.text!, verificationNumber: verificationNumber ?? "")
     }
     
     @objc func tapCertificationButton(){
-        print(#function)
+        if certificationTextField.text ?? "" == verificationNumber ?? "" {
+            certificationErrorGuideLabel.text = "인증 성공입니다~!😁"
+            certificationErrorGuideLabel.alpha = 1
+            certificationErrorGuideLabel.textColor = .black
+            certificationUnderBarView.backgroundColor = .black
+            rightButton.isEnabled = true
+        } else {
+            certificationErrorGuideLabel.text = "인증번호가 다릅니다."
+            certificationErrorGuideLabel.alpha = 1
+            certificationErrorGuideLabel.textColor = .darkPeach
+            certificationUnderBarView.backgroundColor = .darkPeach
+        }
     }
     
     func setLabel(){
@@ -173,8 +185,8 @@ extension EmailVC {
     }
     
     func setButton() {
-        //        emailCertificationButton.isEnabled = false
-        //        certificationButton.isEnabled = false
+        emailCertificationButton.isEnabled = false
+        certificationButton.isEnabled = false
     }
     
 }
@@ -182,19 +194,32 @@ extension EmailVC {
 extension EmailVC : UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if emailTextField.text?.validateEmail() == true {
-            emailUnderBarView.backgroundColor = .signatureColor
+            emailUnderBarView.backgroundColor = .black
             emailErrorGuiedLabel.alpha = 0
             emailCertificationButton.isEnabled = true
-            emailCertificationButton.backgroundColor = .signatureColor
+            emailCertificationButton.backgroundColor = .darkPeach
+            emailCertificationButton.setTitleColor(.white, for: .normal)
+
         } else if emailTextField.text != "" {
-            emailUnderBarView.backgroundColor = .pinkishColor
-            emailCertificationButton.backgroundColor = .veryLightPink
+            emailUnderBarView.backgroundColor = .pale
+            emailCertificationButton.backgroundColor = .pale
+            emailCertificationButton.setTitleColor(.putty, for: .normal)
             emailCertificationButton.isEnabled = false
             emailErrorGuiedLabel.alpha = 1
         } else {
-            emailCertificationButton.backgroundColor = .veryLightPink
+            emailCertificationButton.backgroundColor = .pale
             emailCertificationButton.isEnabled = false
-            emailUnderBarView.backgroundColor = .brownGreyColor
+            emailUnderBarView.backgroundColor = .pale
+        }
+        
+        if certificationTextField.text != "" {
+            certificationUnderBarView.backgroundColor = .signatureColor
+            certificationButton.backgroundColor = .darkPeach
+            certificationButton.setTitleColor(.white, for: .normal)
+        } else {
+            certificationUnderBarView.backgroundColor = .pale
+            certificationButton.backgroundColor = .pale
+            certificationButton.setTitleColor(.putty, for: .normal)
         }
         
         
@@ -207,7 +232,7 @@ extension EmailVC {
                        delay: 0,
                        options: [.curveEaseIn],
                        animations: {
-                        self.emailUnderBarView.backgroundColor = .signatureColor
+                        self.emailUnderBarView.backgroundColor = .darkPeach
         }, completion: nil)
     }
 }
@@ -265,19 +290,31 @@ extension EmailVC {
                 switch result {
                 case .success(_):
                     UserDefaults.standard.set(verificationNumber, forKey: "emailVerificationID")
-//                    self.conditionMessageLabel.isHidden = false
-//                    self.conditionMessageLabel.text = "해당 이메일에서 인증번호를 확인해 주시기 바랍니다."
-//                    self.conditionMessageLabel.textColor = .systemBlue
-//                    self.verificationAnimate()
-//
+                    self.emailErrorGuiedLabel.alpha = 1
+                    self.emailErrorGuiedLabel.text = "해당 이메일에서 인증번호를 확인해 주시기 바랍니다."
+                    self.emailErrorGuiedLabel.sizeToFit()
+                    self.emailErrorGuiedLabel.textColor = .black
+                    self.certificationButton.isEnabled = true
                 case .requestErr(_):
-                    print(".requestErr")
+                    self.emailErrorGuiedLabel.alpha = 1
+                    self.emailErrorGuiedLabel.text = "에러입니다."
+                    self.emailErrorGuiedLabel.sizeToFit()
+                    self.emailErrorGuiedLabel.textColor = .pinkishTan
                 case .pathErr:
-                    print(".pathErr")
+                    self.emailErrorGuiedLabel.alpha = 1
+                    self.emailErrorGuiedLabel.text = "에러입니다."
+                    self.emailErrorGuiedLabel.sizeToFit()
+                    self.emailErrorGuiedLabel.textColor = .pinkishTan
                 case .serverErr:
-                    print(".serverErr")
+                    self.emailErrorGuiedLabel.alpha = 1
+                    self.emailErrorGuiedLabel.text = "에러입니다."
+                    self.emailErrorGuiedLabel.sizeToFit()
+                    self.emailErrorGuiedLabel.textColor = .pinkishTan
                 case .networkFail:
-                    print(".networkFail")
+                    self.emailErrorGuiedLabel.alpha = 1
+                    self.emailErrorGuiedLabel.text = "에러입니다."
+                    self.emailErrorGuiedLabel.sizeToFit()
+                    self.emailErrorGuiedLabel.textColor = .pinkishTan
                 }
                 
         }

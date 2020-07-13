@@ -16,7 +16,7 @@ class LoginVC: UIViewController {
     
     let logoImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.image = UIImage(named: "imgLogoBlue")
+        $0.image = UIImage(named: "logoLogin")
     }
     
     let idGuideLabel = UILabel().then {

@@ -22,7 +22,7 @@ class TBC: UITabBarController {
         tab.addDelegate = self
         self.setValue(tab, forKey: "tabBar")
         UITabBar.clearShadow()
-        self.tabBar.layer.applyShadow(color: .gray, alpha: 0.3, x: 0, y: 0, blur: 6)
+        self.tabBar.layer.applyShadow(color: .gray, alpha: 0.2, x: 0, y: 1, blur: 10)
     }
     
     func addClick() {

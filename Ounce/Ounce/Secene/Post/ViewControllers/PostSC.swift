@@ -83,6 +83,7 @@ class PostSC:UIView,UITextViewDelegate {
         scoreBtn3.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
         scoreBtn4.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
         scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+        
     }
     @IBAction func scoreBtn2selected(_ sender: Any) {
         rating = 2
@@ -91,6 +92,7 @@ class PostSC:UIView,UITextViewDelegate {
         scoreBtn3.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
         scoreBtn4.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
         scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
+       
     }
     
     @IBAction func scoreBtn3selected(_ sender: Any) {
@@ -100,7 +102,7 @@ class PostSC:UIView,UITextViewDelegate {
         scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn4.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
         scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
-        
+       
         
     }
     
@@ -112,7 +114,7 @@ class PostSC:UIView,UITextViewDelegate {
         scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn4.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
-        
+       
         
     }
     @IBAction func scoreBtn5selected(_ sender: Any) {
@@ -122,6 +124,7 @@ class PostSC:UIView,UITextViewDelegate {
         scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn4.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn5.setImage(UIImage(named:"icTotalSelected"), for: .normal)
+      
     }
     
     @IBAction func likeBtn1selected(_ sender: Any) {
@@ -131,6 +134,7 @@ class PostSC:UIView,UITextViewDelegate {
         likeBtn3.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
         likeBtn4.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
         likeBtn5.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+ 
     }
     
     @IBAction func likeBtn2selected(_ sender: Any) {
@@ -140,6 +144,7 @@ class PostSC:UIView,UITextViewDelegate {
         likeBtn3.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
         likeBtn4.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
         likeBtn5.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+  
         
     }
     @IBAction func likeBtn3selected(_ sender: Any) {
@@ -149,7 +154,7 @@ class PostSC:UIView,UITextViewDelegate {
         likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn4.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
         likeBtn5.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
-        
+
     }
     @IBAction func likeBtn4selected(_ sender: Any) {
         prefer = 4
@@ -158,6 +163,7 @@ class PostSC:UIView,UITextViewDelegate {
         likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn4.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn5.setImage(UIImage(named:"icFavoriteUnselected"), for: .normal)
+
         
     }
     
@@ -168,6 +174,7 @@ class PostSC:UIView,UITextViewDelegate {
         likeBtn3.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn4.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
         likeBtn5.setImage(UIImage(named:"icFavoriteSelected"), for: .normal)
+
     }
     
     
@@ -180,6 +187,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
         
+        
     }
     
     @IBAction func pooState2selected(_ sender: Any) {
@@ -189,6 +197,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+       
         
     }
     
@@ -200,6 +209,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooState3.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
         pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+       
     }
     
     @IBAction func pooState4selected(_ sender: Any) {
@@ -210,6 +220,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState4.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
         pooState5.setImage(UIImage(named:"imgStatus"), for: .normal)
+        
     }
     
     @IBAction func pooState5selected(_ sender: Any) {
@@ -220,6 +231,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooState3.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState4.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooState5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+     
     }
     
     @IBAction func pooSmell1selected(_ sender: Any) {
@@ -230,6 +242,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+     
     }
     
     
@@ -241,6 +254,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+   
     }
     
     @IBAction func pooSmell3selected(_ sender: Any) {
@@ -250,6 +264,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooSmell3.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
         pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+       
     }
     @IBAction func pooSmell4selected(_ sender: Any) {
         
@@ -259,6 +274,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooSmell4.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
         pooSmell5.setImage(UIImage(named:"imgStatus"), for: .normal)
+       
     }
     @IBAction func pooSmell5selected(_ sender: Any) {
         
@@ -269,6 +285,7 @@ class PostSC:UIView,UITextViewDelegate {
         pooSmell3.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooSmell4.setImage(UIImage(named:"imgStatus"), for: .normal)
         pooSmell5.setImage(UIImage(named:"imgStatusSelected"), for: .normal)
+
     }
     
     
@@ -278,13 +295,14 @@ class PostSC:UIView,UITextViewDelegate {
             eyeTrouble.borderColor = .black
             eyeTrouble.backgroundColor = .white
             eyeTrouble.setTitleColor(.black, for: .normal)
-            
+          
         }else {
             eye = 0
             
             eyeTrouble.borderColor = .pale
             eyeTrouble.backgroundColor = .white
             eyeTrouble.setTitleColor(.black, for: .normal)
+         
             
         }
         
@@ -337,7 +355,7 @@ class PostSC:UIView,UITextViewDelegate {
             vomitTrouble.borderColor = .pale
             vomitTrouble.backgroundColor = .white
             vomitTrouble.setTitleColor(.black, for: .normal)
-            
+           
         }
     }
     func viewDidLoad(){
@@ -354,7 +372,7 @@ class PostSC:UIView,UITextViewDelegate {
         
         memoTextView.delegate = self
         criticTextField.delegate = self
-        print("sc에서 보내주는 평가값: \(rating)")
+        print("sc에서 보내주는 평가값: \(sendRating)")
         sendRating = rating
         sendPrefer = prefer
         sendReview = review
@@ -365,16 +383,16 @@ class PostSC:UIView,UITextViewDelegate {
         sendEar = ear
         sendFur = fur
         sendVomit = vomit
-        //sendDate = date
         sendFoodIndex = foodIndex
         sendProfileIndex = profileIndex
+    }
+    func viewDidAppear(){
         
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         // 키보드 바깥 뷰 아무데나 터치하면 키보드 다시 들어가는 코드
         self.rootVC?.view.endEditing(true)
-        
     }
     
 }
@@ -399,4 +417,6 @@ extension PostSC: UITextFieldDelegate {
             self.memoTextView.transform = .init(translationX: 0, y: -300)
         })
     }
+    
 }
+

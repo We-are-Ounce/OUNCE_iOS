@@ -146,14 +146,15 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nd9-P4-gwQ">
                                 <rect key="frame" x="0.0" y="141" width="375" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ojx-zg-gQV">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ojx-zg-gQV">
                                     <size key="itemSize" width="140" height="127"/>
+                                    <size key="estimatedItemSize" width="140" height="127"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="productCell" reuseIdentifier="productCell" id="zp0-NF-fE3" customClass="SearchCollectCell" customModule="Ounce" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" restorationIdentifier="productCell" reuseIdentifier="productCell" id="zp0-NF-fE3" customClass="SearchCollectCell" customModule="Ounce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="166" height="226"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gsn-CM-GvT">
@@ -162,6 +163,10 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zxG-1P-7RA">
                                                     <rect key="frame" x="0.0" y="0.0" width="166" height="168"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="166" id="fyD-Pp-oZP"/>
+                                                        <constraint firstAttribute="height" constant="168" id="p8O-pI-MCg"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제조사" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-Xe-bRl">
                                                     <rect key="frame" x="2" y="177" width="36.333333333333336" height="20"/>

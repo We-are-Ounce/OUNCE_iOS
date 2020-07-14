@@ -118,7 +118,8 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
         //pvc.modalPresentationStyle = .fullScreen
        
         //pvc.product = product[indexPath.row]
-        //pvc.imageNameVC = product[indexPath.row].foodImg
+        
+        pvc.imageNameVC = product[indexPath.row].foodImg
         pvc.companyNameVC = product[indexPath.row].foodManu
         pvc.productNameVC = product[indexPath.row].foodName
         self.navigationController?.pushViewController(pvc, animated: true)

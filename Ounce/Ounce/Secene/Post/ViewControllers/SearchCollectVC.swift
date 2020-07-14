@@ -11,11 +11,11 @@ import UIKit
 class SearchCollectVC: UIViewController{
     
     @IBOutlet weak var searchCollectionView: UICollectionView!
+    @IBOutlet weak var searchTextField: UITextField!
     
-    let product1: Product? = nil
-    
-    
-    private var productInformations:[Product] = []
+    //private var productInformations:[Product] = []
+    private var product:[CatProduct] = []
+    var pageIndex = [1,10]
     var rootVC: UIViewController?
     
 
@@ -23,6 +23,7 @@ class SearchCollectVC: UIViewController{
         super.viewDidLoad()
         
         /*네비게이션 바 뒤로가기 버튼 타이틀 없애는 코드~~~참고하세요^^,,,왜 버튼아이템을 만들어줘야할까...존나빡쳐...개빡쳐...엑코 뒤져*/
+        
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
@@ -31,8 +32,13 @@ class SearchCollectVC: UIViewController{
        
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
-        setProductList()
+        //setProductList()
         
+    }
+    
+    @IBAction func searchBtnTouched(_ sender: Any) {
+        
+        searchProduct()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +64,7 @@ class SearchCollectVC: UIViewController{
     
         
     }
-    func setProductList(){
+    /*func setProductList(){
         let product1 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
         let product2 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
         let product3 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
@@ -67,18 +73,20 @@ class SearchCollectVC: UIViewController{
         let product6 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
         productInformations = [product1,product2,product3,product4,product5,product6]
         
-    }
+    }*/
 }
 
 extension SearchCollectVC: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productInformations.count
+        //return productInformations.count
+        product.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectCell.identfier, for: indexPath) as? SearchCollectCell else {return UICollectionViewCell()}
-        itemCell.set(productInformations[indexPath.row])
+        //itemCell.set(productInformations[indexPath.row])
+        itemCell.setCell(product[indexPath.row])
         return itemCell
     }
 }
@@ -108,12 +116,42 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
         let PostStoryBoard: UIStoryboard = UIStoryboard(name: "Post", bundle: nil)
         let pvc = PostStoryBoard.instantiateViewController(identifier: "PostVC") as PostVC
         //pvc.modalPresentationStyle = .fullScreen
-        pvc.product = productInformations[indexPath.row]
-        pvc.imageNameVC = productInformations[indexPath.row].foodImg
-        pvc.companyNameVC = productInformations[indexPath.row].companyName
-        pvc.productNameVC = productInformations[indexPath.row].itemName
+       
+        //pvc.product = product[indexPath.row]
+        //pvc.imageNameVC = product[indexPath.row].foodImg
+        pvc.companyNameVC = product[indexPath.row].foodManu
+        pvc.productNameVC = product[indexPath.row].foodName
         self.navigationController?.pushViewController(pvc, animated: true)
         // 네비게이션 이동. pvc view로 이동
     }
     
+    @objc func searchProduct(){
+        print(#function)
+        SearchService.shared.searchProduct(searchTextField.text ?? "", pageIndex[0], pageIndex[1])
+        {(responseData) in switch responseData {
+        case .success(let res) :
+            let response = res as! [CatProduct]
+            self.product = response
+            print(self.product)
+            DispatchQueue.main.async {
+                self.searchCollectionView.reloadData()
+            }
+            self.searchCollectionView.reloadData()
+            self.pageIndex[0] = self.pageIndex[1] + 1
+            self.pageIndex[1] = self.pageIndex[1] + 10
+            
+        case .requestErr(_):
+            print("requestErr")
+        case .pathErr:
+            print("pathErr")
+        case .serverErr:
+            print("serverErr")
+        case .networkFail :
+            print("networkFail")
+            }
+            
+            
+        }
+    }
 }
+

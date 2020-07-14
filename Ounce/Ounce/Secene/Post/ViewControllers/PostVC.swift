@@ -20,7 +20,7 @@ class PostVC: UIViewController {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
-    var product: Product? //구조체
+    //var product: Product? //구조체
     var imageNameVC: UIImage?
     var companyNameVC: String?
     var productNameVC: String?

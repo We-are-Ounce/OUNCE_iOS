@@ -46,9 +46,9 @@ class BrowseSearchVC: UIViewController {
         $0.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         $0.tintColor = .black
     }
-//    let productTV = UITableView(frame: CGRect.init(), style: .grouped).then{
-//        $0.backgroundView?.backgroundColor = .white
-//    }
+    //    let productTV = UITableView(frame: CGRect.init(), style: .grouped).then{
+    //        $0.backgroundView?.backgroundColor = .white
+    //    }
     let productTV = UITableView()
     let searchView = UIView().then {
         $0.backgroundColor = .whiteThree
@@ -56,15 +56,18 @@ class BrowseSearchVC: UIViewController {
     }
     let searchTextField = UITextField().then {
         $0.placeholder = "검색어를 입력해주세요"
+        $0.tintColor = .black
     }
     let searchButton = UIButton().then {
         $0.setImage(UIImage(named: "icSearch"), for: .normal)
+        $0.addTarget(self, action: #selector(searchUser), for: .touchUpInside)
     }
     
     var userInfo: [String] = ["","","","","","","","","","","","","","",""]
     var productInfo: [String] = ["","","","","","","","","","","","","","",""]
     var direction: CGFloat?
     var constraints: [NSLayoutConstraint] = []
+    var user: [User]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,7 +195,7 @@ extension BrowseSearchVC: UICollectionViewDataSource {
             userTV.delegate = self
             userTV.dataSource = self
             userTV.separatorStyle = .none
-                
+            
             productTV.delegate = self
             productTV.dataSource = self
             productTV.separatorStyle = .none
@@ -280,7 +283,7 @@ extension BrowseSearchVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case self.userTV:
-            let ingStudyInfoNum = self.userInfo.count
+            let ingStudyInfoNum = self.user?.count
             
             if ingStudyInfoNum == 0 {
                 userTV.setEmptyView(title: "222", message: "")
@@ -288,7 +291,7 @@ extension BrowseSearchVC: UITableViewDataSource {
                 userTV.restore()
             }
             
-            return ingStudyInfoNum
+            return ingStudyInfoNum ?? 0
         case self.productTV:
             let endStudyInfoNum = self.productInfo.count
             
@@ -310,8 +313,9 @@ extension BrowseSearchVC: UITableViewDataSource {
             guard let userCell = tableView.dequeueReusableCell(withIdentifier: "BrowseUserTVCell",
                                                                for: indexPath) as? BrowseUserTVCell else
             {return UITableViewCell()}
-            
+            userCell.user = user?[indexPath.row]
             userCell.cellConstraint()
+            userCell.cellService()
             
             
             return userCell
@@ -350,8 +354,8 @@ extension BrowseSearchVC: UITableViewDataSource {
                 $0.addTarget(self, action: #selector(didTapSortButton), for: .touchUpInside)
             }
             
-            let buttonImage = UIImageView().then {
-                $0.image = UIImage(named: "1735")
+            let buttonImage = UIButton().then {
+                $0.setImage(UIImage(named: "1735"), for: .normal)
             }
             
             headerView.addSubview(sortButton)
@@ -387,4 +391,26 @@ extension BrowseSearchVC: UITableViewDataSource {
         }
     }
     
+}
+
+extension BrowseSearchVC {
+    @objc func searchUser(){
+        print(#function)
+        SearchService.shared.searchUser(searchTextField.text ?? "") { (responseData) in
+            switch responseData {
+            case .success(let res) :
+                let response = res as! [User]
+                self.user = response
+                self.userTV.reloadData()
+            case .requestErr(_):
+                print("")
+            case .pathErr:
+                print("")
+            case .serverErr:
+                print("")
+            case .networkFail :
+                print("")
+            }
+        }
+    }
 }

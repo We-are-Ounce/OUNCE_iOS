@@ -121,11 +121,13 @@ class ProductDetailVC: UIViewController {
     // MARK: - Variables and Properties
     lazy var rightButton = UIBarButtonItem.init(image: UIImage(named: "icMore"), style: .done, target: self, action: nil)
 
+    var foodIndex: Int?
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#file)
+        print(foodIndex)
         setTableView()
         contraint()
         setNav()

@@ -99,9 +99,6 @@
                                                             <state key="normal" title="팔로워 10">
                                                                 <color key="titleColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
-                                                            <connections>
-                                                                <action selector="followerBtn:" destination="JDU-u1-zLa" eventType="touchUpInside" id="ZSR-3t-aXk"/>
-                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwj-fT-b1r">
                                                             <rect key="frame" x="240" y="131" width="80" height="26"/>
@@ -113,9 +110,6 @@
                                                             <state key="normal" title="팔로잉 20">
                                                                 <color key="titleColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
-                                                            <connections>
-                                                                <action selector="followingBtn:" destination="JDU-u1-zLa" eventType="touchUpInside" id="Dfx-h2-ZG0"/>
-                                                            </connections>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unfemale" translatesAutoresizingMaskIntoConstraints="NO" id="AX5-Lx-aHA">
                                                             <rect key="frame" x="157" y="87" width="8" height="14"/>

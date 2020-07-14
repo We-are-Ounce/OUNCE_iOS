@@ -33,16 +33,21 @@ class SettingVC: UIViewController {
         
         navigationController?.isNavigationBarHidden = false
         
+        // 네비게이션 라인 제거
+        let naviBar = navigationController?.navigationBar
+        naviBar?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        naviBar?.shadowImage = UIImage()
+        
+        // 네이게이션 타이틀 (타이틀이 조금 먼저 나오는 느낌,,)
+        self.navigationController?.navigationBar.topItem?.title = "환경설정"
+        
+
+        
     }
     
     
 }
 
-extension SettingVC {
-    func setNav(){
-        
-    }
-}
 extension SettingVC : UITableViewDelegate { }
 extension SettingVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

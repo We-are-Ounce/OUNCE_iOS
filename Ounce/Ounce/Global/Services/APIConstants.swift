@@ -24,9 +24,9 @@ struct APIConstants {
     // GET 프로필 조회 /profile/mainProfile/:profileIdx
     static let catInfo = BaseURL + "profile/mainProfile/"
     // GET 팔로워 목록 /profile/followerList/:profileIdx
-    static let followList = BaseURL + "profile/followList"
-    // GET 팔로잉 목록 /profile/followList/:profileIdx
-    static let followingList = BaseURL + "profile/followList"
+    static let followerList = BaseURL + "profile/followerList"
+    // GET 팔로잉 목록 /profile/followingList/:profileIdx
+    static let followingList = BaseURL + "profile/followingList"
     // DELETE 팔로우 취소 profile/deleteFollow
     static let deleteFollow = BaseURL + "profile/deleteFollow"
     // PUT 프로필 수정 /profile/edit/:profileIdx

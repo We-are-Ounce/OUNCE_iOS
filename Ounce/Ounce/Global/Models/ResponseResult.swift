@@ -27,3 +27,4 @@ struct ResponseTempResult: Codable {
     var success: Bool?
     var message: String?
 }
+

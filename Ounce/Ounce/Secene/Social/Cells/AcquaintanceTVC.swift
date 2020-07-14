@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AcquaintanceTVC: UITableViewCell {
     
@@ -32,13 +33,18 @@ class AcquaintanceTVC: UITableViewCell {
     
     let catSocialImg = UIImageView().then{
         $0.backgroundColor = .pale
-        $0.cornerRadius = 30
-        //$0.image = UIImage()
+        $0.setRounded(radius: 30)
     }
     
     let catSexImg = UIImageView().then {
         $0.image = UIImage(named: "unfemale")
     }
+    
+    // MARK - Variable, Properties
+    
+    
+    var followInfo: Follow?
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -95,4 +101,42 @@ class AcquaintanceTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func judgeSex (gender : String, neutral : String) -> String {
+        var str = ""
+        if gender == "male" {
+            if neutral == "true" {
+                str = "male.png"
+                return str }
+            else {
+                str = "unmale.png"
+                return str
+                
+            }
+        }
+        else {
+            if neutral == "true" {
+            str = "female.png"
+                return str
+                
+            }
+            else {
+                str = "unfemale.png"
+                return str
+                
+            }
+        }
+    }
+    
+    func setCall(){
+        catSocialImg.imageFromUrl(followInfo?.profileImg ?? "", defaultImgPath: followInfo?.profileImg ?? "")
+        
+        catSocialNameLabel.text = followInfo?.profileName
+        catSocialWeightLabel.text = followInfo!.profileWeight + "kg"
+        catSocialAgeLabel.text = String(followInfo?.profileAge ?? 0) + "살"
+        
+        var str = judgeSex(gender: followInfo?.profileGender ?? "", neutral: followInfo?.profileNeutral ?? "")
+        
+        catSexImg.image = UIImage(named: str)
+        
+    }
 }

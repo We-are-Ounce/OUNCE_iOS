@@ -240,7 +240,7 @@ struct UserService {
                        _ profileWeight: String,
                        _ profileGender: String,
                        _ profileNeutral: String,
-                       _ profileAge: Int,
+                       _ profileAge: String,
                        _ profileInfo: String,
                        completion: @escaping (NetworkResult<Any>) -> Void){
         
@@ -270,7 +270,7 @@ struct UserService {
                                      withName: "profileGender")
             multipartFormData.append(profileNeutral.data(using: .utf8) ?? Data(),
                                      withName: "profileNeutral")
-            multipartFormData.append(Data(bytes: &age, count: 2),
+            multipartFormData.append(Data(bytes: &age, count: 10),
                                      withName: "profileAge")
             multipartFormData.append(profileInfo.data(using: .utf8) ?? Data(),
                                      withName: "profileInfo")

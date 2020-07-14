@@ -46,7 +46,7 @@ class RegisterVC: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapNextButton))
-        button.isEnabled = false
+//        button.isEnabled = false
         return button
         
     }()
@@ -140,12 +140,13 @@ extension RegisterVC {
     }
     
     @objc func didTapNextButton(){
+        print(ageTextField.text ?? "")
         enroll(profileIMG.image ?? UIImage(),
                nameTextField.text ?? "",
                weightTextField.text ?? "",
                (sex == 0) ? "male" : "female",
                isNeutralization ? "true" : "false",
-               Int(ageTextField.text ?? "") ?? 0,
+               ageTextField.text ?? "",
                contentTextField.text ?? "")
     }
     
@@ -302,7 +303,7 @@ extension RegisterVC {
                 _ profileWeight: String,
                 _ profileGender: String,
                 _ profileNeutral: String,
-                _ profileAge: Int,
+                _ profileAge: String,
                 _ profileInfo: String){
         UserService.shared.enrollProfile(profileIMG,
                                          profileName,

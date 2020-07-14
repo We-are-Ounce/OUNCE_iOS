@@ -19,8 +19,6 @@ class PostVC: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    
-    let rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(saveButtonDidTap))
 
     var product: Product? //구조체
     var imageNameVC: UIImage?
@@ -29,8 +27,8 @@ class PostVC: UIViewController {
     // server post info
     var rating: Int?
     var prefer: Int?
-    var review: String?
-    var memo: String?
+    var review: String? // 한 줄 리뷰
+    var memo: String? // 메모
     var pooStatus: Int?
     var pooSmell: Int?
     var reviewEye: Int?
@@ -40,77 +38,50 @@ class PostVC: UIViewController {
     //var date: String?
     var foodIndexNumber: Int?
     var profileIndexNumber: Int?
+    var postDelegate: PostDelegate?
+
+    
+    let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
+    
+    let rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(saveButtonDidTap))
+
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        /*self.navigationItem.title = "기록하기"
-        let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "기록하기"
         custom.companyName.text = companyNameVC
         custom.productName.text = productNameVC
         custom.productImg.image = imageNameVC
         self.addScrollView.addSubview(custom)
         custom.viewDidLoad()
+        //custom.viewDidAppear()
         custom.rootVC = self
-        
-        rating = custom.rating
-        prefer = custom.prefer
-        review = custom.review
-        memo = custom.memo
-        pooStatus = custom.pooState
-        pooSmell = custom.pooSmell
-        reviewEye = custom.eye
-        reviewEar = custom.ear
-        reviewHair = custom.fur
-        reviewVomit = custom.vomit
-        date = custom.date
-        foodIndexNumber = custom.foodIndex
-        profileIndexNumber = custom.profileIndex
+        rating = custom.sendRating
+        prefer = custom.sendPrefer
+        //review = custom.sendReview
+        //memo = custom.sendMemo
+        pooStatus = custom.sendPooState
+        pooSmell = custom.sendPooSmell
+        reviewEye = custom.sendEye
+        reviewEar = custom.sendEar
+        reviewHair = custom.sendFur
+        reviewVomit = custom.sendVomit
+        foodIndexNumber = custom.sendFoodIndex
+        profileIndexNumber = custom.sendProfileIndex
         
         custom.criticTextField.delegate = self
         custom.memoTextView.delegate = self
         
         addScrollView.delegate = self
         addKeyboardNotification()
-        */
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-    
-        self.navigationItem.title = "기록하기"
-               let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
-               
-               custom.companyName.text = companyNameVC
-               custom.productName.text = productNameVC
-               custom.productImg.image = imageNameVC
-               self.addScrollView.addSubview(custom)
-               custom.viewDidLoad()
-               custom.rootVC = self
-               
-               rating = custom.sendRating
-               prefer = custom.sendPrefer
-               review = custom.sendReview
-               memo = custom.sendMemo
-               pooStatus = custom.sendPooState
-               pooSmell = custom.sendPooSmell
-               reviewEye = custom.sendEye
-               reviewEar = custom.sendEar
-               reviewHair = custom.sendFur
-               reviewVomit = custom.sendVomit
-               //date = custom.sendDate
-               foodIndexNumber = custom.sendFoodIndex
-               profileIndexNumber = custom.sendProfileIndex
-               
-               custom.criticTextField.delegate = self
-               custom.memoTextView.delegate = self
-               
-               addScrollView.delegate = self
-               addKeyboardNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-      
+        super.viewDidAppear(true)
         rightButton.title = "완료"
         //rightButton.image = UIImage(named:"icMore")
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
@@ -144,23 +115,26 @@ class PostVC: UIViewController {
     
     @objc func saveButtonDidTap(){
         // 리뷰 작성 버튼 - 완료 버튼 눌렀을 때 액션
+        print(#function)
         
-        ReviewService.shared.Review(rating ?? 0,
-                                    prefer!,
-                                    review!,
-                                    memo!,
-                                    pooStatus!,
-                                    pooSmell!,
-                                    reviewEye!,
-                                    reviewEar!,
-                                    reviewHair!,
-                                    reviewVomit!,
-                                    /*date!,*/
-                                    foodIndexNumber!,
-                                    profileIndexNumber!){ NetworkResult
+        custom.review = custom.criticTextField.text!
+        custom.memo = custom.memoTextView.text
+        
+        
+        ReviewService.shared.Review(custom.rating,
+                                    custom.prefer,
+                                    custom.review,
+                                    custom.memo,
+                                    custom.pooState,
+                                    custom.pooSmell,
+                                    custom.eye,
+                                    custom.ear,
+                                    custom.fur,
+                                    custom.vomit,
+                                    custom.foodIndex,
+                                    custom.profileIndex){ NetworkResult
             in switch NetworkResult{
-            case .success(let token):
-                //let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
+            case .success(let _):
                 print("버튼작동")
 //                guard let token = token as? String else {return}
 //                let storyboard = UIStoryboard(name: "Post",bundle: nil)
@@ -272,4 +246,19 @@ extension PostVC: UITextViewDelegate{
 
 extension PostVC: UITextFieldDelegate{
     
+}
+
+protocol PostDelegate {
+    func moveInfo(_ reviewRating: Int,
+                  _ reviewPrefer: Int,
+                  _ reviewInfo: String,
+                  _ reviewMemo: String,
+                  _ reviewStatus: Int,
+                  _ reviewSmell: Int,
+                  _ reviewEye: Int,
+                  _ reviewEar: Int,
+                  _ reviewHair: Int,
+                  _ reviewVomit: Int,
+                  _ foodIdx: Int,
+                  _ profileIdx: Int)
 }

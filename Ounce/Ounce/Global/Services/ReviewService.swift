@@ -25,7 +25,6 @@ struct ReviewService{
                                _ reviewEar: Int,
                                _ reviewHair: Int,
                                _ reviewVomit: Int,
-                               //_ createdAt: String,
                                _ foodIdx: Int,
                                _ profileIdx: Int) -> Parameters {
         return ["reviewRating":reviewRating,
@@ -37,7 +36,6 @@ struct ReviewService{
                 "reviewEye": reviewEye,
                 "reviewEar": reviewEar,
                 "reviewVomit": reviewVomit,
-                //"createdAt": createdAt,
                 "foodIdx": foodIdx,
                 "profileIdx": profileIdx]
     }
@@ -52,7 +50,6 @@ struct ReviewService{
                 _ reviewEar: Int,
                 _ reviewHair: Int,
                 _ reviewVomit: Int,
-                //_ createdAt: String,
                 _ foodIdx: Int,
                 _ profileIdx: Int,
                 completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -69,9 +66,9 @@ struct ReviewService{
         "reviewEye": reviewEye,
         "reviewEar": reviewEar,
         "reviewVomit": reviewVomit,
-        //"createdAt": createdAt,
         "foodIdx": foodIdx,
         "profileIdx": profileIdx]
+        
         let dataRequest = Alamofire.request(APIConstants.addReview,
                                             method: .post,
                                             parameters: body,
@@ -80,7 +77,7 @@ struct ReviewService{
         
         // 데이터 통신 시작
         dataRequest.responseData { dataResponse in
-            print("집 갈래",reviewRating, reviewPrefer, reviewInfo,reviewMemo,reviewStatus, reviewSmell,reviewEye,reviewEar,reviewHair,reviewVomit,/*createdAt,*/foodIdx,profileIdx)
+            print("집 갈래",reviewRating, reviewPrefer, reviewInfo,reviewMemo,reviewStatus, reviewSmell,reviewEye,reviewEar,reviewHair,reviewVomit,foodIdx,profileIdx)
             switch dataResponse.result {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else {
@@ -113,30 +110,10 @@ struct ReviewService{
                 default:
                     break
                 }
-//                dump(value, name: "value")
-//                let networkResult = self.judge(by: statusCode, value)
-//                dump(networkResult, name: "name")
-//                completion(networkResult)
             case .failure: completion(.networkFail)
             }
         }
     }
-//    private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
-//         print(statusCode)
-//        switch statusCode {
-//
-//        case 200: return isFilled(by: data)
-//        case 400: return .pathErr
-//        case 500: return .serverErr
-//        default: return .networkFail
-//        }
-//    }
-//    private func isFilled(by data: Data) -> NetworkResult<Any> {
-//        let decoder = JSONDecoder()
-//        guard let decodedData = try? decoder.decode(ReviewData.self, from: data) else { return .pathErr }
-//        dump(decodedData, name: "decode")
-////        guard let tokenData = decodedData.data else { return .requestErr(decodedData.message) }
-//        return .success(decodedData)
-//    }
-    
+
 }
+

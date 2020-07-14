@@ -36,11 +36,19 @@ class ProfileCell: UITableViewCell {
         following.setBorder(borderColor: .pale, borderWidth: 0.5)
     }
     
+//    func transitionNavi(){
+//
+//        UINavigationItem.backBar
+//
+//
+   // }
+    
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+//        transitionNavi()
         round()
      
     }
@@ -79,15 +87,17 @@ class ProfileCell: UITableViewCell {
     @IBAction func followerBtn(_ sender: Any) {
         
         let sb = UIStoryboard(name: "Social", bundle: nil)
-        let dvc = sb.instantiateViewController(withIdentifier: "SocialNVC")
+        let dvc = sb.instantiateViewController(withIdentifier: "SocialVC") as! SocialVC
+       
         
         dvc.modalPresentationStyle = .overFullScreen
-        dvc.navigationController?.isNavigationBarHidden = false
-        dvc.navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
-                                                           style: .plain,
-                                                           target: nil,
-                                                           action: nil)
-        dvc.navigationController?.pushViewController(dvc, animated: true)
+        
+//        self.navigationController?.isNavigationBarHidden = false
+//    navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+//                                                           style: .plain,
+//                                                           target: nil,
+//                                                           action: nil)
+        self.navigationController?.pushViewController(dvc, animated: true)
 
     
     }
@@ -95,11 +105,7 @@ class ProfileCell: UITableViewCell {
     @IBAction func followingBtn(_ sender: Any) {
         
 
-        let sb = UIStoryboard(name: "Social", bundle: nil)
-        
-        let dvc = sb.instantiateViewController(withIdentifier: "SocialNVC")
-        dvc.modalPresentationStyle = .overFullScreen
-        self.rootVC?.present(dvc, animated: false)
+    
         
     }
 }

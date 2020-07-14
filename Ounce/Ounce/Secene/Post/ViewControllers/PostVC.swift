@@ -27,8 +27,8 @@ class PostVC: UIViewController {
     // server post info
     var rating: Int?
     var prefer: Int?
-    var review: String?
-    var memo: String?
+    var review: String? // 한 줄 리뷰
+    var memo: String? // 메모
     var pooStatus: Int?
     var pooSmell: Int?
     var reviewEye: Int?
@@ -48,36 +48,7 @@ class PostVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*self.navigationItem.title = "기록하기"
-        let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
         
-        custom.companyName.text = companyNameVC
-        custom.productName.text = productNameVC
-        custom.productImg.image = imageNameVC
-        self.addScrollView.addSubview(custom)
-        custom.viewDidLoad()
-        custom.rootVC = self
-        
-        rating = custom.rating
-        prefer = custom.prefer
-        review = custom.review
-        memo = custom.memo
-        pooStatus = custom.pooState
-        pooSmell = custom.pooSmell
-        reviewEye = custom.eye
-        reviewEar = custom.ear
-        reviewHair = custom.fur
-        reviewVomit = custom.vomit
-        date = custom.date
-        foodIndexNumber = custom.foodIndex
-        profileIndexNumber = custom.profileIndex
-        
-        custom.criticTextField.delegate = self
-        custom.memoTextView.delegate = self
-        
-        addScrollView.delegate = self
-        addKeyboardNotification()
-        */
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,8 +62,8 @@ class PostVC: UIViewController {
         custom.rootVC = self
         rating = custom.sendRating
         prefer = custom.sendPrefer
-        review = custom.sendReview
-        memo = custom.sendMemo
+        //review = custom.sendReview
+        //memo = custom.sendMemo
         pooStatus = custom.sendPooState
         pooSmell = custom.sendPooSmell
         reviewEye = custom.sendEye
@@ -145,7 +116,10 @@ class PostVC: UIViewController {
     @objc func saveButtonDidTap(){
         // 리뷰 작성 버튼 - 완료 버튼 눌렀을 때 액션
         print(#function)
-        print("123 :",custom.fur)
+        
+        custom.review = custom.criticTextField.text!
+        custom.memo = custom.memoTextView.text
+        
         
         ReviewService.shared.Review(custom.rating,
                                     custom.prefer,
@@ -161,7 +135,6 @@ class PostVC: UIViewController {
                                     custom.profileIndex){ NetworkResult
             in switch NetworkResult{
             case .success(let _):
-                //let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
                 print("버튼작동")
 //                guard let token = token as? String else {return}
 //                let storyboard = UIStoryboard(name: "Post",bundle: nil)

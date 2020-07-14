@@ -10,8 +10,8 @@ import UIKit
 
 class PostSC:UIView,UITextViewDelegate {
     
-    @IBOutlet weak var criticTextField: UITextField!
-    @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var criticTextField: UITextField! // 한줄 리뷰
+    @IBOutlet weak var memoTextView: UITextView! // 메모
     @IBOutlet weak var productImg: UIImageView! // 제품사진
     @IBOutlet weak var companyName: UILabel! // 회사명
     @IBOutlet weak var productName: UILabel! // 제품이름
@@ -370,13 +370,19 @@ class PostSC:UIView,UITextViewDelegate {
         self.furTrouble.borderColor = .pale
         self.vomitTrouble.borderColor = .pale
         
+       
         memoTextView.delegate = self
         criticTextField.delegate = self
+        
         print("sc에서 보내주는 평가값: \(sendRating)")
         sendRating = rating
         sendPrefer = prefer
+        
         sendReview = review
         sendMemo = memo
+        
+        
+        
         sendPooState = pooState
         sendPooSmell = pooSmell
         sendEye = eye
@@ -398,6 +404,7 @@ class PostSC:UIView,UITextViewDelegate {
 }
 
 extension PostSC: UITextFieldDelegate {
+    
     
     private func addKeyboardObserver() {
         

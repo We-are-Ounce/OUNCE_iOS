@@ -46,7 +46,7 @@ class RegisterVC: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapNextButton))
-        
+        button.isEnabled = false
         return button
         
     }()
@@ -174,9 +174,21 @@ extension RegisterVC {
         ageTextField.keyboardType = .numberPad
         weightTextField.keyboardType = .decimalPad
         ageTextField.delegate = self
+        ageTextField.addTarget(self,
+                               action: #selector(textFieldDidChange),
+                               for: .editingChanged)
         nameTextField.delegate = self
+        nameTextField.addTarget(self,
+                                action: #selector(textFieldDidChange),
+                                for: .editingChanged)
         weightTextField.delegate = self
+        weightTextField.addTarget(self,
+                                  action: #selector(textFieldDidChange),
+                                  for: .editingChanged)
         contentTextField.delegate = self
+        contentTextField.addTarget(self,
+                                   action: #selector(textFieldDidChange),
+                                   for: .editingChanged)
     }
     
     @objc func didTapMaleButton(){
@@ -224,6 +236,9 @@ extension RegisterVC {
 }
 
 extension RegisterVC: UITextFieldDelegate {
+    @objc func textFieldDidChange(_ textField: UITextField){
+        
+    }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.scrollRectToVisible(CGRect(x: 0,
                                               y: -(textField.frame.origin.y+100),

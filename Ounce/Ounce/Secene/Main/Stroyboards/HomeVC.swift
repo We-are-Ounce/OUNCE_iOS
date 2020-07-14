@@ -64,6 +64,10 @@ extension HomeVC : UITableViewDelegate {
         let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
         dvc.modalPresentationStyle = .overFullScreen
         navigationController?.isNavigationBarHidden = false
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                           style: .plain,
+                                                           target: nil,
+                                                           action: nil)
         self.navigationController?.pushViewController(dvc, animated: true)
     }
     

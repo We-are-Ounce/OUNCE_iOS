@@ -56,9 +56,24 @@ class PostSC:UIView,UITextViewDelegate {
     var ear: Int = 0
     var fur: Int = 0
     var vomit: Int = 0
-    var date: String = "해떴다"
+    //var date: String = "해떴다"
     var foodIndex: Int = 10
     var profileIndex: Int = 19
+    
+    // 데이터 보내기
+    var sendRating: Int?
+    var sendPrefer: Int?
+    var sendReview: String?
+    var sendMemo: String?
+    var sendPooState: Int?
+    var sendPooSmell : Int?
+    var sendEye: Int?
+    var sendEar: Int?
+    var sendFur: Int?
+    var sendVomit: Int?
+    //var sendDate: String?
+    var sendFoodIndex: Int?
+    var sendProfileIndex: Int?
     var rootVC: UIViewController?
     
     @IBAction func scoreBtn1selected(_ sender: Any) {
@@ -85,7 +100,7 @@ class PostSC:UIView,UITextViewDelegate {
         scoreBtn3.setImage(UIImage(named:"icTotalSelected"), for: .normal)
         scoreBtn4.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
         scoreBtn5.setImage(UIImage(named:"icTotalUnselected"), for: .normal)
-        print(rating)
+        
         
     }
     
@@ -339,14 +354,27 @@ class PostSC:UIView,UITextViewDelegate {
         
         memoTextView.delegate = self
         criticTextField.delegate = self
-        
-        
+        print("sc에서 보내주는 평가값: \(rating)")
+        sendRating = rating
+        sendPrefer = prefer
+        sendReview = review
+        sendMemo = memo
+        sendPooState = pooState
+        sendPooSmell = pooSmell
+        sendEye = eye
+        sendEar = ear
+        sendFur = fur
+        sendVomit = vomit
+        //sendDate = date
+        sendFoodIndex = foodIndex
+        sendProfileIndex = profileIndex
         
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         // 키보드 바깥 뷰 아무데나 터치하면 키보드 다시 들어가는 코드
         self.rootVC?.view.endEditing(true)
+        
     }
     
 }

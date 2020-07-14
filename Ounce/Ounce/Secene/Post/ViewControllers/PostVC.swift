@@ -20,7 +20,8 @@ class PostVC: UIViewController {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    
+    let rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(saveButtonDidTap))
+
     var product: Product? //구조체
     var imageNameVC: UIImage?
     var companyNameVC: String?
@@ -36,14 +37,14 @@ class PostVC: UIViewController {
     var reviewEar: Int?
     var reviewHair: Int?
     var reviewVomit: Int?
-    var date: String?
+    //var date: String?
     var foodIndexNumber: Int?
     var profileIndexNumber: Int?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.navigationItem.title = "기록하기"
+        /*self.navigationItem.title = "기록하기"
         let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
         
         custom.companyName.text = companyNameVC
@@ -52,6 +53,7 @@ class PostVC: UIViewController {
         self.addScrollView.addSubview(custom)
         custom.viewDidLoad()
         custom.rootVC = self
+        
         rating = custom.rating
         prefer = custom.prefer
         review = custom.review
@@ -71,16 +73,44 @@ class PostVC: UIViewController {
         
         addScrollView.delegate = self
         addKeyboardNotification()
-        
+        */
     }
     
     override func viewWillAppear(_ animated: Bool) {
     
+        self.navigationItem.title = "기록하기"
+               let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
+               
+               custom.companyName.text = companyNameVC
+               custom.productName.text = productNameVC
+               custom.productImg.image = imageNameVC
+               self.addScrollView.addSubview(custom)
+               custom.viewDidLoad()
+               custom.rootVC = self
+               
+               rating = custom.sendRating
+               prefer = custom.sendPrefer
+               review = custom.sendReview
+               memo = custom.sendMemo
+               pooStatus = custom.sendPooState
+               pooSmell = custom.sendPooSmell
+               reviewEye = custom.sendEye
+               reviewEar = custom.sendEar
+               reviewHair = custom.sendFur
+               reviewVomit = custom.sendVomit
+               //date = custom.sendDate
+               foodIndexNumber = custom.sendFoodIndex
+               profileIndexNumber = custom.sendProfileIndex
+               
+               custom.criticTextField.delegate = self
+               custom.memoTextView.delegate = self
+               
+               addScrollView.delegate = self
+               addKeyboardNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
       
-        let rightButton = UIBarButtonItem()
         rightButton.title = "완료"
         //rightButton.image = UIImage(named:"icMore")
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
@@ -88,8 +118,8 @@ class PostVC: UIViewController {
         //rightButton.target = self
         // 중간수정버튼 만들기
         // 밑에있는 editButtonDidTap 액션 함수 절대 지우면 안돼~~~~~~~~~~지우면 빡댁알이^^
-        rightButton.action = #selector(saveButtonDidTap)
-        rightButton.target = self
+//        rightButton.action = #selector(saveButtonDidTap)
+//        rightButton.target = self
     }
     
     /*@objc private func editButtonDidTap(){
@@ -112,8 +142,9 @@ class PostVC: UIViewController {
         
     }*/
     
-    @objc private func saveButtonDidTap(){
+    @objc func saveButtonDidTap(){
         // 리뷰 작성 버튼 - 완료 버튼 눌렀을 때 액션
+        
         ReviewService.shared.Review(rating ?? 0,
                                     prefer!,
                                     review!,
@@ -124,21 +155,27 @@ class PostVC: UIViewController {
                                     reviewEar!,
                                     reviewHair!,
                                     reviewVomit!,
-                                    date!,
+                                    /*date!,*/
                                     foodIndexNumber!,
                                     profileIndexNumber!){ NetworkResult
             in switch NetworkResult{
             case .success(let token):
-                guard let token = token as? String else {return}
-                self.dismiss(animated: true, completion: nil)
-                
-                print("받아왔어요")
-                
+                //let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
+                print("버튼작동")
+//                guard let token = token as? String else {return}
+//                let storyboard = UIStoryboard(name: "Post",bundle: nil)
+//                let vc = storyboard.instantiateViewController(identifier: "SearchCollectVC") as! SearchCollectVC
+//                vc.modalPresentationStyle = .fullScreen
+//                print("받아왔어요")
+                //self.navigationController?.popViewController(animated: true)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "HomeVC")as!HomeVC
+                vc.modalPresentationStyle = .fullScreen
             case .requestErr(let message):
                 guard let message = message as? Int else {return}
                 print(message)
                 print("requestErr")
-            
+             
             case .serverErr:
                 print("serverErr")
             case .networkFail:

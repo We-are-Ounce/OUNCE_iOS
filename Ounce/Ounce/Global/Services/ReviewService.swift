@@ -25,7 +25,7 @@ struct ReviewService{
                                _ reviewEar: Int,
                                _ reviewHair: Int,
                                _ reviewVomit: Int,
-                               _ createdAt: String,
+                               //_ createdAt: String,
                                _ foodIdx: Int,
                                _ profileIdx: Int) -> Parameters {
         return ["reviewRating":reviewRating,
@@ -37,7 +37,7 @@ struct ReviewService{
                 "reviewEye": reviewEye,
                 "reviewEar": reviewEar,
                 "reviewVomit": reviewVomit,
-                "createdAt": createdAt,
+                //"createdAt": createdAt,
                 "foodIdx": foodIdx,
                 "profileIdx": profileIdx]
     }
@@ -52,7 +52,7 @@ struct ReviewService{
                 _ reviewEar: Int,
                 _ reviewHair: Int,
                 _ reviewVomit: Int,
-                _ createdAt: String,
+                //_ createdAt: String,
                 _ foodIdx: Int,
                 _ profileIdx: Int,
                 completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -69,7 +69,7 @@ struct ReviewService{
         "reviewEye": reviewEye,
         "reviewEar": reviewEar,
         "reviewVomit": reviewVomit,
-        "createdAt": createdAt,
+        //"createdAt": createdAt,
         "foodIdx": foodIdx,
         "profileIdx": profileIdx]
         let dataRequest = Alamofire.request(APIConstants.addReview,
@@ -80,7 +80,7 @@ struct ReviewService{
         
         // 데이터 통신 시작
         dataRequest.responseData { dataResponse in
-            print("집 갈래",reviewRating, reviewPrefer, reviewInfo,reviewMemo,reviewStatus, reviewSmell,reviewEye,reviewEar,reviewHair,reviewVomit,createdAt,foodIdx,profileIdx)
+            print("집 갈래",reviewRating, reviewPrefer, reviewInfo,reviewMemo,reviewStatus, reviewSmell,reviewEye,reviewEar,reviewHair,reviewVomit,/*createdAt,*/foodIdx,profileIdx)
             switch dataResponse.result {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else {
@@ -94,6 +94,7 @@ struct ReviewService{
                         let decoder = JSONDecoder()
                         let result = try decoder.decode(ResponseSimpleResult<Int>.self, from: value)
                         completion(.success(result))
+                        print("상태코드:\(statusCode)")
                     } catch {
                         print("123123")
                         completion(.pathErr)

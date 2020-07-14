@@ -76,12 +76,15 @@ class SocialVC: UIViewController {
         super.viewDidLoad()
         set()
         setTabbar()
-        setFollowerData()
         setSocialNV(catSocialName: "겨울이")
-        //self.collectionView?.showsHorizontalScrollIndicator = false
+        followerService()
+        followingService()
+        
         self.pageCV.showsHorizontalScrollIndicator = false
         self.followerTV.showsVerticalScrollIndicator = false
         self.followingTV.showsVerticalScrollIndicator = false
+        
+        
     }
     
     
@@ -294,17 +297,96 @@ extension SocialVC: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return followerInfo.count
+        if tableView == followerTV
+        {
+            return followerInfo.count
+        }
+        else{
+            return followingInfo.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let followerCell = tableView.dequeueReusableCell(withIdentifier: "AcquaintanceTVC", for: indexPath) as? AcquaintanceTVC else {return UITableViewCell()}
+        switch tableView {
+        case self.followerTV:
+            guard let followerCell = tableView.dequeueReusableCell(withIdentifier: "AcquaintanceTVC", for: indexPath) as? AcquaintanceTVC else {return UITableViewCell()}
+            
+            
+            followerCell.addContenView()
+            followerCell.followInfo = followerInfo[indexPath.row]
+            followerCell.setCall()
+            
+            return followerCell
+            
+        case self.followingTV:
+            guard let followingCell = tableView.dequeueReusableCell(withIdentifier: "AcquaintanceTVC", for: indexPath) as? AcquaintanceTVC else {return UITableViewCell()}
+            
+            
+            followingCell.addContenView()
+            followingCell.followInfo = followingInfo[indexPath.row]
+            followingCell.setCall()
+            
+            return followingCell
+            
+        default:
+            return UITableViewCell()
+        }
         
-        followerCell.addContenView()
-        
-        return followerCell
     }
 }
-
+// 서버통신을 위한 extension
+extension SocialVC {
+    
+    func followerService(){
+        FollowService.shared.follower(){
+            responsedata in
+            switch responsedata {
+            case .success(let res):
+                //dump(res)
+                let followerList = res as! [Follow]
+                
+                self.followerInfo = followerList
+                self.followerTV.reloadData()
+                
+                
+            case .requestErr(_):
+                print("request error")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".failureErr")
+            }
+            
+        }
+    }
+    
+    func followingService(){
+        FollowService.shared.following(){
+            responsedata in
+            switch responsedata {
+            case .success(let res):
+                
+                let followingList = res as! [Follow]
+                
+                self.followingInfo = followingList
+                self.followingTV.reloadData()
+                
+            case .requestErr(_):
+                print("request error")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".failureErr")
+            }
+            
+        }
+    }
+    
+    
+}
 

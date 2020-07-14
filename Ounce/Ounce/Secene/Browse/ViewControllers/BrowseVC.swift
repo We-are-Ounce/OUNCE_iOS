@@ -72,6 +72,7 @@ class BrowseVC: UIViewController {
         //self.collectionView?.backgroundColor = .brownGreyColor
         self.collectionView?.showsHorizontalScrollIndicator = false
         searchField.delegate = self
+        self.recommendService()
     }
     
     func setupLayout(){
@@ -273,7 +274,7 @@ extension BrowseVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colors.count
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -296,4 +297,27 @@ extension BrowseVC: UITextFieldDelegate {
             self.navigationController?.pushViewController(vc,animated: true)
         }
     }
+}
+extension BrowseVC {
+    func recommendService(){
+        RecommendService.shared.recommendCat() { responsedata in
+            switch responsedata {
+            case.success(let res):
+                
+                dump(res)
+                
+                
+                case .requestErr(_):
+                    print("request error")
+                case .pathErr:
+                    print(".pathErr")
+                    print("여기야?")
+                case .serverErr:
+                    print(".serverErr")
+                case .networkFail:
+                    print(".failureErr")
+            }
+        }
+    }
+    
 }

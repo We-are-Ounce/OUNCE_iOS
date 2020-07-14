@@ -10,8 +10,8 @@ import Foundation
 
 struct Follow: Codable {
     let profileIdx: Int
-    let profileImg, profileName: String
-    let profileWeight: Double
-    let profileGender: String
+    let profileImg: String
+    let profileName, profileGender, profileNeutral: String
     let profileAge: Int
+    let profileWeight: String
 }

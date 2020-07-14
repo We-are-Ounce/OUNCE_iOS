@@ -24,6 +24,9 @@
 		5E179B0824BCC1DA0061A498 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E179B0724BCC1DA0061A498 /* Token.swift */; };
 		5E179B0A24BCCCC50061A498 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E179B0924BCCCC50061A498 /* ContentService.swift */; };
 		5E179B0B24BCECCE0061A498 /* SortingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BA5924BCD6E300D57089 /* SortingCell.swift */; };
+		5E179B0D24BD36D50061A498 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E179B0C24BD36D50061A498 /* SearchService.swift */; };
+		5E179B0F24BD37D50061A498 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E179B0E24BD37D50061A498 /* User.swift */; };
+		5E179B1124BD3D940061A498 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E179B1024BD3D940061A498 /* Product.swift */; };
 		5E2C33F924B44E1A001F0FB4 /* SignUpCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2C33F824B44E1A001F0FB4 /* SignUpCompleteVC.swift */; };
 		5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35794B24AE37B300043066 /* UIViewController+Extension.swift */; };
 		5E35794E24AE37D400043066 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E35794D24AE37D400043066 /* UIColor+Extension.swift */; };
@@ -103,9 +106,9 @@
 		7FD5B92324B59E03008D382F /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5B92124B59E03008D382F /* HeaderCell.xib */; };
 		7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA4D24BA2481004CD853 /* SettingVC.swift */; };
 		7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */; };
+		7FE7BA5C24BD108700D57089 /* ProductDetailNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BA5B24BD108700D57089 /* ProductDetailNVC.swift */; };
 		F23316A324BCB84C00BA6023 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A224BCB84C00BA6023 /* ReviewService.swift */; };
 		F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A424BCBE2400BA6023 /* ReviewData.swift */; };
-		7FE7BA5C24BD108700D57089 /* ProductDetailNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BA5B24BD108700D57089 /* ProductDetailNVC.swift */; };
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
 		F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */; };
@@ -137,6 +140,9 @@
 		5E075D3724B0ABF70035C415 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		5E179B0724BCC1DA0061A498 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		5E179B0924BCCCC50061A498 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentService.swift; path = Ounce/Global/Enums/ContentService.swift; sourceTree = SOURCE_ROOT; };
+		5E179B0C24BD36D50061A498 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		5E179B0E24BD37D50061A498 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5E179B1024BD3D940061A498 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		5E2C33F824B44E1A001F0FB4 /* SignUpCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompleteVC.swift; sourceTree = "<group>"; };
 		5E35794B24AE37B300043066 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E35794D24AE37D400043066 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -427,6 +433,8 @@
 				5EFD2DCE24BC6E430054B357 /* SignIn.swift */,
 				F23316A424BCBE2400BA6023 /* ReviewData.swift */,
 				5E179B0724BCC1DA0061A498 /* Token.swift */,
+				5E179B0E24BD37D50061A498 /* User.swift */,
+				5E179B1024BD3D940061A498 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -450,6 +458,7 @@
 				7754C98924BCBCA0001F3A0F /* FollowService.swift */,
 				5E179B0924BCCCC50061A498 /* ContentService.swift */,
 				F23316A224BCB84C00BA6023 /* ReviewService.swift */,
+				5E179B0C24BD36D50061A498 /* SearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -916,12 +925,14 @@
 				5E179B0824BCC1DA0061A498 /* Token.swift in Sources */,
 				5EA7C45924B8E92400EB95EA /* BrowseSearchVC.swift in Sources */,
 				5E69E8A224AC6BF7005D4DC1 /* MainCell.swift in Sources */,
+				5E179B0F24BD37D50061A498 /* User.swift in Sources */,
 				F2940ADE24B2F462003C3047 /* PostSC.swift in Sources */,
 				5EFD2DC424BB006A0054B357 /* ProductDetail+Constraint.swift in Sources */,
 				5EFD2DCD24BC69CC0054B357 /* UserService.swift in Sources */,
 				5E179B0A24BCCCC50061A498 /* ContentService.swift in Sources */,
 				5E35794E24AE37D400043066 /* UIColor+Extension.swift in Sources */,
 				7FE7BA5C24BD108700D57089 /* ProductDetailNVC.swift in Sources */,
+				5E179B1124BD3D940061A498 /* Product.swift in Sources */,
 				7F7CE9BD24B721C200CB2476 /* sortingData.swift in Sources */,
 				5E35795024AE385500043066 /* UITextView+Extension.swift in Sources */,
 				5E039CB724AFFECF009B1BC6 /* Password+Constraint.swift in Sources */,
@@ -949,6 +960,7 @@
 				5EA7C45F24B8EAAD00EB95EA /* BrowsePageCVCell.swift in Sources */,
 				5E35795624AE38D100043066 /* Date+Extension.swift in Sources */,
 				5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */,
+				5E179B0D24BD36D50061A498 /* SearchService.swift in Sources */,
 				5EFD2DCB24BC68290054B357 /* ResponseResult.swift in Sources */,
 				7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */,
 				5E48BF1A24B1D7750060EA7B /* BrowseVC.swift in Sources */,

@@ -42,14 +42,17 @@ class ProfileCell: UITableViewCell {
         super.awakeFromNib()
         
         round()
+     
     }
+    
+  
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
-    
+  
     @IBAction func accountBtn(_ sender: UIButton) {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -76,10 +79,16 @@ class ProfileCell: UITableViewCell {
     @IBAction func followerBtn(_ sender: Any) {
         
         let sb = UIStoryboard(name: "Social", bundle: nil)
-        
         let dvc = sb.instantiateViewController(withIdentifier: "SocialNVC")
+        
         dvc.modalPresentationStyle = .overFullScreen
-        self.rootVC?.present(dvc, animated: false)
+        dvc.navigationController?.isNavigationBarHidden = false
+        dvc.navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                           style: .plain,
+                                                           target: nil,
+                                                           action: nil)
+        dvc.navigationController?.pushViewController(dvc, animated: true)
+
     
     }
     

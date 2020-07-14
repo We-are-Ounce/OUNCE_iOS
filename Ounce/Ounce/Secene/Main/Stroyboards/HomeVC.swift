@@ -86,6 +86,9 @@ extension HomeVC : UITableViewDataSource {
     }
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        if indexPath.section == 1 {
            let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
            let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
            dvc.modalPresentationStyle = .overFullScreen
@@ -95,8 +98,10 @@ extension HomeVC : UITableViewDataSource {
                                                               target: nil,
                                                               action: nil)
            self.navigationController?.pushViewController(dvc, animated: true)
-       }
-
+        }
+  
+        }
+ 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

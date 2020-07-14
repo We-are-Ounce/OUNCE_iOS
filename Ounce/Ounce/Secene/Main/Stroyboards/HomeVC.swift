@@ -11,11 +11,6 @@ import UIKit
 class HomeVC: UIViewController {
         
     @IBOutlet weak var reviewTV: UITableView!
-   
-    
-    var stringList = ["주연", "주연","주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ]
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,21 +45,10 @@ class HomeVC: UIViewController {
     func setupLayout() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
-}
-    
-
-}
-
-
+}}
 
 extension HomeVC : UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
-        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailNVC") as! ProductDetailNVC
-        dvc.modalPresentationStyle = .overFullScreen
-        self.present(dvc, animated: false)
-    }
     
 }
 
@@ -102,6 +86,18 @@ extension HomeVC : UITableViewDataSource {
             return reviewCell
         }
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1{
+        _ = tableView.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
+        let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
+        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailNVC") as! ProductDetailNVC
+        dvc.modalPresentationStyle = .overFullScreen
+        self.present(dvc, animated: false)
+        }
+    }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -146,6 +142,7 @@ extension HomeVC : UITableViewDataSource {
         }
         
     }
+
     
 }
 

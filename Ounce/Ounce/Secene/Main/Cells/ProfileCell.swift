@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAdaptivePresentationControllerDelegate {
+class ProfileCell: UITableViewCell {
     
     static let identfier = "ProfileCell"
     
-    var  rootVC: UIViewController?
+    var rootVC: UIViewController?
     
     @IBOutlet weak var follower: UIButton!
     @IBOutlet weak var following: UIButton!
@@ -26,18 +26,18 @@ class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAda
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var introduceLabel: UILabel!
     
-
+    
     func round(){
         
         follower.setRounded(radius: 8)
         follower.setBorder(borderColor: .pale, borderWidth: 0.5)
         
-       following.setRounded(radius: 8)
-       following.setBorder(borderColor: .pale, borderWidth: 0.5)
+        following.setRounded(radius: 8)
+        following.setBorder(borderColor: .pale, borderWidth: 0.5)
     }
     
-
-
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -50,7 +50,16 @@ class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAda
         // Configure the view for the selected state
     }
     
-    @IBAction func accountBtn(_ sender: Any) {
+    @IBAction func accountBtn(_ sender: UIButton) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        let dvc = sb.instantiateViewController(withIdentifier: "AccountVC") as! AccountVC
+        
+        dvc.modalPresentationStyle = .overFullScreen
+        
+        self.rootVC?.present(dvc, animated: false)
+        
     }
     
     @IBAction func editBtn(_ sender: Any) {
@@ -65,8 +74,23 @@ class ProfileCell: UITableViewCell, UIViewControllerTransitioningDelegate, UIAda
     }
     
     @IBAction func followerBtn(_ sender: Any) {
+        
+        let sb = UIStoryboard(name: "Social", bundle: nil)
+        
+        let dvc = sb.instantiateViewController(withIdentifier: "SocialNVC")
+        dvc.modalPresentationStyle = .overFullScreen
+        self.rootVC?.present(dvc, animated: false)
+    
     }
     
     @IBAction func followingBtn(_ sender: Any) {
+        
+
+        let sb = UIStoryboard(name: "Social", bundle: nil)
+        
+        let dvc = sb.instantiateViewController(withIdentifier: "SocialNVC")
+        dvc.modalPresentationStyle = .overFullScreen
+        self.rootVC?.present(dvc, animated: false)
+        
     }
 }

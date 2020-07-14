@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol touchDelegate {
+    
+    func touch()
+}
+
 class ProfileCell: UITableViewCell {
     
     static let identfier = "ProfileCell"
     
-    var rootVC: UIViewController?
+    let rootVC = HomeVC()
+    
+    var delegate: touchDelegate?
     
     @IBOutlet weak var follower: UIButton!
     @IBOutlet weak var following: UIButton!
@@ -26,6 +33,15 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var introduceLabel: UILabel!
     
+    var Navi: UINavigationController?
+    
+    //   NavigationController?.isNavigationBarHidden = true
+    
+    func setup(){
+        
+        //
+        //        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     
     func round(){
         
@@ -37,12 +53,26 @@ class ProfileCell: UITableViewCell {
     }
     
     
+//    @IBAction func didTapSettingButton(_ sender: Any) {
+//        print(#function)
+//        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+//        let dvc = storyboard.instantiateViewController(identifier: "SettingVC") as! SettingVC
+//        self.rootVC.navigationController?.navigationBar.isHidden = false
+//        self.rootVC.present(dvc, animated: true)
+//    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         round()
+        setup()
+        
     }
+    
+    
+    
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -52,45 +82,67 @@ class ProfileCell: UITableViewCell {
     
     @IBAction func accountBtn(_ sender: UIButton) {
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-    
-        let dvc = sb.instantiateViewController(withIdentifier: "AccountVC") as! AccountVC
         
-        dvc.modalPresentationStyle = .overFullScreen
+        //        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+        //        let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
+        //
+        //        dvc.modalPresentationStyle = .overFullScreen
+        //
+        //        self.rootVC?.present(dvc, animated: false, completion: nil)
         
-        self.rootVC?.present(dvc, animated: false)
+        
+        
+        
+        //        let sb = UIStoryboard(name: "Main", bundle: nil)
+        //
+        //        let dvc = sb.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
+        //
+        //        dvc.modalPresentationStyle = .overFullScreen
+        //
+        //        self.rootVC?.present(dvc, animated: false)
         
     }
     
     @IBAction func editBtn(_ sender: Any) {
         
-    }
-    
-    @IBAction func settingBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        
-        let dvc = sb.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
-    }
-    
-    @IBAction func followerBtn(_ sender: Any) {
-        
-        let sb = UIStoryboard(name: "Social", bundle: nil)
-        
-        let dvc = sb.instantiateViewController(withIdentifier: "SocialNVC")
         dvc.modalPresentationStyle = .overFullScreen
-        self.rootVC?.present(dvc, animated: false)
-    
+        
+        self.rootVC.present(dvc, animated: false, completion: nil)
+        
     }
     
-    @IBAction func followingBtn(_ sender: Any) {
+//    @IBAction func settingBtn(_ sender: Any) {
+//        
+//        if let delegate = self.delegate{
+//            
+//            delegate.touch()
+//        }
+//        
+//        
+//        
+//    }
+//    
+    @IBAction func followerBtn(_ sender: UIButton) {
         
-
-        let sb = UIStoryboard(name: "Social", bundle: nil)
+        //        print(#function)
+        //
+        //        let sb = UIStoryboard(name: "Main", bundle: nil)
+        //        let dvc = sb.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+        //
+        //
+        //        dvc.modalPresentationStyle = .overFullScreen
+        //
+        //         self.rootVC?.present(dvc, animated: false)
         
-        let dvc = sb.instantiateViewController(withIdentifier: "SocialNVC")
-        dvc.modalPresentationStyle = .overFullScreen
-        self.rootVC?.present(dvc, animated: false)
+        
+    }
+    
+    @IBAction func followingBtn(_ sender: UIButton) {
+        
         
     }
 }
+

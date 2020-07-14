@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Foundation
 
 class HomeVC: UIViewController {
-        
+    
     @IBOutlet weak var reviewTV: UITableView!
     
     override func viewDidLoad() {
@@ -18,12 +19,13 @@ class HomeVC: UIViewController {
         reviewTV.delegate = self
         reviewTV.dataSource = self
         
+        
         // ReviewTableViewCell xib 연결
         let nibName = UINib(nibName: "ReviewTableViewCell", bundle: nil)
         
         // HeaderCell xib 연결
         let nibName1 = UINib(nibName: "HeaderCell", bundle: nil)
-
+        
         reviewTV.register(nibName, forCellReuseIdentifier: "ReviewTableViewCell")
         
         reviewTV.register(nibName1, forCellReuseIdentifier: "HeaderCell")
@@ -33,7 +35,7 @@ class HomeVC: UIViewController {
         self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.setupLayout()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,13 +46,12 @@ class HomeVC: UIViewController {
     
     func setupLayout() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
-}}
-
-extension HomeVC : UITableViewDelegate {
+    }
+    
 }
 
-extension HomeVC : UITableViewDataSource {
+extension HomeVC : UITableViewDataSource, UITableViewDelegate {
+    
     
     // MARK: - TableView Section
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,7 +64,7 @@ extension HomeVC : UITableViewDataSource {
             return 1
         }
         else {
-            return 4
+            return 9
         }
     }
     
@@ -71,10 +72,14 @@ extension HomeVC : UITableViewDataSource {
         
         
         if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+            //            cell.delegate = self
+            cell.settingButton.tag = indexPath.row
+            cell.settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
             
-            let profileCell = reviewTV.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath)
+//            cell.didTapSettingButton(self)
             
-            return profileCell
+            return cell
         }
         else{
             let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
@@ -84,19 +89,24 @@ extension HomeVC : UITableViewDataSource {
             return reviewCell
         }
     }
-  
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
-           let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
-           dvc.modalPresentationStyle = .overFullScreen
-           navigationController?.isNavigationBarHidden = false
-           navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
-                                                              style: .plain,
-                                                              target: nil,
-                                                              action: nil)
-           self.navigationController?.pushViewController(dvc, animated: true)
-       }
-
+        
+        
+        if indexPath.section == 1 {
+            let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
+            let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
+            dvc.modalPresentationStyle = .overFullScreen
+            navigationController?.isNavigationBarHidden = false
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                               style: .plain,
+                                                               target: nil,
+                                                               action: nil)
+            self.navigationController?.pushViewController(dvc, animated: true)
+        }
+        
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -110,7 +120,7 @@ extension HomeVC : UITableViewDataSource {
     }
     
     
-
+    
     // MARK: - header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
@@ -130,7 +140,7 @@ extension HomeVC : UITableViewDataSource {
             
             // xib 파일 - headerCell
             headerCell.rootVC = self
-   
+            
             return headerCell
         }
         else{
@@ -141,8 +151,34 @@ extension HomeVC : UITableViewDataSource {
         }
         
     }
-
+    
     
 }
 
+extension HomeVC {
+    @objc func didTapSettingButton(){
+        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "SettingVC") as! SettingVC
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.pushViewController(dvc, animated: true)
+    }
+}
 
+
+//extension HomeVC: touchDelegate{
+//
+//    func touch() {
+//        performSegue(withIdentifier: "SettingVC", sender: nil)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "SettingVC" {
+//
+//            let _: SettingVC = segue.destination as! SettingVC
+//        }
+//    }
+//
+//
+//
+//}

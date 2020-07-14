@@ -117,8 +117,6 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             cell.profile = profiles?[indexPath.row]
             
             cell.cellProfile()
-            cell.setDataInformation(myWeight: " ", myAge: " ")
-            cell.gender(gender: " ", neutral: " ")
             
             return cell
         }
@@ -146,7 +144,9 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                                                                style: .plain,
                                                                target: nil,
                                                                action: nil)
+            /* 셀 클릭시 index값 넘겨주기 */
             dvc.foodIndex = reviews?[indexPath.row].reviewIdx
+            
             self.navigationController?.pushViewController(dvc, animated: true)
         }
         
@@ -233,9 +233,13 @@ extension HomeVC {
             switch responsedata {
             case .success(let data):
                 self.profiles = data as! [MyProfile]
+                
                 dump(self.profiles)
                 self.reviewTV.reloadData()
+                
                 print("홈 뷰 : 프로필 조회 성공")
+                
+                
             case .requestErr(_):
                 print("request error")
                 
@@ -261,6 +265,9 @@ extension HomeVC {
             switch responsedata {
             case .success(let res):
                 self.reviews = res as! [UserReviews]
+                
+                dump(self.reviews)
+                
                 self.reviewTV.reloadData()
                 print("홈 뷰 : 리뷰 조회 성공")
             case .requestErr(_):

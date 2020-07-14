@@ -30,9 +30,12 @@ class ProfileCell: UITableViewCell {
     
     var profile: MyProfile?
     
-    func setDataInformation(myWeight: String, myAge: String){
-           
-          
+    func setDataInformation(myfollower: String, myfollowing: String, myWeight: String, myAge: String){
+        
+        
+        follower.setTitle("팔로워" + myfollower, for: .normal)
+        following.setTitle("팔로잉" + myfollowing, for: .normal)
+        
            weightLabel.text = myWeight + "kg"
            ageLabel.text =  myAge + "살"
        }
@@ -70,10 +73,14 @@ class ProfileCell: UITableViewCell {
         
         var genderimage = gender(gender: profile?.profileGender ?? "", neutral: profile?.profileNeutral ?? "")
         genderImg.image = UIImage(named: genderimage)
-    
-        weightLabel.text = profile?.profileWeight ?? "" + "kg"
+        
         ageLabel.text = String(profile?.profileAge ?? 0) + "살"
+        weightLabel.text = profile?.profileWeight ?? "" + "kg"
         introduceLabel.text = profile?.profileInfo
+        
+        setDataInformation(myfollower: String(profile?.follower ?? 0 ), myfollowing: String( profile?.following ?? 0 ), myWeight: String(profile?.profileWeight ?? ""), myAge: String(profile?.profileAge ?? 0))
+        
+        gender(gender: "", neutral: " ")
         
     }
     

@@ -107,8 +107,10 @@
 		7FE5EA4E24BA2481004CD853 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA4D24BA2481004CD853 /* SettingVC.swift */; };
 		7FE5EA6224BA8B3A004CD853 /* FirstSettingTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */; };
 		7FE7BA5C24BD108700D57089 /* ProductDetailNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BA5B24BD108700D57089 /* ProductDetailNVC.swift */; };
+
 		F23316A324BCB84C00BA6023 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A224BCB84C00BA6023 /* ReviewService.swift */; };
 		F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A424BCBE2400BA6023 /* ReviewData.swift */; };
+
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
 		F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */; };
@@ -228,6 +230,8 @@
 		7FE7BA5424BB49B000D57089 /* MainNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNaviVC.swift; sourceTree = "<group>"; };
 		7FE7BA5924BCD6E300D57089 /* SortingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingCell.swift; sourceTree = "<group>"; };
 		7FE7BA5B24BD108700D57089 /* ProductDetailNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailNVC.swift; sourceTree = "<group>"; };
+		7FE7BA5D24BD1B0F00D57089 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountVC.swift; path = Ounce/Secene/Main/Stroyboards/AccountVC.swift; sourceTree = SOURCE_ROOT; };
+		7FE7BA5F24BDA8B800D57089 /* SocialNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNVC.swift; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23316A224BCB84C00BA6023 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
 		F23316A424BCBE2400BA6023 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
@@ -544,6 +548,7 @@
 		5E69E89D24AC6BC9005D4DC1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7FE7BA5D24BD1B0F00D57089 /* AccountVC.swift */,
 				7FD5B91724B466E8008D382F /* HomeVC.swift */,
 				7F7CE9BE24B7668000CB2476 /* FilterVC.swift */,
 				7F7CE9C024B898E100CB2476 /* SortingVC.swift */,
@@ -682,6 +687,7 @@
 			children = (
 				773384EB24B8E91200D05E8F /* SocialVC.swift */,
 				773384FB24B9D65A00D05E8F /* SocialVC + Constraints.swift */,
+				7FE7BA5F24BDA8B800D57089 /* SocialNVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -907,6 +913,7 @@
 				5E69E89124AC6769005D4DC1 /* ReferenceCVCell.swift in Sources */,
 				5EFD2DC224BAFE300054B357 /* ProductDetailVC.swift in Sources */,
 				7F7CE9BF24B7668000CB2476 /* FilterVC.swift in Sources */,
+				7FE7BA5E24BD1B0F00D57089 /* AccountVC.swift in Sources */,
 				773384FC24B9D65A00D05E8F /* SocialVC + Constraints.swift in Sources */,
 				5E48BF2224B1D7BB0060EA7B /* PostVC.swift in Sources */,
 				5E35795C24AE391500043066 /* UITabBar+Extension.swift in Sources */,
@@ -919,6 +926,7 @@
 				5E69E89824AC685C005D4DC1 /* UIView+Extension.swift in Sources */,
 				5E35795224AE38A900043066 /* UIButton+Extension.swift in Sources */,
 				5EFD2DCF24BC6E430054B357 /* SignIn.swift in Sources */,
+				7FE7BA6024BDA8B800D57089 /* SocialNVC.swift in Sources */,
 				5EA7C46524B8F17D00EB95EA /* BrowseSearchVC+Constraint.swift in Sources */,
 				5E35795A24AE38FC00043066 /* String+Extension.swift in Sources */,
 				5E039CB124AFFE9D009B1BC6 /* LoginVC+Constraint.swift in Sources */,
@@ -1121,7 +1129,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 78A867AHKF;
+				DEVELOPMENT_TEAM = K7PMZ9X55K;
 				INFOPLIST_FILE = "Ounce/Global/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

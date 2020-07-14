@@ -11,11 +11,6 @@ import UIKit
 class HomeVC: UIViewController {
         
     @IBOutlet weak var reviewTV: UITableView!
-   
-    
-    var stringList = ["주연", "주연","주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ,"주연" ]
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,27 +45,9 @@ class HomeVC: UIViewController {
     func setupLayout() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
-}
-    
-
-}
-
-
+}}
 
 extension HomeVC : UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
-        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
-        dvc.modalPresentationStyle = .overFullScreen
-        navigationController?.isNavigationBarHidden = false
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
-                                                           style: .plain,
-                                                           target: nil,
-                                                           action: nil)
-        self.navigationController?.pushViewController(dvc, animated: true)
-    }
-    
 }
 
 extension HomeVC : UITableViewDataSource {
@@ -107,6 +84,19 @@ extension HomeVC : UITableViewDataSource {
             return reviewCell
         }
     }
+  
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
+           let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
+           dvc.modalPresentationStyle = .overFullScreen
+           navigationController?.isNavigationBarHidden = false
+           navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                              style: .plain,
+                                                              target: nil,
+                                                              action: nil)
+           self.navigationController?.pushViewController(dvc, animated: true)
+       }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -151,6 +141,7 @@ extension HomeVC : UITableViewDataSource {
         }
         
     }
+
     
 }
 

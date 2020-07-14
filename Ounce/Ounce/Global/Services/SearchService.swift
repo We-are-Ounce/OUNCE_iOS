@@ -25,7 +25,7 @@ struct SearchService {
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
-        print(URL)
+
         let body : Parameters = [
             "userId": userId
         ]
@@ -43,7 +43,7 @@ struct SearchService {
                 // parameter 위치
                 if let value = response.result.value {
                     if let status = response.response?.statusCode {
-                        print(status)
+
                         switch status {
                         case 200:
                             do{
@@ -54,7 +54,7 @@ struct SearchService {
                             } catch {
                                 completion(.pathErr)
                             }
-                        case 409:
+                        case 400:
                             completion(.pathErr)
                         case 500:
                             completion(.serverErr)
@@ -75,17 +75,23 @@ struct SearchService {
     
     // MARK: - 제품 검색
     
-    func searchProduct(_ userId: String,
+    func searchProduct(_ searchKeyword: String,
+                       _ pageStart: Int,
+                       _ pageEnd: Int,
                        completion: @escaping (NetworkResult<Any>) -> Void){
         
-        let URL = APIConstants.searchUser
+        let URL = APIConstants.searchProduct
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
         print(URL)
         let body : Parameters = [
-            "userId": userId
+            "searchKeyword": searchKeyword,
+            "pageStart": pageStart,
+            "pageEnd": pageEnd
         ]
+        
+        dump(body)
         
         Alamofire.request(URL,
                           method: .post,
@@ -105,14 +111,21 @@ struct SearchService {
                         case 200:
                             do{
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(ResponseResult<User>.self,
+                                let result = try decoder.decode(ResponseResult<CatProduct>.self,
                                                                 from: value)
-                                completion(.success(result.data ?? [User].self))
+                                completion(.success(result.data ?? [CatProduct].self))
                             } catch {
                                 completion(.pathErr)
                             }
-                        case 409:
-                            completion(.pathErr)
+                        case 400:
+                            do{
+                                let decoder = JSONDecoder()
+                                let result = try decoder.decode(ResponseTempResult.self,
+                                                                from: value)
+                                completion(.success(result))
+                            } catch {
+                                completion(.pathErr)
+                            }
                         case 500:
                             completion(.serverErr)
                         default:

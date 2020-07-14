@@ -39,6 +39,21 @@
             </objects>
             <point key="canvasLocation" x="1959.2" y="-579.31034482758628"/>
         </scene>
+        <!--Sorting ListVC-->
+        <scene sceneID="80T-ho-PAL">
+            <objects>
+                <viewController restorationIdentifier="SortingListVC" storyboardIdentifier="SortingListVC" id="qfQ-UO-y0q" customClass="SortingListVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vTb-as-eNP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gTY-vS-kIa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E0f-IX-YNp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2831" y="-579"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="JpX-ht-RH0">
             <objects>

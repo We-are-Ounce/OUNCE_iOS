@@ -15,6 +15,7 @@ class SortingVC: UIViewController {
     
     @IBOutlet weak var sortingTV: UITableView!
     @IBOutlet weak var touchView: UIView!
+    @IBOutlet weak var tableViewHeightLayoutConstraint: NSLayoutConstraint!
     
     var sortingList = ["날짜순", "기호도순", "총점순"]
     
@@ -29,7 +30,9 @@ class SortingVC: UIViewController {
         self.backgroundDismiss()
         
         self.sortingTV.separatorStyle = UITableViewCell.SeparatorStyle.none
-     
+        if sortingList.count == 2 {
+            tableViewHeightLayoutConstraint.constant = 155
+        }
     }
     
     // MARK: - 아래서 위로 올라오는 그런 뷰,,
@@ -87,3 +90,4 @@ extension SortingVC: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+

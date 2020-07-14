@@ -447,6 +447,7 @@
                         <outlet property="backView" destination="H3y-rW-Znm" id="UDM-LV-qFS"/>
                         <outlet property="popView" destination="1kS-AC-yLn" id="WFU-z7-xWT"/>
                         <outlet property="sortingTV" destination="zIs-51-KN0" id="i68-md-QV4"/>
+                        <outlet property="tableViewHeightLayoutConstraint" destination="cOb-uc-RBy" id="hQc-qC-BUD"/>
                         <outlet property="touchView" destination="nGu-Yk-S4Q" id="Jbh-Ru-NJW"/>
                     </connections>
                 </viewController>

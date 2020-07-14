@@ -22,7 +22,7 @@ class BrowseProductTVCell: UITableViewCell {
     }
     
     let productCompanyLabel = UILabel().then {
-        $0.text = "유유유유저"
+        $0.text = "치와와와와와와와"
         $0.font = UIFont.systemFont(ofSize: 10)
         $0.textColor = .greyishBrownTwo
     }
@@ -55,6 +55,8 @@ class BrowseProductTVCell: UITableViewCell {
         $0.font = Font.buttonLabel
         $0.textColor = .putty
     }
+    
+    var product: CatProduct?
     
     // MARK: - Variables and Properties
     
@@ -127,6 +129,19 @@ class BrowseProductTVCell: UITableViewCell {
             make.centerY.equalTo(hartIMG.snp.centerY)
             make.trailing.equalToSuperview().offset(-17)
         }
+    }
+    
+    func cellService(){
+        productIMG.setImage(from: product?.foodImg ?? "")
+        productCompanyLabel.text = product?.foodManu
+        productLabel.text = product?.foodName
+        productContentLabel.text = product?.foodMeat
+        if product?.reviewCount == 0 {
+            starIMG.image = UIImage(named: "icTotalUnselected")
+            hartIMG.image = UIImage(named: "icFavoriteUnselected")
+        }
+        starLabel.text = String(product?.avgPrefer ?? 0)
+        hartLabel.text = String(product?.avgRating ?? 0)
 
     }
 }

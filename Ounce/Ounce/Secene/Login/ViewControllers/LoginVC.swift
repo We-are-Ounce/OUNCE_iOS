@@ -71,6 +71,7 @@ class LoginVC: UIViewController {
     
     let loginButton = UIButton().then {
         $0.backgroundColor = .pale
+        $0.setTitleColor(.putty, for: .normal)
         $0.setTitle("로그인", for: .normal)
         $0.makeRounded(cornerRadius: 8)
         $0.titleLabel?.font = Font.guideLabel
@@ -187,11 +188,13 @@ extension LoginVC {
 extension LoginVC: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if idTextField.text != "" && pwTextField.text != "" {
-//            loginButton.isEnabled = true
-//            loginButton.backgroundColor = .signatureColor
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = .black
+            loginButton.setTitleColor(.white, for: .normal)
         } else {
-//            loginButton.isEnabled = false
-//            loginButton.backgroundColor = .blackTwo
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .pale
+            loginButton.setTitleColor(.putty, for: .normal)
         }
     }
 }

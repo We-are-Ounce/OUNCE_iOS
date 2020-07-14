@@ -61,6 +61,12 @@ class BrowseSearchVC: UIViewController {
     let searchButton = UIButton().then {
         $0.setImage(UIImage(named: "icSearch"), for: .normal)
         $0.addTarget(self, action: #selector(searchUser), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(searchProduct), for: .touchUpInside)
+    }
+    let backGroundButton = UIButton().then {
+        $0.addTarget(self, action: #selector(didTapBackgroundButton), for: .touchUpInside)
+        $0.backgroundColor = .black
+        $0.alpha = 0.4
     }
     
     var userInfo: [String] = ["","","","","","","","","","","","","","",""]
@@ -68,11 +74,14 @@ class BrowseSearchVC: UIViewController {
     var direction: CGFloat?
     var constraints: [NSLayoutConstraint] = []
     var user: [User]?
+    var product: [CatProduct]?
+    var pageIndex = [1, 10]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         constraint()
+        setTabbar()
     }
     
 }
@@ -80,12 +89,29 @@ class BrowseSearchVC: UIViewController {
 extension BrowseSearchVC {
     @objc func didTapSortButton(){
         print(#function)
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
+        vc.modalPresentationStyle = .overFullScreen
+        vc.sortingList = ["기호도순","총점순"]
+        self.present(vc, animated: false)
     }
     
     @objc func didTapBackButton(){
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func didTapBackgroundButton(){
+        print(#function)
+    }
+    
+    func setTabbar() {
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        // delegate 호출
+        collectionView(tabCV, didSelectItemAt: firstIndexPath)
+        // cell select
+        tabCV.selectItem(at: firstIndexPath, animated: false, scrollPosition: .right)
+    }
+
     
 }
 
@@ -241,7 +267,7 @@ extension BrowseSearchVC: UICollectionViewDataSource {
                 NSLayoutConstraint.deactivate(constraints)
                 constraints = [
                     highlightView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                    highlightView.widthAnchor.constraint(equalToConstant: 80)
+                    highlightView.widthAnchor.constraint(equalToConstant: self.view.frame.width/2)
                 ]
                 NSLayoutConstraint.activate(constraints)
                 return
@@ -263,7 +289,6 @@ extension BrowseSearchVC: UICollectionViewDataSource {
         }
     }
     
-    
 }
 
 extension BrowseSearchVC: UITableViewDelegate {}
@@ -283,25 +308,25 @@ extension BrowseSearchVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case self.userTV:
-            let ingStudyInfoNum = self.user?.count
+            let userInfoCount = self.user?.count
             
-            if ingStudyInfoNum == 0 {
-                userTV.setEmptyView(title: "222", message: "")
+            if userInfoCount == 0 {
+                userTV.setEmptyView(title: "해당하는 검색 결과가 없습니다", message: "")
             } else {
                 userTV.restore()
             }
             
-            return ingStudyInfoNum ?? 0
+            return userInfoCount ?? 0
         case self.productTV:
-            let endStudyInfoNum = self.productInfo.count
+            let productInfoCount = self.product?.count
             
-            if endStudyInfoNum == 0 {
-                productTV.setEmptyView(title: "123", message: "")
+            if productInfoCount == 0 {
+                productTV.setEmptyView(title: "해당하는 검색 결과가 없습니다", message: "")
             } else {
                 productTV.restore()
             }
             
-            return endStudyInfoNum
+            return productInfoCount ?? 0
         default:
             return 0
         }
@@ -323,9 +348,9 @@ extension BrowseSearchVC: UITableViewDataSource {
             guard let productCell = tableView.dequeueReusableCell(withIdentifier: "BrowseProductTVCell",
                                                                   for: indexPath) as? BrowseProductTVCell else
             {return UITableViewCell()}
-            
+            productCell.product = product?[indexPath.row]
             productCell.cellConstraint()
-            productTV.backgroundColor = .white
+            productCell.cellService()
             
             return productCell
         default:
@@ -348,14 +373,14 @@ extension BrowseSearchVC: UITableViewDataSource {
                 $0.setRounded(radius: 8)
                 $0.borderColor = .pale
                 $0.borderWidth = 1
-                $0.setTitle("날짜 순        ", for: .normal)
+                $0.setTitle("기호순       ", for: .normal)
                 $0.setTitleColor(.greyishBrownTwo, for: .normal)
                 $0.titleLabel?.font = Font.errorLabel
                 $0.addTarget(self, action: #selector(didTapSortButton), for: .touchUpInside)
             }
             
             let buttonImage = UIButton().then {
-                $0.setImage(UIImage(named: "1735"), for: .normal)
+                $0.setImage(UIImage(named: "1927"), for: .normal)
             }
             
             headerView.addSubview(sortButton)
@@ -383,9 +408,11 @@ extension BrowseSearchVC: UITableViewDataSource {
         
         switch tableView {
         case self.userTV:
-            print(#function)
+            userTV.backgroundColor = .white
         case self.productTV:
-            print(#function)
+            print(product?[indexPath.row].foodImg ?? "")
+            tableView.backgroundColor = .white
+            productTV.backgroundColor = .white
         default:
             break
         }
@@ -413,4 +440,29 @@ extension BrowseSearchVC {
             }
         }
     }
+    
+    @objc func searchProduct(){
+        print(#function)
+        SearchService.shared.searchProduct(searchTextField.text ?? "",
+                                           pageIndex[0],
+                                           pageIndex[1]) { (responseData) in
+            switch responseData {
+            case .success(let res) :
+                let response = res as! [CatProduct]
+                self.product = response
+                self.productTV.reloadData()
+                self.pageIndex[0] = self.pageIndex[1] + 1
+                self.pageIndex[1] = self.pageIndex[1] + 10
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail :
+                print("networkFail")
+            }
+        }
+    }
+
 }

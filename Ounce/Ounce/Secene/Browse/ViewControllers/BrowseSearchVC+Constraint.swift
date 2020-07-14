@@ -65,7 +65,6 @@ extension BrowseSearchVC {
         
         highlightView.snp.makeConstraints { (make) in
             make.top.equalTo(tabCV.snp.bottom).offset(-3)
-            make.width.equalTo(self.view.frame.width / 2)
             make.height.equalTo(3)
         }
         

@@ -1,22 +1,22 @@
 //
-//  FilterVC.swift
+//  AccountVC.swift
 //  Ounce
 //
-//  Created by 박주연 on 2020/07/09.
+//  Created by 박주연 on 2020/07/14.
 //  Copyright © 2020 박주연. All rights reserved.
 //
 
 import UIKit
 
-class FilterVC: UIViewController {
-  
-    @IBOutlet var backView: UIView!
-    @IBOutlet weak var backImg: UIView!
-    @IBOutlet weak var touchView: UIView!
-    @IBOutlet weak var filterCollectionView: UICollectionView!
-    
-  
+class AccountVC: UIViewController {
 
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var popView: UIView!
+    @IBOutlet weak var touchView: UIView!
+    @IBOutlet weak var accountCV: UICollectionView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,5 +35,4 @@ class FilterVC: UIViewController {
         self.dismiss(animated: false, completion: nil)
         
     }
-    
 }

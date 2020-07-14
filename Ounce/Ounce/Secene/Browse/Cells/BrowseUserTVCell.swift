@@ -41,6 +41,7 @@ class BrowseUserTVCell: UITableViewCell {
     
     // MARK: - Variables and Properties
     
+    var user: User?
     
     // MARK: - Life Cycle
     
@@ -82,6 +83,14 @@ class BrowseUserTVCell: UITableViewCell {
             make.top.equalTo(catLabel.snp.bottom).offset(3)
             make.leading.equalTo(userLabel.snp.leading)
         }
+    }
+    
+    func cellService(){
+        profileIMG.setImage(from: user?.profileImg ?? "")
+        userLabel.text = user?.profileName
+        catLabel.text = user?.profileName
+        catContentLabel.text = user?.profileInfo
+        catContentLabel.sizeToFit()
     }
     
 }

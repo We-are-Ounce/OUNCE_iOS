@@ -24,6 +24,7 @@ class ProductDetailVC: UIViewController {
     let headerIMG = UIImageView().then {
         $0.backgroundColor = .pale
         $0.setRounded(radius: 8)
+        $0.frame = CGRect.init(x: 0, y: 0, width: 89, height: 89)
     }
     let headerCompanyNameLabel = UILabel().then {
         $0.text = "제품 회사이름"
@@ -124,9 +125,10 @@ class ProductDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(#file)
         setTableView()
         contraint()
+        setNav()
         navigationItem.rightBarButtonItem = rightButton
 
     }
@@ -136,7 +138,14 @@ class ProductDetailVC: UIViewController {
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension ProductDetailVC {
     func setNav(){
+        navigationController?.navigationBar.setBackgroundImage(UIImage(),
+                                                                    for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                           style: .plain,
+                                                           target: nil,
+                                                           action: nil)
     }
     
     func setTableView(){
@@ -168,7 +177,9 @@ extension ProductDetailVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         headerView.backgroundColor = .white
+        
         headerView.addSubview(headerIMG)
         headerView.addSubview(headerCompanyNameLabel)
         headerView.addSubview(headerProductNameLabel)
@@ -193,8 +204,8 @@ extension ProductDetailVC: UITableViewDataSource {
         headerIMG.snp.makeConstraints { (make) in
             make.top.equalTo(headerView.snp.top).offset(22)
             make.leading.equalTo(headerView.snp.leading).offset(51)
-            make.width.equalTo(89)
-            make.height.equalTo(89)
+            make.bottom.equalTo(headerView.snp.top).offset(111)
+            make.trailing.equalTo(headerView.snp.leading).offset(140)
         }
         
         headerCompanyNameLabel.snp.makeConstraints { (make) in
@@ -206,6 +217,12 @@ extension ProductDetailVC: UITableViewDataSource {
             make.top.equalTo(headerCompanyNameLabel.snp.bottom).offset(3)
             make.leading.equalTo(headerCompanyNameLabel.snp.leading)
             make.height.equalTo(24)
+        }
+        
+        firstCategoryLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(firstCategoryView.snp.top).offset(3)
+            make.leading.equalTo(firstCategoryView.snp.leading).offset(10.5)
+            make.height.equalTo(18)
         }
    
         firstCategoryView.snp.makeConstraints { (make) in

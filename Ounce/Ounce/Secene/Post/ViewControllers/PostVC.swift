@@ -20,12 +20,26 @@ class PostVC: UIViewController {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    var text: String?
+    
     var product: Product? //구조체
     var imageNameVC: UIImage?
     var companyNameVC: String?
     var productNameVC: String?
-  
+    // server post info
+    var rating: Int?
+    var prefer: Int?
+    var review: String?
+    var memo: String?
+    var pooStatus: Int?
+    var pooSmell: Int?
+    var reviewEye: Int?
+    var reviewEar: Int?
+    var reviewHair: Int?
+    var reviewVomit: Int?
+    var date: String?
+    var foodIndexNumber: Int?
+    var profileIndexNumber: Int?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -38,53 +52,47 @@ class PostVC: UIViewController {
         self.addScrollView.addSubview(custom)
         custom.viewDidLoad()
         custom.rootVC = self
+        rating = custom.rating
+        prefer = custom.prefer
+        review = custom.review
+        memo = custom.memo
+        pooStatus = custom.pooState
+        pooSmell = custom.pooSmell
+        reviewEye = custom.eye
+        reviewEar = custom.ear
+        reviewHair = custom.fur
+        reviewVomit = custom.vomit
+        date = custom.date
+        foodIndexNumber = custom.foodIndex
+        profileIndexNumber = custom.profileIndex
+        
         custom.criticTextField.delegate = self
         custom.memoTextView.delegate = self
         
         addScrollView.delegate = self
         addKeyboardNotification()
         
-        /*func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            
-            textField.resignFirstResponder()
-            
-            return true
-            
-        }
-        
-        func keyboardWillShow(_ sender: Notification) {
-            
-            self.view.frame.origin.y = -150 // Move view 150 points upward
-            
-        }
-        
-        func keyboardWillHide(_ sender: Notification) {
-            
-            self.view.frame.origin.y = 0 // Move view to original position
-            
-        }
-        */
     }
     
     override func viewWillAppear(_ animated: Bool) {
     
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
-        let rightButton = UIBarButtonItem()
-        //rightButton.title = "완료"
-        rightButton.image = UIImage(named:"icMore")
-        
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
-        rightButton.action = #selector(editButtonDidTap)
-        rightButton.target = self
-        
     
+    override func viewDidAppear(_ animated: Bool) {
+      
+        let rightButton = UIBarButtonItem()
+        rightButton.title = "완료"
+        //rightButton.image = UIImage(named:"icMore")
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
+        //rightButton.action = #selector(editButtonDidTap)
+        //rightButton.target = self
         // 중간수정버튼 만들기
-        
+        // 밑에있는 editButtonDidTap 액션 함수 절대 지우면 안돼~~~~~~~~~~지우면 빡댁알이^^
+        rightButton.action = #selector(saveButtonDidTap)
+        rightButton.target = self
     }
     
-    @objc private func editButtonDidTap(){
+    /*@objc private func editButtonDidTap(){
         
         let settingAlert = UIAlertController(title: nil, message: nil , preferredStyle: .actionSheet)
        
@@ -101,6 +109,47 @@ class PostVC: UIViewController {
         settingAlert.view.tintColor = UIColor.black
         
         present(settingAlert,animated: true,completion: nil)
+        
+    }*/
+    
+    @objc private func saveButtonDidTap(){
+        // 리뷰 작성 버튼 - 완료 버튼 눌렀을 때 액션
+        ReviewService.shared.Review(rating ?? 0,
+                                    prefer!,
+                                    review!,
+                                    memo!,
+                                    pooStatus!,
+                                    pooSmell!,
+                                    reviewEye!,
+                                    reviewEar!,
+                                    reviewHair!,
+                                    reviewVomit!,
+                                    date!,
+                                    foodIndexNumber!,
+                                    profileIndexNumber!){ NetworkResult
+            in switch NetworkResult{
+            case .success(let token):
+                guard let token = token as? String else {return}
+                self.dismiss(animated: true, completion: nil)
+                
+                print("받아왔어요")
+                
+            case .requestErr(let message):
+                guard let message = message as? Int else {return}
+                print(message)
+                print("requestErr")
+            
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+                
+            case .pathErr:
+                print("pathErr")
+            }
+           
+            
+        }
         
     }
     override func viewWillDisappear(_ animated: Bool) {

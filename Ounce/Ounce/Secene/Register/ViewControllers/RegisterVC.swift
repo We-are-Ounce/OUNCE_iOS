@@ -46,11 +46,11 @@ class RegisterVC: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapNextButton))
-        
+        button.isEnabled = false
         return button
         
     }()
-
+    
     // MARK: - Variables and Properties
     
     var selectedItems = [YPMediaItem]()
@@ -140,12 +140,15 @@ extension RegisterVC {
     }
     
     @objc func didTapNextButton(){
-        let sb = UIStoryboard(name: "TabBar", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        enroll(profileIMG.image ?? UIImage(),
+               nameTextField.text ?? "",
+               weightTextField.text ?? "",
+               (sex == 0) ? "male" : "female",
+               isNeutralization ? "true" : "false",
+               Int(ageTextField.text ?? "") ?? 0,
+               contentTextField.text ?? "")
     }
-        
+    
     func setButton() {
         maleButton.setRounded(radius: 8)
         maleButton.borderColor = .battleshipGrey
@@ -171,9 +174,21 @@ extension RegisterVC {
         ageTextField.keyboardType = .numberPad
         weightTextField.keyboardType = .decimalPad
         ageTextField.delegate = self
+        ageTextField.addTarget(self,
+                               action: #selector(textFieldDidChange),
+                               for: .editingChanged)
         nameTextField.delegate = self
+        nameTextField.addTarget(self,
+                                action: #selector(textFieldDidChange),
+                                for: .editingChanged)
         weightTextField.delegate = self
+        weightTextField.addTarget(self,
+                                  action: #selector(textFieldDidChange),
+                                  for: .editingChanged)
         contentTextField.delegate = self
+        contentTextField.addTarget(self,
+                                   action: #selector(textFieldDidChange),
+                                   for: .editingChanged)
     }
     
     @objc func didTapMaleButton(){
@@ -217,10 +232,13 @@ extension RegisterVC {
             neutralizationRoundButton.borderColor = .battleshipGrey
         }
     }
-
+    
 }
 
 extension RegisterVC: UITextFieldDelegate {
+    @objc func textFieldDidChange(_ textField: UITextField){
+        
+    }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.scrollRectToVisible(CGRect(x: 0,
                                               y: -(textField.frame.origin.y+100),
@@ -277,3 +295,47 @@ extension RegisterVC {
     
 }
 
+
+extension RegisterVC {
+    func enroll(_ profileIMG: UIImage,
+                _ profileName: String,
+                _ profileWeight: String,
+                _ profileGender: String,
+                _ profileNeutral: String,
+                _ profileAge: Int,
+                _ profileInfo: String){
+        UserService.shared.enrollProfile(profileIMG,
+                                         profileName,
+                                         profileWeight,
+                                         profileGender,
+                                         profileNeutral,
+                                         profileAge,
+                                         profileInfo){
+                                            [weak self]
+                                            data in
+                                            
+                                            guard let `self` = self else { return }
+                                            
+                                            switch data {
+                                            case .success:
+                                                let sb = UIStoryboard(name: "TabBar", bundle: nil)
+                                                let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
+                                                vc.modalPresentationStyle = .fullScreen
+                                                self.present(vc, animated: true)
+                                            case .requestErr:
+                                                self.simpleAlert(title: "실패", message: "")
+                                                
+                                            case .pathErr:
+                                                print(".pathErr")
+                                                
+                                            case .serverErr:
+                                                print(".serverErr")
+                                                
+                                            case .networkFail:
+                                                print(".networkFail")
+                                                
+                                            }
+                                            
+        }
+    }
+}

@@ -11,9 +11,11 @@ import UIKit
 import Then
 
 class SocialVC: UIViewController {
+    
+    var rootVC: UIViewController?
 
     // MARK: - UI Components
-    
+
     // 위에 부분 팔로우/팔로워 컬렉션뷰 생성.
     let tabCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

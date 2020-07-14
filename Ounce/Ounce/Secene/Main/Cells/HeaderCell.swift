@@ -14,24 +14,32 @@ class HeaderCell: UITableViewCell {
     
     var  rootVC: UIViewController?
     
-//    var transparentView = UIView()
+    //    var transparentView = UIView()
     
-//    var tableView = UITableView()
-//
-//    let height : CGFloat = 200
+    //    var tableView = UITableView()
+    //
+    //    let height : CGFloat = 200
     
     
     @IBOutlet weak var reviewLabel: UILabel!
+    
+    // MARK: - headerCell 데이터 받아오기 
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var sortingLabel: UILabel!
-    @IBOutlet weak var filterBtn: UIButton!
     
+    @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var sortingBtn: UIButton!
+    
+    func sortingRound() {
+        
+        sortingBtn.setRounded(radius: 8)
+        sortingBtn.setBorder(borderColor: .pale, borderWidth: 0.5)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        sortingRound()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,10 +58,10 @@ class HeaderCell: UITableViewCell {
         self.rootVC?.present(dvc, animated: false)
         
     }
-        
-       
     
-  
+    
+    
+    
     @IBAction func clickFilter(_ sender: UIButton) {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -64,6 +72,6 @@ class HeaderCell: UITableViewCell {
         
         self.rootVC?.present(dvc, animated: false)
         
-}
-
+    }
+    
 }

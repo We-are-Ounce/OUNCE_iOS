@@ -114,8 +114,8 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             // 팔로워버튼 클릭 시 -> FollowerView로 이동
             cell.follower.tag = indexPath.row
             cell.follower.addTarget(self, action: #selector(didTapFollowerButton), for: .touchUpInside)
-            cell.profile = profiles?[indexPath.row]
             
+            cell.profile = profiles?[indexPath.row]
             cell.cellProfile()
             
             return cell

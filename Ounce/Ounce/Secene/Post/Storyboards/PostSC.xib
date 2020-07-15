@@ -562,7 +562,7 @@
                                 <constraint firstAttribute="width" constant="81" id="RFV-9q-pHZ"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="주재료">
+                            <state key="normal" title="dry">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -581,7 +581,7 @@
                                 <constraint firstAttribute="height" constant="28" id="xzI-bR-1ck"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="제조사1">
+                            <state key="normal" title="meat1">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -600,7 +600,7 @@
                                 <constraint firstAttribute="height" constant="28" id="sqQ-Sk-76d"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="제조사2">
+                            <state key="normal" title="meat2">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -684,6 +684,9 @@
                 <outlet property="criticTextField" destination="0sx-vr-1Wj" id="pr2-Js-pkT"/>
                 <outlet property="earTrouble" destination="sqn-bc-S5e" id="kRK-fo-rQi"/>
                 <outlet property="eyeTrouble" destination="mEq-zp-en2" id="FlA-ze-Eoe"/>
+                <outlet property="foodDry" destination="1fe-Cy-R5w" id="1qR-vP-L1Q"/>
+                <outlet property="foodMeat1" destination="0E7-Xs-ncm" id="Tiv-Yb-oIg"/>
+                <outlet property="foodMeat2" destination="0lV-F7-R6m" id="ehM-GF-CaI"/>
                 <outlet property="furTrouble" destination="dov-zq-4L8" id="Kvm-4t-zfI"/>
                 <outlet property="likeBtn1" destination="MH0-ea-P4R" id="af1-Wj-JBk"/>
                 <outlet property="likeBtn2" destination="SdK-mU-d3c" id="lsb-Fr-XIF"/>

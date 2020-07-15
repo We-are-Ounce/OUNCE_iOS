@@ -16,6 +16,9 @@ class PostSC:UIView,UITextViewDelegate {
     @IBOutlet weak var companyName: UILabel! // 회사명
     @IBOutlet weak var productName: UILabel! // 제품이름
     
+    @IBOutlet weak var foodDry: UIButton!
+    @IBOutlet weak var foodMeat1: UIButton!
+    @IBOutlet weak var foodMeat2: UIButton!
     @IBOutlet weak var textLineView: UIView!
     
     @IBOutlet weak var scoreBtn1: UIButton!

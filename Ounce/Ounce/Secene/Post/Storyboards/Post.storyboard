@@ -17,28 +17,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9T-Li-1f0">
-                                <rect key="frame" x="16" y="97" width="342" height="44"/>
+                                <rect key="frame" x="16" y="97" width="342" height="42.666666666666657"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색어를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qsy-c8-zLw">
-                                        <rect key="frame" x="37" y="12" width="113" height="20"/>
+                                        <rect key="frame" x="37" y="12.000000000000002" width="305" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSearch" translatesAutoresizingMaskIntoConstraints="NO" id="Aux-YB-DY3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaM-Xy-cHM">
                                         <rect key="frame" x="8" y="10" width="24" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="1h7-aB-zHQ"/>
-                                            <constraint firstAttribute="width" constant="24" id="3jR-Fn-bcR"/>
+                                            <constraint firstAttribute="height" constant="24" id="lwh-Jn-STV"/>
+                                            <constraint firstAttribute="width" constant="24" id="s7y-Rb-0E3"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" image="icSearch"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="qsy-c8-zLw" firstAttribute="leading" secondItem="Aux-YB-DY3" secondAttribute="trailing" constant="5" id="SeG-ft-1oN"/>
-                                    <constraint firstAttribute="bottom" secondItem="Aux-YB-DY3" secondAttribute="bottom" constant="10" id="dRK-c2-o1y"/>
-                                    <constraint firstItem="Aux-YB-DY3" firstAttribute="leading" secondItem="x9T-Li-1f0" secondAttribute="leading" constant="8" id="pkN-E0-ESA"/>
+                                    <constraint firstAttribute="trailing" secondItem="qsy-c8-zLw" secondAttribute="trailing" id="9fE-qT-6Qo"/>
+                                    <constraint firstItem="VaM-Xy-cHM" firstAttribute="leading" secondItem="x9T-Li-1f0" secondAttribute="leading" constant="8" id="Gaq-yC-stD"/>
+                                    <constraint firstItem="qsy-c8-zLw" firstAttribute="leading" secondItem="VaM-Xy-cHM" secondAttribute="trailing" constant="5" id="Tic-Ri-ONR"/>
+                                    <constraint firstItem="VaM-Xy-cHM" firstAttribute="top" secondItem="x9T-Li-1f0" secondAttribute="top" constant="10" id="rIc-Kd-hDp"/>
                                     <constraint firstAttribute="bottom" secondItem="qsy-c8-zLw" secondAttribute="bottom" constant="12" id="tCQ-yw-G9G"/>
-                                    <constraint firstItem="Aux-YB-DY3" firstAttribute="top" secondItem="x9T-Li-1f0" secondAttribute="top" constant="10" id="xfA-AU-78e"/>
                                     <constraint firstItem="qsy-c8-zLw" firstAttribute="top" secondItem="x9T-Li-1f0" secondAttribute="top" constant="12" id="zL8-3N-YFN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -47,12 +48,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YTU-Bx-CnQ">
-                                <rect key="frame" x="16" y="153" width="343" height="625"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YTU-Bx-CnQ">
+                                <rect key="frame" x="16" y="151.66666666666669" width="343" height="626.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="A1f-84-aEn">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A1f-84-aEn" id="sD0-Mr-zOt">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
@@ -75,13 +76,18 @@
                         <viewLayoutGuide key="safeArea" id="PiP-ak-fHW"/>
                     </view>
                     <navigationItem key="navigationItem" id="Igx-rk-CXh">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="icHomeUnselected" id="Jxa-BD-ub3">
+                        <barButtonItem key="leftBarButtonItem" image="icDelete" id="Jxa-BD-ub3">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="downBarButton:" destination="4S0-jb-ce4" id="Wht-zO-XCg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchButton" destination="VaM-Xy-cHM" id="6k1-Q8-gZu"/>
+                        <outlet property="searchTV" destination="YTU-Bx-CnQ" id="4qD-10-I8u"/>
+                        <outlet property="searchTextField" destination="qsy-c8-zLw" id="Srb-UD-asm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pY5-X2-XGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -283,7 +289,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icHomeUnselected" width="20" height="18"/>
+        <image name="icDelete" width="12" height="12"/>
         <image name="icSearch" width="24" height="24"/>
     </resources>
 </document>

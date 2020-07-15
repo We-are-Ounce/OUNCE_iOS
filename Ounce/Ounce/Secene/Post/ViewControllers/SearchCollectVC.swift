@@ -17,6 +17,7 @@ class SearchCollectVC: UIViewController{
     private var product:[CatProduct] = []
     var pageIndex = [1,10]
     var rootVC: UIViewController?
+    var searchResult: String?
     
 
     override func viewDidLoad() {
@@ -27,18 +28,18 @@ class SearchCollectVC: UIViewController{
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-       
+        print(searchResult)
+        searchProduct(searchResult ?? "")
         self.navigationItem.title = "기록하기"
        
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
-        //setProductList()
         
     }
     
     @IBAction func searchBtnTouched(_ sender: Any) {
         
-        searchProduct()
+        searchProduct(searchTextField.text ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,16 +65,7 @@ class SearchCollectVC: UIViewController{
     
         
     }
-    /*func setProductList(){
-        let product1 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product2 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product3 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product4 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product5 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product6 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        productInformations = [product1,product2,product3,product4,product5,product6]
-        
-    }*/
+
 }
 
 extension SearchCollectVC: UICollectionViewDataSource{
@@ -126,9 +118,9 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
         // 네비게이션 이동. pvc view로 이동
     }
     
-    @objc func searchProduct(){
+    @objc func searchProduct(_ result: String){
         print(#function)
-        SearchService.shared.searchProduct(searchTextField.text ?? "", pageIndex[0], pageIndex[1])
+        SearchService.shared.searchProduct(result, pageIndex[0], pageIndex[1])
         {(responseData) in switch responseData {
         case .success(let res) :
             let response = res as! [CatProduct]

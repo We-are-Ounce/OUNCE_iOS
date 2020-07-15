@@ -30,6 +30,11 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var sortingBtn: UIButton!
     
+//    func reviewCount() {
+//
+//        reviewLabel.text = "(" + reviews.count + ")"
+//    }
+    
     func sortingRound() {
         
         sortingBtn.setRounded(radius: 8)

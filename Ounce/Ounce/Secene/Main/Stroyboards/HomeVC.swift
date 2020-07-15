@@ -13,6 +13,9 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var reviewTV: UITableView!
     
+    var profiles: [MyProfile]?
+    var reviews: [UserReviews]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +37,7 @@ class HomeVC: UIViewController {
         //테이블 셀 라인 없애기
         self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        self.setupLayout()
+//        self.setupLayout()
         
     }
     
@@ -42,11 +45,41 @@ class HomeVC: UIViewController {
         super.viewWillAppear(true)
         
         navigationController?.isNavigationBarHidden = true
+        dateReviewService(1, 1, 10)
+        profileService(1)
+        
+        
+        // MARK: - 윤진이 뷰에서 제품 등록해주고 완료 누르면, 다시 시간 순으로 정렬
+//        func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+//
+//            ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
+//                switch responsedata {
+//                case .success(let res):
+//                    self.reviews = res as! [UserReviews]
+//                    self.reviewTV.reloadData()
+//                case .requestErr(_):
+//                    print("reupload product request error")
+//
+//                case .pathErr:
+//                    print("reupload product pathErr")
+//
+//                case .serverErr:
+//                    print(" reupload product serverErr")
+//
+//                case .networkFail :
+//                    print("reupload product failure")
+//
+//                }
+//            }
+//
+//        }
+    
     }
     
-    func setupLayout() {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
+    // 위에 viewWillAppear하고 중복 아닌가?,,
+//    func setupLayout() {
+//        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//    }
     
 }
 
@@ -64,7 +97,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             return 1
         }
         else {
-            return 9
+            return reviews?.count ?? 0
         }
     }
     
@@ -73,18 +106,27 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
-            //            cell.delegate = self
+            
+            // settingBtn 클릭 시 -> SettingView로 이동
             cell.settingButton.tag = indexPath.row
             cell.settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
             
-//            cell.didTapSettingButton(self)
+            // 팔로워버튼 클릭 시 -> FollowerView로 이동
+            cell.follower.tag = indexPath.row
+            cell.follower.addTarget(self, action: #selector(didTapFollowerButton), for: .touchUpInside)
+            
+            cell.profile = profiles?[indexPath.row]
+            cell.cellProfile()
             
             return cell
         }
         else{
             let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
             reviewCell.rootVC = self
+            reviewCell.review = reviews?[indexPath.row]
             
+            
+            reviewCell.cellService()
             
             return reviewCell
         }
@@ -102,6 +144,9 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                                                                style: .plain,
                                                                target: nil,
                                                                action: nil)
+            /* 셀 클릭시 index값 넘겨주기 */
+            dvc.foodIndex = reviews?[indexPath.row].reviewIdx
+            
             self.navigationController?.pushViewController(dvc, animated: true)
         }
         
@@ -156,29 +201,90 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
 }
 
 extension HomeVC {
+    
     @objc func didTapSettingButton(){
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "SettingVC") as! SettingVC
+        
+        // navigationBar.isHidden -> 네비게이션 바 숨김
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.pushViewController(dvc, animated: true)
     }
+    
+    @objc func didTapFollowerButton(){
+        
+        let storyboard = UIStoryboard(name: "Social", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "SocialVC") as! SocialVC
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    
 }
 
 
-//extension HomeVC: touchDelegate{
-//
-//    func touch() {
-//        performSegue(withIdentifier: "SettingVC", sender: nil)
-//    }
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if segue.identifier == "SettingVC" {
-//
-//            let _: SettingVC = segue.destination as! SettingVC
-//        }
-//    }
-//
-//
-//
-//}
+// MARK: - 서버 통신 코드
+extension HomeVC {
+    
+    // 홈 뷰: 프로필 조회(GET)
+    func profileService(_ profileIndex: Int) {
+        
+        MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
+            switch responsedata {
+            case .success(let data):
+                self.profiles = data as! [MyProfile]
+                
+                dump(self.profiles)
+                self.reviewTV.reloadData()
+                
+                print("홈 뷰 : 프로필 조회 성공")
+                
+                
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+        
+        
+    }
+    
+    // 홈 뷰: 리뷰 조회(POST)
+    func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+        
+        ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
+            switch responsedata {
+            case .success(let res):
+                self.reviews = res as! [UserReviews]
+                
+                dump(self.reviews)
+                
+                self.reviewTV.reloadData()
+                print("홈 뷰 : 리뷰 조회 성공")
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+        
+    }
+
+}

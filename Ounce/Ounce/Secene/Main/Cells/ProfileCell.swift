@@ -8,21 +8,16 @@
 
 import UIKit
 
-protocol touchDelegate {
-    
-    func touch()
-}
-
 class ProfileCell: UITableViewCell {
     
     static let identfier = "ProfileCell"
     
-    let rootVC = HomeVC()
-    
-    var delegate: touchDelegate?
-    
+    var  rootVC: UIViewController?
+ 
+    // 팔로워, 팔로잉도 데이터 받아와야 함^^ 
     @IBOutlet weak var follower: UIButton!
     @IBOutlet weak var following: UIButton!
+    
     @IBOutlet weak var settingButton: UIButton!
     
     // MARK: - profile : 받아오는 데이터
@@ -33,15 +28,64 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var introduceLabel: UILabel!
     
-    var Navi: UINavigationController?
+    var profile: MyProfile?
     
-    //   NavigationController?.isNavigationBarHidden = true
-    
-    func setup(){
+    func setDataInformation(myfollower: String, myfollowing: String, myWeight: String, myAge: String){
         
-        //
-        //        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        follower.setTitle("팔로워" + myfollower, for: .normal)
+        following.setTitle("팔로잉" + myfollowing, for: .normal)
+        
+        weightLabel.text = myWeight + "kg"
+        ageLabel.text =  myAge + "살"
+        
+       }
+    
+    func gender (gender : String, neutral : String) -> String {
+        var str = ""
+        if gender == "male" {
+            if neutral == "true" {
+                str = "male.png"
+                return str }
+            else {
+                str = "unmale.png"
+                return str
+                
+            }
+        }
+        else {
+            if neutral == "true" {
+            str = "female.png"
+                return str
+                
+            }
+            else {
+                str = "unfemale.png"
+                return str
+                
+            }
+        }
     }
+        
+    func cellProfile(){
+        
+        profileImg.imageFromUrl(profile?.profileImg ?? "", defaultImgPath: "")
+        nameLabel.text = profile?.profileName
+        
+        var genderimage = gender(gender: profile?.profileGender ?? "", neutral: profile?.profileNeutral ?? "")
+        genderImg.image = UIImage(named: genderimage)
+        
+        ageLabel.text = String(profile?.profileAge ?? 0) + "살"
+        weightLabel.text = profile?.profileWeight ?? "" + "kg"
+        introduceLabel.text = profile?.profileInfo
+        
+        setDataInformation(myfollower: String(profile?.follower ?? 0 ), myfollowing: String( profile?.following ?? 0 ), myWeight: String(profile?.profileWeight ?? ""), myAge: String(profile?.profileAge ?? 0))
+        
+        gender(gender: "", neutral: " ")
+        
+    }
+    
+    // MARK: - 뷰에 관한 것,,
     
     func round(){
         
@@ -51,29 +95,17 @@ class ProfileCell: UITableViewCell {
         following.setRounded(radius: 8)
         following.setBorder(borderColor: .pale, borderWidth: 0.5)
     }
-    
-    
-//    @IBAction func didTapSettingButton(_ sender: Any) {
-//        print(#function)
-//        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
-//        let dvc = storyboard.instantiateViewController(identifier: "SettingVC") as! SettingVC
-//        self.rootVC.navigationController?.navigationBar.isHidden = false
-//        self.rootVC.present(dvc, animated: true)
-//    }
-    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         round()
-        setup()
+        
+        
         
     }
-    
-    
-    
-    
-    
+  
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
@@ -89,60 +121,14 @@ class ProfileCell: UITableViewCell {
         //        dvc.modalPresentationStyle = .overFullScreen
         //
         //        self.rootVC?.present(dvc, animated: false, completion: nil)
-        
-        
-        
-        
-        //        let sb = UIStoryboard(name: "Main", bundle: nil)
-        //
-        //        let dvc = sb.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
-        //
-        //        dvc.modalPresentationStyle = .overFullScreen
-        //
-        //        self.rootVC?.present(dvc, animated: false)
-        
+
     }
     
     @IBAction func editBtn(_ sender: Any) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
-        let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
-        
-        dvc.modalPresentationStyle = .overFullScreen
-        
-        self.rootVC.present(dvc, animated: false, completion: nil)
-        
     }
     
-//    @IBAction func settingBtn(_ sender: Any) {
-//        
-//        if let delegate = self.delegate{
-//            
-//            delegate.touch()
-//        }
-//        
-//        
-//        
-//    }
-//    
-    @IBAction func followerBtn(_ sender: UIButton) {
-        
-        //        print(#function)
-        //
-        //        let sb = UIStoryboard(name: "Main", bundle: nil)
-        //        let dvc = sb.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
-        //
-        //
-        //        dvc.modalPresentationStyle = .overFullScreen
-        //
-        //         self.rootVC?.present(dvc, animated: false)
-        
-        
-    }
-    
-    @IBAction func followingBtn(_ sender: UIButton) {
-        
-        
-    }
+   
+       
 }
 

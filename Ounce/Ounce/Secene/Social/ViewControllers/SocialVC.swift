@@ -13,9 +13,9 @@ import Then
 class SocialVC: UIViewController {
     
     var rootVC: UIViewController?
-
+    
     // MARK: - UI Components
-
+    
     // 위에 부분 팔로우/팔로워 컬렉션뷰 생성.
     let tabCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -33,7 +33,7 @@ class SocialVC: UIViewController {
     }()
     
     let pageCV: UICollectionView = {
-       let layout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -47,10 +47,10 @@ class SocialVC: UIViewController {
         return cv
     }()
     
-//    let catNameLabel = UILabel().then {
-//        $0.text = "이겨울"
-//        $0.font = UIFont.systemFont(ofSize: 16)
-//    }
+    //    let catNameLabel = UILabel().then {
+    //        $0.text = "이겨울"
+    //        $0.font = UIFont.systemFont(ofSize: 16)
+    //    }
     
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -76,6 +76,8 @@ class SocialVC: UIViewController {
         super.viewDidLoad()
         set()
         setTabbar()
+        
+        /* Follower, Following NavigationBar title 유저 이름 */
         setSocialNV(catSocialName: "겨울이")
         followerService()
         followingService()
@@ -83,6 +85,19 @@ class SocialVC: UIViewController {
         self.pageCV.showsHorizontalScrollIndicator = false
         self.followerTV.showsVerticalScrollIndicator = false
         self.followingTV.showsVerticalScrollIndicator = false
+        
+        /* 네비게이션 바 다시 나타나기 */
+        navigationController?.isNavigationBarHidden = false
+        
+        let naviBar = navigationController?.navigationBar
+        naviBar?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        naviBar?.shadowImage = UIImage()
+        
+        naviBar?.backItem?.title = ""
+        
+        
+
+     
         
         
     }
@@ -93,20 +108,20 @@ class SocialVC: UIViewController {
     func setTabbar() {
         let firstIndexPath = IndexPath(item: 0, section: 0)
         followerTV.isScrollEnabled = false
-
-
+        
+        
         // delegate 호출
         collectionView(tabCV, didSelectItemAt: firstIndexPath)
         // cell select
         tabCV.selectItem(at: firstIndexPath, animated: false, scrollPosition: .right)
     }
-
+    
     private func setFollowerData(){
         
         
     }
     
-
+    
 }
 
 
@@ -152,7 +167,7 @@ extension SocialVC: UICollectionViewDelegate{
             }
         }
         
-
+        
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let velocity = scrollView.panGestureRecognizer.velocity(in: scrollView)
@@ -167,7 +182,7 @@ extension SocialVC: UICollectionViewDelegate{
             
         }
         
-
+        
     }
 }
 extension SocialVC: UICollectionViewDelegateFlowLayout{

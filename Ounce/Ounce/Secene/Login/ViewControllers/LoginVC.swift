@@ -208,6 +208,7 @@ extension LoginVC {
                 let sb = UIStoryboard(name: "TabBar", bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
                 vc.modalPresentationStyle = .fullScreen
+                print(response.accessToken)
                 KeychainWrapper.standard.set(response.accessToken,
                                              forKey: "Token")
                 KeychainWrapper.standard.set(response.profileIdx,

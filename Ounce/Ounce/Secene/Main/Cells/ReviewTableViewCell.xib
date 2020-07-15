@@ -105,6 +105,16 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="likeIMG" destination="igj-9c-FQ6" id="crb-Pi-0NA"/>
+                <outlet property="likeLabel" destination="4Wy-Y4-AWd" id="BUe-Q7-1pF"/>
+                <outlet property="productCompanyLabel" destination="FfI-V0-wKv" id="msu-py-0Ig"/>
+                <outlet property="productContentLabel" destination="bYO-Qa-BtU" id="D8Z-dj-Em2"/>
+                <outlet property="productIMG" destination="yMn-75-Z8y" id="277-hc-eLf"/>
+                <outlet property="productNameLabel" destination="pj0-j2-Vjx" id="cK7-YX-X5k"/>
+                <outlet property="starIMG" destination="BcD-9o-LMZ" id="CvB-Dn-xhH"/>
+                <outlet property="starLabel" destination="mhY-Jt-cKN" id="Kdh-Fe-gdJ"/>
+            </connections>
             <point key="canvasLocation" x="114.40000000000001" y="121.18226600985223"/>
         </tableViewCell>
     </objects>

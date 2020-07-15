@@ -11,6 +11,16 @@ import UIKit
 class ReviewTableViewCell: UITableViewCell {
 
     var rootVC: UIViewController?
+    @IBOutlet weak var productIMG: UIImageView!
+    @IBOutlet weak var productCompanyLabel: UILabel!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var productContentLabel: UILabel!
+    @IBOutlet weak var starIMG: UIImageView!
+    @IBOutlet weak var starLabel: UILabel!
+    @IBOutlet weak var likeIMG: UIImageView!
+    @IBOutlet weak var likeLabel: UILabel!
+    
+    var review: UserReviews?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,15 +32,16 @@ class ReviewTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         print(#function)
-//        let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
-//
-//        let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
-//
-//        dvc.modalPresentationStyle = .overFullScreen
-//
-//        self.rootVC?.present(dvc, animated: false)
-
+    }
     
+    func cellService(){
+        productIMG.imageFromUrl(review?.foodImg ?? "", defaultImgPath: "")
+        productCompanyLabel.text = review?.foodManu
+        productNameLabel.text = review?.foodName
+        productContentLabel.text = review?.reviewInfo
+        starLabel.text = review?.reviewRating
+        likeLabel.text = review?.reviewPrefer
+        
     }
     
 }

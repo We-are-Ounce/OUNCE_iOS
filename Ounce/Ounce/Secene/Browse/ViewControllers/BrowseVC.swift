@@ -290,7 +290,7 @@ extension BrowseVC: UICollectionViewDataSource {
         print("indexpath", indexPath.row)
 
         cell.recommendInfo = recommendInfo
-        cell.item = items[indexPath.row]
+       // cell.item = items[indexPath.row]
         cell.setCall(num: indexPath.row)
 
         cell.customView.backgroundColor = colors[indexPath.row]
@@ -334,23 +334,23 @@ extension BrowseVC {
                 
                 //dump(res)
                 let recommendList = res as! Recommend
-                self.item = []
-                self.items = [[],[],[],[],[]]
+//                self.item = []
+//                self.items = [[],[],[],[],[]]
                 self.recommendInfo = recommendList
-                dump(self.recommendInfo?.recommendFoodList)
-                for i in 0 ..< (self.recommendInfo?.resultProfile.count)! {
-                    for j in 0 ..< (self.recommendInfo?.recommendFoodList.count)! {
-                        if self.recommendInfo?.resultProfile[i].profileIdx == self.recommendInfo?.recommendFoodList[j].profileIdx {
-                            self.item.append(self.recommendInfo?.recommendFoodList[j].foodImg ?? "")
-                        }
-                    }
-                    for _ in 0..<3 {
-                        self.item.append("")
-                    }
-                    self.items[i] = self.item
-                    self.item = []
-                }
-                print(self.items)
+//                dump(self.recommendInfo?.recommendFoodList)
+//                for i in 0 ..< (self.recommendInfo?.resultProfile.count)! {
+//                    for j in 0 ..< (self.recommendInfo?.recommendFoodList.count)! {
+//                        if self.recommendInfo?.resultProfile[i].profileIdx == self.recommendInfo?.recommendFoodList[j].profileIdx {
+//                            self.item.append(self.recommendInfo?.recommendFoodList[j].foodImg ?? "")
+//                        }
+//                    }
+//                    for _ in 0..<3 {
+//                        self.item.append("")
+//                    }
+//                    self.items[i] = self.item
+//                    self.item = []
+//                }
+//                print(self.items)
                 
                 self.collectionView?.reloadData()
                 

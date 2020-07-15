@@ -36,8 +36,9 @@ class ProfileCell: UITableViewCell {
         follower.setTitle("팔로워" + myfollower, for: .normal)
         following.setTitle("팔로잉" + myfollowing, for: .normal)
         
-           weightLabel.text = myWeight + "kg"
-           ageLabel.text =  myAge + "살"
+        weightLabel.text = myWeight + "kg"
+        ageLabel.text =  myAge + "살"
+        
        }
     
     func gender (gender : String, neutral : String) -> String {

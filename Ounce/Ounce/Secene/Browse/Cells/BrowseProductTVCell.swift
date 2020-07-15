@@ -128,8 +128,8 @@ class BrowseProductTVCell: UITableViewCell {
             starIMG.image = UIImage(named: "icTotalUnselected")
             hartIMG.image = UIImage(named: "icFavoriteUnselected")
         }
-        starLabel.text = String(product?.avgPrefer ?? 0)
-        hartLabel.text = String(product?.avgRating ?? 0)
+        starLabel.text = String(product?.avgPrefer ?? "")
+        hartLabel.text = String(product?.avgRating ?? "")
 
     }
 }

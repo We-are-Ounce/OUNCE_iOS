@@ -187,6 +187,7 @@ extension SocialVC: UICollectionViewDelegate{
         
     }
 }
+
 extension SocialVC: UICollectionViewDelegateFlowLayout{
     //sizeForItemAt - 각각의 item's cell에 특정한 크기를 지정해주는 것
     func collectionView(_ collectionView:UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -203,6 +204,7 @@ extension SocialVC: UICollectionViewDelegateFlowLayout{
         
     }
 }
+
 extension SocialVC: UICollectionViewDataSource{
     
     // 한 섹션안에 cell을 몇개 배치할 지 반환한다. 여기서는 numberOfSection을 따로 override를 하지 않았으므로 디폴트값이 1이므로 1개의 섹션에 2개의 cell!
@@ -313,6 +315,7 @@ extension SocialVC: UITableViewDataSource{
         
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == followerTV
         {
@@ -330,6 +333,11 @@ extension SocialVC: UITableViewDataSource{
             guard let followerCell = tableView.dequeueReusableCell(withIdentifier: "AcquaintanceTVC", for: indexPath) as? AcquaintanceTVC else {return UITableViewCell()}
             
             
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            followerCell.selectedBackgroundView = bgColorView
+
+        
             followerCell.addContenView()
             followerCell.followInfo = followerInfo[indexPath.row]
             followerCell.setCall()
@@ -338,7 +346,12 @@ extension SocialVC: UITableViewDataSource{
             
         case self.followingTV:
             guard let followingCell = tableView.dequeueReusableCell(withIdentifier: "AcquaintanceTVC", for: indexPath) as? AcquaintanceTVC else {return UITableViewCell()}
+        
             
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            followingCell.selectedBackgroundView = bgColorView
+        
             
             followingCell.addContenView()
             followingCell.followInfo = followingInfo[indexPath.row]
@@ -352,6 +365,8 @@ extension SocialVC: UITableViewDataSource{
         
     }
 }
+
+
 // 서버통신을 위한 extension
 extension SocialVC {
     

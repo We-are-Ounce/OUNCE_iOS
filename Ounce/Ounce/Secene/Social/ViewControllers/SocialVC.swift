@@ -66,12 +66,16 @@ class SocialVC: UIViewController {
     var followerInfo: [Follow] = []
     var followingInfo: [Follow] = []
     var direction: CGFloat?
+    var profileIndex: Int?
+    var isFollower: Bool = false
+    
     
     // view 계층에서 navigation은 아래에 위치하는데, 뷰 위에 왜 있는 지. bar와 item의 차이점
     func setSocialNV(catSocialName: String){
         self.navigationItem.title = catSocialName
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         set()
@@ -95,25 +99,23 @@ class SocialVC: UIViewController {
         
         naviBar?.backItem?.title = ""
         
-        
-
-     
-        
-        
     }
     
     
     //이거 없으면 하이라이팅.....이상하게 됨, setTabbar()의 기능이 무엇인지.
     
     func setTabbar() {
-        let firstIndexPath = IndexPath(item: 0, section: 0)
+        var firstIndexPath: IndexPath?
+        if isFollower {
+            firstIndexPath = IndexPath(item: 0, section: 0)
+            collectionView(tabCV, didSelectItemAt: firstIndexPath ?? IndexPath(item: 0, section: 0))
+            tabCV.selectItem(at: firstIndexPath, animated: false, scrollPosition: .right)
+        } else {
+            firstIndexPath = IndexPath(item: 1, section: 0)
+            collectionView(tabCV, didSelectItemAt: firstIndexPath ?? IndexPath(item: 0, section: 0))
+            tabCV.selectItem(at: firstIndexPath, animated: false, scrollPosition: .right)
+        }
         followerTV.isScrollEnabled = false
-        
-        
-        // delegate 호출
-        collectionView(tabCV, didSelectItemAt: firstIndexPath)
-        // cell select
-        tabCV.selectItem(at: firstIndexPath, animated: false, scrollPosition: .right)
     }
     
     private func setFollowerData(){

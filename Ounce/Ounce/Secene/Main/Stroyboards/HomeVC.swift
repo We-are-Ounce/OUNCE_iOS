@@ -15,6 +15,8 @@ class HomeVC: UIViewController {
     
     var profiles: [MyProfile]?
     var reviews: [UserReviews]?
+    var profileIndex: Int?
+    var isOtherUser: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +45,11 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        navigationController?.isNavigationBarHidden = true
+        if !isOtherUser {
+            navigationController?.isNavigationBarHidden = true
+        } else {
+            navigationController?.isNavigationBarHidden = false
+        }
         dateReviewService(1, 1, 10)
         profileService(1)
         
@@ -109,12 +114,19 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             
             // settingBtn 클릭 시 -> SettingView로 이동
             cell.settingButton.tag = indexPath.row
-            cell.settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
-            
+            cell.settingButton.addTarget(self, action: #selector(didTapSettingButton),
+                                         for: .touchUpInside)
             // 팔로워버튼 클릭 시 -> FollowerView로 이동
             cell.follower.tag = indexPath.row
-            cell.follower.addTarget(self, action: #selector(didTapFollowerButton), for: .touchUpInside)
-            
+            cell.follower.addTarget(self, action: #selector(didTapFollowerButton),
+                                    for: .touchUpInside)
+            cell.following.tag = indexPath.row
+            cell.following.addTarget(self, action: #selector(didTapFollowingButton),
+                                     for: .touchUpInside)
+            // 계정버튼 클릭 시 -> AcountView로 이동
+            cell.accountButton.tag = indexPath.row
+            cell.accountButton.addTarget(self, action: #selector(didTapAccountButton),
+                                        for: .touchUpInside)
             cell.profile = profiles?[indexPath.row]
             cell.cellProfile()
             
@@ -212,12 +224,31 @@ extension HomeVC {
     }
     
     @objc func didTapFollowerButton(){
-        
         let storyboard = UIStoryboard(name: "Social", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "SocialVC") as! SocialVC
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.pushViewController(dvc, animated: true)
+        navigationController?.navigationBar.isHidden = false
+        dvc.profileIndex = profileIndex
+        dvc.isFollower = true
+        navigationController?.pushViewController(dvc, animated: true)
     }
+    
+    @objc func didTapFollowingButton(){
+        let storyboard = UIStoryboard(name: "Social", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "SocialVC") as! SocialVC
+        navigationController?.navigationBar.isHidden = false
+        dvc.profileIndex = profileIndex
+        dvc.isFollower = false
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+
+    @objc func didTapAccountButton(){
+        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
+        
+        self.present(dvc, animated: false)
+    }
+
     
     
 }
@@ -232,9 +263,8 @@ extension HomeVC {
         MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
             switch responsedata {
             case .success(let data):
-                self.profiles = data as! [MyProfile]
+                self.profiles = data as? [MyProfile]
                 
-                dump(self.profiles)
                 self.reviewTV.reloadData()
                 
                 print("홈 뷰 : 프로필 조회 성공")

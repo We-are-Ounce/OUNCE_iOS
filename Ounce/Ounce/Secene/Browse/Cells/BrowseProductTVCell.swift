@@ -23,20 +23,14 @@ class BrowseProductTVCell: UITableViewCell {
     
     let productCompanyLabel = UILabel().then {
         $0.text = "치와와와와와와와"
-        $0.font = UIFont.systemFont(ofSize: 10)
+        $0.font = UIFont.systemFont(ofSize: 10,weight: .medium)
         $0.textColor = .greyishBrownTwo
     }
     
     let productLabel = UILabel().then {
         $0.text = "고양이"
         $0.textColor = .greyishBrown
-        $0.font = UIFont.systemFont(ofSize: 16)
-    }
-    
-    let productContentLabel = UILabel().then {
-        $0.text = "한 줄 글"
-        $0.textColor = .putty
-        $0.font = Font.errorLabel
+        $0.font = UIFont.systemFont(ofSize: 16,weight: .medium)
     }
     
     let starIMG = UIImageView().then {
@@ -78,22 +72,21 @@ class BrowseProductTVCell: UITableViewCell {
         contentView.addSubview(productIMG)
         contentView.addSubview(productCompanyLabel)
         contentView.addSubview(productLabel)
-        contentView.addSubview(productContentLabel)
         contentView.addSubview(starIMG)
         contentView.addSubview(starLabel)
         contentView.addSubview(hartIMG)
         contentView.addSubview(hartLabel)
 
         productIMG.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(11)
+            make.top.equalToSuperview().offset(10)
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(62)
             make.width.equalTo(62)
         }
         
         productCompanyLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(12)
-            make.leading.equalTo(productIMG.snp.trailing).offset(12)
+            make.top.equalToSuperview().offset(21)
+            make.leading.equalTo(productIMG.snp.trailing).offset(16)
         }
         
         productLabel.snp.makeConstraints { (make) in
@@ -101,13 +94,9 @@ class BrowseProductTVCell: UITableViewCell {
             make.leading.equalTo(productCompanyLabel.snp.leading)
         }
         
-        productContentLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(productLabel.snp.bottom).offset(3)
-            make.leading.equalTo(productLabel.snp.leading)
-        }
         
         starIMG.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(14)
             make.trailing.equalTo(starLabel.snp.leading).offset(-7)
             make.width.equalTo(18)
             make.height.equalTo(18)
@@ -135,7 +124,6 @@ class BrowseProductTVCell: UITableViewCell {
         productIMG.setImage(from: product?.foodImg ?? "")
         productCompanyLabel.text = product?.foodManu
         productLabel.text = product?.foodName
-        productContentLabel.text = product?.foodMeat
         if product?.reviewCount == 0 {
             starIMG.image = UIImage(named: "icTotalUnselected")
             hartIMG.image = UIImage(named: "icFavoriteUnselected")

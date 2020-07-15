@@ -123,6 +123,8 @@ class ProductDetailVC: UIViewController {
 
     var foodIndex: Int?
     var isEdit: Bool = false
+    var productInfo: CatProduct?
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -184,11 +186,16 @@ extension ProductDetailVC: UITableViewDataSource {
         headerView.backgroundColor = .white
         
         headerView.addSubview(headerIMG)
+        headerIMG.imageFromUrl(productInfo?.foodImg, defaultImgPath: "")
         headerView.addSubview(headerCompanyNameLabel)
+        headerCompanyNameLabel.text = productInfo?.foodManu
         headerView.addSubview(headerProductNameLabel)
+        headerProductNameLabel.text = productInfo?.foodName
         headerView.addSubview(firstCategoryLabel)
+        firstCategoryLabel.text = (productInfo?.foodDry == 0) ? "습식" : "건식"
         headerView.addSubview(firstCategoryView)
         headerView.addSubview(secondCategoryLabel)
+        secondCategoryLabel.text = productInfo?.foodMeat
         headerView.addSubview(secondCategoryView)
         headerView.addSubview(thirdCategoryLabel)
         headerView.addSubview(thirdCategoryView)

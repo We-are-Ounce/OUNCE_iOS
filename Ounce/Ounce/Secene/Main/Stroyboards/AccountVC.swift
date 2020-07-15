@@ -20,6 +20,7 @@ class AccountVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        backView.backgroundColor = .none
         backView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         
         self.backgroundDismiss()

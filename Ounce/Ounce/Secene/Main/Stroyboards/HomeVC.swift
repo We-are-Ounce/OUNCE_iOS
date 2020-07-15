@@ -11,6 +11,8 @@ import Foundation
 
 class HomeVC: UIViewController {
     
+    //var rootVC: UIViewController?
+    
     @IBOutlet weak var reviewTV: UITableView!
     
     var profiles: [MyProfile]?
@@ -281,8 +283,11 @@ extension HomeVC {
     
     
     @objc func didTapAccountButton(){
+        
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
+        
+        dvc.modalPresentationStyle = .overFullScreen
         
         self.present(dvc, animated: false)
     }

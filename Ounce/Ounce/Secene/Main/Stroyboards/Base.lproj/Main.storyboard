@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeVC" title="HomeVC" modalPresentationStyle="overCurrentContext" id="7DS-24-8ZS" customClass="HomeVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="transparentView" id="NYm-6u-xhe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J9R-D7-lmz">
@@ -49,7 +49,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7F-DN-T4o">
-                                                            <rect key="frame" x="156" y="59" width="60.666666666666657" height="20"/>
+                                                            <rect key="frame" x="156" y="59" width="61" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="nAO-7B-Dw8"/>
                                                             </constraints>
@@ -67,7 +67,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이의 한줄 소개 입니다. " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehg-U1-WYa">
-                                                            <rect key="frame" x="157" y="107" width="131.33333333333337" height="18"/>
+                                                            <rect key="frame" x="157" y="107" width="131.66666666666663" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="fPv-w4-FrA"/>
                                                             </constraints>
@@ -128,7 +128,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnDropdown" translatesAutoresizingMaskIntoConstraints="NO" id="jzf-FM-ek5">
-                                                            <rect key="frame" x="225" y="67" width="10" height="8"/>
+                                                            <rect key="frame" x="225.33333333333334" y="67" width="10" height="8"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="5Sb-ey-z0A"/>
                                                                 <constraint firstAttribute="height" constant="8" id="eOW-6N-lYr"/>
@@ -262,21 +262,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBq-pC-NGO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="548"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="562.33333333333337"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="MiZ-qc-Iy9"/>
-                                    <constraint firstAttribute="height" constant="548" id="Ofp-IM-mKS"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPs-Dd-yr3">
-                                <rect key="frame" x="0.0" y="548" width="375" height="264"/>
+                                <rect key="frame" x="0.0" y="562.33333333333337" width="375" height="249.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmY-pI-emT">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나와 다른 고양이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nJ-DZ-F67">
-                                                <rect key="frame" x="133" y="21" width="105.33333333333331" height="24"/>
+                                                <rect key="frame" x="133" y="21" width="105.66666666666669" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="lkR-Pf-7sJ"/>
                                                 </constraints>
@@ -302,7 +301,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="If6-9g-1vZ">
-                                        <rect key="frame" x="0.0" y="49" width="375" height="215"/>
+                                        <rect key="frame" x="0.0" y="48.999999999999986" width="375" height="200.66666666666663"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kSY-OY-plg">
                                             <size key="itemSize" width="375" height="46"/>
@@ -339,12 +338,12 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="dBq-pC-NGO" firstAttribute="trailing" secondItem="cXH-oD-NIn" secondAttribute="trailing" id="1m5-S7-OsY"/>
                             <constraint firstItem="dBq-pC-NGO" firstAttribute="leading" secondItem="cXH-oD-NIn" secondAttribute="leading" id="4FC-Ta-r7l"/>
                             <constraint firstItem="dBq-pC-NGO" firstAttribute="top" secondItem="DDf-ag-jaz" secondAttribute="top" id="FY7-e2-j1S"/>
                             <constraint firstItem="QPs-Dd-yr3" firstAttribute="trailing" secondItem="cXH-oD-NIn" secondAttribute="trailing" id="PxN-NV-Fyi"/>
+                            <constraint firstItem="QPs-Dd-yr3" firstAttribute="height" secondItem="cXH-oD-NIn" secondAttribute="height" multiplier="0.34" id="QyJ-WI-2hN"/>
                             <constraint firstItem="QPs-Dd-yr3" firstAttribute="top" secondItem="dBq-pC-NGO" secondAttribute="bottom" id="VTi-4T-c2l"/>
                             <constraint firstItem="QPs-Dd-yr3" firstAttribute="top" secondItem="dBq-pC-NGO" secondAttribute="bottom" id="Y4O-eN-ZOt"/>
                             <constraint firstItem="QPs-Dd-yr3" firstAttribute="leading" secondItem="cXH-oD-NIn" secondAttribute="leading" id="iZI-YZ-yYr"/>
@@ -369,15 +368,15 @@
             <objects>
                 <viewController storyboardIdentifier="SortingVC" title="SortingVC" id="NNf-Rq-nt2" customClass="SortingVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GEL-pH-hhu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3y-rW-Znm">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="613"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="468"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kS-AC-yLn">
-                                <rect key="frame" x="0.0" y="613" width="375" height="199"/>
+                                <rect key="frame" x="0.0" y="468" width="375" height="199"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGu-Yk-S4Q">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
@@ -388,7 +387,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86f-vr-mOg">
-                                        <rect key="frame" x="162.66666666666666" y="6" width="50" height="3"/>
+                                        <rect key="frame" x="162.5" y="6" width="50" height="3"/>
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="0v0-vf-nVY"/>
@@ -456,11 +455,11 @@
             <objects>
                 <viewController restorationIdentifier="SettingVC" storyboardIdentifier="SettingVC" title="SettingVC" id="jlj-ax-qiq" customClass="SettingVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qqg-Kb-mMV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J1g-ce-n0v">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FirstSettingTC" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstSettingTC" rowHeight="146" id="Eag-yp-DFt" customClass="FirstSettingTC" customModule="Ounce" customModuleProvider="target">

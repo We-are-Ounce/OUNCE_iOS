@@ -192,10 +192,10 @@ extension ProductDetailVC: UITableViewDataSource {
         headerView.addSubview(headerProductNameLabel)
         headerProductNameLabel.text = productInfo?.foodName
         headerView.addSubview(firstCategoryLabel)
-        firstCategoryLabel.text = (productInfo?.foodDry == 0) ? "습식" : "건식"
+//        firstCategoryLabel.text = (productInfo?.foodDry == 0) ? "습식" : "건식"
         headerView.addSubview(firstCategoryView)
         headerView.addSubview(secondCategoryLabel)
-        secondCategoryLabel.text = productInfo?.foodMeat
+//        secondCategoryLabel.text = productInfo?.foodMeat
         headerView.addSubview(secondCategoryView)
         headerView.addSubview(thirdCategoryLabel)
         headerView.addSubview(thirdCategoryView)

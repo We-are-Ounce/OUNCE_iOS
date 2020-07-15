@@ -146,6 +146,9 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
        
         //pvc.product = product[indexPath.row]
         //pvc.foodMeat1 = product[indexPath.row].foodMeat
+        pvc.foodIndexNumber = product[indexPath.row].foodIdx
+  
+        print("푸드인덱스넘버",pvc.foodIndexNumber)
         pvc.foodDry = product[indexPath.row].foodDry
         pvc.foodMeat1 = product[indexPath.row].foodMeat1
         pvc.foodMeat2 = product[indexPath.row].foodMeat2

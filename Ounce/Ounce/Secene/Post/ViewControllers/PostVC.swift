@@ -86,8 +86,10 @@ class PostVC: UIViewController {
         reviewEar = custom.sendEar
         reviewHair = custom.sendFur
         reviewVomit = custom.sendVomit
-        foodIndexNumber = custom.sendFoodIndex
-        profileIndexNumber = custom.sendProfileIndex
+        //foodIndexNumber = custom.sendFoodIndex
+        custom.foodIndex = foodIndexNumber ?? 0
+        //custom.profileIndex = profileIndexNumber ?? 0
+        //profileIndexNumber = custom.sendProfileIndex
         
         
         
@@ -137,8 +139,8 @@ class PostVC: UIViewController {
         
         custom.review = custom.criticTextField.text!
         custom.memo = custom.memoTextView.text
-        
-        
+        //custom.foodIndex = custom.sendFoodIndex ?? 0
+        print(custom.foodIndex)
         ReviewService.shared.Review(custom.rating,
                                     custom.prefer,
                                     custom.review,

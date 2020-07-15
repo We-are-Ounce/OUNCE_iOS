@@ -81,55 +81,70 @@ extension BrowseCVCell{
         
     }
     
-//
-//
-//    func findFood(target: Int) -> Array<String>{
-//
-//        var num : Int
-//        num = 0
-////        var arrNum: Int
-////        arrNum = 0
-//        var foodStr: [String] = [] //(repeatElement("", count: 3))
-//
-//
-//        while recommendInfo?.recommendFoodList[num] != nil {
-////            if target == recommendInfo?.recommendFoodList[num].profileIdx {
-////                foodStr.append((recommendInfo?.recommendFoodList[num].foodImg)!)
-////                arrNum += 1
-////            }
-////            num += 1
-//            if target == recommendInfo?.recommendFoodList[num].profileIdx {
-//                foodStr.append(recommendInfo?.recommendFoodList[num].foodImg ?? "")
-//                num += 1
-//            }
-//        }
-//
-//        for _ in 0..<3 {
-//            foodStr.append("")
-//        }
-//        print("foodStr", foodStr)
-//        return foodStr
-//    }
+
+
+    func findFood(target: Int) -> [String] {
+        var foodStr = [String]()
+        var number = 0
+        
+        
+        while (number < (recommendInfo?.recommendFoodList.count)!) {
+            //print(recommendInfo?.recommendFoodList[number].profileIdx ?? "9000")
+            if target == recommendInfo?.recommendFoodList[number].profileIdx ?? nil {
+                foodStr.append((recommendInfo?.recommendFoodList[number].foodImg ?? "error"))
+                print(foodStr)
+            }
+            number += 1
+        }
+
+        print("foodStr", foodStr)
+        
+        return foodStr
+    }
     
     func setCall(num : Int){
         
         
         print(num)
         print(recommendInfo?.resultProfile[num].profileIdx ?? 6000)
+        //print(recommendInfo)
         
-        imgCatView.imageFromUrl(recommendInfo?.resultProfile[num].profileImg, defaultImgPath: recommendInfo?.resultProfile[num].profileImg)
-        labelName.text = recommendInfo?.resultProfile[num].profileName
-        labelName.textAlignment = .center
-        labelCoincidence.text = String(recommendInfo?.similarity[num] ?? 0) + "% 일치"
-        print(item)
+        if(recommendInfo != nil) {
+            var foodStr = [String]()
+            
+            foodStr = findFood(target: recommendInfo?.resultProfile[num].profileIdx ?? 8000)
+            if (foodStr.endIndex != 3) {
+                for i in foodStr.endIndex ... 3 {
+                    foodStr.insert("", at: i)
+                }
+            }
+            imgCatView.imageFromUrl(recommendInfo?.resultProfile[num].profileImg, defaultImgPath: recommendInfo?.resultProfile[num].profileImg)
+            labelName.text = recommendInfo?.resultProfile[num].profileName
+            labelName.textAlignment = .center
+            labelCoincidence.text = String(recommendInfo?.similarity[num] ?? 0) + "% 일치"
+            firstRecommandImg.imageFromUrl(foodStr[0], defaultImgPath: "")
+            secondRecommandImg.imageFromUrl(foodStr[1], defaultImgPath: "")
+            thirdRecommandImg.imageFromUrl(foodStr[2], defaultImgPath: "")
+
+            print("HiHi")
+            
+        }
         
+        
+
+//        imgCatView.imageFromUrl(recommendInfo?.resultProfile[num].profileImg, defaultImgPath: recommendInfo?.resultProfile[num].profileImg)
+//        labelName.text = recommendInfo?.resultProfile[num].profileName
+//        labelName.textAlignment = .center
+//        labelCoincidence.text = String(recommendInfo?.similarity[num] ?? 0) + "% 일치"
+//        print(item)
+//
 //        findFood(target: (recommendInfo?.resultProfile[num].profileIdx)!)
 //        print("123: ",(recommendInfo?.resultProfile[num].profileIdx ?? 0) )
 //        let food: [String] = findFood(target: recommendInfo?.resultProfile[num].profileIdx ?? 0)
 ////
-        firstRecommandImg.imageFromUrl(item[0], defaultImgPath: "")
-        secondRecommandImg.imageFromUrl(item[1], defaultImgPath: "")
-        thirdRecommandImg.imageFromUrl(item[2], defaultImgPath: "")
+//        firstRecommandImg.imageFromUrl(item[0], defaultImgPath: "")
+//        secondRecommandImg.imageFromUrl(item[1], defaultImgPath: "")
+//        thirdRecommandImg.imageFromUrl(item[2], defaultImgPath: "")
 //
 //
 //

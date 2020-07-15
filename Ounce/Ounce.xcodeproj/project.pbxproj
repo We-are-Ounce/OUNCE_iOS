@@ -126,6 +126,7 @@
 		7FF5158D24BE35AE00B34544 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5158C24BE35AE00B34544 /* ContentService.swift */; };
 		7FF5158F24BE46BC00B34544 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5158E24BE46BC00B34544 /* MyProfile.swift */; };
 		7FF5159124BE47FC00B34544 /* MyProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5159024BE47FC00B34544 /* MyProfileService.swift */; };
+
 		F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A424BCBE2400BA6023 /* ReviewData.swift */; };
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
@@ -268,6 +269,7 @@
 		7FF5158E24BE46BC00B34544 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		7FF5159024BE47FC00B34544 /* MyProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileService.swift; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUpdateService.swift; sourceTree = "<group>"; };
 		F23316A424BCBE2400BA6023 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		F248FD3E24B4727A0055D753 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIScroll+Extension.swift"; path = "Ounce/Global/Delegate/UIScroll+Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -506,6 +508,7 @@
 				7754C98924BCBCA0001F3A0F /* FollowService.swift */,
 				7FF5158C24BE35AE00B34544 /* ContentService.swift */,
 				7FF5159024BE47FC00B34544 /* MyProfileService.swift */,
+				F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -987,6 +990,7 @@
 				7FBCE82624BF8E6E00EFA5D2 /* Manufacture.swift in Sources */,
 				5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */,
 				5E69E89824AC685C005D4DC1 /* UIView+Extension.swift in Sources */,
+
 				5E35795224AE38A900043066 /* UIButton+Extension.swift in Sources */,
 				7FBCE82824BF8EDB00EFA5D2 /* DryInfo.swift in Sources */,
 				5EFD2DCF24BC6E430054B357 /* SignIn.swift in Sources */,

@@ -1,8 +1,8 @@
 //
-//  ReviewService.swift
+//  ReviewUpdateService.swift
 //  Ounce
 //
-//  Created by 이윤진 on 2020/07/14.
+//  Created by 이윤진 on 2020/07/16.
 //  Copyright © 2020 박주연. All rights reserved.
 //
 
@@ -11,9 +11,10 @@ import Foundation
 import Alamofire
 import SwiftKeychainWrapper
 
-struct ReviewService{
+struct ReviewUpdateService{
     
     static let shared = ReviewService()
+    var reviewIdx: Int?
     // Request body에 들어가는 내용
     private func makeParameter(_ reviewRating: Int,
                                _ reviewPrefer: Int,
@@ -53,6 +54,7 @@ struct ReviewService{
                 _ foodIdx: Int,
                 _ profileIdx: Int,
                 completion: @escaping (NetworkResult<Any>) -> Void) {
+        
         let token = KeychainWrapper.standard.string(forKey: "Token")
 
         let header: HTTPHeaders = ["Content-Type": "application/json", "token": token ?? ""]
@@ -69,8 +71,8 @@ struct ReviewService{
         "foodIdx": foodIdx,
         "profileIdx": profileIdx]
         
-        let dataRequest = Alamofire.request(APIConstants.addReview,
-                                            method: .post,
+        let dataRequest = Alamofire.request(APIConstants.updateReview + "\(reviewIdx)",
+                                            method: .put,
                                             parameters: body,
                                             encoding: JSONEncoding.default,
                                             headers: header)
@@ -121,5 +123,12 @@ struct ReviewService{
 
     
     
+    
+    
+
+
+    
 }
+
+
 

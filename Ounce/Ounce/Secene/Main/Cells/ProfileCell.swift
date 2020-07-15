@@ -17,7 +17,7 @@ class ProfileCell: UITableViewCell {
     // 팔로워, 팔로잉도 데이터 받아와야 함^^ 
     @IBOutlet weak var follower: UIButton!
     @IBOutlet weak var following: UIButton!
-    
+    @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
     
     // MARK: - profile : 받아오는 데이터

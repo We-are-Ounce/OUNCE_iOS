@@ -85,6 +85,12 @@ class BrowseSearchVC: UIViewController {
         setTabbar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
 }
 
 extension BrowseSearchVC {
@@ -410,10 +416,25 @@ extension BrowseSearchVC: UITableViewDataSource {
         switch tableView {
         case self.userTV:
             userTV.backgroundColor = .white
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            vc.modalPresentationStyle = .overFullScreen
+            vc.profileIndex = user?[indexPath.row].profileIdx
+            vc.isOtherUser = true
+            navigationController?.isNavigationBarHidden = false
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         case self.productTV:
             print(product?[indexPath.row].foodImg ?? "")
             tableView.backgroundColor = .white
             productTV.backgroundColor = .white
+            let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
+            vc.modalPresentationStyle = .overFullScreen
+            vc.foodIndex = product?[indexPath.row].foodIdx
+            navigationController?.isNavigationBarHidden = false
+            self.navigationController?.pushViewController(vc, animated: true)
+
         default:
             break
         }

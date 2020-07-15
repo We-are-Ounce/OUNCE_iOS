@@ -185,6 +185,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="accountButton" destination="6Dp-Nj-fhB" id="RdD-B3-FtE"/>
                                             <outlet property="ageLabel" destination="wAk-Ek-poh" id="G6O-n4-tEN"/>
                                             <outlet property="follower" destination="FKc-t8-ZSv" id="wvn-2O-QUT"/>
                                             <outlet property="following" destination="kwj-fT-b1r" id="UbC-6Y-1QM"/>

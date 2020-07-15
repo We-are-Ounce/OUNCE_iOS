@@ -296,6 +296,21 @@ extension BrowseVC: UICollectionViewDataSource {
         cell.customView.backgroundColor = colors[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        vc.modalPresentationStyle = .overFullScreen
+        vc.profileIndex = recommendInfo?.resultProfile[indexPath.row].profileIdx
+        vc.isOtherUser = true
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.title = ""
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
 }
 
 extension BrowseVC: UITextFieldDelegate {

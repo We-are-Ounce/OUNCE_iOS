@@ -79,6 +79,9 @@ class PostSC:UIView,UITextViewDelegate {
     var sendProfileIndex: Int?
     var rootVC: UIViewController?
     
+    @IBOutlet weak var stackViewLeadingConstraint: NSLayoutConstraint!
+    
+    
     @IBAction func scoreBtn1selected(_ sender: Any) {
         rating = 1
         scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)

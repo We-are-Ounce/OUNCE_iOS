@@ -69,16 +69,7 @@ class SearchCollectVC: UIViewController{
         
     }
 
-    /*func setProductList(){
-        let product1 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product2 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product3 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product4 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product5 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        let product6 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
-        productInformations = [product1,product2,product3,product4,product5,product6]
-        
-    }*/
+    
     func save(_ inputRecode: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -154,10 +145,14 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
         //pvc.modalPresentationStyle = .fullScreen
        
         //pvc.product = product[indexPath.row]
-        
+        //pvc.foodMeat1 = product[indexPath.row].foodMeat
+        pvc.foodDry = product[indexPath.row].foodDry
+        pvc.foodMeat1 = product[indexPath.row].foodMeat1
+        pvc.foodMeat2 = product[indexPath.row].foodMeat2
         pvc.imageNameVC = product[indexPath.row].foodImg
         pvc.companyNameVC = product[indexPath.row].foodManu
         pvc.productNameVC = product[indexPath.row].foodName
+        
         self.navigationController?.pushViewController(pvc, animated: true)
         // 네비게이션 이동. pvc view로 이동
     }

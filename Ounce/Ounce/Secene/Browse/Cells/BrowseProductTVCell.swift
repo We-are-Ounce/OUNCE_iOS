@@ -135,13 +135,13 @@ class BrowseProductTVCell: UITableViewCell {
         productIMG.setImage(from: product?.foodImg ?? "")
         productCompanyLabel.text = product?.foodManu
         productLabel.text = product?.foodName
-        productContentLabel.text = product?.foodMeat
+        //productContentLabel.text = product?.foodMeat
         if product?.reviewCount == 0 {
             starIMG.image = UIImage(named: "icTotalUnselected")
             hartIMG.image = UIImage(named: "icFavoriteUnselected")
         }
-        starLabel.text = String(product?.avgPrefer ?? 0)
-        hartLabel.text = String(product?.avgRating ?? 0)
+        starLabel.text = String(product?.avgPrefer ?? "")
+        hartLabel.text = String(product?.avgRating ?? "")
 
     }
 }

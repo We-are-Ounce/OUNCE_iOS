@@ -121,6 +121,7 @@
 		7FF5159324BE713300B34544 /* MenuCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5159224BE713300B34544 /* MenuCVC.swift */; };
 		7FF5159524BE715200B34544 /* MeatCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5159424BE715200B34544 /* MeatCVC.swift */; };
 		7FF5159724BE716800B34544 /* DryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5159624BE716800B34544 /* DryCVC.swift */; };
+		F20AA59224BF9300001FA520 /* ReviewUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */; };
 		F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A424BCBE2400BA6023 /* ReviewData.swift */; };
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
@@ -258,6 +259,7 @@
 		7FF5159424BE715200B34544 /* MeatCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeatCVC.swift; sourceTree = "<group>"; };
 		7FF5159624BE716800B34544 /* DryCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DryCVC.swift; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUpdateService.swift; sourceTree = "<group>"; };
 		F23316A424BCBE2400BA6023 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		F248FD3E24B4727A0055D753 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIScroll+Extension.swift"; path = "Ounce/Global/Delegate/UIScroll+Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -496,6 +498,7 @@
 				7754C98924BCBCA0001F3A0F /* FollowService.swift */,
 				7FF5158C24BE35AE00B34544 /* ContentService.swift */,
 				7FF5159024BE47FC00B34544 /* MyProfileService.swift */,
+				F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -967,6 +970,7 @@
 				5E69E88A24AC672D005D4DC1 /* ReferenceVC.swift in Sources */,
 				5E69E89824AC685C005D4DC1 /* UIView+Extension.swift in Sources */,
 				7FF5159524BE715200B34544 /* MeatCVC.swift in Sources */,
+				F20AA59224BF9300001FA520 /* ReviewUpdateService.swift in Sources */,
 				5E35795224AE38A900043066 /* UIButton+Extension.swift in Sources */,
 				5EFD2DCF24BC6E430054B357 /* SignIn.swift in Sources */,
 				5EA7C46524B8F17D00EB95EA /* BrowseSearchVC+Constraint.swift in Sources */,

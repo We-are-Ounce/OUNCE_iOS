@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeVC" title="HomeVC" modalPresentationStyle="overCurrentContext" id="7DS-24-8ZS" customClass="HomeVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="transparentView" id="NYm-6u-xhe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J9R-D7-lmz">
@@ -368,15 +368,15 @@
             <objects>
                 <viewController storyboardIdentifier="SortingVC" title="SortingVC" id="NNf-Rq-nt2" customClass="SortingVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GEL-pH-hhu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3y-rW-Znm">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="468"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="613"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kS-AC-yLn">
-                                <rect key="frame" x="0.0" y="468" width="375" height="199"/>
+                                <rect key="frame" x="0.0" y="613" width="375" height="199"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGu-Yk-S4Q">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
@@ -387,7 +387,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86f-vr-mOg">
-                                        <rect key="frame" x="162.5" y="6" width="50" height="3"/>
+                                        <rect key="frame" x="162.66666666666666" y="6" width="50" height="3"/>
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="0v0-vf-nVY"/>
@@ -455,11 +455,11 @@
             <objects>
                 <viewController restorationIdentifier="SettingVC" storyboardIdentifier="SettingVC" title="SettingVC" id="jlj-ax-qiq" customClass="SettingVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qqg-Kb-mMV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J1g-ce-n0v">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FirstSettingTC" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstSettingTC" rowHeight="146" id="Eag-yp-DFt" customClass="FirstSettingTC" customModule="Ounce" customModuleProvider="target">

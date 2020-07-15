@@ -60,8 +60,7 @@ class BrowseSearchVC: UIViewController {
     }
     let searchButton = UIButton().then {
         $0.setImage(UIImage(named: "icSearch"), for: .normal)
-        $0.addTarget(self, action: #selector(searchUser), for: .touchUpInside)
-        $0.addTarget(self, action: #selector(searchProduct), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(didTapSearch), for: .touchUpInside)
     }
     let backGroundButton = UIButton().then {
         $0.addTarget(self, action: #selector(didTapBackgroundButton), for: .touchUpInside)
@@ -69,8 +68,6 @@ class BrowseSearchVC: UIViewController {
         $0.alpha = 0.4
     }
     
-    var userInfo: [String] = ["","","","","","","","","","","","","","",""]
-    var productInfo: [String] = ["","","","","","","","","","","","","","",""]
     var direction: CGFloat?
     var constraints: [NSLayoutConstraint] = []
     var user: [User]?
@@ -94,6 +91,13 @@ class BrowseSearchVC: UIViewController {
 }
 
 extension BrowseSearchVC {
+    @objc func didTapSearch(){
+        pageIndex = [1, 10]
+        userPageIndex = [1, 10]
+        searchUser()
+        searchProduct()
+    }
+    
     @objc func didTapSortButton(){
         print(#function)
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -444,7 +448,6 @@ extension BrowseSearchVC: UITableViewDataSource {
 
 extension BrowseSearchVC {
     @objc func searchUser(){
-        print(#function)
         SearchService.shared.searchUser(searchTextField.text ?? "",
                                         userPageIndex[0],
                                         userPageIndex[1]) { (responseData) in

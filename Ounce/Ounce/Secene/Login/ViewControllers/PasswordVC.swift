@@ -27,7 +27,7 @@ class PasswordVC: UIViewController {
     
     let pwTextField = UITextField().then{
         $0.font = Font.dateLabel
-        $0.placeholder = "5자리 이상 입력해주세요."
+        $0.placeholder = "Password"
         $0.isSecureTextEntry = true
         $0.tintColor = .black
         $0.alpha = 0
@@ -53,7 +53,7 @@ class PasswordVC: UIViewController {
     
     let pwCertificationTextField = UITextField().then{
         $0.font = Font.dateLabel
-        $0.placeholder = "5자리 이상 입력해주세요."
+        $0.placeholder = "Password"
         $0.isSecureTextEntry = true
         $0.tintColor = .black
         $0.alpha = 0

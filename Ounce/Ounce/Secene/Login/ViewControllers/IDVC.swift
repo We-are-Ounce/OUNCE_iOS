@@ -109,7 +109,7 @@ extension IDVC {
 
 extension IDVC: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if idTextField.text?.count ?? 0 > 5 {
+        if idTextField.text?.count ?? 0 > 4 {
             idUnderBarView.backgroundColor = .pale
             idErrorGuiedLabel.alpha = 0
             rightButton.isEnabled = true
@@ -166,19 +166,23 @@ extension IDVC {
             case .requestErr(_):
                 self.idErrorGuiedLabel.alpha = 1
                 self.idErrorGuiedLabel.text = "이미 사용 중인 아이디입니다."
+                self.idUnderBarView.backgroundColor = .darkPeach
                 
             case .pathErr:
                 self.idErrorGuiedLabel.alpha = 1
                 self.idErrorGuiedLabel.text = "이미 사용 중인 아이디입니다."
-                
+                self.idUnderBarView.backgroundColor = .darkPeach
+
             case .serverErr:
                 self.idErrorGuiedLabel.alpha = 1
                 self.idErrorGuiedLabel.text = "서버 에러입니다."
-                
+                self.idUnderBarView.backgroundColor = .darkPeach
+
             case .networkFail :
                 self.idErrorGuiedLabel.alpha = 1
                 self.idErrorGuiedLabel.text = "이미 사용 중인 아이디입니다."
-                
+                self.idUnderBarView.backgroundColor = .darkPeach
+
             }
             
         }

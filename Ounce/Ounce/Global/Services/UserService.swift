@@ -217,7 +217,7 @@ struct UserService {
                                             } catch {
                                                 completion(.pathErr)
                                             }
-                                        case 409:
+                                        case 400:
                                             completion(.pathErr)
                                         case 500:
                                             completion(.serverErr)
@@ -298,7 +298,7 @@ struct UserService {
                                     } catch {
                                         completion(.pathErr)
                                     }
-                                case 409:
+                                case 400:
                                     completion(.pathErr)
                                 case 500:
                                     completion(.serverErr)

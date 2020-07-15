@@ -78,7 +78,7 @@ extension SettingVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if list[indexPath.row] == "로그아웃"{
-            simpleDismissAlert(title: "정말정말",
+            simpleAlertWithHandler(title: "정말정말",
                                msg: "로그아웃 하실건가요??😥") { _ in
                                 KeychainWrapper.standard.removeAllKeys()
                                 self.dismiss(animated: true, completion: nil)

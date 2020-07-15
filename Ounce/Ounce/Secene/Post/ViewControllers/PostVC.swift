@@ -56,7 +56,6 @@ class PostVC: UIViewController {
         self.navigationItem.title = "기록하기"
         custom.companyName.text = companyNameVC
         custom.productName.text = productNameVC
-        //custom.productImg.image = imageNameVC
         custom.productImg.setImage(from: imageNameVC ?? "")
         self.addScrollView.addSubview(custom)
         custom.viewDidLoad()

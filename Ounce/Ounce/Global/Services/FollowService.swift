@@ -20,7 +20,7 @@ struct FollowService {
     
     func follower(completion: @escaping (NetworkResult<Any>) -> Void) {
         
-        let URL = APIConstants.followerList + "/4"
+        let URL = APIConstants.followerList + "/4?pageStart=1&pageEnd=10"
         
         let headers : HTTPHeaders = [
             "Content-Type": "application/json",
@@ -67,7 +67,7 @@ struct FollowService {
     
     func following(completion: @escaping (NetworkResult<Any>) -> Void) {
         
-        let URL = APIConstants.followingList + "/2"
+        let URL = APIConstants.followingList + "/2?pageStart=1&pageEnd=10"
         
         let headers : HTTPHeaders = [
             "Content-Type": "application/json",

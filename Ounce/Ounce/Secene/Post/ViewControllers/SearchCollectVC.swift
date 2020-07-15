@@ -36,7 +36,6 @@ class SearchCollectVC: UIViewController{
        
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
-        //setProductList()
         
     }
     
@@ -69,6 +68,7 @@ class SearchCollectVC: UIViewController{
     
         
     }
+<<<<<<< HEAD
     /*func setProductList(){
         let product1 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
         let product2 = Product(company: "내추럴 발란스", product: "제품 이름", imgName: "imgFoodRecord")
@@ -110,6 +110,9 @@ class SearchCollectVC: UIViewController{
 
         
     }
+=======
+
+>>>>>>> develop
 }
 
 extension SearchCollectVC: UICollectionViewDataSource{

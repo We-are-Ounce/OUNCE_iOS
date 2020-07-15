@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 
+import SwiftKeychainWrapper
+
 class HomeVC: UIViewController {
     
     //var rootVC: UIViewController?
@@ -19,6 +21,7 @@ class HomeVC: UIViewController {
     var reviews: [UserReviews]?
     var profileIndex: Int?
     var isOtherUser: Bool = false
+    var currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +37,7 @@ class HomeVC: UIViewController {
         let nibName1 = UINib(nibName: "HeaderCell", bundle: nil)
         
         reviewTV.register(nibName, forCellReuseIdentifier: "ReviewTableViewCell")
-        
+        reviewTV.register(OtherProfileTVCell.self, forCellReuseIdentifier: "OtherProfileTVCell")
         reviewTV.register(nibName1, forCellReuseIdentifier: "HeaderCell")
         
         
@@ -47,7 +50,6 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         if !isOtherUser {
             
             navigationController?.isNavigationBarHidden = true
@@ -120,46 +122,44 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         
         
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
-            
-            // settingBtn 클릭 시 -> SettingView로 이동
-            cell.settingButton.tag = indexPath.row
-            cell.settingButton.addTarget(self, action: #selector(didTapSettingButton),
+            if currentProfileIndex == profileIndex || profileIndex == nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+                
+                // settingBtn 클릭 시 -> SettingView로 이동
+                cell.settingButton.tag = indexPath.row
+                cell.settingButton.addTarget(self, action: #selector(didTapSettingButton),
+                                             for: .touchUpInside)
+                // 팔로워버튼 클릭 시 -> FollowerView로 이동
+                cell.follower.tag = indexPath.row
+                cell.follower.addTarget(self, action: #selector(didTapFollowerButton),
+                                        for: .touchUpInside)
+                cell.following.tag = indexPath.row
+                cell.following.addTarget(self, action: #selector(didTapFollowingButton),
                                          for: .touchUpInside)
-            // 팔로워버튼 클릭 시 -> FollowerView로 이동
-            cell.follower.tag = indexPath.row
-            cell.follower.addTarget(self, action: #selector(didTapFollowerButton),
-                                    for: .touchUpInside)
-            cell.following.tag = indexPath.row
-            cell.following.addTarget(self, action: #selector(didTapFollowingButton),
-                                     for: .touchUpInside)
-            // 계정버튼 클릭 시 -> AcountView로 이동
-            cell.accountButton.tag = indexPath.row
-            cell.accountButton.addTarget(self, action: #selector(didTapAccountButton),
+                // 계정버튼 클릭 시 -> AcountView로 이동
+                cell.accountButton.tag = indexPath.row
+                cell.accountButton.addTarget(self, action: #selector(didTapAccountButton),
+                                             for: .touchUpInside)
+                cell.editProfileButton.tag = indexPath.row
+                cell.editProfileButton.addTarget(self, action: #selector(didEditProfileButton),
+                                                 for: .touchUpInside)
+                
+                cell.profile = profiles?[indexPath.row]
+                cell.cellProfile()
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "OtherProfileTVCell", for: indexPath) as! OtherProfileTVCell
+                let bgColorView = UIView()
+                bgColorView.backgroundColor = UIColor.white
+                cell.selectedBackgroundView = bgColorView
 
-                                        for: .touchUpInside)
-            cell.editProfileButton.tag = indexPath.row
-            cell.editProfileButton.addTarget(self, action: #selector(didEditProfileButton),
-                                        for: .touchUpInside)
-
- 
-            cell.profile = profiles?[indexPath.row]
-            cell.cellProfile()
-            
-            if !isOtherUser {
+                cell.makeConstraint()
+                cell.setProfile()
                 
-                // 내 프로필
                 
+                return cell
             }
-            else{
-                
-                // 다른 사람 프로필 화면 -> 뒤로 나가는 백버튼 만들기 하려고 했는데,, 팔로우 버튼도 생겨야 함..
-                // 그래서 세팅버튼 지우는게 의미없음^^
-                cell.settingButton.isHidden = true
-                
-            }
-  
-            return cell
         }
         else{
             let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
@@ -295,8 +295,6 @@ extension HomeVC {
         
         self.present(dvc, animated: false)
     }
-
-
     @objc func didEditProfileButton(){
         let storyboard = UIStoryboard(name: "Register", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "RegisterVC") as! RegisterVC

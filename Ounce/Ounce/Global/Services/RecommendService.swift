@@ -35,7 +35,7 @@ struct RecommendService {
             case .success:
                 if let value = response.result.value {
                     if let status = response.response?.statusCode {
-                        print(status)
+                        //print(status)
                         switch status {
                         case 200:
                             do{

@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 
+import SwiftKeychainWrapper
+
 class HomeVC: UIViewController {
     
     @IBOutlet weak var reviewTV: UITableView!
@@ -17,6 +19,7 @@ class HomeVC: UIViewController {
     var reviews: [UserReviews]?
     var profileIndex: Int?
     var isOtherUser: Bool = false
+    var currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +35,21 @@ class HomeVC: UIViewController {
         let nibName1 = UINib(nibName: "HeaderCell", bundle: nil)
         
         reviewTV.register(nibName, forCellReuseIdentifier: "ReviewTableViewCell")
-        
+        reviewTV.register(OtherProfileTVCell.self, forCellReuseIdentifier: "OtherProfileTVCell")
         reviewTV.register(nibName1, forCellReuseIdentifier: "HeaderCell")
         
         
         //테이블 셀 라인 없애기
         self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-//        self.setupLayout()
+        //        self.setupLayout()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        print("currentProfileIndex:",currentProfileIndex)
+        print("profileIndex", profileIndex)
         if !isOtherUser {
             navigationController?.isNavigationBarHidden = true
         } else {
@@ -55,36 +60,36 @@ class HomeVC: UIViewController {
         
         
         // MARK: - 윤진이 뷰에서 제품 등록해주고 완료 누르면, 다시 시간 순으로 정렬
-//        func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
-//
-//            ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
-//                switch responsedata {
-//                case .success(let res):
-//                    self.reviews = res as! [UserReviews]
-//                    self.reviewTV.reloadData()
-//                case .requestErr(_):
-//                    print("reupload product request error")
-//
-//                case .pathErr:
-//                    print("reupload product pathErr")
-//
-//                case .serverErr:
-//                    print(" reupload product serverErr")
-//
-//                case .networkFail :
-//                    print("reupload product failure")
-//
-//                }
-//            }
-//
-//        }
-    
+        //        func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+        //
+        //            ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
+        //                switch responsedata {
+        //                case .success(let res):
+        //                    self.reviews = res as! [UserReviews]
+        //                    self.reviewTV.reloadData()
+        //                case .requestErr(_):
+        //                    print("reupload product request error")
+        //
+        //                case .pathErr:
+        //                    print("reupload product pathErr")
+        //
+        //                case .serverErr:
+        //                    print(" reupload product serverErr")
+        //
+        //                case .networkFail :
+        //                    print("reupload product failure")
+        //
+        //                }
+        //            }
+        //
+        //        }
+        
     }
     
     // 위에 viewWillAppear하고 중복 아닌가?,,
-//    func setupLayout() {
-//        self.navigationController?.setNavigationBarHidden(true, animated: false)
-//    }
+    //    func setupLayout() {
+    //        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    //    }
     
 }
 
@@ -110,31 +115,44 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         
         
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
-            
-            // settingBtn 클릭 시 -> SettingView로 이동
-            cell.settingButton.tag = indexPath.row
-            cell.settingButton.addTarget(self, action: #selector(didTapSettingButton),
+            if currentProfileIndex == profileIndex || profileIndex == nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+                
+                // settingBtn 클릭 시 -> SettingView로 이동
+                cell.settingButton.tag = indexPath.row
+                cell.settingButton.addTarget(self, action: #selector(didTapSettingButton),
+                                             for: .touchUpInside)
+                // 팔로워버튼 클릭 시 -> FollowerView로 이동
+                cell.follower.tag = indexPath.row
+                cell.follower.addTarget(self, action: #selector(didTapFollowerButton),
+                                        for: .touchUpInside)
+                cell.following.tag = indexPath.row
+                cell.following.addTarget(self, action: #selector(didTapFollowingButton),
                                          for: .touchUpInside)
-            // 팔로워버튼 클릭 시 -> FollowerView로 이동
-            cell.follower.tag = indexPath.row
-            cell.follower.addTarget(self, action: #selector(didTapFollowerButton),
-                                    for: .touchUpInside)
-            cell.following.tag = indexPath.row
-            cell.following.addTarget(self, action: #selector(didTapFollowingButton),
-                                     for: .touchUpInside)
-            // 계정버튼 클릭 시 -> AcountView로 이동
-            cell.accountButton.tag = indexPath.row
-            cell.accountButton.addTarget(self, action: #selector(didTapAccountButton),
-                                        for: .touchUpInside)
-            cell.editProfileButton.tag = indexPath.row
-            cell.editProfileButton.addTarget(self, action: #selector(didEditProfileButton),
-                                        for: .touchUpInside)
+                // 계정버튼 클릭 시 -> AcountView로 이동
+                cell.accountButton.tag = indexPath.row
+                cell.accountButton.addTarget(self, action: #selector(didTapAccountButton),
+                                             for: .touchUpInside)
+                cell.editProfileButton.tag = indexPath.row
+                cell.editProfileButton.addTarget(self, action: #selector(didEditProfileButton),
+                                                 for: .touchUpInside)
+                
+                cell.profile = profiles?[indexPath.row]
+                cell.cellProfile()
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "OtherProfileTVCell", for: indexPath) as! OtherProfileTVCell
+                let bgColorView = UIView()
+                bgColorView.backgroundColor = UIColor.white
+                cell.selectedBackgroundView = bgColorView
 
-            cell.profile = profiles?[indexPath.row]
-            cell.cellProfile()
-            
-            return cell
+                cell.makeConstraint()
+                cell.setProfile()
+                
+                
+                return cell
+            }
         }
         else{
             let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
@@ -245,14 +263,14 @@ extension HomeVC {
         navigationController?.pushViewController(dvc, animated: true)
     }
     
-
+    
     @objc func didTapAccountButton(){
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
         
         self.present(dvc, animated: false)
     }
-
+    
     @objc func didEditProfileButton(){
         let storyboard = UIStoryboard(name: "Register", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
@@ -326,5 +344,5 @@ extension HomeVC {
         }
         
     }
-
+    
 }

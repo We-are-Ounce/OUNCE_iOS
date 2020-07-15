@@ -168,6 +168,7 @@
 		5E35795724AE38E900043066 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		5E35795924AE38FC00043066 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E35795B24AE391500043066 /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
+		5E40C5F024BF49B50023B8E6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5E48BF1924B1D7750060EA7B /* BrowseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseVC.swift; sourceTree = "<group>"; };
 		5E48BF1B24B1D77D0060EA7B /* Browse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Browse.storyboard; sourceTree = "<group>"; };
 		5E48BF1D24B1D79D0060EA7B /* BrowseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseCVCell.swift; sourceTree = "<group>"; };
@@ -759,6 +760,7 @@
 		7FC9384124AB1088002B0CA7 = {
 			isa = PBXGroup;
 			children = (
+				5E40C5F024BF49B50023B8E6 /* Default-568h@2x.png */,
 				7FC9384C24AB1088002B0CA7 /* Ounce */,
 				7FC9384B24AB1088002B0CA7 /* Products */,
 				841A5A0BC87E7676B80434DD /* Pods */,

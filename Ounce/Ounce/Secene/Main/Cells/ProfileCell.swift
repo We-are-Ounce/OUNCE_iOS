@@ -13,8 +13,8 @@ class ProfileCell: UITableViewCell {
     static let identfier = "ProfileCell"
     
     var  rootVC: UIViewController?
- 
-    // 팔로워, 팔로잉도 데이터 받아와야 함^^ 
+    
+    // 팔로워, 팔로잉도 데이터 받아와야 함^^
     @IBOutlet weak var follower: UIButton!
     @IBOutlet weak var following: UIButton!
     @IBOutlet weak var accountButton: UIButton!

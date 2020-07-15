@@ -39,52 +39,60 @@ class HomeVC: UIViewController {
         //테이블 셀 라인 없애기
         self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-//        self.setupLayout()
+        //        self.setupLayout()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         if !isOtherUser {
+            
             navigationController?.isNavigationBarHidden = true
+            
+            
         } else {
-            navigationController?.isNavigationBarHidden = false
+            
+            didTapBackButton()
+          
+//            navigationController?.isNavigationBarHidden = false
+
         }
         dateReviewService(1, 1, 10)
         profileService(1)
         
         
         // MARK: - 윤진이 뷰에서 제품 등록해주고 완료 누르면, 다시 시간 순으로 정렬
-//        func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
-//
-//            ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
-//                switch responsedata {
-//                case .success(let res):
-//                    self.reviews = res as! [UserReviews]
-//                    self.reviewTV.reloadData()
-//                case .requestErr(_):
-//                    print("reupload product request error")
-//
-//                case .pathErr:
-//                    print("reupload product pathErr")
-//
-//                case .serverErr:
-//                    print(" reupload product serverErr")
-//
-//                case .networkFail :
-//                    print("reupload product failure")
-//
-//                }
-//            }
-//
-//        }
-    
+        //        func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+        //
+        //            ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
+        //                switch responsedata {
+        //                case .success(let res):
+        //                    self.reviews = res as! [UserReviews]
+        //                    self.reviewTV.reloadData()
+        //                case .requestErr(_):
+        //                    print("reupload product request error")
+        //
+        //                case .pathErr:
+        //                    print("reupload product pathErr")
+        //
+        //                case .serverErr:
+        //                    print(" reupload product serverErr")
+        //
+        //                case .networkFail :
+        //                    print("reupload product failure")
+        //
+        //                }
+        //            }
+        //
+        //        }
+        
     }
     
     // 위에 viewWillAppear하고 중복 아닌가?,,
-//    func setupLayout() {
-//        self.navigationController?.setNavigationBarHidden(true, animated: false)
-//    }
+    //    func setupLayout() {
+    //        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    //    }
     
 }
 
@@ -126,10 +134,25 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             // 계정버튼 클릭 시 -> AcountView로 이동
             cell.accountButton.tag = indexPath.row
             cell.accountButton.addTarget(self, action: #selector(didTapAccountButton),
-                                        for: .touchUpInside)
+                                         for: .touchUpInside)
+            
+            // 서버 통신
             cell.profile = profiles?[indexPath.row]
             cell.cellProfile()
             
+            if !isOtherUser {
+                
+                // 내 프로필
+                
+            }
+            else{
+                
+                // 다른 사람 프로필 화면 -> 뒤로 나가는 백버튼 만들기 하려고 했는데,, 팔로우 버튼도 생겨야 함..
+                // 그래서 세팅버튼 지우는게 의미없음^^
+                cell.settingButton.isHidden = true
+                
+            }
+  
             return cell
         }
         else{
@@ -141,6 +164,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             reviewCell.cellService()
             
             return reviewCell
+            
         }
     }
     
@@ -214,6 +238,20 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
 
 extension HomeVC {
     
+    // 여기 부분이 백 버튼 만드는 부분
+    @objc func didTapBackButton(){
+        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+        
+
+        // MARK: - 여기 부분은 뷰 전환할 때 중복
+//       self.navigationController?.navigationBar.isHidden = false
+//      self.navigationController?.pushViewController(dvc, animated: true)
+        
+    }
+    
+    
+    
     @objc func didTapSettingButton(){
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "SettingVC") as! SettingVC
@@ -241,14 +279,14 @@ extension HomeVC {
         navigationController?.pushViewController(dvc, animated: true)
     }
     
-
+    
     @objc func didTapAccountButton(){
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
         
         self.present(dvc, animated: false)
     }
-
+    
     
     
 }
@@ -316,5 +354,5 @@ extension HomeVC {
         }
         
     }
-
+    
 }

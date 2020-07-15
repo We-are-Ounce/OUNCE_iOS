@@ -20,6 +20,10 @@ class BrowseCVCell: UICollectionViewCell {
 //        return view
 //    }()
     
+    
+    
+    
+    
     let customView = UIView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -27,6 +31,7 @@ class BrowseCVCell: UICollectionViewCell {
     
     let imgCatView = UIImageView().then {
         $0.backgroundColor = .white
+        $0.setRounded(radius: 45)
     }
     
     let labelName = UILabel().then {
@@ -43,33 +48,35 @@ class BrowseCVCell: UICollectionViewCell {
         $0.textAlignment = .left
         $0.font = UIFont.systemFont(ofSize: 13)
         $0.text = "77% 일치"
+        
     }
     
-    let stackViewLabel = UIStackView().then {
-        
-        let firstRecommandImg = UIImageView().then {
-            $0.backgroundColor = .whiteThree
-        }
-        
-        let secondRecommandImg = UIImageView().then {
-            $0.backgroundColor = .whiteThree
-        }
-        let thirdRecommandImg = UIImageView().then {
-            $0.backgroundColor = .whiteThree
-        }
-        $0.addArrangedSubview(firstRecommandImg)
-        $0.addArrangedSubview(secondRecommandImg)
-        $0.addArrangedSubview(thirdRecommandImg)
-        $0.axis = .horizontal
-        $0.distribution = .fillEqually
-        $0.spacing = 9
+    
+    let firstRecommandImg = UIImageView().then {
+        $0.backgroundColor = .whiteThree
     }
     
+    let secondRecommandImg = UIImageView().then {
+        $0.backgroundColor = .whiteThree
+    }
+    let thirdRecommandImg = UIImageView().then {
+        $0.backgroundColor = .whiteThree
+    }
+    
+
+
+
+
+    // MARK - Variable, Properties
+    
+    var recommendInfo: Recommend?
+    var item: [String] = ["","",""]
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initial()
+        
 
     }
     required init?(coder aDecoder: NSCoder) {
@@ -79,6 +86,10 @@ class BrowseCVCell: UICollectionViewCell {
         super.awakeFromNib()
         
     }
-
+    
+    
+    
+    
+    
 
 }

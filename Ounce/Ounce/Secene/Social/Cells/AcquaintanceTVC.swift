@@ -134,7 +134,7 @@ class AcquaintanceTVC: UITableViewCell {
         catSocialWeightLabel.text = followInfo!.profileWeight + "kg"
         catSocialAgeLabel.text = String(followInfo?.profileAge ?? 0) + "살"
         
-        var str = judgeSex(gender: followInfo?.profileGender ?? "", neutral: followInfo?.profileNeutral ?? "")
+        let str = judgeSex(gender: followInfo?.profileGender ?? "", neutral: followInfo?.profileNeutral ?? "")
         
         catSexImg.image = UIImage(named: str)
         

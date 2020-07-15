@@ -13,6 +13,8 @@ import SwiftKeychainWrapper
 
 class HomeVC: UIViewController {
     
+    //var rootVC: UIViewController?
+    
     @IBOutlet weak var reviewTV: UITableView!
     
     var profiles: [MyProfile]?
@@ -48,12 +50,17 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("currentProfileIndex:",currentProfileIndex)
-        print("profileIndex", profileIndex)
         if !isOtherUser {
+            
             navigationController?.isNavigationBarHidden = true
+            
+            
         } else {
-            navigationController?.isNavigationBarHidden = false
+            
+            didTapBackButton()
+          
+//            navigationController?.isNavigationBarHidden = false
+
         }
         dateReviewService(1, 1, 10)
         profileService(1)
@@ -163,6 +170,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             reviewCell.cellService()
             
             return reviewCell
+            
         }
     }
     
@@ -236,6 +244,20 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
 
 extension HomeVC {
     
+    // 여기 부분이 백 버튼 만드는 부분
+    @objc func didTapBackButton(){
+        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+        
+
+        // MARK: - 여기 부분은 뷰 전환할 때 중복
+//       self.navigationController?.navigationBar.isHidden = false
+//      self.navigationController?.pushViewController(dvc, animated: true)
+        
+    }
+    
+    
+    
     @objc func didTapSettingButton(){
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "SettingVC") as! SettingVC
@@ -265,12 +287,14 @@ extension HomeVC {
     
     
     @objc func didTapAccountButton(){
+        
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
         
+        dvc.modalPresentationStyle = .overFullScreen
+        
         self.present(dvc, animated: false)
     }
-    
     @objc func didEditProfileButton(){
         let storyboard = UIStoryboard(name: "Register", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
@@ -278,7 +302,6 @@ extension HomeVC {
         dvc.modalPresentationStyle = .overFullScreen
         present(dvc, animated: true)
     }
-    
 }
 
 

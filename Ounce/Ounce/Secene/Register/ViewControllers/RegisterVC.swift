@@ -165,13 +165,14 @@ extension RegisterVC {
     
     func setButton() {
         maleButton.setRounded(radius: 8)
-        maleButton.borderColor = .battleshipGrey
-        maleButton.setTitleColor(.battleshipGrey, for: .normal)
+        //maleButton.borderColor = .battleshipGrey
+        maleButton.borderColor = .pale
+        maleButton.setTitleColor(.black, for: .normal)
         maleButton.borderWidth = 1.5
         maleButton.addTarget(self, action: #selector(didTapMaleButton), for: .touchUpInside)
         femaleButton.setRounded(radius: 8)
-        femaleButton.borderColor = .battleshipGrey
-        femaleButton.setTitleColor(.battleshipGrey, for: .normal)
+        femaleButton.borderColor = .pale
+        femaleButton.setTitleColor(.black, for: .normal)
         femaleButton.borderWidth = 1.5
         femaleButton.addTarget(self, action: #selector(didTapFemaleButton), for: .touchUpInside)
         neutralizationRoundButton.setRounded(radius: nil)
@@ -212,28 +213,34 @@ extension RegisterVC {
     @objc func didTapMaleButton(){
         if (sex != 0) {
             sex = 0
-            maleButton.backgroundColor = .battleshipGrey
-            maleButton.setTitleColor(.white, for: .normal)
-            femaleButton.backgroundColor = .white
-            femaleButton.setTitleColor(.battleshipGrey, for: .normal)
+            //maleButton.backgroundColor = .battleshipGrey
+            maleButton.borderColor = .black
+            //maleButton.setTitleColor(.white, for: .normal)
+            femaleButton.borderColor = .pale
+            //femaleButton.backgroundColor = .white
+            //femaleButton.setTitleColor(.battleshipGrey, for: .normal)
         } else {
             sex = 2
-            maleButton.backgroundColor = .white
-            maleButton.setTitleColor(.battleshipGrey, for: .normal)
+            maleButton.borderColor = .pale
+           // maleButton.backgroundColor = .white
+            //maleButton.setTitleColor(.battleshipGrey, for: .normal)
         }
     }
     
     @objc func didTapFemaleButton(){
         if (sex != 1) {
-            sex = 1
-            femaleButton.backgroundColor = .battleshipGrey
-            femaleButton.setTitleColor(.white, for: .normal)
-            maleButton.backgroundColor = .white
-            maleButton.setTitleColor(.battleshipGrey, for: .normal)
+            sex = 1 //선택 되었을 때.
+            femaleButton.borderColor = .black
+            //femaleButton.backgroundColor = .battleshipGrey
+            //femaleButton.setTitleColor(.white, for: .normal)
+            maleButton.borderColor = .pale
+            //maleButton.backgroundColor = .white
+           // maleButton.setTitleColor(.battleshipGrey, for: .normal)
         } else {
             sex = 2
-            femaleButton.backgroundColor = .white
-            femaleButton.setTitleColor(.battleshipGrey, for: .normal)
+            femaleButton.borderColor = .pale
+            //femaleButton.backgroundColor = .white
+            //femaleButton.setTitleColor(.battleshipGrey, for: .normal)
             
         }
         
@@ -242,7 +249,7 @@ extension RegisterVC {
     @objc func didTapNeutralizationButton(){
         if !isNeutralization {
             isNeutralization = true
-            neutralizationRoundButton.setImage(UIImage(named: "1735"), for: .normal)
+            neutralizationRoundButton.setImage(UIImage(named: "btnSelected"), for: .normal)
             neutralizationRoundButton.borderColor = .white
         } else {
             isNeutralization = false

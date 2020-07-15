@@ -13,8 +13,8 @@ class ProfileCell: UITableViewCell {
     static let identfier = "ProfileCell"
     
     var  rootVC: UIViewController?
- 
-    // 팔로워, 팔로잉도 데이터 받아와야 함^^ 
+    
+    // 팔로워, 팔로잉도 데이터 받아와야 함^^
     @IBOutlet weak var follower: UIButton!
     @IBOutlet weak var following: UIButton!
     @IBOutlet weak var accountButton: UIButton!
@@ -59,7 +59,7 @@ class ProfileCell: UITableViewCell {
         }
         else {
             if neutral == "true" {
-            str = "female.png"
+                str = "female.png"
                 return str
                 
             }
@@ -70,7 +70,7 @@ class ProfileCell: UITableViewCell {
             }
         }
     }
-        
+    
     func cellProfile(){
         
         profileImg.imageFromUrl(profile?.profileImg ?? "", defaultImgPath: "")
@@ -99,7 +99,7 @@ class ProfileCell: UITableViewCell {
         following.setRounded(radius: 8)
         following.setBorder(borderColor: .pale, borderWidth: 0.5)
     }
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -109,7 +109,7 @@ class ProfileCell: UITableViewCell {
         
         
     }
-  
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
@@ -119,20 +119,20 @@ class ProfileCell: UITableViewCell {
     @IBAction func accountBtn(_ sender: UIButton) {
         
         
-        //        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
-        //        let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
-        //
-        //        dvc.modalPresentationStyle = .overFullScreen
-        //
-        //        self.rootVC?.present(dvc, animated: false, completion: nil)
-
+        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
+        
+        dvc.modalPresentationStyle = .overFullScreen
+        
+        self.rootVC?.present(dvc, animated: false)
+        
     }
     
     @IBAction func editBtn(_ sender: Any) {
         
     }
     
-   
-       
+    
+    
 }
 

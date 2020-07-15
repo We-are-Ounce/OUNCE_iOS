@@ -303,11 +303,18 @@ extension BrowseVC: UICollectionViewDataSource {
         vc.modalPresentationStyle = .overFullScreen
         vc.profileIndex = recommendInfo?.resultProfile[indexPath.row].profileIdx
         vc.isOtherUser = true
-        navigationController?.isNavigationBarHidden = false
-        navigationController?.title = ""
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        
+        
+        // MARK: - 이미지 클릭시 홈 뷰로 이동
+        
+        navigationController?.isNavigationBarHidden = true
+        
+//        navigationController?.title = ""
+//        let backButton = UIBarButtonItem()
+//        backButton.title = ""
+//        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+//
         self.navigationController?.pushViewController(vc, animated: true)
 
     }

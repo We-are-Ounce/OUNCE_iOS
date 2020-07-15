@@ -17,6 +17,7 @@ class SearchCollectVC: UIViewController{
     private var product:[CatProduct] = []
     var pageIndex = [1,10]
     var rootVC: UIViewController?
+    var searchResult: String?
     
 
     override func viewDidLoad() {
@@ -27,7 +28,8 @@ class SearchCollectVC: UIViewController{
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-       
+        print(searchResult)
+        searchProduct(searchResult ?? "")
         self.navigationItem.title = "기록하기"
        
         searchCollectionView.delegate = self
@@ -38,7 +40,7 @@ class SearchCollectVC: UIViewController{
     
     @IBAction func searchBtnTouched(_ sender: Any) {
         
-        searchProduct()
+        searchProduct(searchTextField.text ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,9 +128,9 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
         // 네비게이션 이동. pvc view로 이동
     }
     
-    @objc func searchProduct(){
+    @objc func searchProduct(_ result: String){
         print(#function)
-        SearchService.shared.searchProduct(searchTextField.text ?? "", pageIndex[0], pageIndex[1])
+        SearchService.shared.searchProduct(result, pageIndex[0], pageIndex[1])
         {(responseData) in switch responseData {
         case .success(let res) :
             let response = res as! [CatProduct]

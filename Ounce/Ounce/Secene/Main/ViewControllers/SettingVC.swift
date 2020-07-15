@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SwiftKeychainWrapper
+
 // MARK: - tableViewCell 오토 잡아야 함, 코드는 다 입력,,
 class SettingVC: UIViewController {
     
@@ -29,6 +31,7 @@ class SettingVC: UIViewController {
         
         settingTV.delegate = self
         settingTV.dataSource = self
+        settingTV.isScrollEnabled = false
         settingTV.separatorStyle = .none
         
         navigationController?.isNavigationBarHidden = false
@@ -41,7 +44,7 @@ class SettingVC: UIViewController {
         // 네이게이션 타이틀 (타이틀이 조금 먼저 나오는 느낌,,)
         self.navigationController?.navigationBar.topItem?.title = "환경설정"
         
-
+        
         
     }
     
@@ -70,6 +73,16 @@ extension SettingVC : UITableViewDataSource {
             return 9
         } else {
             return 64
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if list[indexPath.row] == "로그아웃"{
+            simpleDismissAlert(title: "정말정말",
+                               msg: "로그아웃 하실건가요??😥") { _ in
+                                KeychainWrapper.standard.removeAllKeys()
+                                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }

@@ -30,6 +30,8 @@ class BrowseCVCell: UICollectionViewCell {
     
     
     let imgCatView = UIImageView().then {
+        //$0.contentMode = .scaleToFill
+        $0.contentMode = .scaleAspectFill
         $0.backgroundColor = .white
         $0.setRounded(radius: 45)
     }
@@ -53,14 +55,14 @@ class BrowseCVCell: UICollectionViewCell {
     
     
     let firstRecommandImg = UIImageView().then {
-        $0.backgroundColor = .whiteThree
+        $0.backgroundColor = .white
     }
     
     let secondRecommandImg = UIImageView().then {
-        $0.backgroundColor = .whiteThree
+        $0.backgroundColor = .white
     }
     let thirdRecommandImg = UIImageView().then {
-        $0.backgroundColor = .whiteThree
+        $0.backgroundColor = .white
     }
     
 

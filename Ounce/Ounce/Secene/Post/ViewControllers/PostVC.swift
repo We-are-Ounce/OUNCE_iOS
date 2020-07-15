@@ -20,8 +20,9 @@ class PostVC: UIViewController {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
-    var product: Product? //구조체
-    var imageNameVC: UIImage?
+    //var product: Product? //구조체
+    //var imageNameVC: UIImage?
+    var imageNameVC: String?
     var companyNameVC: String?
     var productNameVC: String?
     // server post info
@@ -55,7 +56,8 @@ class PostVC: UIViewController {
         self.navigationItem.title = "기록하기"
         custom.companyName.text = companyNameVC
         custom.productName.text = productNameVC
-        custom.productImg.image = imageNameVC
+        //custom.productImg.image = imageNameVC
+        custom.productImg.setImage(from: imageNameVC ?? "")
         self.addScrollView.addSubview(custom)
         custom.viewDidLoad()
         //custom.viewDidAppear()

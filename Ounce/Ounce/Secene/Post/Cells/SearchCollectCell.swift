@@ -14,7 +14,7 @@ class SearchCollectCell: UICollectionViewCell{
     static let identfier = "productCell"
     
     var rootVC: UIViewController?
-    
+    var catproduct: CatProduct?
    
     
     @IBOutlet weak var productImageView: UIImageView!
@@ -27,6 +27,13 @@ class SearchCollectCell: UICollectionViewCell{
         manufacturerName.text = productInfo.companyName
     }
     
+    func setCell(_ productInfo:CatProduct ){
+        
+        productImageView.setImage(from: productInfo.foodImg )
+        manufacturerName.text = productInfo.foodManu
+        productName.text = productInfo.foodName
+        
+    }
     
     
     

@@ -12,7 +12,7 @@ import UIKit
 import Photos
 
 import YPImagePicker
-import CHIPageControl
+import SwiftKeychainWrapper
 
 class RegisterVC: UIViewController {
     
@@ -46,7 +46,7 @@ class RegisterVC: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapNextButton))
-//        button.isEnabled = false
+        //        button.isEnabled = false
         return button
         
     }()
@@ -311,32 +311,35 @@ extension RegisterVC {
                                          profileGender,
                                          profileNeutral,
                                          profileAge,
-                                         profileInfo){
-                                            [weak self]
-                                            data in
-                                            
-                                            guard let `self` = self else { return }
-                                            
-                                            switch data {
-                                            case .success:
-                                                let sb = UIStoryboard(name: "TabBar", bundle: nil)
-                                                let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
-                                                vc.modalPresentationStyle = .fullScreen
-                                                self.present(vc, animated: true)
-                                            case .requestErr:
-                                                self.simpleAlert(title: "실패", message: "")
-                                                
-                                            case .pathErr:
-                                                print(".pathErr")
-                                                
-                                            case .serverErr:
-                                                print(".serverErr")
-                                                
-                                            case .networkFail:
-                                                print(".networkFail")
-                                                
-                                            }
-                                            
+                                         profileInfo)
+        {
+            [weak self]
+            data in
+            
+            guard let `self` = self else { return }
+            
+            switch data {
+            case .success(let res):
+                let sb = UIStoryboard(name: "TabBar", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
+                vc.modalPresentationStyle = .fullScreen
+                let profile = res as! ProfileIndex
+                KeychainWrapper.standard.set(profile.profileIdx, forKey: "currentProfile")
+                self.present(vc, animated: true)
+            case .requestErr:
+                self.simpleAlert(title: "실패", message: "")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print(".networkFail")
+                
+            }
+            
         }
     }
 }

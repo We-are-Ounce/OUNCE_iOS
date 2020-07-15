@@ -76,7 +76,8 @@ class BrowseSearchVC: UIViewController {
     var user: [User]?
     var product: [CatProduct]?
     var pageIndex = [1, 10]
-    
+    var userPageIndex = [1, 10]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -423,7 +424,9 @@ extension BrowseSearchVC: UITableViewDataSource {
 extension BrowseSearchVC {
     @objc func searchUser(){
         print(#function)
-        SearchService.shared.searchUser(searchTextField.text ?? "") { (responseData) in
+        SearchService.shared.searchUser(searchTextField.text ?? "",
+                                        userPageIndex[0],
+                                        userPageIndex[1]) { (responseData) in
             switch responseData {
             case .success(let res) :
                 let response = res as! [User]

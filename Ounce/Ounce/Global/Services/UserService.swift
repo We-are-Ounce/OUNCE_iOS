@@ -39,42 +39,42 @@ struct UserService {
                           parameters: body,
                           encoding: JSONEncoding.default,
                           headers: headers).responseData{
-            response in
-            dump(body)
-            
-            switch response.result {
-                
-            case .success:
-                // parameter 위치
-                if let value = response.result.value {
-                    if let status = response.response?.statusCode {
-                        print(status)
-                        switch status {
-                        case 200:
-                            do{
-                                let decoder = JSONDecoder()
-                                let result = try decoder.decode(ResponseSimpleResult<Token>.self,
-                                                                from: value)
-                                completion(.success(result.data ?? Token.self))
-                            } catch {
-                                completion(.pathErr)
+                            response in
+                            dump(body)
+                            
+                            switch response.result {
+                                
+                            case .success:
+                                // parameter 위치
+                                if let value = response.result.value {
+                                    if let status = response.response?.statusCode {
+                                        print(status)
+                                        switch status {
+                                        case 200:
+                                            do{
+                                                let decoder = JSONDecoder()
+                                                let result = try decoder.decode(ResponseSimpleResult<Token>.self,
+                                                                                from: value)
+                                                completion(.success(result.data ?? Token.self))
+                                            } catch {
+                                                completion(.pathErr)
+                                            }
+                                        case 409:
+                                            completion(.pathErr)
+                                        case 500:
+                                            completion(.serverErr)
+                                        default:
+                                            break
+                                        }
+                                    }
+                                }
+                                break
+                            case .failure(let err):
+                                print(err.localizedDescription)
+                                completion(.networkFail)
                             }
-                        case 409:
-                            completion(.pathErr)
-                        case 500:
-                            completion(.serverErr)
-                        default:
-                            break
-                        }
-                    }
-                }
-                break
-            case .failure(let err):
-                print(err.localizedDescription)
-                completion(.networkFail)
-            }
         }
-
+        
     }
     
     // MARK: - 로그인
@@ -98,38 +98,38 @@ struct UserService {
                           parameters: body,
                           encoding: JSONEncoding.default,
                           headers: headers).responseData{
-            response in
-            
-            switch response.result {
-                
-            case .success:
-                if let value = response.result.value {
-                    if let status = response.response?.statusCode {
-                        
-                        switch status {
-                        case 200:
-                            do{
-                                let decoder = JSONDecoder()
-                                let result = try decoder.decode(ResponseSimpleResult<SignIn>.self,
-                                                                from: value)
-                                completion(.success(result.data ?? SignIn.self))
-                            } catch {
-                                completion(.pathErr)
+                            response in
+                            
+                            switch response.result {
+                                
+                            case .success:
+                                if let value = response.result.value {
+                                    if let status = response.response?.statusCode {
+                                        
+                                        switch status {
+                                        case 200:
+                                            do{
+                                                let decoder = JSONDecoder()
+                                                let result = try decoder.decode(ResponseSimpleResult<SignIn>.self,
+                                                                                from: value)
+                                                completion(.success(result.data ?? SignIn.self))
+                                            } catch {
+                                                completion(.pathErr)
+                                            }
+                                        case 409:
+                                            completion(.pathErr)
+                                        case 500:
+                                            completion(.serverErr)
+                                        default:
+                                            break
+                                        }
+                                    }
+                                }
+                                break
+                            case .failure(let err):
+                                print(err.localizedDescription)
+                                completion(.networkFail)
                             }
-                        case 409:
-                            completion(.pathErr)
-                        case 500:
-                            completion(.serverErr)
-                        default:
-                            break
-                        }
-                    }
-                }
-                break
-            case .failure(let err):
-                print(err.localizedDescription)
-                completion(.networkFail)
-            }
         }
     }
     
@@ -153,31 +153,31 @@ struct UserService {
                           parameters: body,
                           encoding: JSONEncoding.default,
                           headers: headers).responseData{
-            response in
-            
-            switch response.result {
-                
-            case .success:
-                // parameter 위치
-                if let _ = response.value {
-                    if let status = response.response?.statusCode {
-                        switch status {
-                        case 200:
-                            completion(.success("이메일 전송 성공"))
-                        case 409:
-                            completion(.pathErr)
-                        case 500:
-                            completion(.serverErr)
-                        default: break
-                        }
-                    }
-                }
-                break
-                
-            case .failure(let err):
-                print(err.localizedDescription)
-                completion(.networkFail)
-            }
+                            response in
+                            
+                            switch response.result {
+                                
+                            case .success:
+                                // parameter 위치
+                                if let _ = response.value {
+                                    if let status = response.response?.statusCode {
+                                        switch status {
+                                        case 200:
+                                            completion(.success("이메일 전송 성공"))
+                                        case 409:
+                                            completion(.pathErr)
+                                        case 500:
+                                            completion(.serverErr)
+                                        default: break
+                                        }
+                                    }
+                                }
+                                break
+                                
+                            case .failure(let err):
+                                print(err.localizedDescription)
+                                completion(.networkFail)
+                            }
         }
     }
     
@@ -198,41 +198,41 @@ struct UserService {
                           parameters: body,
                           encoding: JSONEncoding.default,
                           headers: headers).responseData{
-            response in
-            
-            switch response.result {
-                
-            case .success:
-                // parameter 위치
-                if let value = response.result.value {
-                    if let status = response.response?.statusCode {
-                        print(status)
-                        switch status {
-                        case 200:
-                            do{
-                                let decoder = JSONDecoder()
-                                let result = try decoder.decode(ResponseTempResult.self,
-                                                                from: value)
-                                completion(.success(result))
-                            } catch {
-                                completion(.pathErr)
+                            response in
+                            
+                            switch response.result {
+                                
+                            case .success:
+                                // parameter 위치
+                                if let value = response.result.value {
+                                    if let status = response.response?.statusCode {
+                                        print(status)
+                                        switch status {
+                                        case 200:
+                                            do{
+                                                let decoder = JSONDecoder()
+                                                let result = try decoder.decode(ResponseTempResult.self,
+                                                                                from: value)
+                                                completion(.success(result))
+                                            } catch {
+                                                completion(.pathErr)
+                                            }
+                                        case 409:
+                                            completion(.pathErr)
+                                        case 500:
+                                            completion(.serverErr)
+                                        default:
+                                            break
+                                        }
+                                    }
+                                }
+                                break
+                            case .failure(let err):
+                                print(err.localizedDescription)
+                                completion(.networkFail)
                             }
-                        case 409:
-                            completion(.pathErr)
-                        case 500:
-                            completion(.serverErr)
-                        default:
-                            break
-                        }
-                    }
-                }
-                break
-            case .failure(let err):
-                print(err.localizedDescription)
-                completion(.networkFail)
-            }
         }
-
+        
     }
     
     func enrollProfile(_ profileIMG: UIImage,
@@ -274,20 +274,53 @@ struct UserService {
                                      withName: "profileAge")
             multipartFormData.append(profileInfo.data(using: .utf8) ?? Data(),
                                      withName: "profileInfo")
-
-        }, to: URL, method: .post, headers: headers) { (encodingResult) in
+            
+            }, to: URL, method: .post, headers: headers) { (encodingResult) in
             
             switch encodingResult {
                 
             case .success(let upload, _, _):
                 print("success")
                 upload.responseJSON { (response) in
-                    completion(.success(response.result.value as Any))
+                    switch response.result {
+                        
+                    case .success:
+                        // parameter 위치
+                        if let value = response.data {
+                            if let status = response.response?.statusCode {
+                                switch status {
+                                case 200:
+                                    do{
+                                        let decoder = JSONDecoder()
+                                        let result = try decoder.decode(ResponseSimpleResult<ProfileIndex>.self,
+                                                                        from: value)
+                                        completion(.success(result.data))
+                                    } catch {
+                                        completion(.pathErr)
+                                    }
+                                case 409:
+                                    completion(.pathErr)
+                                case 500:
+                                    completion(.serverErr)
+                                default: break
+                                }
+                            }
+                        }
+                        break
+                        
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                    }
                 }
             case .failure(let encodingError):
                 print(encodingError.localizedDescription)
             }
         }
-
+        
     }
+}
+
+struct ProfileIndex: Codable {
+    let profileIdx: Int
 }

@@ -16,11 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-vc-mQ3">
-                                <rect key="frame" x="16" y="546" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="move to review page"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9T-Li-1f0">
                                 <rect key="frame" x="16" y="97" width="342" height="44"/>
                                 <subviews>
@@ -52,9 +47,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YTU-Bx-CnQ">
-                                <rect key="frame" x="16" y="153" width="343" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YTU-Bx-CnQ">
+                                <rect key="frame" x="16" y="153" width="343" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="A1f-84-aEn">
@@ -67,20 +61,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQj-Yt-zK8">
-                                <rect key="frame" x="109" y="513" width="156" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="move to collectionview"/>
-                                <connections>
-                                    <segue destination="EMp-qg-vp8" kind="push" id="k2n-Us-aL3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PiP-ak-fHW" firstAttribute="trailing" secondItem="x9T-Li-1f0" secondAttribute="trailing" constant="17" id="ClX-K7-UcX"/>
                             <constraint firstItem="x9T-Li-1f0" firstAttribute="leading" secondItem="PiP-ak-fHW" secondAttribute="leading" constant="16" id="PZf-Q2-gtv"/>
+                            <constraint firstItem="YTU-Bx-CnQ" firstAttribute="top" secondItem="x9T-Li-1f0" secondAttribute="bottom" constant="12" id="Y7M-nf-rhj"/>
                             <constraint firstItem="x9T-Li-1f0" firstAttribute="top" secondItem="PiP-ak-fHW" secondAttribute="top" constant="9" id="Zv8-3W-4TC"/>
+                            <constraint firstItem="PiP-ak-fHW" firstAttribute="trailing" secondItem="YTU-Bx-CnQ" secondAttribute="trailing" constant="16" id="hbc-7g-JkI"/>
+                            <constraint firstItem="YTU-Bx-CnQ" firstAttribute="leading" secondItem="PiP-ak-fHW" secondAttribute="leading" constant="16" id="pfo-p1-mlP"/>
+                            <constraint firstItem="PiP-ak-fHW" firstAttribute="bottom" secondItem="YTU-Bx-CnQ" secondAttribute="bottom" id="x4n-Hc-iOK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PiP-ak-fHW"/>
                     </view>
@@ -92,9 +82,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="movePostView" destination="WlP-vc-mQ3" id="nvj-FM-0z5"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pY5-X2-XGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-nb-Sqb">
-                                <rect key="frame" x="16" y="97" width="342" height="44"/>
+                                <rect key="frame" x="16" y="53" width="342" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색어를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5q-ik-7dm">
                                         <rect key="frame" x="37" y="12" width="113" height="20"/>
@@ -140,7 +127,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nd9-P4-gwQ">
-                                <rect key="frame" x="0.0" y="141" width="375" height="671"/>
+                                <rect key="frame" x="0.0" y="97" width="375" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ojx-zg-gQV">
                                     <size key="itemSize" width="140" height="127"/>

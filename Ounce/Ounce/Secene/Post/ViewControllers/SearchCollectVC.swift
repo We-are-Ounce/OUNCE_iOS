@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchCollectVC: UIViewController{
     
@@ -18,7 +19,9 @@ class SearchCollectVC: UIViewController{
     var pageIndex = [1,10]
     var rootVC: UIViewController?
     var searchResult: String?
-    
+    var recodeObject: [NSManagedObject] = []
+    let con = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,6 @@ class SearchCollectVC: UIViewController{
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        print(searchResult)
         searchProduct(searchResult ?? "")
         self.navigationItem.title = "기록하기"
        
@@ -41,6 +43,7 @@ class SearchCollectVC: UIViewController{
     @IBAction func searchBtnTouched(_ sender: Any) {
         
         searchProduct(searchTextField.text ?? "")
+        save(searchTextField.text ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +79,37 @@ class SearchCollectVC: UIViewController{
         productInformations = [product1,product2,product3,product4,product5,product6]
         
     }*/
+    func save(_ inputRecode: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+          appDelegate.persistentContainer.viewContext
+
+        // 2
+        let entity =
+          NSEntityDescription.entity(forEntityName: "Recode",
+                                     in: managedContext)!
+
+        let recode = NSManagedObject(entity: entity,
+                                     insertInto: managedContext)
+
+        // 3
+        recode.setValue(inputRecode, forKeyPath: "recode")
+        recode.setValue(Date(), forKey: "time")
+        
+        // 4
+        do {
+          try managedContext.save()
+          recodeObject.append(recode)
+        } catch let error as NSError {
+          print("Could not save. \(error), \(error.userInfo)")
+        }
+
+        
+    }
 }
 
 extension SearchCollectVC: UICollectionViewDataSource{

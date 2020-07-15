@@ -127,6 +127,10 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             cell.accountButton.tag = indexPath.row
             cell.accountButton.addTarget(self, action: #selector(didTapAccountButton),
                                         for: .touchUpInside)
+            cell.editProfileButton.tag = indexPath.row
+            cell.editProfileButton.addTarget(self, action: #selector(didEditProfileButton),
+                                        for: .touchUpInside)
+
             cell.profile = profiles?[indexPath.row]
             cell.cellProfile()
             
@@ -249,7 +253,13 @@ extension HomeVC {
         self.present(dvc, animated: false)
     }
 
-    
+    @objc func didEditProfileButton(){
+        let storyboard = UIStoryboard(name: "Register", bundle:  nil)
+        let dvc = storyboard.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
+        dvc.isEdit = true
+        dvc.modalPresentationStyle = .overFullScreen
+        present(dvc, animated: true)
+    }
     
 }
 

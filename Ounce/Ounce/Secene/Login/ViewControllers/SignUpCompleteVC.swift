@@ -28,7 +28,8 @@ class SignUpCompleteVC: UIViewController {
         Images.box,
         Images.triangle,
         Images.circle,
-        Images.swirl
+        Images.swirl,
+        Images.btrWrite
     ]
     
     var velocities:[Int] = [
@@ -150,5 +151,6 @@ enum Images {
     static let triangle = UIImage(named: "Triangle")!
     static let circle = UIImage(named: "Circle")!
     static let swirl = UIImage(named: "Spiral")!
+    static let btrWrite = UIImage(named: "btnWrite")!
     
 }

@@ -50,12 +50,22 @@ class RegisterVC: UIViewController {
         return button
         
     }()
-    
+    lazy var editButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "수정",
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(didTapNextButton))
+        //        button.isEnabled = false
+        return button
+        
+    }()
+
     // MARK: - Variables and Properties
     
     var selectedItems = [YPMediaItem]()
     var sex: Int = 4
     var isNeutralization : Bool = false
+    var isEdit: Bool = false
     
     // MARK: - Life Cycle
     
@@ -70,7 +80,6 @@ class RegisterVC: UIViewController {
         setButton()
         setTextField()
         setProfileIMG()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         let image = UIImage(named: "smallLogo")
         navigationItem.titleView = UIImageView(image: image)
         addKeyboardNotification()
@@ -83,7 +92,11 @@ class RegisterVC: UIViewController {
 extension RegisterVC {
     
     func setNav(){
-        navigationItem.rightBarButtonItem = rightButton
+        if isEdit {
+            navigationItem.rightBarButtonItem = editButton
+        } else {
+            navigationItem.rightBarButtonItem = rightButton
+        }
     }
     
     func setProfileIMG(){
@@ -172,12 +185,15 @@ extension RegisterVC {
     }
     
     func setTextField() {
+        ageTextField.tintColor = .black
         ageTextField.keyboardType = .numberPad
         weightTextField.keyboardType = .decimalPad
+        weightTextField.tintColor = .black
         ageTextField.delegate = self
         ageTextField.addTarget(self,
                                action: #selector(textFieldDidChange),
                                for: .editingChanged)
+        nameTextField.tintColor = .black
         nameTextField.delegate = self
         nameTextField.addTarget(self,
                                 action: #selector(textFieldDidChange),
@@ -186,6 +202,7 @@ extension RegisterVC {
         weightTextField.addTarget(self,
                                   action: #selector(textFieldDidChange),
                                   for: .editingChanged)
+        contentTextField.tintColor = .black
         contentTextField.delegate = self
         contentTextField.addTarget(self,
                                    action: #selector(textFieldDidChange),

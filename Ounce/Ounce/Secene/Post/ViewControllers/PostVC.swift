@@ -136,7 +136,7 @@ class PostVC: UIViewController {
                                     custom.foodIndex,
                                     custom.profileIndex){ NetworkResult
             in switch NetworkResult{
-            case .success(let _):
+            case .success(_):
                 print("버튼작동")
 //                guard let token = token as? String else {return}
 //                let storyboard = UIStoryboard(name: "Post",bundle: nil)

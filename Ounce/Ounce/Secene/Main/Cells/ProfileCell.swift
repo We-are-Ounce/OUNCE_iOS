@@ -19,6 +19,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var following: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var editProfileButton: UIButton!
     
     // MARK: - profile : 받아오는 데이터
     @IBOutlet weak var profileImg: UIImageView!
@@ -30,7 +31,10 @@ class ProfileCell: UITableViewCell {
     
     var profile: MyProfile?
     
-    func setDataInformation(myfollower: String, myfollowing: String, myWeight: String, myAge: String){
+    func setDataInformation(myfollower: String,
+                            myfollowing: String,
+                            myWeight: String,
+                            myAge: String){
         
         
         follower.setTitle("팔로워" + myfollower, for: .normal)
@@ -39,7 +43,7 @@ class ProfileCell: UITableViewCell {
         weightLabel.text = myWeight + "kg"
         ageLabel.text =  myAge + "살"
         
-       }
+    }
     
     func gender (gender : String, neutral : String) -> String {
         var str = ""

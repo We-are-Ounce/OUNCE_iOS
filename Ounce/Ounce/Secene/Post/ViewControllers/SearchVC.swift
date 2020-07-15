@@ -57,6 +57,10 @@ class SearchVC: UIViewController{
 
     }
     
+    override func viewWillAppear(_ animated: Bool){
+        
+    }
+    
     @IBAction func downBarButton(_ sender: Any) {
     // 뒤로가기.(화면 아래로 내려가는 액션)
         self.dismiss(animated: true, completion: nil)

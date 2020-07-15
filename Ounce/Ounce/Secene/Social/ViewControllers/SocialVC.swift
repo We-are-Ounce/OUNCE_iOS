@@ -61,7 +61,7 @@ class SocialVC: UIViewController {
     
     
     var constraints : [NSLayoutConstraint] = []
-    var userSocialInfo: Follow?
+    //var userSocialInfo: Follow?
     
     var followerInfo: [Follow] = []
     var followingInfo: [Follow] = []

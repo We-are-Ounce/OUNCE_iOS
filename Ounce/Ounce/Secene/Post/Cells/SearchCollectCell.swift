@@ -15,14 +15,14 @@ class SearchCollectCell: UICollectionViewCell{
     
     var rootVC: UIViewController?
     var catproduct: CatProduct?
-   
+    var filteredCatProduct: FilteredCatProduct?
     
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var manufacturerName: UILabel!
     
     
-    func setCell(_ productInfo:CatProduct ){
+    func setCell(_ productInfo:FilteredCatProduct ){
         productImageView.imageFromUrl(productInfo.foodImg, defaultImgPath: "")
         manufacturerName.text = productInfo.foodManu
         productName.text = productInfo.foodName

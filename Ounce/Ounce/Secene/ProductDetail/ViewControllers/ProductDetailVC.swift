@@ -124,12 +124,12 @@ class ProductDetailVC: UIViewController {
                                                 style: .done,
                                                 target: self,
                                                 action: #selector(didTapInfoButton))
-    
+
     var foodIndex: Int?
     var isEdit: Bool = false
     var productInfo: CatProduct?
     var reviews: [Review]?
-    
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -138,16 +138,16 @@ class ProductDetailVC: UIViewController {
         contraint()
         setNav()
         navigationItem.rightBarButtonItem = rightButton
-        
+
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print(#function)
     }
-    
-    
-    
+
+
+
 }
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
@@ -155,16 +155,16 @@ extension ProductDetailVC {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
-    
+
     @objc func didTapInfoButton(){
         let url = URL(string: productInfo?.foodLink ?? "")
         let safariViewController = SFSafariViewController(url: url!)
         safariViewController.preferredControlTintColor = .black
-        
+
         present(safariViewController, animated: true, completion: nil)
-        
+
     }
-    
+
     func setNav(){
         navigationController?.navigationBar.setBackgroundImage(UIImage(),
                                                                for: UIBarMetrics.default)
@@ -222,7 +222,9 @@ extension ProductDetailVC: UITableViewDataSource {
 
         headerView.addSubview(firstCategoryView)
         headerView.addSubview(secondCategoryLabel)
-//        secondCategoryLabel.text = productInfo?.foodMeat
+
+        secondCategoryLabel.text = productInfo?.foodMeat
+        Feature/#116
 
         headerView.addSubview(secondCategoryView)
         headerView.addSubview(thirdCategoryLabel)
@@ -371,7 +373,7 @@ extension ProductDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 300
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Post", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC

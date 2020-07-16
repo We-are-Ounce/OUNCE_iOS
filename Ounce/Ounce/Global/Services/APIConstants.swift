@@ -40,6 +40,8 @@ struct APIConstants {
     
     // POST 유저검색 /search/user
     static let searchUser = BaseURL + "search/user"
+    // POST 기록용 검색 /search/toWrite/:profileIdx
+    static let searchToWrite = BaseURL + "search/toWrite"
     // POST 제품, 제조사명 검색 /search/food
     static let searchProduct = BaseURL + "search/food"
     // POST 제품 리뷰전체보기 /search/reviewAll

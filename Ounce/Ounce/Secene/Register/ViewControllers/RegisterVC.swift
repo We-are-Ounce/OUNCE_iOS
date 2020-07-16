@@ -199,7 +199,8 @@ extension RegisterVC {
                contentTextField.text ?? "")
     }
     @objc func didTapEditButton(){
-        print(#function)
+        //print(#function)
+        
     }
 
     
@@ -389,9 +390,15 @@ extension RegisterVC {
             
             switch data {
             case .success(let res):
-                let sb = UIStoryboard(name: "TabBar", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
+                let sb = UIStoryboard(name: "Login", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "SignUpCompleteVC") as! SignUpCompleteVC
                 vc.modalPresentationStyle = .fullScreen
+                vc.imageName = "cat"
+                vc.stringName = "고양이 등록이\n 완료되었습니다."
+                vc.stringIndex = 6
+                vc.judgeBool = 1
+                vc.completeString = "완료"
+                
                 let profile = res as! ProfileIndex
                 KeychainWrapper.standard.set(profile.profileIdx, forKey: "currentProfile")
                 self.present(vc, animated: true)

@@ -116,9 +116,9 @@ extension BrowseCVCell{
             labelName.text = recommendInfo?.resultProfile[num].profileName
             labelName.textAlignment = .center
             labelCoincidence.text = String(recommendInfo?.similarity[num] ?? 0) + "% 일치"
-            firstRecommandImg.imageFromUrl(foodStr[0], defaultImgPath: "")
-            secondRecommandImg.imageFromUrl(foodStr[1], defaultImgPath: "")
-            thirdRecommandImg.imageFromUrl(foodStr[2], defaultImgPath: "")
+            firstRecommandImg.imageFromUrl(foodStr[0], defaultImgPath: "https://user-images.githubusercontent.com/61657569/87718513-dfd97080-c7ec-11ea-8ef2-2d0091b7f644.png")
+            secondRecommandImg.imageFromUrl(foodStr[1], defaultImgPath: "https://user-images.githubusercontent.com/61657569/87718513-dfd97080-c7ec-11ea-8ef2-2d0091b7f644.png")
+            thirdRecommandImg.imageFromUrl(foodStr[2], defaultImgPath: "https://user-images.githubusercontent.com/61657569/87718513-dfd97080-c7ec-11ea-8ef2-2d0091b7f644.png")
 
         }
         

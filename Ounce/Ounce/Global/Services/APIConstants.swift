@@ -30,7 +30,7 @@ struct APIConstants {
     // DELETE 팔로우 취소 profile/deleteFollow
     static let deleteFollow = BaseURL + "profile/deleteFollow"
     // PUT 프로필 수정 /profile/edit/:profileIdx
-    static let editProfile = BaseURL + "profile/edit"
+    static let editProfile = BaseURL + "profile/edit/"
     // GET 프로필 전환 /profile/convesion/:profileIdx
     static let changeProfile = BaseURL + "profile/convesion"
     // POST 프로필 추가할때 프로필 갯수 체크 /profile/addProfile

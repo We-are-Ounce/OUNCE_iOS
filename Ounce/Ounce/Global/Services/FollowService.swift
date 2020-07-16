@@ -16,6 +16,10 @@ struct FollowService {
     
     static let shared = FollowService()
     
+    func didTapFollow(){
+        
+    }
+    
     //MARK - 팔로워
     
     func follower(completion: @escaping (NetworkResult<Any>) -> Void) {

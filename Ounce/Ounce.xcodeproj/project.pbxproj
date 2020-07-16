@@ -97,6 +97,8 @@
 		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
 		7792017524BE0BBE00DB0ACD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017424BE0BBE00DB0ACD /* SearchService.swift */; };
 		7792017624BE0BDA00DB0ACD /* RecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBD26F24BE0AB3003034D0 /* RecommendService.swift */; };
+		7792017924BFBA2000DB0ACD /* ChangeAccountCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */; };
+		7792017A24BFBA2000DB0ACD /* ChangeAccountCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */; };
 		77DBD26C24BE0A9F003034D0 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBD26B24BE0A9F003034D0 /* ReviewService.swift */; };
 		7F7CE9BF24B7668000CB2476 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE9BE24B7668000CB2476 /* FilterVC.swift */; };
 		7FBCE81E24BF891600EFA5D2 /* FilterCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE81D24BF891600EFA5D2 /* FilterCVC.swift */; };
@@ -229,6 +231,8 @@
 		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
 		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		7792017424BE0BBE00DB0ACD /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountCVC.swift; sourceTree = "<group>"; };
+		7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeAccountCVC.xib; sourceTree = "<group>"; };
 		77DBD26B24BE0A9F003034D0 /* ReviewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
 		77DBD26F24BE0AB3003034D0 /* RecommendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendService.swift; sourceTree = "<group>"; };
 		7F7CE9BE24B7668000CB2476 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
@@ -574,6 +578,8 @@
 				7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */,
 				7FE7BA5924BCD6E300D57089 /* SortingCell.swift */,
 				7FBCE81D24BF891600EFA5D2 /* FilterCVC.swift */,
+				7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */,
+				7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -877,6 +883,7 @@
 				5E075D3E24B0ABF70035C415 /* NotoSansKR-Regular.otf in Resources */,
 				5E075D3C24B0ABF70035C415 /* OFL.txt in Resources */,
 				7FC9385A24AB108A002B0CA7 /* LaunchScreen.storyboard in Resources */,
+				7792017A24BFBA2000DB0ACD /* ChangeAccountCVC.xib in Resources */,
 				5E075D3D24B0ABF70035C415 /* NotoSansKR-Black.otf in Resources */,
 				5EA0B01724B1D1AC0051C352 /* TabBar.storyboard in Resources */,
 				5EFD2DC024BAFE140054B357 /* ProductDetail.storyboard in Resources */,
@@ -952,6 +959,7 @@
 				5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */,
 				7792017524BE0BBE00DB0ACD /* SearchService.swift in Sources */,
 				5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */,
+				7792017924BFBA2000DB0ACD /* ChangeAccountCVC.swift in Sources */,
 				777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */,
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				773384EC24B8E91200D05E8F /* SocialVC.swift in Sources */,

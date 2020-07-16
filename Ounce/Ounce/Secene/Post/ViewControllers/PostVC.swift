@@ -44,6 +44,7 @@ class PostVC: UIViewController {
     var profileIndexNumber: Int?
     var reviewIndexNumber: Int?
     var postDelegate: PostDelegate?
+    var reviews: Review?
 
     let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
     

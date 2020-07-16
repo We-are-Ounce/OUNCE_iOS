@@ -49,19 +49,13 @@ class HomeVC: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         if !isOtherUser {
-            
             navigationController?.isNavigationBarHidden = true
-            
-            
         } else {
-            
             didTapBackButton()
-          
-//            navigationController?.isNavigationBarHidden = false
-
+            navigationController?.isNavigationBarHidden = true
         }
         dateReviewService(19, 1, 10)
         

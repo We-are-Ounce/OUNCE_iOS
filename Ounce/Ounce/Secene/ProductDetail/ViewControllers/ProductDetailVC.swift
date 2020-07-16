@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 import Then
 import SnapKit
@@ -119,24 +120,33 @@ class ProductDetailVC: UIViewController {
     }
     
     // MARK: - Variables and Properties
-    lazy var rightButton = UIBarButtonItem.init(image: UIImage(named: "icMore"), style: .done, target: self, action: nil)
-
+    lazy var rightButton = UIBarButtonItem.init(image: UIImage(named: "icInfoOutline24Px"),
+                                                style: .done,
+                                                target: self,
+                                                action: #selector(didTapInfoButton))
+    
     var foodIndex: Int?
     var isEdit: Bool = false
     var productInfo: CatProduct?
+    var reviews: [Review]?
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#file)
-        
         setTableView()
         contraint()
         setNav()
         navigationItem.rightBarButtonItem = rightButton
-
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print(#function)
+    }
+    
+    
     
 }
 
@@ -146,9 +156,18 @@ extension ProductDetailVC {
         self.view.endEditing(true)
     }
     
+    @objc func didTapInfoButton(){
+        let url = URL(string: productInfo?.foodLink ?? "")
+        let safariViewController = SFSafariViewController(url: url!)
+        safariViewController.preferredControlTintColor = .black
+        
+        present(safariViewController, animated: true, completion: nil)
+        
+    }
+    
     func setNav(){
         navigationController?.navigationBar.setBackgroundImage(UIImage(),
-                                                                    for: UIBarMetrics.default)
+                                                               for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
@@ -238,7 +257,7 @@ extension ProductDetailVC: UITableViewDataSource {
             make.leading.equalTo(firstCategoryView.snp.leading).offset(10.5)
             make.height.equalTo(18)
         }
-   
+        
         firstCategoryView.snp.makeConstraints { (make) in
             make.top.equalTo(headerView.snp.top).offset(79)
             make.leading.equalTo(headerIMG.snp.trailing).offset(20)
@@ -346,5 +365,12 @@ extension ProductDetailVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 300
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Post", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
+        vc.reviews = reviews?[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

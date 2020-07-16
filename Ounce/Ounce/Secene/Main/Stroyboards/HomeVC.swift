@@ -183,14 +183,28 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             let dvc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
             dvc.modalPresentationStyle = .overFullScreen
             navigationController?.isNavigationBarHidden = false
+            
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
                                                                style: .plain,
                                                                target: nil,
                                                                action: nil)
+            navigationItem.rightBarButtonItem = UIBarButtonItem()
+           
             /* 셀 클릭시 index값 넘겨주기 */
-            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
             
+            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
+            print("리뷰인덱스넘버가 넘어올까?",dvc.reviewIndexNumber)
+            dvc.isEdit = true
+            
+            //dvc.rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(dvc.saveButtonDidTap))
+            
+            //dvc.rightButton.title =  ""
+            
+//            dvc.rightButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(dvc.editButtonDidTap))
+//            dvc.rightButton.image = UIImage(named: "icMore")
+//            dvc.rightButton.action = #selector(dvc.editButtonDidTap)
             self.navigationController?.pushViewController(dvc, animated: true)
+            
         }
         
     }

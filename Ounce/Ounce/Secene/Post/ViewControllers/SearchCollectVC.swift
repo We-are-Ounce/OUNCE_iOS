@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+import SwiftKeychainWrapper
+
 class SearchCollectVC: UIViewController{
     
     @IBOutlet weak var searchCollectionView: UICollectionView!
@@ -16,24 +18,27 @@ class SearchCollectVC: UIViewController{
     
     //private var productInformations:[Product] = []
     private var product:[CatProduct] = []
+    private var filteredProduct:[FilteredCatProduct] = []
     var pageIndex = [1,10]
+    let profileIndex: Int = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
     var rootVC: UIViewController?
     var searchResult: String?
     var recodeObject: [NSManagedObject] = []
     let con = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(profileIndex)
         /*네비게이션 바 뒤로가기 버튼 타이틀 없애는 코드~~~참고하세요^^,,,왜 버튼아이템을 만들어줘야할까...존나빡쳐...개빡쳐...엑코 뒤져*/
         
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        searchProduct(searchResult ?? "")
+        searchProduct(profileIndex ?? 0, searchResult ?? "")
         self.navigationItem.title = "기록하기"
-       
+        
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
         searchTextField.tintColor = .black
@@ -41,7 +46,7 @@ class SearchCollectVC: UIViewController{
     
     @IBAction func searchBtnTouched(_ sender: Any) {
         
-        searchProduct(searchTextField.text ?? "")
+        searchProduct(profileIndex ,searchTextField.text ?? "")
         save(searchTextField.text ?? "")
     }
     
@@ -65,10 +70,10 @@ class SearchCollectVC: UIViewController{
         //let backButton = UIBarButtonItem()
         //backButton.title = ""
         //self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-    
+        
         
     }
-
+    
     
     func save(_ inputRecode: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -77,28 +82,28 @@ class SearchCollectVC: UIViewController{
         
         // 1
         let managedContext =
-          appDelegate.persistentContainer.viewContext
-
+            appDelegate.persistentContainer.viewContext
+        
         // 2
         let entity =
-          NSEntityDescription.entity(forEntityName: "Recode",
-                                     in: managedContext)!
-
+            NSEntityDescription.entity(forEntityName: "Recode",
+                                       in: managedContext)!
+        
         let recode = NSManagedObject(entity: entity,
                                      insertInto: managedContext)
-
+        
         // 3
         recode.setValue(inputRecode, forKeyPath: "recode")
         recode.setValue(Date(), forKey: "time")
         
         // 4
         do {
-          try managedContext.save()
-          recodeObject.append(recode)
+            try managedContext.save()
+            recodeObject.append(recode)
         } catch let error as NSError {
-          print("Could not save. \(error), \(error.userInfo)")
+            print("Could not save. \(error), \(error.userInfo)")
         }
-
+        
         
     }
 }
@@ -107,13 +112,13 @@ extension SearchCollectVC: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return productInformations.count
-        product.count
+        filteredProduct.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectCell.identfier, for: indexPath) as? SearchCollectCell else {return UICollectionViewCell()}
         //itemCell.set(productInformations[indexPath.row])
-        itemCell.setCell(product[indexPath.row])
+        itemCell.setCell(filteredProduct[indexPath.row])
         return itemCell
     }
 }
@@ -143,49 +148,70 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
         let PostStoryBoard: UIStoryboard = UIStoryboard(name: "Post", bundle: nil)
         let pvc = PostStoryBoard.instantiateViewController(identifier: "PostVC") as PostVC
         //pvc.modalPresentationStyle = .fullScreen
-       
+        
         //pvc.product = product[indexPath.row]
         //pvc.foodMeat1 = product[indexPath.row].foodMeat
-        pvc.foodIndexNumber = product[indexPath.row].foodIdx
-  
-        print("푸드인덱스넘버",pvc.foodIndexNumber)
-        pvc.foodDry = product[indexPath.row].foodDry
-        pvc.foodMeat1 = product[indexPath.row].foodMeat1
-        pvc.foodMeat2 = product[indexPath.row].foodMeat2
-        pvc.imageNameVC = product[indexPath.row].foodImg
-        pvc.companyNameVC = product[indexPath.row].foodManu
-        pvc.productNameVC = product[indexPath.row].foodName
+        pvc.foodIndexNumber = filteredProduct[indexPath.row].foodIdx
+        //pvc.foodDry = product[indexPath.row].foodDry
+        //pvc.foodMeat1 = product[indexPath.row].foodMeat1
+        //pvc.foodMeat2 = product[indexPath.row].foodMeat2
+        pvc.imageNameVC = filteredProduct[indexPath.row].foodImg
+        pvc.companyNameVC = filteredProduct[indexPath.row].foodManu
+        pvc.productNameVC = filteredProduct[indexPath.row].foodName
         
         self.navigationController?.pushViewController(pvc, animated: true)
         // 네비게이션 이동. pvc view로 이동
     }
     
-    @objc func searchProduct(_ result: String){
+    @objc func searchProduct(_ profileIdx: Int, _ result: String){
         print(#function)
-        SearchService.shared.searchProduct(result, pageIndex[0], pageIndex[1])
-        {(responseData) in switch responseData {
-        case .success(let res) :
-            let response = res as! [CatProduct]
-            self.product = response
-            print(self.product)
-            DispatchQueue.main.async {
+        /*
+         SearchService.shared.searchProduct(result, pageIndex[0], pageIndex[1])
+         {(responseData) in switch responseData {
+         case .success(let res) :
+         let response = res as! [CatProduct]
+         self.product = response
+         print(self.product)
+         DispatchQueue.main.async {
+         self.searchCollectionView.reloadData()
+         }
+         self.searchCollectionView.reloadData()
+         self.pageIndex[0] = self.pageIndex[1] + 1
+         self.pageIndex[1] = self.pageIndex[1] + 10
+         
+         case .requestErr(_):
+         print("requestErr")
+         case .pathErr:
+         print("pathErr")
+         case .serverErr:
+         print("serverErr")
+         case .networkFail :
+         print("networkFail")
+         }
+         
+         
+         }*/
+        SearchService.shared.searchToWrite(profileIdx, result, pageIndex[0], pageIndex[1]){(responseData) in switch responseData {
+        case.success(let res) :
+            let response = res as! [FilteredCatProduct]
+            self.filteredProduct = response
+            print(self.filteredProduct)
+            DispatchQueue.main.async{
                 self.searchCollectionView.reloadData()
             }
-            self.searchCollectionView.reloadData()
+            self.searchCollectionView.reloadData() // pageindex 값 바꾸기
             self.pageIndex[0] = self.pageIndex[1] + 1
             self.pageIndex[1] = self.pageIndex[1] + 10
-            
-        case .requestErr(_):
+        case.requestErr(_):
             print("requestErr")
         case .pathErr:
             print("pathErr")
+            print("??")
         case .serverErr:
             print("serverErr")
-        case .networkFail :
+        case .networkFail:
             print("networkFail")
             }
-            
-            
         }
     }
 }

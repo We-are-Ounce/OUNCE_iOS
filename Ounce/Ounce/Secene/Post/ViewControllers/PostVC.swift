@@ -44,10 +44,12 @@ class PostVC: UIViewController {
     var profileIndexNumber: Int?
     var reviewIndexNumber: Int?
     var postDelegate: PostDelegate?
+    var isEdit: Bool = false
 
     let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
     
-    let rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(saveButtonDidTap))
+    var rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(saveButtonDidTap))
+    var editButton = UIBarButtonItem(image: UIImage(named: "icMore"), style: .plain, target: self, action: #selector(editButtonDidTap))
     
     
     override func viewDidLoad() {
@@ -105,7 +107,11 @@ class PostVC: UIViewController {
         super.viewDidAppear(true)
         rightButton.title = "완료"
         //rightButton.image = UIImage(named:"icMore")
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
+        if !isEdit {
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
+        } else {
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem = editButton
+        }
         //rightButton.action = #selector(editButtonDidTap)
         //rightButton.target = self
         // 중간수정버튼 만들기
@@ -114,8 +120,9 @@ class PostVC: UIViewController {
 //        rightButton.target = self
     }
     
-    /*@objc private func editButtonDidTap(){
+    @objc func editButtonDidTap(){
         
+        print(#function)
         let settingAlert = UIAlertController(title: nil, message: nil , preferredStyle: .actionSheet)
        
         let firstAction = UIAlertAction(title: "수정", style: .default, handler: nil)
@@ -132,7 +139,8 @@ class PostVC: UIViewController {
         
         present(settingAlert,animated: true,completion: nil)
         
-    }*/
+    }
+    
     
     @objc func saveButtonDidTap(){
         // 리뷰 작성 버튼 - 완료 버튼 눌렀을 때 액션

@@ -8,12 +8,17 @@
 
 import Foundation
 
+// MARK: - MyProfile
 struct MyProfile: Codable {
+    let reviewCountAll: Int
+    let profileInfoArray: [ProfileInfoArray]
+}
+
+// MARK: - ProfileInfoArray
+struct ProfileInfoArray: Codable {
     let profileImg: String
     let profileName, profileGender, profileNeutral: String
     let profileAge: Int
     let profileWeight, profileInfo: String
     let follower, following: Int
 }
-
-

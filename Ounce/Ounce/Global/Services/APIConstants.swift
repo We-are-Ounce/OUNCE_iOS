@@ -30,16 +30,20 @@ struct APIConstants {
     // DELETE 팔로우 취소 profile/deleteFollow
     static let deleteFollow = BaseURL + "profile/deleteFollow"
     // PUT 프로필 수정 /profile/edit/:profileIdx
-    static let editProfile = BaseURL + "profile/edit"
+    static let editProfile = BaseURL + "profile/edit/"
     // GET 프로필 전환 /profile/convesion/:profileIdx
     static let changeProfile = BaseURL + "profile/convesion"
     // POST 프로필 추가할때 프로필 갯수 체크 /profile/addProfile
     static let certificationAddProfile = BaseURL + "profile/addProfile"
     // GET 다른 고양이 프로필 조회 /profile/:profileIdx
     static let otherProfile = BaseURL + "profile/"
+    // POST 다른 고양이 팔로우 신청 /profile/requestFollow
+    static let follow = BaseURL + "profile/requestFollow"
     
     // POST 유저검색 /search/user
     static let searchUser = BaseURL + "search/user"
+    // POST 기록용 검색 /search/toWrite/:profileIdx
+    static let searchToWrite = BaseURL + "search/toWrite"
     // POST 제품, 제조사명 검색 /search/food
     static let searchProduct = BaseURL + "search/food"
     // POST 제품 리뷰전체보기 /search/reviewAll

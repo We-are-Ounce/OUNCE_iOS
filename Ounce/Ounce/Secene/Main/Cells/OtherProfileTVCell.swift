@@ -14,7 +14,7 @@ import SnapKit
 class OtherProfileTVCell: UITableViewCell {
     
     let profileIMG = UIImageView().then {
-        $0.backgroundColor = .pale
+        $0.setRounded(radius: 46.5)
     }
     
     let nameLabel = UILabel().then {
@@ -45,6 +45,7 @@ class OtherProfileTVCell: UITableViewCell {
         $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         $0.textColor = .black
     }
+    
     let followButton = UIButton().then {
         $0.backgroundColor = .darkPeach
         $0.makeRounded(cornerRadius: 6)
@@ -55,13 +56,15 @@ class OtherProfileTVCell: UITableViewCell {
     let backButton = UIButton().then {
         $0.setImage(UIImage(named: "icBack"), for: .normal)
     }
+    
     let logoIMG = UIImageView().then {
         $0.image = UIImage(named: "logoBlack")
     }
     
-    var profile: MyProfile?
+    var profile: OtherProfile?
+    var profileIndex: Int?
     var rootVC: UIViewController?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -151,20 +154,25 @@ class OtherProfileTVCell: UITableViewCell {
             make.width.equalTo(18)
             make.height.equalTo(29)
         }
+        
+        followButton.addTarget(self,
+                     action: #selector(didTapFollowButton),
+                     for: .touchUpInside)
+
     }
     
     func setProfile(){
-        profileIMG.imageFromUrl(profile?.profileImg, defaultImgPath: "")
-        nameLabel.text = profile?.profileName
-        switch profile?.profileGender {
+        profileIMG.imageFromUrl(profile?.profileInfoArray[0].profileImg, defaultImgPath: "")
+        nameLabel.text = profile?.profileInfoArray[0].profileName
+        switch profile?.profileInfoArray[0].profileGender {
         case "male":
-            if profile?.profileNeutral == "true" {
+            if profile?.profileInfoArray[0].profileNeutral == "true" {
                 sexImage.image = UIImage(named: "unmale")
             } else {
                 sexImage.image = UIImage(named: "male")
             }
         case "female":
-            if profile?.profileNeutral == "true" {
+            if profile?.profileInfoArray[0].profileNeutral == "true" {
                 sexImage.image = UIImage(named: "unfemale")
             } else {
                 sexImage.image = UIImage(named: "female")
@@ -174,15 +182,85 @@ class OtherProfileTVCell: UITableViewCell {
         case .some(_):
             break
         }
-        weightLabel.text = (profile?.profileWeight ?? "") + " kg"
-        ageLabel.text = String(profile?.profileAge ?? 0) + " 살"
-        contentLabel.text = profile?.profileInfo ?? ""
-        followerLabel.text = "팔로워 " + String(profile?.follower ?? 0)
-        followingLabel.text = "팔로워 " + String(profile?.following ?? 0)
+        weightLabel.text = (profile?.profileInfoArray[0].profileWeight ?? "") + " kg"
+        ageLabel.text = String(profile?.profileInfoArray[0].profileAge ?? 0) + " 살"
+        contentLabel.text = profile?.profileInfoArray[0].profileInfo ?? ""
+        followerLabel.text = "팔로워 " + String(profile?.profileInfoArray[0].follower ?? 0)
+        followingLabel.text = "팔로워 " + String(profile?.profileInfoArray[0].following ?? 0)
+        if profile?.ischeck == true {
+            followButton.setTitle("팔로우 취소", for: .normal)
+        } else {
+            followButton.setTitle("팔로우", for: .normal)
+        }
     }
     
     @objc func didTapBackButton(){
         rootVC?.navigationController?.popViewController(animated: true)
     }
     
+    @objc func didTapFollowButton(){
+        if followButton.titleLabel?.text == "팔로우 취소" {
+            followDeleteService(profileIndex ?? 0)
+        } else {
+            followService(profileIndex ?? 0)
+        }
+    }
+}
+
+extension OtherProfileTVCell {
+    func followService(_ profileIndex: Int) {
+        FollowService.shared.didTapFollow(profileIndex) { responsedata in
+            switch responsedata {
+            case .success(let data):
+                
+                let response = data as? ResponseTempResult
+                print(response?.message ?? "")
+                self.followButton.setTitle("팔로우 취소", for: .normal)
+                print("success")
+                
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+    }
+    
+    func followDeleteService(_ profileIndex: Int) {
+        FollowService.shared.didTapUnfollow(profileIndex) { responsedata in
+            switch responsedata {
+            case .success(let data):
+                
+                let response = data as? ResponseTempResult
+                print(response?.message ?? "")
+                self.followButton.setTitle("팔로우", for: .normal)
+
+                print("success")
+                
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+        
+        
+    }
+
 }

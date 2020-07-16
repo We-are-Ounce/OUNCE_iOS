@@ -120,8 +120,13 @@ class LoginVC: UIViewController {
         constraint()
         setNav()
         setTextField()
-        idTextField.text = "1231232222q"
-        pwTextField.text = "Qq111111"
+        idTextField.text = "yen"
+        pwTextField.text = "1234"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        KeychainWrapper.standard.removeAllKeys()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -208,8 +213,8 @@ extension LoginVC {
                 let sb = UIStoryboard(name: "TabBar", bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: "TBC") as! TBC
                 vc.modalPresentationStyle = .fullScreen
-                print(response.accessToken)
-                print(response.profileIdx)
+                print("token:",response.accessToken)
+                print("profileIdx",response.profileIdx)
                 KeychainWrapper.standard.set(response.accessToken,
                                              forKey: "Token")
                 KeychainWrapper.standard.set(response.profileIdx,

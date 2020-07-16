@@ -15,30 +15,6 @@ struct ReviewService{
     
     static let shared = ReviewService()
     // Request body에 들어가는 내용
-    private func makeParameter(_ reviewRating: Int,
-                               _ reviewPrefer: Int,
-                               _ reviewInfo: String,
-                               _ reviewMemo: String,
-                               _ reviewStatus: Int,
-                               _ reviewSmell: Int,
-                               _ reviewEye: Int,
-                               _ reviewEar: Int,
-                               _ reviewHair: Int,
-                               _ reviewVomit: Int,
-                               _ foodIdx: Int,
-                               _ profileIdx: Int) -> Parameters {
-        return ["reviewRating":reviewRating,
-                "reviewPrefer":reviewPrefer,
-                "reviewInfo":reviewInfo,
-                "reviewMemo":reviewMemo,
-                "reviewStatus":reviewStatus,
-                "reviewSmell": reviewSmell,
-                "reviewEye": reviewEye,
-                "reviewEar": reviewEar,
-                "reviewVomit": reviewVomit,
-                "foodIdx": foodIdx,
-                "profileIdx": profileIdx]
-    }
     
     func Review(_ reviewRating: Int,
                 _ reviewPrefer: Int,
@@ -53,21 +29,22 @@ struct ReviewService{
                 _ foodIdx: Int,
                 _ profileIdx: Int,
                 completion: @escaping (NetworkResult<Any>) -> Void) {
+        
         let token = KeychainWrapper.standard.string(forKey: "Token")
-
+        
         let header: HTTPHeaders = ["Content-Type": "application/json", "token": token ?? ""]
         
         let body: Parameters = ["reviewRating":reviewRating,
-        "reviewPrefer":reviewPrefer,
-        "reviewInfo":reviewInfo,
-        "reviewMemo":reviewMemo,
-        "reviewStatus":reviewStatus,
-        "reviewSmell": reviewSmell,
-        "reviewEye": reviewEye,
-        "reviewEar": reviewEar,
-        "reviewVomit": reviewVomit,
-        "foodIdx": foodIdx,
-        "profileIdx": profileIdx]
+                                "reviewPrefer":reviewPrefer,
+                                "reviewInfo":reviewInfo,
+                                "reviewMemo":reviewMemo,
+                                "reviewStatus":reviewStatus,
+                                "reviewSmell": reviewSmell,
+                                "reviewEye": reviewEye,
+                                "reviewEar": reviewEar,
+                                "reviewVomit": reviewVomit,
+                                "foodIdx": foodIdx,
+                                "profileIdx": profileIdx]
         
         let dataRequest = Alamofire.request(APIConstants.addReview,
                                             method: .post,
@@ -107,18 +84,18 @@ struct ReviewService{
                         print("400123123")
                         completion(.pathErr)
                     }
-
+                    
                 default:
                     break
                 }
             case .failure: completion(.networkFail)
             }
         }
-    
-     
+        
+        
         
     }
-
+    
     
     
 }

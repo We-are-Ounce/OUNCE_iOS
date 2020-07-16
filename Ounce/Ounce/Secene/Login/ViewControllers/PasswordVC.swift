@@ -235,7 +235,7 @@ extension PasswordVC {
         UserService.shared.signUp(email, id, password) { responsedata in
             switch responsedata {
             case .success(let res):
-                dump(res)
+//                dump(res)
                 let response: Token = res as! Token
                 let vc = UIStoryboard.init(name: "Login",
                                            bundle: Bundle.main).instantiateViewController(

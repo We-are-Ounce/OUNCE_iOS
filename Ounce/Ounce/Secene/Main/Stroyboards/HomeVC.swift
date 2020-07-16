@@ -12,25 +12,25 @@ import Foundation
 import SwiftKeychainWrapper
 
 class HomeVC: UIViewController {
-    
-    //var rootVC: UIViewController?
-    
+        
     @IBOutlet weak var reviewTV: UITableView!
     
-    var profiles: [MyProfile]?
+    var profiles: MyProfile?
+    var otherProfiles: OtherProfile?
     var reviews: [UserReviews]?
     var profileIndex: Int?
     var isOtherUser: Bool = false
     
-    var currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+    var currentProfileIndex: Int?
+    var pageIndex: [Int] = [0, 9]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reviewTV.delegate = self
         reviewTV.dataSource = self
-        
-        
+        currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+        print("123: ",currentProfileIndex ?? 0)
         // ReviewTableViewCell xib 연결
         let nibName = UINib(nibName: "ReviewTableViewCell", bundle: nil)
         
@@ -45,60 +45,22 @@ class HomeVC: UIViewController {
         //테이블 셀 라인 없애기
         self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        //        self.setupLayout()
-        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        navigationController?.isNavigationBarHidden = true
         if !isOtherUser {
-            
-            navigationController?.isNavigationBarHidden = true
-            
-            
+            dateReviewService(currentProfileIndex ?? 0, pageIndex[0], pageIndex[1])
+            profileService(currentProfileIndex ?? 0)
         } else {
-            
             didTapBackButton()
-          
-//            navigationController?.isNavigationBarHidden = false
+            dateReviewService(profileIndex ?? 0, pageIndex[0], pageIndex[1])
+            otherProfileService(profileIndex ?? 0)
 
         }
-        dateReviewService(19, 1, 10)
-        
-        profileService(19)
-        
-        
-        // MARK: - 윤진이 뷰에서 제품 등록해주고 완료 누르면, 다시 시간 순으로 정렬
-        //        func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
-        //
-        //            ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
-        //                switch responsedata {
-        //                case .success(let res):
-        //                    self.reviews = res as! [UserReviews]
-        //                    self.reviewTV.reloadData()
-        //                case .requestErr(_):
-        //                    print("reupload product request error")
-        //
-        //                case .pathErr:
-        //                    print("reupload product pathErr")
-        //
-        //                case .serverErr:
-        //                    print(" reupload product serverErr")
-        //
-        //                case .networkFail :
-        //                    print("reupload product failure")
-        //
-        //                }
-        //            }
-        //
-        //        }
         
     }
-    
-    // 위에 viewWillAppear하고 중복 아닌가?,,
-    //    func setupLayout() {
-    //        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    //    }
     
 }
 
@@ -116,7 +78,13 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             return 1
         }
         else {
-            return reviews?.count ?? 0
+            let count = reviews?.count ?? 0
+            if count == 0 {
+                return 0
+            } else {
+                return count
+            }
+            
         }
     }
     
@@ -146,27 +114,34 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                 cell.editProfileButton.addTarget(self, action: #selector(didEditProfileButton),
                                                  for: .touchUpInside)
                 
-                cell.profile = profiles?[indexPath.row]
+                cell.profile = profiles?.profileInfoArray[0]
                 cell.cellProfile()
-                
+                let bgColorView = UIView()
+                bgColorView.backgroundColor = UIColor.white
+                cell.selectedBackgroundView = bgColorView
+
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OtherProfileTVCell", for: indexPath) as! OtherProfileTVCell
+                cell.profile = otherProfiles
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor.white
                 cell.selectedBackgroundView = bgColorView
                 cell.rootVC = self
                 cell.makeConstraint()
                 cell.setProfile()
-                
+                cell.profileIndex = profileIndex
+
                 return cell
             }
-        }
-        else{
+        } else {
             let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
             reviewCell.rootVC = self
             reviewCell.review = reviews?[indexPath.row]
-            
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            reviewCell.selectedBackgroundView = bgColorView
+
             
             reviewCell.cellService()
             
@@ -175,21 +150,25 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             let sb = UIStoryboard(name: "Post", bundle: nil)
             let dvc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
             dvc.modalPresentationStyle = .overFullScreen
             navigationController?.isNavigationBarHidden = false
+            
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
                                                                style: .plain,
                                                                target: nil,
                                                                action: nil)
+            navigationItem.rightBarButtonItem = UIBarButtonItem()
+           
             /* 셀 클릭시 index값 넘겨주기 */
-            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
             
+            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
+
+            dvc.isEdit = true
             self.navigationController?.pushViewController(dvc, animated: true)
         }
         
@@ -199,7 +178,6 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
-            
             return 179
         }
         else{
@@ -228,6 +206,8 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             
             // xib 파일 - headerCell
             headerCell.rootVC = self
+            headerCell.reviews = profiles?.reviewCountAll
+            headerCell.reviewCount()
             
             return headerCell
         }
@@ -247,17 +227,8 @@ extension HomeVC {
     
     // 여기 부분이 백 버튼 만드는 부분
     @objc func didTapBackButton(){
-        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
-        let dvc = storyboard.instantiateViewController(identifier: "HomeVC") as! HomeVC
-        
-
-        // MARK: - 여기 부분은 뷰 전환할 때 중복
-//       self.navigationController?.navigationBar.isHidden = false
-//      self.navigationController?.pushViewController(dvc, animated: true)
         
     }
-    
-    
     
     @objc func didTapSettingButton(){
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
@@ -315,10 +286,10 @@ extension HomeVC {
     
     // 홈 뷰: 프로필 조회(GET)
     func profileService(_ profileIndex: Int) {
-        MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
+        MyProfileService.shared.myProfile(String(profileIndex)) { responsedata in
             switch responsedata {
             case .success(let data):
-                self.profiles = data as? [MyProfile]
+                self.profiles = data as? MyProfile
                 
                 self.reviewTV.reloadData()
                 
@@ -342,6 +313,36 @@ extension HomeVC {
         
         
     }
+
+    func otherProfileService(_ profileIndex: Int) {
+        MyProfileService.shared.otherProfile(String(profileIndex)) { responsedata in
+            switch responsedata {
+            case .success(let data):
+                self.otherProfiles = data as? OtherProfile
+                
+                self.reviewTV.reloadData()
+                
+                print("홈 뷰 : 프로필 조회 성공")
+                
+                
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+        
+        
+    }
+
     
     // 홈 뷰: 리뷰 조회(POST)
     func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
@@ -349,10 +350,9 @@ extension HomeVC {
         ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
             switch responsedata {
             case .success(let res):
-                self.reviews = res as! [UserReviews]
+                self.reviews = res as? [UserReviews]
                
-                dump(self.reviews)
-                print("나올까?",self.reviews)
+//                dump(self.reviews)
                
                 DispatchQueue.main.async {
                      self.reviewTV.reloadData()

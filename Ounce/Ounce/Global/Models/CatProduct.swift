@@ -16,7 +16,7 @@ struct CatProduct: Codable {
     let foodImg: String
     let foodManu, foodName: String
     let foodLink: String
-    let reviewCount, reviewIdx: Int
+    let reviewCount, reviewIdx, profileIdx: Int
     let reviewInfo: String
     let avgRating, avgPrefer: String
     
@@ -31,6 +31,7 @@ struct CatProduct: Codable {
         foodName = (try? values.decode(String.self, forKey: .foodName)) ?? ""
         foodLink = (try? values.decode(String.self, forKey: .foodLink)) ?? ""
         reviewCount = (try? values.decode(Int.self, forKey: .reviewCount)) ?? 0
+        profileIdx = (try? values.decode(Int.self, forKey: .profileIdx)) ?? 0
         reviewIdx = (try? values.decode(Int.self, forKey: .reviewIdx)) ?? 0
         reviewInfo = (try? values.decode(String.self, forKey: .reviewInfo)) ?? ""
         avgRating = (try? values.decode(String.self, forKey: .avgRating)) ?? ""

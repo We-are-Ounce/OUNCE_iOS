@@ -84,10 +84,15 @@ class BrowseSearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        navigationController?.isNavigationBarHidden = true
+        title = ""
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print(#function)
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 
 extension BrowseSearchVC {
@@ -355,6 +360,10 @@ extension BrowseSearchVC: UITableViewDataSource {
             userCell.user = user?[indexPath.row]
             userCell.cellConstraint()
             userCell.cellService()
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            userCell.selectedBackgroundView = bgColorView
+
             
             
             return userCell
@@ -365,6 +374,10 @@ extension BrowseSearchVC: UITableViewDataSource {
             productCell.product = product?[indexPath.row]
             productCell.cellConstraint()
             productCell.cellService()
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            productCell.selectedBackgroundView = bgColorView
+
             
             return productCell
         default:
@@ -438,7 +451,7 @@ extension BrowseSearchVC: UITableViewDataSource {
             let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
             vc.modalPresentationStyle = .overFullScreen
-            vc.foodIndex = product?[indexPath.row].foodIdx
+            vc.productInfo = product?[indexPath.row]
             navigationController?.isNavigationBarHidden = false
             self.navigationController?.pushViewController(vc, animated: true)
 

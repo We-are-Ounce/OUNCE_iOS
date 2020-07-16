@@ -22,7 +22,7 @@ class HeaderCell: UITableViewCell {
     
     
     @IBOutlet weak var reviewLabel: UILabel!
-    
+    var reviews: Int?
     // MARK: - headerCell 데이터 받아오기 
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var sortingLabel: UILabel!
@@ -30,10 +30,10 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var sortingBtn: UIButton!
     
-//    func reviewCount() {
-//
-//        reviewLabel.text = "(" + reviews.count + ")"
-//    }
+    func reviewCount() {
+        countLabel.text = "(" + String(reviews ?? 0) + ")"
+//        reviewLabel.text = "(" + String(reviews ?? 0) + ")"
+    }
     
     func sortingRound() {
         

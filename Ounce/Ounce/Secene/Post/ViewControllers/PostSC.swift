@@ -380,7 +380,7 @@ class PostSC:UIView,UITextViewDelegate {
         memoTextView.delegate = self
         criticTextField.delegate = self
         
-        print("sc에서 보내주는 평가값: \(sendRating)")
+        print("sc에서 보내주는 평가값: \(rating)")
         sendRating = rating
         sendPrefer = prefer
         

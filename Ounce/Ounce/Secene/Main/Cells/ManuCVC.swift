@@ -16,8 +16,8 @@ class ManuCVC: UICollectionViewCell {
     
     func round(){
         
-        manuLabel.setRounded(radius: 8)
-        manuLabel.setBorder(borderColor: .pale, borderWidth: 0.5)
+        manuLabel.setRounded(radius: 13)
+        manuLabel.setBorder(borderColor: .pale, borderWidth: 1.5)
         
     }
         

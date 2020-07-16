@@ -16,8 +16,8 @@ class FoodCVC: UICollectionViewCell {
     
     func round(){
         
-        foodLabel.setRounded(radius: 8)
-        foodLabel.setBorder(borderColor: .pale, borderWidth: 0.5)
+        foodLabel.setRounded(radius: 13)
+        foodLabel.setBorder(borderColor: .pale, borderWidth: 1.5)
     }
         
         override func awakeFromNib() {

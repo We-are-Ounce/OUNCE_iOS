@@ -16,8 +16,8 @@ class DryCVC: UICollectionViewCell {
     
     func round(){
         
-        dryLabel.setRounded(radius: 8)
-        dryLabel.setBorder(borderColor: .pale, borderWidth: 0.5)
+        dryLabel.setRounded(radius: 13)
+        dryLabel.setBorder(borderColor: .pale, borderWidth: 1.5)
     }
         
         override func awakeFromNib() {

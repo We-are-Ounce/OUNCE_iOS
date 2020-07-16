@@ -43,19 +43,17 @@ class FilterVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         let collectionViewLayout = filterCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionViewLayout?.invalidateLayout()
     }
+    
     func backgroundDismiss(){
         backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.backgroundTap(_:))))
     }
     
-    
     @IBAction func backgroundTap(_ sender: UITapGestureRecognizer){
         self.dismiss(animated: false, completion: nil)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -68,8 +66,8 @@ extension FilterVC:UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     // 각각의 collection view별로 분기 처리
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if collectionView == self.filterCollectionView{ return dryList.count}
-        else if collectionView == self.foodCollectionView{return menuList.count}
+        if collectionView == self.filterCollectionView { return dryList.count }
+        else if collectionView == self.foodCollectionView { return menuList.count }
         
         return manufactureList.count
     }
@@ -80,8 +78,8 @@ extension FilterVC:UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DryCVC",for:indexPath) as! DryCVC
             
+            cell.dryLabel.contentEdgeInsets = UIEdgeInsets(top: 6, left: 15.0, bottom: 6, right: 15.0)
             cell.dryLabel.setTitle(dryList[indexPath.row], for: .normal)
-            
             return cell
         }
             
@@ -89,9 +87,8 @@ extension FilterVC:UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCVC",for:indexPath) as! FoodCVC
             
+            cell.foodLabel.contentEdgeInsets = UIEdgeInsets(top: 6, left: 15.0, bottom: 6, right: 15.0)
             cell.foodLabel.setTitle(menuList[indexPath.row], for: .normal)
-            
-            
             return cell
             
         }
@@ -99,45 +96,16 @@ extension FilterVC:UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ManuCVC",for:indexPath) as! ManuCVC
             
+            cell.manuLabel.contentEdgeInsets = UIEdgeInsets(top: 6, left: 15.0, bottom: 6, right: 15.0)
             cell.manuLabel.setTitle(manufactureList[indexPath.row], for: .normal)
-            
             return cell
         }
     }
     
-    
-    // collectionView Cell의 "위치" 조정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        if collectionView == self.filterCollectionView{
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
-        }
-            
-        else if collectionView == self.foodCollectionView{
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-        }
-            
-        else {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
-        }
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
-    
-    
-    // collectionVeiw Cell의 "크기" 조정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
-        indexPath: IndexPath) -> CGSize {
-        
-        if collectionView == self.filterCollectionView{
-            return CGSize(width: 50, height: 28)
-        }
-        else if collectionView == self.foodCollectionView{
-            return CGSize(width: 60, height: 28)
-        }
-            
-        else{
-            return CGSize(width:98, height: 28)
-        }
-    }
+   
 }
 
 

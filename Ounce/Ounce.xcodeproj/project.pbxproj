@@ -134,6 +134,7 @@
 		7FF5158F24BE46BC00B34544 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5158E24BE46BC00B34544 /* MyProfile.swift */; };
 		7FF5159124BE47FC00B34544 /* MyProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5159024BE47FC00B34544 /* MyProfileService.swift */; };
 		F20AA59424C0ACC9001FA520 /* FilteredCatProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20AA59324C0ACC9001FA520 /* FilteredCatProduct.swift */; };
+		F20AA59624C0DFF7001FA520 /* AddReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20AA59524C0DFF7001FA520 /* AddReview.swift */; };
 		F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23316A424BCBE2400BA6023 /* ReviewData.swift */; };
 		F248FD3F24B4727A0055D753 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F248FD3E24B4727A0055D753 /* Product.swift */; };
 		F248FD4024B4EB030055D753 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5B91724B466E8008D382F /* HomeVC.swift */; };
@@ -285,6 +286,7 @@
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUpdateService.swift; sourceTree = "<group>"; };
 		F20AA59324C0ACC9001FA520 /* FilteredCatProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredCatProduct.swift; sourceTree = "<group>"; };
+		F20AA59524C0DFF7001FA520 /* AddReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReview.swift; sourceTree = "<group>"; };
 		F23316A424BCBE2400BA6023 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		F248FD3E24B4727A0055D753 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIScroll+Extension.swift"; path = "Ounce/Global/Delegate/UIScroll+Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -498,7 +500,11 @@
 				7FF5158E24BE46BC00B34544 /* MyProfile.swift */,
 				5ED22C7E24C061C700F311F9 /* Review.swift */,
 				F20AA59324C0ACC9001FA520 /* FilteredCatProduct.swift */,
+
 				5E71ACCD24C0E08400EFC3EA /* OtherProfile.swift */,
+
+				F20AA59524C0DFF7001FA520 /* AddReview.swift */,
+
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1021,6 +1027,7 @@
 				7FBCE82C24BF8F0700EFA5D2 /* ManufactureInfo.swift in Sources */,
 				5EA7C46524B8F17D00EB95EA /* BrowseSearchVC+Constraint.swift in Sources */,
 				5E35795A24AE38FC00043066 /* String+Extension.swift in Sources */,
+				F20AA59624C0DFF7001FA520 /* AddReview.swift in Sources */,
 				5E039CB124AFFE9D009B1BC6 /* LoginVC+Constraint.swift in Sources */,
 				5E179B0824BCC1DA0061A498 /* Token.swift in Sources */,
 				5EA7C45924B8E92400EB95EA /* BrowseSearchVC.swift in Sources */,

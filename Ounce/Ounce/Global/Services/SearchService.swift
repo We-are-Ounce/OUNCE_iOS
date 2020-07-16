@@ -166,7 +166,7 @@ struct SearchService {
             "pageEnd": pageEnd
         ]
         
-        dump(body)
+//        dump(body)
         
         Alamofire.request(URL,
                           method: .post,

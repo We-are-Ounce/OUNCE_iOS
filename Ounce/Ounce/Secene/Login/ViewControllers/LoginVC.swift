@@ -120,8 +120,8 @@ class LoginVC: UIViewController {
         constraint()
         setNav()
         setTextField()
-        idTextField.text = "1231232222q"
-        pwTextField.text = "Qq111111"
+        idTextField.text = "yen"
+        pwTextField.text = "1234"
     }
     
     override func viewWillAppear(_ animated: Bool) {

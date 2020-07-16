@@ -16,6 +16,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var reviewTV: UITableView!
     
     var profiles: MyProfile?
+    var otherProfiles: OtherProfile?
     var reviews: [UserReviews]?
     var profileIndex: Int?
     var isOtherUser: Bool = false
@@ -50,13 +51,12 @@ class HomeVC: UIViewController {
         super.viewDidAppear(true)
         navigationController?.isNavigationBarHidden = true
         if !isOtherUser {
-            
             dateReviewService(currentProfileIndex ?? 0, pageIndex[0], pageIndex[1])
             profileService(currentProfileIndex ?? 0)
         } else {
             didTapBackButton()
             dateReviewService(profileIndex ?? 0, pageIndex[0], pageIndex[1])
-            profileService(profileIndex ?? 0)
+            otherProfileService(profileIndex ?? 0)
 
         }
         
@@ -123,13 +123,14 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OtherProfileTVCell", for: indexPath) as! OtherProfileTVCell
-                cell.profile = profiles
+                cell.profile = otherProfiles
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor.white
                 cell.selectedBackgroundView = bgColorView
                 cell.rootVC = self
                 cell.makeConstraint()
                 cell.setProfile()
+                cell.profileIndex = profileIndex
 
                 return cell
             }
@@ -166,18 +167,9 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             /* 셀 클릭시 index값 넘겨주기 */
             
             dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
-            print("리뷰인덱스넘버가 넘어올까?",dvc.reviewIndexNumber)
+
             dvc.isEdit = true
-            
-            //dvc.rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(dvc.saveButtonDidTap))
-            
-            //dvc.rightButton.title =  ""
-            
-//            dvc.rightButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(dvc.editButtonDidTap))
-//            dvc.rightButton.image = UIImage(named: "icMore")
-//            dvc.rightButton.action = #selector(dvc.editButtonDidTap)
             self.navigationController?.pushViewController(dvc, animated: true)
-            
         }
         
     }
@@ -294,7 +286,7 @@ extension HomeVC {
     
     // 홈 뷰: 프로필 조회(GET)
     func profileService(_ profileIndex: Int) {
-        MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
+        MyProfileService.shared.myProfile(String(profileIndex)) { responsedata in
             switch responsedata {
             case .success(let data):
                 self.profiles = data as? MyProfile
@@ -321,6 +313,36 @@ extension HomeVC {
         
         
     }
+
+    func otherProfileService(_ profileIndex: Int) {
+        MyProfileService.shared.otherProfile(String(profileIndex)) { responsedata in
+            switch responsedata {
+            case .success(let data):
+                self.otherProfiles = data as? OtherProfile
+                
+                self.reviewTV.reloadData()
+                
+                print("홈 뷰 : 프로필 조회 성공")
+                
+                
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+        
+        
+    }
+
     
     // 홈 뷰: 리뷰 조회(POST)
     func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
@@ -330,7 +352,7 @@ extension HomeVC {
             case .success(let res):
                 self.reviews = res as? [UserReviews]
                
-                dump(self.reviews)
+//                dump(self.reviews)
                
                 DispatchQueue.main.async {
                      self.reviewTV.reloadData()

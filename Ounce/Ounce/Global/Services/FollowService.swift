@@ -20,36 +20,44 @@ struct FollowService {
     func didTapFollow(_ followerProfileIndex: Int,
                       completion: @escaping (NetworkResult<Any>) -> Void) {
         
+        print(#function)
+        
         let URL = APIConstants.follow
+        print(URL)
         let profile = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
+        let token = KeychainWrapper.standard.string(forKey: "Token") ?? ""
         let headers : HTTPHeaders = [
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "token" : token
         ]
         
         let body : Parameters = [
             "myprofileIdx" : profile,
             "followingIdx" : followerProfileIndex
         ]
+        
         Alamofire.request(URL,
                           method: .post,
                           parameters: body,
                           encoding: JSONEncoding.default,
                           headers: headers).responseData{
             response in
-            
+            print("시작")
             switch response.result {
-            
             case .success:
                 if let value = response.result.value {
                     if let status = response.response?.statusCode {
+                        print(status)
                         switch status {
                         case 200:
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(ResponseTempResult.self, from: value)
                                 completion(.success(result.message ?? ""))
+                                print("성공")
                             } catch {
                                 completion(.pathErr)
+                                print("실패")
                             }
                         case 400:
                             completion(.pathErr)
@@ -68,6 +76,61 @@ struct FollowService {
         }
     }
     
+    func didTapUnfollow(_ followerProfileIndex: Int,
+                        completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        let URL = APIConstants.deleteFollow
+        let profile = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
+        let token = KeychainWrapper.standard.string(forKey: "Token") ?? ""
+        let headers : HTTPHeaders = [
+            "Content-Type": "application/json",
+            "token" : token
+        ]
+        
+        let body : Parameters = [
+            "myprofileIdx" : profile,
+            "followingIdx" : followerProfileIndex
+        ]
+        
+        Alamofire.request(URL,
+                          method: .delete,
+                          parameters: body,
+                          encoding: JSONEncoding.default,
+                          headers: headers).responseData{
+            response in
+            print("시작")
+            switch response.result {
+            case .success:
+                if let value = response.result.value {
+                    if let status = response.response?.statusCode {
+                        print(status)
+                        switch status {
+                        case 200:
+                            do {
+                                let decoder = JSONDecoder()
+                                let result = try decoder.decode(ResponseTempResult.self, from: value)
+                                completion(.success(result.message ?? ""))
+                                print("성공")
+                            } catch {
+                                completion(.pathErr)
+                                print("실패")
+                            }
+                        case 400:
+                            completion(.pathErr)
+                        case 500:
+                            completion(.serverErr)
+                        default:
+                            break
+                        }
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                completion(.networkFail)
+            }
+        }
+    }
     //MARK - 팔로워
     
     func follower(_ profileIndex: String,
@@ -128,7 +191,7 @@ struct FollowService {
         let URL = APIConstants.followingList + "/" + profileIndex + "?pageStart=" + String(pageStart) + "&pageEnd=" + String(pageEnd)
         
         let headers : HTTPHeaders = [
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
         ]
         
         print(URL)
@@ -146,6 +209,7 @@ struct FollowService {
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(ResponseResult<Follow>.self, from: value)
+                                dump(result)
                                 completion(.success(result.data ?? Follow.self))
                             } catch {
                                 completion(.pathErr)

@@ -448,7 +448,7 @@ extension RegisterVC {
     
     
     func profileService(_ profileIndex: Int) {
-        MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
+        MyProfileService.shared.myProfile(String(profileIndex)) { responsedata in
             switch responsedata {
             case .success(let data):
                 self.profiles = data as? MyProfile

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 import Alamofire
 import SwiftKeychainWrapper
 
@@ -18,14 +19,14 @@ struct RecommendService {
     func recommendCat(completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let URL = APIConstants.recommend
-        
+        let currentProfile = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
         ]
-        print(URL)
+        
         
         let body: Parameters = [
-            "profileIdx": 2
+            "profileIdx": currentProfile
         ]
         
         Alamofire.request(URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers).responseData{
@@ -42,6 +43,7 @@ struct RecommendService {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(ResponseSimpleResult<Recommend>.self, from: value)
                                 completion(.success(result.data ?? Recommend.self))
+                                dump(result.data)
                             }catch {
                                 completion(.pathErr)
                                 print("저기야?")

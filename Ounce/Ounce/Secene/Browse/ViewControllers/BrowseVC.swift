@@ -299,20 +299,13 @@ extension BrowseVC: UICollectionViewDataSource {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         vc.modalPresentationStyle = .overFullScreen
-        vc.profileIndex = recommendInfo?.resultProfile[indexPath.row].profileIdx
+        print(recommendInfo?.recommendFoodList[indexPath.row].profileIdx)
+        vc.profileIndex = recommendInfo?.recommendFoodList[indexPath.row].profileIdx
         vc.isOtherUser = true
-        
-        
         
         // MARK: - 이미지 클릭시 홈 뷰로 이동
         
         navigationController?.isNavigationBarHidden = true
-        
-//        navigationController?.title = ""
-//        let backButton = UIBarButtonItem()
-//        backButton.title = ""
-//        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-//
         self.navigationController?.pushViewController(vc, animated: true)
 
     }
@@ -337,12 +330,9 @@ extension BrowseVC {
             switch responsedata {
             case.success(let res):
                 
-                //dump(res)
                 let recommendList = res as! Recommend
-                self.recommendInfo = recommendList                
+                self.recommendInfo = recommendList
                 self.collectionView?.reloadData()
-                
-                
 
                 case .requestErr(_):
                     print("request error")

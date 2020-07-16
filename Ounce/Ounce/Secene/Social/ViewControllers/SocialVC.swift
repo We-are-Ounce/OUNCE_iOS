@@ -84,7 +84,8 @@ class SocialVC: UIViewController {
         setTabbar()
         
         /* Follower, Following NavigationBar title 유저 이름 */
-        setSocialNV(catSocialName: "겨울이")
+        let name = KeychainWrapper.standard.string(forKey: "name") ?? ""
+        setSocialNV(catSocialName: name)
         followerService()
         followingService()
         
@@ -93,14 +94,19 @@ class SocialVC: UIViewController {
         self.followingTV.showsVerticalScrollIndicator = false
         
         /* 네비게이션 바 다시 나타나기 */
-        navigationController?.isNavigationBarHidden = false
-        
         let naviBar = navigationController?.navigationBar
         naviBar?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         naviBar?.shadowImage = UIImage()
         
         naviBar?.backItem?.title = ""
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.isNavigationBarHidden = false
+        
+
     }
     
     
@@ -363,6 +369,40 @@ extension SocialVC: UITableViewDataSource{
             return UITableViewCell()
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch tableView {
+        case self.followerTV:
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            print(followerInfo[indexPath.row].profileIdx)
+            vc.profileIndex = followerInfo[indexPath.row].profileIdx
+            vc.isOtherUser = true
+            
+            // MARK: - 이미지 클릭시 홈 뷰로 이동
+            
+            navigationController?.isNavigationBarHidden = true
+            self.navigationController?.pushViewController(vc, animated: true)
+
+            
+        case self.followingTV:
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            print(followingInfo[indexPath.row].profileIdx)
+            vc.profileIndex = followingInfo[indexPath.row].profileIdx
+            vc.isOtherUser = true
+            
+            // MARK: - 이미지 클릭시 홈 뷰로 이동
+            
+            navigationController?.isNavigationBarHidden = true
+            self.navigationController?.pushViewController(vc, animated: true)
+
+            
+        default:
+            break
+        }
+
     }
 }
 

@@ -40,7 +40,6 @@ struct UserService {
                           encoding: JSONEncoding.default,
                           headers: headers).responseData{
                             response in
-                            dump(body)
                             
                             switch response.result {
                                 
@@ -319,6 +318,102 @@ struct UserService {
         }
         
     }
+    
+    func editProfile(_ profileIMG: UIImage,
+                       _ profileName: String,
+                       _ profileWeight: String,
+                       _ profileGender: String,
+                       _ profileNeutral: String,
+                       _ profileAge: String,
+                       _ profileInfo: String,
+                       _ profileIndex: String,
+                       completion: @escaping (NetworkResult<Any>) -> Void){
+        print(profileIndex )
+        let URL = APIConstants.editProfile + profileIndex
+        let token = KeychainWrapper.standard.string(forKey: "Token")
+        var age = profileAge
+        var userIndex = KeychainWrapper.standard.string(forKey: "userIndex")
+        let headers: HTTPHeaders = [
+            "Content-Type": "multipart/form-data",
+            "token" : token ?? ""
+        ]
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            if let imageData = profileIMG.jpegData(compressionQuality: 0.3) {
+                multipartFormData.append(imageData,
+                                         withName: "profileImg",
+                                         fileName: "image.jpg",
+                                         mimeType: "image/jpg")
+            }
+            multipartFormData.append(Data(bytes: &userIndex, count: 10),
+                                     withName: "userIdx")
+            multipartFormData.append(profileName.data(using: .utf8) ?? Data(),
+                                     withName: "profileName")
+            multipartFormData.append(profileWeight.data(using: .utf8) ?? Data(),
+                                     withName: "profileWeight")
+            multipartFormData.append(profileGender.data(using: .utf8) ?? Data(),
+                                     withName: "profileGender")
+            multipartFormData.append(profileNeutral.data(using: .utf8) ?? Data(),
+                                     withName: "profileNeutral")
+            multipartFormData.append(Data(bytes: &age, count: 10),
+                                     withName: "profileAge")
+            multipartFormData.append(profileInfo.data(using: .utf8) ?? Data(),
+                                     withName: "profileInfo")
+            
+            }, to: URL, method: .put, headers: headers) { (encodingResult) in
+            
+            switch encodingResult {
+                
+            case .success(let upload, _, _):
+                print("success")
+                upload.responseJSON { (response) in
+                    switch response.result {
+                        
+                    case .success:
+                        // parameter 위치
+                        if let value = response.data {
+                            if let status = response.response?.statusCode {
+                                print(status)
+                                switch status {
+                                case 200:
+                                    do{
+                                        let decoder = JSONDecoder()
+                                        let result = try decoder.decode(ResponseSimpleResult<ProfileIndex>.self,
+                                                                        from: value)
+                                        completion(.success(result.data ?? ""))
+                                    } catch {
+                                        completion(.pathErr)
+                                    }
+                                case 400:
+                                    do{
+                                        let decoder = JSONDecoder()
+                                        let result = try decoder.decode(ResponseTempResult.self,
+                                                                        from: value)
+//                                        dump(result)
+                                        completion(.requestErr(result.message ?? ""))
+                                    } catch {
+                                        completion(.pathErr)
+                                    }
+                                case 500:
+                                    completion(.serverErr)
+                                default: break
+                                }
+                            }
+                        }
+                        break
+                        
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                    }
+                }
+            case .failure(let encodingError):
+                print(encodingError.localizedDescription)
+            }
+        }
+        
+    }
+
 }
 
 struct ProfileIndex: Codable {

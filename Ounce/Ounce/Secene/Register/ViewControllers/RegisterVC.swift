@@ -55,7 +55,7 @@ class RegisterVC: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapEditButton))
-
+        
         return button
     }()
     lazy var backButton: UIBarButtonItem = {
@@ -66,14 +66,14 @@ class RegisterVC: UIViewController {
         return button
         
     }()
-
+    
     // MARK: - Variables and Properties
     
     var selectedItems = [YPMediaItem]()
     var sex: Int = 4
     var isNeutralization : Bool = false
     var isEdit: Bool = false
-    var profiles: [MyProfile]?
+    var profiles: MyProfile?
     
     // MARK: - Life Cycle
     
@@ -91,7 +91,6 @@ class RegisterVC: UIViewController {
         let image = UIImage(named: "smallLogo")
         navigationItem.titleView = UIImageView(image: image)
         addKeyboardNotification()
-        setNav()
         findEdit()
     }
     
@@ -99,10 +98,6 @@ class RegisterVC: UIViewController {
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension RegisterVC {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
-
     func findEdit(){
         let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
         navigationController?.isNavigationBarHidden = false
@@ -116,23 +111,25 @@ extension RegisterVC {
     }
     
     func setView(){
-        dump(profiles)
-        profileIMG.imageFromUrl(profiles?[0].profileImg, defaultImgPath: "")
-        nameTextField.text = profiles?[0].profileName
-        contentTextField.text = profiles?[0].profileInfo
-//        maleButton
-//        femaleButton
-//        neutralizationRoundButton
-//
-//        neutralizationButton
-//        ageTextField
-//
-//        weightTextField: UITextField!
-//        @IBOutlet weak var weightCountLabel: UILabel!
-
-    }
-    
-    func setNav(){
+        let profileData = profiles?.profileInfoArray[0]
+        profileIMG.imageFromUrl(profileData?.profileImg, defaultImgPath: "")
+        nameTextField.text = profileData?.profileName
+        contentTextField.text = profileData?.profileInfo
+        if profileData?.profileGender == "female" {
+            maleButton.borderColor = .pale
+            femaleButton.borderColor = .black
+        } else {
+            sex = 0
+            maleButton.borderColor = .black
+            femaleButton.borderColor = .pale
+        }
+        if profileData?.profileNeutral == "true" {
+            isNeutralization = true
+            neutralizationRoundButton.setImage(UIImage(named: "btnSelected"), for: .normal)
+            neutralizationRoundButton.borderColor = .white
+        }
+        ageTextField.text = String(profileData?.profileAge ?? 0)
+        weightTextField.text = profileData?.profileWeight
     }
     
     func setProfileIMG(){
@@ -199,15 +196,22 @@ extension RegisterVC {
                contentTextField.text ?? "")
     }
     @objc func didTapEditButton(){
-        //print(#function)
-        
+        let currentUser = KeychainWrapper.standard.integer(forKey: "currentProfile")
+        edit(profileIMG.image ?? UIImage(),
+             nameTextField.text ?? "",
+             weightTextField.text ?? "",
+             (sex == 0) ? "male" : "female",
+             isNeutralization ? "true" : "false",
+             ageTextField.text ?? "",
+             contentTextField.text ?? "",
+             String(currentUser ?? 0))
     }
-
+    
     
     @objc func didTapBackButton(){
         dismiss(animated: true, completion: nil)
     }
-
+    
     
     func setButton() {
         maleButton.setRounded(radius: 8)
@@ -259,17 +263,11 @@ extension RegisterVC {
     @objc func didTapMaleButton(){
         if (sex != 0) {
             sex = 0
-            //maleButton.backgroundColor = .battleshipGrey
             maleButton.borderColor = .black
-            //maleButton.setTitleColor(.white, for: .normal)
             femaleButton.borderColor = .pale
-            //femaleButton.backgroundColor = .white
-            //femaleButton.setTitleColor(.battleshipGrey, for: .normal)
         } else {
             sex = 2
             maleButton.borderColor = .pale
-           // maleButton.backgroundColor = .white
-            //maleButton.setTitleColor(.battleshipGrey, for: .normal)
         }
     }
     
@@ -277,16 +275,10 @@ extension RegisterVC {
         if (sex != 1) {
             sex = 1 //선택 되었을 때.
             femaleButton.borderColor = .black
-            //femaleButton.backgroundColor = .battleshipGrey
-            //femaleButton.setTitleColor(.white, for: .normal)
             maleButton.borderColor = .pale
-            //maleButton.backgroundColor = .white
-           // maleButton.setTitleColor(.battleshipGrey, for: .normal)
         } else {
             sex = 2
             femaleButton.borderColor = .pale
-            //femaleButton.backgroundColor = .white
-            //femaleButton.setTitleColor(.battleshipGrey, for: .normal)
             
         }
         
@@ -418,13 +410,56 @@ extension RegisterVC {
         }
     }
     
+    func edit(_ profileIMG: UIImage,
+              _ profileName: String,
+              _ profileWeight: String,
+              _ profileGender: String,
+              _ profileNeutral: String,
+              _ profileAge: String,
+              _ profileInfo: String,
+              _ profileIndex: String){
+        UserService.shared.editProfile(profileIMG,
+                                       profileName,
+                                       profileWeight,
+                                       profileGender,
+                                       profileNeutral,
+                                       profileAge,
+                                       profileInfo,
+                                       profileIndex)
+        {
+            [weak self]
+            data in
+            
+            guard let `self` = self else { return }
+            
+            switch data {
+            case .success(_):
+                self.dismiss(animated: true, completion: nil)
+                
+            case .requestErr:
+                self.simpleAlert(title: "실패", message: "")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print(".networkFail")
+                
+            }
+        }
+    }
+    
+    
     func profileService(_ profileIndex: Int) {
-        MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
+        MyProfileService.shared.myProfile(String(profileIndex)) { responsedata in
             switch responsedata {
             case .success(let data):
-                self.profiles = data as? [MyProfile]
+                self.profiles = data as? MyProfile
                 self.setView()
-
+                
             case .requestErr(_):
                 print("request error")
                 
@@ -442,6 +477,6 @@ extension RegisterVC {
         
         
     }
-
+    
 }
 

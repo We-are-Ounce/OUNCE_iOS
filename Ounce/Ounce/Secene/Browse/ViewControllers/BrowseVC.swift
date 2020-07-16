@@ -9,8 +9,7 @@
 import UIKit
 
 import CHIPageControl
-
-
+import SwiftKeychainWrapper
 
 class BrowseVC: UIViewController {
     
@@ -177,7 +176,7 @@ class BrowseVC: UIViewController {
     
     func setNameLabel(){
         
-        let origin_userCatName = "정균"
+        let origin_userCatName = KeychainWrapper.standard.string(forKey: "name") ?? ""
         
         let userCatName1 = postPositionText("호세")
         let userCatName2 = postPositionText("정균")
@@ -185,10 +184,10 @@ class BrowseVC: UIViewController {
         
         
         
-        let attributedStr = NSMutableAttributedString(string: userCatName2 + "\n입맛이 비슷해요.")
+        let attributedStr = NSMutableAttributedString(string: origin_userCatName + "\n입맛이 비슷해요.")
         
         attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
-                                   value: UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count))
+                                   value: UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count-1))
         
         
         guideNameLabel.attributedText = attributedStr
@@ -288,8 +287,6 @@ extension BrowseVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! BrowseCVCell
         
-        print("indexpath", indexPath.row)
-
         cell.recommendInfo = recommendInfo
        // cell.item = items[indexPath.row]
         cell.setCall(num: indexPath.row)
@@ -302,20 +299,13 @@ extension BrowseVC: UICollectionViewDataSource {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         vc.modalPresentationStyle = .overFullScreen
-        vc.profileIndex = recommendInfo?.resultProfile[indexPath.row].profileIdx
+        print(recommendInfo?.recommendFoodList[indexPath.row].profileIdx)
+        vc.profileIndex = recommendInfo?.recommendFoodList[indexPath.row].profileIdx
         vc.isOtherUser = true
-        
-        
         
         // MARK: - 이미지 클릭시 홈 뷰로 이동
         
         navigationController?.isNavigationBarHidden = true
-        
-//        navigationController?.title = ""
-//        let backButton = UIBarButtonItem()
-//        backButton.title = ""
-//        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-//
         self.navigationController?.pushViewController(vc, animated: true)
 
     }
@@ -340,29 +330,9 @@ extension BrowseVC {
             switch responsedata {
             case.success(let res):
                 
-                //dump(res)
                 let recommendList = res as! Recommend
-//                self.item = []
-//                self.items = [[],[],[],[],[]]
                 self.recommendInfo = recommendList
-//                dump(self.recommendInfo?.recommendFoodList)
-//                for i in 0 ..< (self.recommendInfo?.resultProfile.count)! {
-//                    for j in 0 ..< (self.recommendInfo?.recommendFoodList.count)! {
-//                        if self.recommendInfo?.resultProfile[i].profileIdx == self.recommendInfo?.recommendFoodList[j].profileIdx {
-//                            self.item.append(self.recommendInfo?.recommendFoodList[j].foodImg ?? "")
-//                        }
-//                    }
-//                    for _ in 0..<3 {
-//                        self.item.append("")
-//                    }
-//                    self.items[i] = self.item
-//                    self.item = []
-//                }
-//                print(self.items)
-                
                 self.collectionView?.reloadData()
-                
-                
 
                 case .requestErr(_):
                     print("request error")

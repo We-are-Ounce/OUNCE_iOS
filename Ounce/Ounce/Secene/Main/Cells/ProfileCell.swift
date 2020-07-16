@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SwiftKeychainWrapper
+
 class ProfileCell: UITableViewCell {
     
     static let identfier = "ProfileCell"
@@ -29,7 +31,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var introduceLabel: UILabel!
     
-    var profile: MyProfile?
+    var profile: ProfileInfoArray?
     
     func setDataInformation(myfollower: String,
                             myfollowing: String,
@@ -72,11 +74,11 @@ class ProfileCell: UITableViewCell {
     }
     
     func cellProfile(){
-        
+//        dump(profile)
         profileImg.imageFromUrl(profile?.profileImg ?? "", defaultImgPath: "")
         profileImg.setRounded(radius: nil)
+        KeychainWrapper.standard.set(profile?.profileName ?? "", forKey: "name")
         nameLabel.text = profile?.profileName
-        
         var genderimage = gender(gender: profile?.profileGender ?? "", neutral: profile?.profileNeutral ?? "")
         genderImg.image = UIImage(named: genderimage)
         
@@ -87,7 +89,8 @@ class ProfileCell: UITableViewCell {
         setDataInformation(myfollower: String(profile?.follower ?? 0 ), myfollowing: String( profile?.following ?? 0 ), myWeight: String(profile?.profileWeight ?? ""), myAge: String(profile?.profileAge ?? 0))
         
         gender(gender: "", neutral: " ")
-        
+        follower.setTitle("팔로워 " + String(profile?.follower ?? 0), for: .normal)
+        following.setTitle("팔로잉 " + String(profile?.following ?? 0), for: .normal)
     }
     
     // MARK: - 뷰에 관한 것,,

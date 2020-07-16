@@ -121,7 +121,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2살" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAk-Ek-poh">
-                                                            <rect key="frame" x="199" y="85" width="18" height="18"/>
+                                                            <rect key="frame" x="205" y="85" width="18" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="r5b-Wz-RiH"/>
                                                             </constraints>
@@ -172,7 +172,7 @@
                                                         <constraint firstItem="6Dp-Nj-fhB" firstAttribute="top" secondItem="8w3-Cj-WVm" secondAttribute="bottom" constant="29" id="hiW-PC-uJz"/>
                                                         <constraint firstAttribute="trailing" secondItem="kwj-fT-b1r" secondAttribute="trailing" constant="55" id="jL1-gy-XVY"/>
                                                         <constraint firstItem="FKc-t8-ZSv" firstAttribute="top" secondItem="ehg-U1-WYa" secondAttribute="bottom" constant="6" id="mMw-h8-xjI"/>
-                                                        <constraint firstItem="wAk-Ek-poh" firstAttribute="leading" secondItem="BMv-sS-Sfe" secondAttribute="trailing" constant="1" id="oHm-mj-2g4"/>
+                                                        <constraint firstItem="wAk-Ek-poh" firstAttribute="leading" secondItem="BMv-sS-Sfe" secondAttribute="trailing" constant="7" id="oHm-mj-2g4"/>
                                                         <constraint firstItem="kwj-fT-b1r" firstAttribute="top" secondItem="ehg-U1-WYa" secondAttribute="bottom" constant="6" id="sdv-vA-zTf"/>
                                                         <constraint firstAttribute="trailing" secondItem="vWd-QB-GtT" secondAttribute="trailing" constant="16" id="vag-7d-xQN"/>
                                                         <constraint firstItem="xeT-NF-t4x" firstAttribute="leading" secondItem="sT4-tx-ROB" secondAttribute="leading" constant="24" id="xaw-9N-0kG"/>

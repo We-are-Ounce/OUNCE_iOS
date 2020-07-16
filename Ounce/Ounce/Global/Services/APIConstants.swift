@@ -37,6 +37,8 @@ struct APIConstants {
     static let certificationAddProfile = BaseURL + "profile/addProfile"
     // GET 다른 고양이 프로필 조회 /profile/:profileIdx
     static let otherProfile = BaseURL + "profile/"
+    // POST 다른 고양이 팔로우 신청 /profile/requestFollow
+    static let follow = BaseURL + "profile/requestFollow"
     
     // POST 유저검색 /search/user
     static let searchUser = BaseURL + "search/user"

@@ -9,6 +9,7 @@
 import UIKit
 
 import Then
+import SwiftKeychainWrapper
 
 class SocialVC: UIViewController {
     
@@ -68,8 +69,9 @@ class SocialVC: UIViewController {
     var direction: CGFloat?
     var profileIndex: Int?
     var isFollower: Bool = false
-    
-    
+    var followerIndex: [Int] = [0, 9]
+    var followingIndex: [Int] = [0, 9]
+    let currentProfile: Int = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
     // view 계층에서 navigation은 아래에 위치하는데, 뷰 위에 왜 있는 지. bar와 item의 차이점
     func setSocialNV(catSocialName: String){
         self.navigationItem.title = catSocialName
@@ -317,11 +319,9 @@ extension SocialVC: UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == followerTV
-        {
+        if tableView == followerTV {
             return followerInfo.count
-        }
-        else{
+        } else{
             return followingInfo.count
         }
     }
@@ -371,7 +371,9 @@ extension SocialVC: UITableViewDataSource{
 extension SocialVC {
     
     func followerService(){
-        FollowService.shared.follower(){
+        FollowService.shared.follower(String(currentProfile),
+                                      followerIndex[0],
+                                      followerIndex[1]){
             responsedata in
             switch responsedata {
             case .success(let res):
@@ -380,7 +382,8 @@ extension SocialVC {
                 
                 self.followerInfo = followerList
                 self.followerTV.reloadData()
-                
+                self.followerIndex[0] = self.followerIndex[1] + 1
+                self.followerIndex[1] = self.followerIndex[1] + 10
                 
             case .requestErr(_):
                 print("request error")
@@ -396,7 +399,9 @@ extension SocialVC {
     }
     
     func followingService(){
-        FollowService.shared.following(){
+        FollowService.shared.following(String(currentProfile),
+                                       followingIndex[0],
+                                       followingIndex[1]){
             responsedata in
             switch responsedata {
             case .success(let res):
@@ -405,6 +410,9 @@ extension SocialVC {
                 
                 self.followingInfo = followingList
                 self.followingTV.reloadData()
+                self.followingIndex[0] = self.followingIndex[1] + 1
+                self.followingIndex[1] = self.followingIndex[1] + 10
+
                 
             case .requestErr(_):
                 print("request error")

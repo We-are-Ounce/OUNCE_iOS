@@ -89,7 +89,8 @@ class ProfileCell: UITableViewCell {
         setDataInformation(myfollower: String(profile?.follower ?? 0 ), myfollowing: String( profile?.following ?? 0 ), myWeight: String(profile?.profileWeight ?? ""), myAge: String(profile?.profileAge ?? 0))
         
         gender(gender: "", neutral: " ")
-        
+        follower.setTitle("팔로워 " + String(profile?.follower ?? 0), for: .normal)
+        following.setTitle("팔로잉 " + String(profile?.following ?? 0), for: .normal)
     }
     
     // MARK: - 뷰에 관한 것,,

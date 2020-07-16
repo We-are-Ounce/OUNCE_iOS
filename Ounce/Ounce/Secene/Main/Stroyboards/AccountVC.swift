@@ -17,6 +17,8 @@ class AccountVC: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +26,12 @@ class AccountVC: UIViewController {
         backView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         
         self.backgroundDismiss()
+        
+        accountCV.delegate = self
+        accountCV.dataSource = self
+        
+        
+        
 
     }
     
@@ -32,8 +40,46 @@ class AccountVC: UIViewController {
     }
     
     
+    
+    
+    
+    
     @IBAction func backgroundTap(_ sender: UITapGestureRecognizer){
         self.dismiss(animated: false, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+
+    
+    
+}
+
+
+extension AccountVC: UICollectionViewDelegate {
+    
+}
+
+extension AccountVC: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChangeAccountCVC.identifier, for: indexPath) as? ChangeAccountCVC else{ return UICollectionViewCell() }
+        
+        return cell
         
     }
+    
+}
+
+extension AccountVC: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 78)
+    }
+    
 }

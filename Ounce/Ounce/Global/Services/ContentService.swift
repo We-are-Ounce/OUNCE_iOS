@@ -30,7 +30,7 @@ struct ContentService {
             "Content-Type": "application/json",
             "token" : token ?? ""
         ]
-        print(URL)
+        print("프로필인덱스값?\(URL)")
         Alamofire.request(URL,
                           method: .get,
                           parameters: nil,

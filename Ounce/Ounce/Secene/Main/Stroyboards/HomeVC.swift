@@ -21,6 +21,7 @@ class HomeVC: UIViewController {
     var reviews: [UserReviews]?
     var profileIndex: Int?
     var isOtherUser: Bool = false
+    
     var currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
     
     override func viewDidLoad() {
@@ -62,8 +63,9 @@ class HomeVC: UIViewController {
 //            navigationController?.isNavigationBarHidden = false
 
         }
-        dateReviewService(1, 1, 10)
-        profileService(1)
+        dateReviewService(19, 1, 10)
+        
+        profileService(19)
         
         
         // MARK: - 윤진이 뷰에서 제품 등록해주고 완료 누르면, 다시 시간 순으로 정렬
@@ -153,10 +155,9 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor.white
                 cell.selectedBackgroundView = bgColorView
-
+                cell.rootVC = self
                 cell.makeConstraint()
                 cell.setProfile()
-                
                 
                 return cell
             }
@@ -178,8 +179,8 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         
         
         if indexPath.section == 1 {
-            let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
-            let dvc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
+            let sb = UIStoryboard(name: "Post", bundle: nil)
+            let dvc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
             dvc.modalPresentationStyle = .overFullScreen
             navigationController?.isNavigationBarHidden = false
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
@@ -187,7 +188,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                                                                target: nil,
                                                                action: nil)
             /* 셀 클릭시 index값 넘겨주기 */
-            dvc.foodIndex = reviews?[indexPath.row].reviewIdx
+            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
             
             self.navigationController?.pushViewController(dvc, animated: true)
         }
@@ -287,7 +288,6 @@ extension HomeVC {
     
     
     @objc func didTapAccountButton(){
-        
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
         
@@ -295,13 +295,18 @@ extension HomeVC {
         
         self.present(dvc, animated: false)
     }
+    
     @objc func didEditProfileButton(){
         let storyboard = UIStoryboard(name: "Register", bundle:  nil)
-        let dvc = storyboard.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
-        dvc.isEdit = true
+        let dvc = storyboard.instantiateViewController(identifier: "RegisterNavVC") as! RegisterNavVC
         dvc.modalPresentationStyle = .overFullScreen
         present(dvc, animated: true)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+
 }
 
 
@@ -310,7 +315,6 @@ extension HomeVC {
     
     // 홈 뷰: 프로필 조회(GET)
     func profileService(_ profileIndex: Int) {
-        
         MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
             switch responsedata {
             case .success(let data):
@@ -346,9 +350,13 @@ extension HomeVC {
             switch responsedata {
             case .success(let res):
                 self.reviews = res as! [UserReviews]
-                
+               
                 dump(self.reviews)
-                
+                print("나올까?",self.reviews)
+               
+                DispatchQueue.main.async {
+                     self.reviewTV.reloadData()
+                }
                 self.reviewTV.reloadData()
                 print("홈 뷰 : 리뷰 조회 성공")
             case .requestErr(_):
@@ -369,3 +377,4 @@ extension HomeVC {
     }
     
 }
+

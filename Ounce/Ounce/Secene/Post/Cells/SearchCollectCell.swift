@@ -21,21 +21,11 @@ class SearchCollectCell: UICollectionViewCell{
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var manufacturerName: UILabel!
     
-    func set(_ productInfo: Product){
-        productImageView.image = productInfo.foodImg
-        productName.text = productInfo.itemName
-        manufacturerName.text = productInfo.companyName
-    }
     
     func setCell(_ productInfo:CatProduct ){
-        
-        productImageView.setImage(from: productInfo.foodImg )
+        productImageView.imageFromUrl(productInfo.foodImg, defaultImgPath: "")
         manufacturerName.text = productInfo.foodManu
         productName.text = productInfo.foodName
-        
     }
-    
-    
-    
     
 }

@@ -15,11 +15,9 @@ class PostVC: UIViewController {
     //    }
     
     @IBOutlet weak var addScrollView: UIScrollView!
-    
     @IBOutlet weak var backgroundView: UIView!
-    
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-
+    
     //var product: Product? //구조체
     //var imageNameVC: UIImage?
     var imageNameVC: String?
@@ -36,16 +34,21 @@ class PostVC: UIViewController {
     var reviewEar: Int?
     var reviewHair: Int?
     var reviewVomit: Int?
-    //var date: String?
+    
+    var foodMeat1: String?
+    var foodMeat2: String?
+    var foodDry: String?
+    //
+    // var date: String?
     var foodIndexNumber: Int?
     var profileIndexNumber: Int?
+    var reviewIndexNumber: Int?
     var postDelegate: PostDelegate?
 
-    
     let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
     
     let rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(saveButtonDidTap))
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +57,21 @@ class PostVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "기록하기"
+        custom.foodDry.setTitle(foodDry, for: .normal)
+        custom.foodMeat1.setTitle(foodMeat1, for: .normal)
+        print("food2:",foodMeat2)
+        if (foodMeat2) == ""{
+            custom.foodMeat2.alpha = 0
+            custom.foodMeat2.borderWidth = 0
+            custom.stackViewLeadingConstraint.constant += 40.5
+        } else {
+            custom.foodMeat2.setTitle(foodMeat2, for: .normal)
+            custom.foodMeat2.borderWidth = 1
+        }
+        
         custom.companyName.text = companyNameVC
         custom.productName.text = productNameVC
-        custom.productImg.setImage(from: imageNameVC ?? "")
+        custom.productImg.imageFromUrl(imageNameVC, defaultImgPath: "")
         self.addScrollView.addSubview(custom)
         custom.viewDidLoad()
         //custom.viewDidAppear()
@@ -71,12 +86,17 @@ class PostVC: UIViewController {
         reviewEar = custom.sendEar
         reviewHair = custom.sendFur
         reviewVomit = custom.sendVomit
-        foodIndexNumber = custom.sendFoodIndex
-        profileIndexNumber = custom.sendProfileIndex
+        //foodIndexNumber = custom.sendFoodIndex
+        custom.foodIndex = foodIndexNumber ?? 0
+        //custom.profileIndex = profileIndexNumber ?? 0
+        //profileIndexNumber = custom.sendProfileIndex
+        
+        
         
         custom.criticTextField.delegate = self
+        custom.criticTextField.tintColor = .black
         custom.memoTextView.delegate = self
-        
+        custom.memoTextView.tintColor = .black
         addScrollView.delegate = self
         addKeyboardNotification()
     }
@@ -120,8 +140,8 @@ class PostVC: UIViewController {
         
         custom.review = custom.criticTextField.text!
         custom.memo = custom.memoTextView.text
-        
-        
+        //custom.foodIndex = custom.sendFoodIndex ?? 0
+        print(custom.foodIndex)
         ReviewService.shared.Review(custom.rating,
                                     custom.prefer,
                                     custom.review,
@@ -137,15 +157,7 @@ class PostVC: UIViewController {
             in switch NetworkResult{
             case .success(_):
                 print("버튼작동")
-//                guard let token = token as? String else {return}
-//                let storyboard = UIStoryboard(name: "Post",bundle: nil)
-//                let vc = storyboard.instantiateViewController(identifier: "SearchCollectVC") as! SearchCollectVC
-//                vc.modalPresentationStyle = .fullScreen
-//                print("받아왔어요")
-                //self.navigationController?.popViewController(animated: true)
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(identifier: "HomeVC")as!HomeVC
-                vc.modalPresentationStyle = .fullScreen
+                self.dismiss(animated: true, completion: nil)
             case .requestErr(let message):
                 guard let message = message as? Int else {return}
                 print(message)

@@ -21,7 +21,7 @@ class ReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     
     var review: UserReviews?
-    
+    var addReview: CatProduct?
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -30,8 +30,6 @@ class ReviewTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        print(#function)
     }
     
     func cellService(){

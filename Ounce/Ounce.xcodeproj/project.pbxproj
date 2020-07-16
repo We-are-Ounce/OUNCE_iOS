@@ -98,6 +98,8 @@
 		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
 		7792017524BE0BBE00DB0ACD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017424BE0BBE00DB0ACD /* SearchService.swift */; };
 		7792017624BE0BDA00DB0ACD /* RecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBD26F24BE0AB3003034D0 /* RecommendService.swift */; };
+		7792017924BFBA2000DB0ACD /* ChangeAccountCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */; };
+		7792017A24BFBA2000DB0ACD /* ChangeAccountCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */; };
 		77DBD26C24BE0A9F003034D0 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBD26B24BE0A9F003034D0 /* ReviewService.swift */; };
 		7F7CE9BF24B7668000CB2476 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE9BE24B7668000CB2476 /* FilterVC.swift */; };
 		7FBCE81E24BF891600EFA5D2 /* FilterCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE81D24BF891600EFA5D2 /* FilterCVC.swift */; };
@@ -231,6 +233,8 @@
 		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
 		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		7792017424BE0BBE00DB0ACD /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountCVC.swift; sourceTree = "<group>"; };
+		7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeAccountCVC.xib; sourceTree = "<group>"; };
 		77DBD26B24BE0A9F003034D0 /* ReviewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
 		77DBD26F24BE0AB3003034D0 /* RecommendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendService.swift; sourceTree = "<group>"; };
 		7F7CE9BE24B7668000CB2476 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 		7FF5158E24BE46BC00B34544 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		7FF5159024BE47FC00B34544 /* MyProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileService.swift; sourceTree = "<group>"; };
 		9072743E170CFC1B996F65E9 /* Pods_Ounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUpdateService.swift; sourceTree = "<group>"; };
 		F23316A424BCBE2400BA6023 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		F248FD3E24B4727A0055D753 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F248FD4124B7A8F30055D753 /* UIScroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIScroll+Extension.swift"; path = "Ounce/Global/Delegate/UIScroll+Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -362,9 +367,9 @@
 			children = (
 				5E48BF1D24B1D79D0060EA7B /* BrowseCVCell.swift */,
 				5E48BF1E24B1D79D0060EA7B /* BrowseCVCell.xib */,
-				777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */,
 				5EA7C45C24B8EAA100EB95EA /* BrowseTabCVCell.swift */,
 				5EA7C45E24B8EAAD00EB95EA /* BrowsePageCVCell.swift */,
+				777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */,
 				5EA7C46024B8EE5B00EB95EA /* BrowseUserTVCell.swift */,
 				5EA7C46224B8EE7400EB95EA /* BrowseProductTVCell.swift */,
 			);
@@ -506,6 +511,7 @@
 				7754C98924BCBCA0001F3A0F /* FollowService.swift */,
 				7FF5158C24BE35AE00B34544 /* ContentService.swift */,
 				7FF5159024BE47FC00B34544 /* MyProfileService.swift */,
+				F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -575,11 +581,10 @@
 				7FD5B92124B59E03008D382F /* HeaderCell.xib */,
 				7FE5EA6124BA8B3A004CD853 /* FirstSettingTC.swift */,
 				7FE7BA5924BCD6E300D57089 /* SortingCell.swift */,
-				7FF5159224BE713300B34544 /* MenuCVC.swift */,
-				7FF5159424BE715200B34544 /* MeatCVC.swift */,
-				7FF5159624BE716800B34544 /* DryCVC.swift */,
 				5EC8D3AE24BF90DE00C4813B /* OtherProfileTVCell.swift */,
 				7FBCE81D24BF891600EFA5D2 /* FilterCVC.swift */,
+				7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */,
+				7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -883,6 +888,7 @@
 				5E075D3E24B0ABF70035C415 /* NotoSansKR-Regular.otf in Resources */,
 				5E075D3C24B0ABF70035C415 /* OFL.txt in Resources */,
 				7FC9385A24AB108A002B0CA7 /* LaunchScreen.storyboard in Resources */,
+				7792017A24BFBA2000DB0ACD /* ChangeAccountCVC.xib in Resources */,
 				5E075D3D24B0ABF70035C415 /* NotoSansKR-Black.otf in Resources */,
 				5EA0B01724B1D1AC0051C352 /* TabBar.storyboard in Resources */,
 				5EFD2DC024BAFE140054B357 /* ProductDetail.storyboard in Resources */,
@@ -958,6 +964,7 @@
 				5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */,
 				7792017524BE0BBE00DB0ACD /* SearchService.swift in Sources */,
 				5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */,
+				7792017924BFBA2000DB0ACD /* ChangeAccountCVC.swift in Sources */,
 				777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */,
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				773384EC24B8E91200D05E8F /* SocialVC.swift in Sources */,
@@ -1040,7 +1047,6 @@
 				5E35795624AE38D100043066 /* Date+Extension.swift in Sources */,
 				5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */,
 				5EFD2DCB24BC68290054B357 /* ResponseResult.swift in Sources */,
-				7FF5159324BE713300B34544 /* MenuCVC.swift in Sources */,
 				5EC8D3AF24BF90DE00C4813B /* OtherProfileTVCell.swift in Sources */,
 				7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */,
 				5E48BF1A24B1D7750060EA7B /* BrowseVC.swift in Sources */,

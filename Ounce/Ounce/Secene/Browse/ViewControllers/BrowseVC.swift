@@ -27,6 +27,7 @@ class BrowseVC: UIViewController {
     let searchField = UITextField().then {
         $0.text = ""
         $0.placeholder = "검색어를 입력해주세요."
+        $0.tintColor = .black
         $0.textColor = .veryLightPinkFive
         $0.textAlignment = .left
         $0.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)

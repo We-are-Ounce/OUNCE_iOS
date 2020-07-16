@@ -86,7 +86,7 @@ class BrowseUserTVCell: UITableViewCell {
     }
     
     func cellService(){
-        profileIMG.setImage(from: user?.profileImg ?? "")
+        profileIMG.imageFromUrl(user?.profileImg, defaultImgPath: "")
         userLabel.text = user?.profileName
         catLabel.text = user?.profileName
         catContentLabel.text = user?.profileInfo

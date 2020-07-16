@@ -12,15 +12,15 @@ import Then
 import SnapKit
 
 class ProductDetailVC: UIViewController {
-    
+
     // MARK: - UI components
-    
+
     let productTV = UITableView(frame: CGRect.init(), style: .grouped).then{
         $0.backgroundView?.backgroundColor = .white
     }
-    
+
     let headerView = UIView()
-    
+
     let headerIMG = UIImageView().then {
         $0.backgroundColor = .pale
         $0.setRounded(radius: 8)
@@ -73,25 +73,25 @@ class ProductDetailVC: UIViewController {
         $0.textAlignment = .center
         $0.font = Font.smallGuideLabel
     }
-    
+
     let scoreLabel = UILabel().then {
         $0.text = "평균 총점"
         $0.textAlignment = .center
         $0.font = Font.smallGuideLabel
     }
-    
+
     let scoreCountLabel = UILabel().then {
         $0.text = "4.5"
         $0.font = Font.smallGuideLabel
         $0.textAlignment = .center
     }
-    
+
     let pleasureLabel = UILabel().then {
         $0.text = "평균 기호도"
         $0.font = Font.smallGuideLabel
         $0.textAlignment = .center
     }
-    
+
     let pleasureCountLabel = UILabel().then {
         $0.text = "3.7"
         $0.font = Font.smallGuideLabel
@@ -117,42 +117,46 @@ class ProductDetailVC: UIViewController {
         $0.text = "리뷰 전체보기"
         $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
     }
-    
+
     // MARK: - Variables and Properties
     lazy var rightButton = UIBarButtonItem.init(image: UIImage(named: "icMore"), style: .done, target: self, action: nil)
 
     var foodIndex: Int?
     var isEdit: Bool = false
     var productInfo: CatProduct?
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#file)
-        
+
         setTableView()
         contraint()
         setNav()
         navigationItem.rightBarButtonItem = rightButton
 
     }
-    
+
 }
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension ProductDetailVC {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+
     func setNav(){
         navigationController?.navigationBar.setBackgroundImage(UIImage(),
                                                                     for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        
+
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
                                                            style: .plain,
                                                            target: nil,
                                                            action: nil)
     }
-    
+
     func setTableView(){
         productTV.delegate = self
         productTV.dataSource = self
@@ -160,7 +164,7 @@ extension ProductDetailVC {
         productTV.register(ProductDetailTVCell.self,
                            forCellReuseIdentifier: "ProductDetailTVCell")
     }
-    
+
     @objc func didTapReview(){
         print(#function)
     }
@@ -171,7 +175,7 @@ extension ProductDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductDetailTVCell",
                                                  for: indexPath) as! ProductDetailTVCell
@@ -180,11 +184,11 @@ extension ProductDetailVC: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+
         headerView.backgroundColor = .white
-        
+
         headerView.addSubview(headerIMG)
         headerIMG.imageFromUrl(productInfo?.foodImg, defaultImgPath: "")
         headerView.addSubview(headerCompanyNameLabel)
@@ -192,10 +196,11 @@ extension ProductDetailVC: UITableViewDataSource {
         headerView.addSubview(headerProductNameLabel)
         headerProductNameLabel.text = productInfo?.foodName
         headerView.addSubview(firstCategoryLabel)
-        firstCategoryLabel.text = (productInfo?.foodDry == 0) ? "습식" : "건식"
+
         headerView.addSubview(firstCategoryView)
         headerView.addSubview(secondCategoryLabel)
         secondCategoryLabel.text = productInfo?.foodMeat
+
         headerView.addSubview(secondCategoryView)
         headerView.addSubview(thirdCategoryLabel)
         headerView.addSubview(thirdCategoryView)
@@ -210,77 +215,77 @@ extension ProductDetailVC: UITableViewDataSource {
         headerView.addSubview(reviewIMGButton)
         headerView.addSubview(reviewGuideView)
         headerView.addSubview(reviewGuideLabel)
-        
+
         headerIMG.snp.makeConstraints { (make) in
             make.top.equalTo(headerView.snp.top).offset(22)
             make.leading.equalTo(headerView.snp.leading).offset(51)
             make.bottom.equalTo(headerView.snp.top).offset(111)
             make.trailing.equalTo(headerView.snp.leading).offset(140)
         }
-        
+
         headerCompanyNameLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(28)
             make.leading.equalTo(headerIMG.snp.trailing).offset(20)
         }
-        
+
         headerProductNameLabel.snp.makeConstraints { (make) in
             make.top.equalTo(headerCompanyNameLabel.snp.bottom).offset(3)
             make.leading.equalTo(headerCompanyNameLabel.snp.leading)
             make.height.equalTo(24)
         }
-        
+
         firstCategoryLabel.snp.makeConstraints { (make) in
             make.top.equalTo(firstCategoryView.snp.top).offset(3)
             make.leading.equalTo(firstCategoryView.snp.leading).offset(10.5)
             make.height.equalTo(18)
         }
-   
+
         firstCategoryView.snp.makeConstraints { (make) in
             make.top.equalTo(headerView.snp.top).offset(79)
             make.leading.equalTo(headerIMG.snp.trailing).offset(20)
             make.trailing.equalTo(firstCategoryLabel.snp.trailing).offset(10.5)
             make.height.equalTo(25)
         }
-        
+
         secondCategoryLabel.snp.makeConstraints { (make) in
             make.top.equalTo(secondCategoryView.snp.top).offset(3)
             make.leading.equalTo(secondCategoryView.snp.leading).offset(10.5)
             make.height.equalTo(18)
         }
-        
+
         secondCategoryView.snp.makeConstraints { (make) in
             make.top.equalTo(firstCategoryView)
             make.leading.equalTo(firstCategoryView.snp.trailing).offset(5)
             make.trailing.equalTo(secondCategoryLabel.snp.trailing).offset(10.5)
             make.height.equalTo(25)
         }
-        
+
         thirdCategoryLabel.snp.makeConstraints { (make) in
             make.top.equalTo(thirdCategoryView.snp.top).offset(3)
             make.leading.equalTo(thirdCategoryView.snp.leading).offset(10.5)
             make.height.equalTo(18)
         }
-        
+
         thirdCategoryView.snp.makeConstraints { (make) in
             make.top.equalTo(firstCategoryView)
             make.leading.equalTo(secondCategoryView.snp.trailing).offset(5)
             make.trailing.equalTo(thirdCategoryLabel.snp.trailing).offset(10.5)
             make.height.equalTo(25)
         }
-        
+
         reviewLabel.snp.makeConstraints { (make) in
             make.top.equalTo(scoreLabel)
             make.trailing.equalTo(scoreLabel.snp.leading)
             make.width.equalTo(view.frame.width/4)
             make.height.equalTo(19)
         }
-        
+
         reviewCountLabel.snp.makeConstraints { (make) in
             make.top.equalTo(reviewLabel.snp.bottom).offset(4)
             make.trailing.equalTo(scoreLabel.snp.leading)
             make.width.equalTo(view.frame.width/4)
         }
-        
+
         scoreLabel.snp.makeConstraints { (make) in
             make.top.equalTo(headerIMG.snp.bottom).offset(22)
             make.centerX.equalToSuperview()
@@ -313,33 +318,33 @@ extension ProductDetailVC: UITableViewDataSource {
             make.centerY.equalTo(reviewButton.snp.centerY)
             make.leading.equalTo(34)
         }
-        
+
         reviewIMGButton.snp.makeConstraints { (make) in
             make.centerY.equalTo(reviewButton.snp.centerY)
             make.trailing.equalToSuperview().offset(-36)
             make.width.equalTo(20)
             make.height.equalTo(20)
         }
-        
+
         reviewGuideView.snp.makeConstraints { (make) in
             make.bottom.equalTo(headerView)
             make.height.equalTo(52)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
-        
+
         reviewGuideLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(17)
             make.top.equalTo(reviewGuideView.snp.top).offset(14)
         }
-        
+
         return headerView
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 84
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 300
     }

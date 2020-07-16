@@ -79,6 +79,9 @@ class PostSC:UIView,UITextViewDelegate {
     var sendProfileIndex: Int?
     var rootVC: UIViewController?
     
+    @IBOutlet weak var stackViewLeadingConstraint: NSLayoutConstraint!
+    
+    
     @IBAction func scoreBtn1selected(_ sender: Any) {
         rating = 1
         scoreBtn1.setImage(UIImage(named:"icTotalSelected"), for: .normal)
@@ -377,7 +380,7 @@ class PostSC:UIView,UITextViewDelegate {
         memoTextView.delegate = self
         criticTextField.delegate = self
         
-        print("sc에서 보내주는 평가값: \(sendRating)")
+        print("sc에서 보내주는 평가값: \(rating)")
         sendRating = rating
         sendPrefer = prefer
         

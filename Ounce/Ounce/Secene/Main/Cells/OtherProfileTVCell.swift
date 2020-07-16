@@ -60,6 +60,7 @@ class OtherProfileTVCell: UITableViewCell {
     }
     
     var profile: MyProfile?
+    var rootVC: UIViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -84,7 +85,7 @@ class OtherProfileTVCell: UITableViewCell {
         self.contentView.addSubview(nameLabel)
         self.contentView.addSubview(backButton)
         self.contentView.addSubview(logoIMG)
-
+        backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
 
         profileIMG.snp.makeConstraints { (make) in
             make.top.equalTo(contentView.snp.top).offset(59)
@@ -178,8 +179,10 @@ class OtherProfileTVCell: UITableViewCell {
         contentLabel.text = profile?.profileInfo ?? ""
         followerLabel.text = "팔로워 " + String(profile?.follower ?? 0)
         followingLabel.text = "팔로워 " + String(profile?.following ?? 0)
-//        followButton.setTitle("", for: .normal)
-
+    }
+    
+    @objc func didTapBackButton(){
+        rootVC?.navigationController?.popViewController(animated: true)
     }
     
 }

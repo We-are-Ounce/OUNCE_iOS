@@ -311,14 +311,14 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SiE-cv-1CR">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ChangeAccountCVC" reuseIdentifier="ChangeAccountCVC" id="SiE-cv-1CR" customClass="ChangeAccountCVC" customModule="Ounce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fh1-PP-5xT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
-                                                <size key="customSize" width="375" height="46"/>
+                                                <size key="customSize" width="375" height="82"/>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>

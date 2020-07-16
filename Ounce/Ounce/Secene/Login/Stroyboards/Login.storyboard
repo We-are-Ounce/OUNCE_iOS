@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04G-ON-vXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122.4000000000001" y="96.798029556650249"/>
+            <point key="canvasLocation" x="-2319" y="246"/>
         </scene>
         <!--EmailVC-->
         <scene sceneID="Lsw-SE-tB3">
@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmS-3U-aad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="96.798029556650249"/>
+            <point key="canvasLocation" x="-1510" y="246"/>
         </scene>
         <!--IDVC-->
         <scene sceneID="r8N-Ni-gKL">
@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLg-cv-1BI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2690.4000000000001" y="96.798029556650249"/>
+            <point key="canvasLocation" x="-751" y="246"/>
         </scene>
         <!--Sign Up CompleteVC-->
         <scene sceneID="nDP-Co-7G7">
@@ -62,26 +62,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMj-7k-nDN">
-                                <rect key="frame" x="36" y="528" width="303" height="49"/>
+                                <rect key="frame" x="36" y="567" width="303" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="QVF-3o-jUK"/>
                                 </constraints>
                                 <state key="normal" title="고양이를 등록 해주세요!"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입이 완료되었습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-lQ-940">
-                                <rect key="frame" x="57" y="186" width="261" height="28.666666666666657"/>
+                                <rect key="frame" x="57" y="226.33333333333334" width="261" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QJV-PX-qQX">
+                                <rect key="frame" x="60.666666666666657" y="291" width="253.99999999999997" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="57I-kH-IfX"/>
+                                    <constraint firstAttribute="width" secondItem="QJV-PX-qQX" secondAttribute="height" multiplier="18:17" id="iPR-oO-Arp"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1u9-b5-Msy" firstAttribute="trailing" secondItem="JMj-7k-nDN" secondAttribute="trailing" constant="36" id="H5L-xd-ivB"/>
-                            <constraint firstItem="mmp-lQ-940" firstAttribute="top" secondItem="1u9-b5-Msy" secondAttribute="top" constant="142" id="Jas-jv-obu"/>
+                            <constraint firstItem="QJV-PX-qQX" firstAttribute="top" secondItem="mmp-lQ-940" secondAttribute="bottom" constant="36" id="Hib-7o-QV0"/>
+                            <constraint firstItem="QJV-PX-qQX" firstAttribute="centerX" secondItem="1u9-b5-Msy" secondAttribute="centerX" id="R6z-ZU-rwB"/>
+                            <constraint firstItem="JMj-7k-nDN" firstAttribute="top" secondItem="QJV-PX-qQX" secondAttribute="bottom" constant="36" id="SH0-Uc-KK2"/>
                             <constraint firstItem="mmp-lQ-940" firstAttribute="centerX" secondItem="1u9-b5-Msy" secondAttribute="centerX" id="YFm-7t-eUT"/>
                             <constraint firstItem="JMj-7k-nDN" firstAttribute="leading" secondItem="1u9-b5-Msy" secondAttribute="leading" constant="36" id="idK-cv-8f0"/>
-                            <constraint firstItem="1u9-b5-Msy" firstAttribute="bottom" secondItem="JMj-7k-nDN" secondAttribute="bottom" constant="201" id="wp7-kO-dnB"/>
+                            <constraint firstItem="QJV-PX-qQX" firstAttribute="centerY" secondItem="1u9-b5-Msy" secondAttribute="centerY" id="n1G-XU-pyX"/>
                             <constraint firstItem="JMj-7k-nDN" firstAttribute="centerX" secondItem="1u9-b5-Msy" secondAttribute="centerX" id="zrG-p7-uys"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1u9-b5-Msy"/>
@@ -89,11 +98,12 @@
                     <connections>
                         <outlet property="completeButton" destination="JMj-7k-nDN" id="qdF-bn-Zx0"/>
                         <outlet property="guideLabel" destination="mmp-lQ-940" id="sn5-tY-pq7"/>
+                        <outlet property="welcomeImg" destination="QJV-PX-qQX" id="G8J-qo-xBM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFn-9D-liT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400.8000000000002" y="-571.18226600985224"/>
+            <point key="canvasLocation" x="-753" y="-419"/>
         </scene>
         <!--PasswordVC-->
         <scene sceneID="h7I-fn-hch">
@@ -108,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ido-mD-80s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3402.4000000000001" y="96.798029556650249"/>
+            <point key="canvasLocation" x="-39" y="246"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v1K-OG-qkf">
@@ -126,7 +136,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y14-t9-Ubh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="96.798029556650249"/>
+            <point key="canvasLocation" x="-3262" y="246"/>
         </scene>
     </scenes>
 </document>

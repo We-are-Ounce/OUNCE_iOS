@@ -8,15 +8,22 @@
 
 import UIKit
 
+import SwiftGifOrigin
+
 class SignUpCompleteVC: UIViewController {
     
     // MARK: - UI components
     
     @IBOutlet weak var guideLabel: UILabel!
     @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var welcomeImg: UIImageView!
+    var imageName = "welcome"
+    var stringName = "회원가입이 \n완료되었습니다."
+    var stringIndex = 4
+    var judgeBool = 0
+    var completeString = "고양이를 등록해주세요!"
     
     // MARK: - Variables and Properties
-    
     var colors:[UIColor] = [
         Colors.red,
         Colors.blue,
@@ -54,6 +61,8 @@ class SignUpCompleteVC: UIViewController {
         
         setLabel()
         setButton()
+        setWelcomeImg()
+        setComplete()
     }
     
     private func generateEmitterCells() -> [CAEmitterCell] {
@@ -108,9 +117,9 @@ class SignUpCompleteVC: UIViewController {
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension SignUpCompleteVC {
     func setLabel() {
-        let attrString = NSMutableAttributedString(string: "회원가입이 \n완료되었습니다.")
+        let attrString = NSMutableAttributedString(string: stringName)
         attrString.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
-                                value: Font.signUpBigGuideLabel as Any, range: NSMakeRange(0, 4))
+                                value: Font.signUpBigGuideLabel as Any, range: NSMakeRange(0, stringIndex))
         guideLabel.attributedText = attrString
         guideLabel.numberOfLines = 2
     }
@@ -123,9 +132,37 @@ extension SignUpCompleteVC {
         completeButton.setRounded(radius: 8)
         completeButton.titleLabel?.font = Font.guideLabel
         completeButton.tintColor = .black
+        
     }
     
+    
+    func setComplete(){
+        completeButton.text(completeString)
+    }
+    
+    
+    func setWelcomeImg(){
+        
+        self.welcomeImg.image = UIImage.gif(name: imageName)
+//
+//        do {
+//            let imageData = try Data(contentsOf: Bundle.main.url(forResource: "ounce", withExtension: "gif")!)
+//            self.welcomeImg.image = UIImage.gif(data: imageData)
+//        }catch {
+//            print(error)
+//        }
+        
+    }
+    
+    
+    
+    
     @objc func didTapCompleteButton(){
+        
+        
+        
+        
+        if(judgeBool == 0) {
         let vc = UIStoryboard.init(name: "Register",
                                bundle: Bundle.main).instantiateViewController(
                                 withIdentifier: "RegisterNavVC") as? RegisterNavVC
@@ -133,6 +170,15 @@ extension SignUpCompleteVC {
         vc?.modalPresentationStyle = .fullScreen
         
         self.present(vc!, animated: true, completion: nil)
+        } else {
+            let vc = UIStoryboard.init(name: "TabBar",
+                                   bundle: Bundle.main).instantiateViewController(
+                                    withIdentifier: "TBC") as? TBC
+            
+            vc?.modalPresentationStyle = .fullScreen
+            
+            self.present(vc!, animated: true, completion: nil)
+        }
     }
 }
 

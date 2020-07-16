@@ -36,7 +36,7 @@ class SearchCollectVC: UIViewController{
        
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
-        
+        searchTextField.tintColor = .black
     }
     
     @IBAction func searchBtnTouched(_ sender: Any) {

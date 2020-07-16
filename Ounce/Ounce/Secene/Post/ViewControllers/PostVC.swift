@@ -92,8 +92,9 @@ class PostVC: UIViewController {
         
         
         custom.criticTextField.delegate = self
+        custom.criticTextField.tintColor = .black
         custom.memoTextView.delegate = self
-        
+        custom.memoTextView.tintColor = .black
         addScrollView.delegate = self
         addKeyboardNotification()
     }

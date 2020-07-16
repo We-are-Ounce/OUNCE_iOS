@@ -13,4 +13,7 @@ struct FilteredCatProduct: Codable{
     let foodImg: String
     let foodManu: String
     let foodName: String
+    let foodDry: String
+    let foodMeat1: String
+    let foodMeat2: String
 }

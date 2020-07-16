@@ -152,9 +152,9 @@ extension SearchCollectVC: UICollectionViewDelegateFlowLayout{
         //pvc.product = product[indexPath.row]
         //pvc.foodMeat1 = product[indexPath.row].foodMeat
         pvc.foodIndexNumber = filteredProduct[indexPath.row].foodIdx
-        //pvc.foodDry = product[indexPath.row].foodDry
-        //pvc.foodMeat1 = product[indexPath.row].foodMeat1
-        //pvc.foodMeat2 = product[indexPath.row].foodMeat2
+        pvc.foodDry = filteredProduct[indexPath.row].foodDry
+        pvc.foodMeat1 = filteredProduct[indexPath.row].foodMeat1
+        pvc.foodMeat2 = filteredProduct[indexPath.row].foodMeat2
         pvc.imageNameVC = filteredProduct[indexPath.row].foodImg
         pvc.companyNameVC = filteredProduct[indexPath.row].foodManu
         pvc.productNameVC = filteredProduct[indexPath.row].foodName

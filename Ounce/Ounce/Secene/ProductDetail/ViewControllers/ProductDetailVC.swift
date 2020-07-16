@@ -201,6 +201,10 @@ extension ProductDetailVC: UITableViewDataSource {
         cell.backgroundColor = .whiteTwo
         cell.cellConstraint()
         cell.selectionStyle = .none
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.white
+        cell.selectedBackgroundView = bgColorView
+
         return cell
     }
 

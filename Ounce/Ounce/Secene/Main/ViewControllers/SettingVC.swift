@@ -66,6 +66,12 @@ extension SettingVC : UITableViewDataSource {
         } else {
             firstCell.textLabel?.text = list[indexPath.row]
         }
+        
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.white
+        firstCell.selectedBackgroundView = bgColorView
+
+
         return firstCell
     }
     

@@ -142,7 +142,10 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                 
                 cell.profile = profiles?[indexPath.row]
                 cell.cellProfile()
-                
+                let bgColorView = UIView()
+                bgColorView.backgroundColor = UIColor.white
+                cell.selectedBackgroundView = bgColorView
+
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OtherProfileTVCell", for: indexPath) as! OtherProfileTVCell
@@ -160,7 +163,10 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
             reviewCell.rootVC = self
             reviewCell.review = reviews?[indexPath.row]
-            
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            reviewCell.selectedBackgroundView = bgColorView
+
             
             reviewCell.cellService()
             

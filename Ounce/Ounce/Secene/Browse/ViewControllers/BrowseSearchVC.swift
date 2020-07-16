@@ -360,6 +360,10 @@ extension BrowseSearchVC: UITableViewDataSource {
             userCell.user = user?[indexPath.row]
             userCell.cellConstraint()
             userCell.cellService()
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            userCell.selectedBackgroundView = bgColorView
+
             
             
             return userCell
@@ -370,6 +374,10 @@ extension BrowseSearchVC: UITableViewDataSource {
             productCell.product = product?[indexPath.row]
             productCell.cellConstraint()
             productCell.cellService()
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            productCell.selectedBackgroundView = bgColorView
+
             
             return productCell
         default:

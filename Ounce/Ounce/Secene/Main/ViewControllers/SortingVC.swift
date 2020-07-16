@@ -65,6 +65,10 @@ extension SortingVC: UITableViewDelegate, UITableViewDataSource {
         let sortingCell = sortingTV.dequeueReusableCell(withIdentifier: "SortingCell", for: indexPath) as! SortingCell
         sortingCell.constraint()
         sortingCell.sortLabel.text = sortingList[indexPath.row]
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.white
+        sortingCell.selectedBackgroundView = bgColorView
+
 //        if sortingList[indexPath.row] == "날짜 순" {
 //            sortingCell.backgroundColor = .black
 //            sortingCell.textLabel?.textColor = .putty

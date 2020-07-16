@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
     var isOtherUser: Bool = false
     
     var currentProfileIndex: Int?
-    var pageIndex: [Int] = [1, 9]
+    var pageIndex: [Int] = [0, 9]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,16 +48,18 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
+        navigationController?.isNavigationBarHidden = true
         if !isOtherUser {
-            navigationController?.isNavigationBarHidden = true
+            
+            dateReviewService(currentProfileIndex ?? 0, pageIndex[0], pageIndex[1])
+            profileService(currentProfileIndex ?? 0)
         } else {
             didTapBackButton()
-            navigationController?.isNavigationBarHidden = true
+            dateReviewService(profileIndex ?? 0, pageIndex[0], pageIndex[1])
+            profileService(profileIndex ?? 0)
+
         }
         
-        dateReviewService(currentProfileIndex ?? 0, pageIndex[0], pageIndex[1])
-        profileService(currentProfileIndex ?? 0)
     }
     
 }
@@ -76,7 +78,13 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             return 1
         }
         else {
-            return reviews?.count ?? 0
+            let count = reviews?.count ?? 0
+            if count == 0 {
+                return 0
+            } else {
+                return count
+            }
+            
         }
     }
     
@@ -115,13 +123,14 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OtherProfileTVCell", for: indexPath) as! OtherProfileTVCell
+                cell.profile = profiles
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor.white
                 cell.selectedBackgroundView = bgColorView
                 cell.rootVC = self
                 cell.makeConstraint()
                 cell.setProfile()
-                
+
                 return cell
             }
         } else {
@@ -140,9 +149,8 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             let sb = UIStoryboard(name: "Post", bundle: nil)
             let dvc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
@@ -164,7 +172,6 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
-            
             return 179
         }
         else{
@@ -214,17 +221,8 @@ extension HomeVC {
     
     // 여기 부분이 백 버튼 만드는 부분
     @objc func didTapBackButton(){
-        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
-        let dvc = storyboard.instantiateViewController(identifier: "HomeVC") as! HomeVC
-        
-
-        // MARK: - 여기 부분은 뷰 전환할 때 중복
-//       self.navigationController?.navigationBar.isHidden = false
-//      self.navigationController?.pushViewController(dvc, animated: true)
         
     }
-    
-    
     
     @objc func didTapSettingButton(){
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
@@ -316,10 +314,9 @@ extension HomeVC {
         ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
             switch responsedata {
             case .success(let res):
-                self.reviews = res as! [UserReviews]
+                self.reviews = res as? [UserReviews]
                
                 dump(self.reviews)
-                print("나올까?",self.reviews)
                
                 DispatchQueue.main.async {
                      self.reviewTV.reloadData()

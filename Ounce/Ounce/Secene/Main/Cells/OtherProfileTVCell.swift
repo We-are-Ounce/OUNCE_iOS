@@ -61,7 +61,8 @@ class OtherProfileTVCell: UITableViewCell {
     
     var profile: MyProfile?
     var rootVC: UIViewController?
-    
+//    var profile: ProfileInfoArray?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

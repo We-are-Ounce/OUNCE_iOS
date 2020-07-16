@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SwiftKeychainWrapper
+
 class ProfileCell: UITableViewCell {
     
     static let identfier = "ProfileCell"
@@ -75,8 +77,8 @@ class ProfileCell: UITableViewCell {
 //        dump(profile)
         profileImg.imageFromUrl(profile?.profileImg ?? "", defaultImgPath: "")
         profileImg.setRounded(radius: nil)
+        KeychainWrapper.standard.set(profile?.profileName ?? "", forKey: "name")
         nameLabel.text = profile?.profileName
-        
         var genderimage = gender(gender: profile?.profileGender ?? "", neutral: profile?.profileNeutral ?? "")
         genderImg.image = UIImage(named: genderimage)
         

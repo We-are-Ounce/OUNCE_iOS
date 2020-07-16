@@ -84,10 +84,15 @@ class BrowseSearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        navigationController?.isNavigationBarHidden = true
+        title = ""
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print(#function)
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 
 extension BrowseSearchVC {
@@ -438,7 +443,7 @@ extension BrowseSearchVC: UITableViewDataSource {
             let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
             vc.modalPresentationStyle = .overFullScreen
-            vc.foodIndex = product?[indexPath.row].foodIdx
+            vc.productInfo = product?[indexPath.row]
             navigationController?.isNavigationBarHidden = false
             self.navigationController?.pushViewController(vc, animated: true)
 

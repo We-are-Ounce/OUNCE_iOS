@@ -223,8 +223,8 @@ extension ProductDetailVC: UITableViewDataSource {
         headerView.addSubview(firstCategoryView)
         headerView.addSubview(secondCategoryLabel)
 
-        secondCategoryLabel.text = productInfo?.foodMeat
-        Feature/#116
+        //secondCategoryLabel.text = productInfo?.foodMeat
+        
 
         headerView.addSubview(secondCategoryView)
         headerView.addSubview(thirdCategoryLabel)

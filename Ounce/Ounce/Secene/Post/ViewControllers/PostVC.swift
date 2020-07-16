@@ -71,7 +71,7 @@ class PostVC: UIViewController {
         
         custom.companyName.text = companyNameVC
         custom.productName.text = productNameVC
-        custom.productImg.setImage(from: imageNameVC ?? "")
+        custom.productImg.imageFromUrl(imageNameVC, defaultImgPath: "")
         self.addScrollView.addSubview(custom)
         custom.viewDidLoad()
         //custom.viewDidAppear()

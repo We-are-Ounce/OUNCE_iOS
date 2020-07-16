@@ -142,6 +142,10 @@ class ProductDetailVC: UIViewController {
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension ProductDetailVC {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
     func setNav(){
         navigationController?.navigationBar.setBackgroundImage(UIImage(),
                                                                     for: UIBarMetrics.default)

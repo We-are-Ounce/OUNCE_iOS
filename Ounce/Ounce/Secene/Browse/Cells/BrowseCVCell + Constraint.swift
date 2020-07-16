@@ -92,12 +92,9 @@ extension BrowseCVCell{
             //print(recommendInfo?.recommendFoodList[number].profileIdx ?? "9000")
             if target == recommendInfo?.recommendFoodList[number].profileIdx ?? nil {
                 foodStr.append((recommendInfo?.recommendFoodList[number].foodImg ?? "error"))
-                print(foodStr)
             }
             number += 1
         }
-
-        print("foodStr", foodStr)
         
         return foodStr
     }
@@ -105,9 +102,6 @@ extension BrowseCVCell{
     func setCall(num : Int){
         
         
-        print(num)
-        print(recommendInfo?.resultProfile[num].profileIdx ?? 6000)
-        //print(recommendInfo)
         
         if(recommendInfo != nil) {
             var foodStr = [String]()
@@ -126,8 +120,6 @@ extension BrowseCVCell{
             secondRecommandImg.imageFromUrl(foodStr[1], defaultImgPath: "")
             thirdRecommandImg.imageFromUrl(foodStr[2], defaultImgPath: "")
 
-            print("HiHi")
-            
         }
         
         

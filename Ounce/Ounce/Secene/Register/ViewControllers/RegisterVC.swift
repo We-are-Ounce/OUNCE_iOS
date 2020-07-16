@@ -51,11 +51,18 @@ class RegisterVC: UIViewController {
         
     }()
     lazy var editButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "수정",
+        let button = UIBarButtonItem(image: UIImage(named: "icSave"),
                                      style: .plain,
                                      target: self,
-                                     action: #selector(didTapNextButton))
-        //        button.isEnabled = false
+                                     action: #selector(didTapEditButton))
+
+        return button
+    }()
+    lazy var backButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: UIImage(named: "icClose"),
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(didTapBackButton))
         return button
         
     }()
@@ -66,6 +73,7 @@ class RegisterVC: UIViewController {
     var sex: Int = 4
     var isNeutralization : Bool = false
     var isEdit: Bool = false
+    var profiles: [MyProfile]?
     
     // MARK: - Life Cycle
     
@@ -74,7 +82,7 @@ class RegisterVC: UIViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
+        print(isEdit)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setGuideLabel()
         setButton()
@@ -84,19 +92,47 @@ class RegisterVC: UIViewController {
         navigationItem.titleView = UIImageView(image: image)
         addKeyboardNotification()
         setNav()
+        findEdit()
     }
     
 }
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension RegisterVC {
-    
-    func setNav(){
-        if isEdit {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+
+    func findEdit(){
+        let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+        navigationController?.isNavigationBarHidden = false
+        if profileIndex != nil {
             navigationItem.rightBarButtonItem = editButton
+            navigationItem.leftBarButtonItem = backButton
+            profileService(profileIndex ?? 0)
         } else {
             navigationItem.rightBarButtonItem = rightButton
         }
+    }
+    
+    func setView(){
+        dump(profiles)
+        profileIMG.imageFromUrl(profiles?[0].profileImg, defaultImgPath: "")
+        nameTextField.text = profiles?[0].profileName
+        contentTextField.text = profiles?[0].profileInfo
+//        maleButton
+//        femaleButton
+//        neutralizationRoundButton
+//
+//        neutralizationButton
+//        ageTextField
+//
+//        weightTextField: UITextField!
+//        @IBOutlet weak var weightCountLabel: UILabel!
+
+    }
+    
+    func setNav(){
     }
     
     func setProfileIMG(){
@@ -162,6 +198,15 @@ extension RegisterVC {
                ageTextField.text ?? "",
                contentTextField.text ?? "")
     }
+    @objc func didTapEditButton(){
+        print(#function)
+    }
+
+    
+    @objc func didTapBackButton(){
+        dismiss(animated: true, completion: nil)
+    }
+
     
     func setButton() {
         maleButton.setRounded(radius: 8)
@@ -363,7 +408,33 @@ extension RegisterVC {
                 print(".networkFail")
                 
             }
-            
         }
     }
+    
+    func profileService(_ profileIndex: Int) {
+        MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
+            switch responsedata {
+            case .success(let data):
+                self.profiles = data as? [MyProfile]
+                self.setView()
+
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+        
+        
+    }
+
 }
+

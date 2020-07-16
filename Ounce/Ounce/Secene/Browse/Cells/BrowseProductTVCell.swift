@@ -121,7 +121,7 @@ class BrowseProductTVCell: UITableViewCell {
     }
     
     func cellService(){
-        productIMG.setImage(from: product?.foodImg ?? "")
+        productIMG.imageFromUrl(product?.foodImg, defaultImgPath: "")
         productCompanyLabel.text = product?.foodManu
         productLabel.text = product?.foodName
         if product?.reviewCount == 0 {

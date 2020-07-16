@@ -21,6 +21,7 @@ class HomeVC: UIViewController {
     var reviews: [UserReviews]?
     var profileIndex: Int?
     var isOtherUser: Bool = false
+    
     var currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
     
     override func viewDidLoad() {
@@ -154,10 +155,9 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor.white
                 cell.selectedBackgroundView = bgColorView
-
+                cell.rootVC = self
                 cell.makeConstraint()
                 cell.setProfile()
-                
                 
                 return cell
             }
@@ -288,7 +288,6 @@ extension HomeVC {
     
     
     @objc func didTapAccountButton(){
-        
         let storyboard = UIStoryboard(name: "Main", bundle:  nil)
         let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
         
@@ -296,13 +295,18 @@ extension HomeVC {
         
         self.present(dvc, animated: false)
     }
+    
     @objc func didEditProfileButton(){
         let storyboard = UIStoryboard(name: "Register", bundle:  nil)
-        let dvc = storyboard.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
-        dvc.isEdit = true
+        let dvc = storyboard.instantiateViewController(identifier: "RegisterNavVC") as! RegisterNavVC
         dvc.modalPresentationStyle = .overFullScreen
         present(dvc, animated: true)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+
 }
 
 
@@ -311,7 +315,6 @@ extension HomeVC {
     
     // 홈 뷰: 프로필 조회(GET)
     func profileService(_ profileIndex: Int) {
-        
         MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
             switch responsedata {
             case .success(let data):
@@ -374,3 +377,4 @@ extension HomeVC {
     }
     
 }
+

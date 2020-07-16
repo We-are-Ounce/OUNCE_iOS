@@ -23,14 +23,9 @@ class SearchCollectCell: UICollectionViewCell{
     
     
     func setCell(_ productInfo:CatProduct ){
-        
-        productImageView.setImage(from: productInfo.foodImg )
+        productImageView.imageFromUrl(productInfo.foodImg, defaultImgPath: "")
         manufacturerName.text = productInfo.foodManu
         productName.text = productInfo.foodName
-        
     }
-    
-    
-    
     
 }

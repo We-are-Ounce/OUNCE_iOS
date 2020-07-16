@@ -123,7 +123,10 @@ extension BrowseSearchVC {
         tabCV.selectItem(at: firstIndexPath, animated: false, scrollPosition: .right)
     }
 
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+
 }
 
 extension BrowseSearchVC: UIScrollViewDelegate {

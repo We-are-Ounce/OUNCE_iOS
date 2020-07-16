@@ -80,7 +80,11 @@ class IDVC: UIViewController {
     
 }
 
-extension IDVC {
+extension IDVC {    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+
     func setNav(){
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
                                                            style: .plain,

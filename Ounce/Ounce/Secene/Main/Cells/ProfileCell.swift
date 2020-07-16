@@ -74,6 +74,7 @@ class ProfileCell: UITableViewCell {
     func cellProfile(){
         
         profileImg.imageFromUrl(profile?.profileImg ?? "", defaultImgPath: "")
+        profileImg.setRounded(radius: nil)
         nameLabel.text = profile?.profileName
         
         var genderimage = gender(gender: profile?.profileGender ?? "", neutral: profile?.profileNeutral ?? "")

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class FilterCVC: UICollectionViewCell {
     
      static let identifier: String = "FilterCVC"
@@ -16,7 +17,7 @@ class FilterCVC: UICollectionViewCell {
     
     func round(){
         
-        filterBtn.setRounded(radius: 16)
+        filterBtn.setRounded(radius: 11)
         filterBtn.setBorder(borderColor: .pale, borderWidth: 1.5)
         
        

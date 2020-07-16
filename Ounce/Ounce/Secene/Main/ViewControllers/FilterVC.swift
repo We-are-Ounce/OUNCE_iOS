@@ -14,6 +14,9 @@ class FilterVC: UIViewController {
     @IBOutlet weak var backImg: UIView!
     @IBOutlet weak var touchView: UIView!
     @IBOutlet weak var filterCollectionView: UICollectionView!
+    @IBOutlet weak var manuCollectionView: UICollectionView!
+    
+    @IBOutlet weak var foodCollectionView: UICollectionView!
     
     var dryList = ["건식", "습식"]
     
@@ -30,6 +33,13 @@ class FilterVC: UIViewController {
         
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
+        
+        manuCollectionView.delegate = self
+        manuCollectionView.dataSource = self
+        
+        foodCollectionView.delegate = self
+        foodCollectionView.dataSource = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,142 +63,82 @@ class FilterVC: UIViewController {
     }
 }
 
-extension FilterVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
-    }
+extension FilterVC:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     // 각각의 collection view별로 분기 처리
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if section == 0 {
-            return dryList.count
-        }
+        if collectionView == self.filterCollectionView{ return dryList.count}
+        else if collectionView == self.foodCollectionView{return menuList.count}
         
-        if section == 1 {
-            return menuList.count
-        }
-            
-        else {
-            return manufactureList.count
-        }
+        return manufactureList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCVC", for: indexPath) as! FilterCVC
-        
-        if indexPath.section == 0 {
-            cell.filterBtn.setTitle(dryList[indexPath.row], for: .normal)
+        if collectionView == self.filterCollectionView{
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DryCVC",for:indexPath) as! DryCVC
+            
+            cell.dryLabel.setTitle(dryList[indexPath.row], for: .normal)
+            
             return cell
         }
             
-        else if indexPath.section == 1 {
-            cell.filterBtn.setTitle(menuList[indexPath.row], for: .normal)
+        else if collectionView == self.foodCollectionView{
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCVC",for:indexPath) as! FoodCVC
+            
+            cell.foodLabel.setTitle(menuList[indexPath.row], for: .normal)
+            
+            
             return cell
+            
         }
             
-        else{
-            cell.filterBtn.setTitle(manufactureList[indexPath.row], for: .normal)
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ManuCVC",for:indexPath) as! ManuCVC
+            
+            cell.manuLabel.setTitle(manufactureList[indexPath.row], for: .normal)
+            
             return cell
         }
     }
+    
     
     // collectionView Cell의 "위치" 조정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        if section == 0 {
-            return UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 0)
+        if collectionView == self.filterCollectionView{
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
         }
-        else if section == 1 {
             
-            return UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 0)
+        else if collectionView == self.foodCollectionView{
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         }
             
         else {
-            return UIEdgeInsets(top: 0, left: 16, bottom: 10, right:0)
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
         }
-        
     }
     
+    
     // collectionVeiw Cell의 "크기" 조정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
+        indexPath: IndexPath) -> CGSize {
         
-        
-        //        return CGSize(width: 60, height: 100)
-        
-        if filterCollectionView.numberOfSections == 0 {
-            
-            return CGSize(width: 52, height: 10)
+        if collectionView == self.filterCollectionView{
+            return CGSize(width: 50, height: 28)
         }
-            
-        else if filterCollectionView.numberOfSections == 1 {
-            
-            return CGSize(width: 52, height: 28)
+        else if collectionView == self.foodCollectionView{
+            return CGSize(width: 60, height: 28)
         }
             
         else{
-            
-            return CGSize(width: 52, height: 28)
+            return CGSize(width:98, height: 28)
         }
     }
-    
-    
-    
-    // MARK: - collectionView section Header
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        
-//        switch kind {
-//        case UICollectionView.elementKindSectionHeader:
-//
-//            if FilterHeaderCell
-////
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! FilterHeaderCell
-//            headerView.titleLabel.text = "주재료"
-//            headerView.titleLabel.textColor = .brownGrey
-//
-//            return headerView
-            
-            //            else if indexPath.section == 2 {
-            //                headerView.titleLabel.text = "제조사"
-            //                return headerView
-            //            }
-            //            else {
-            //                let rect = CGRect(x: 0, y: 0, width: 0, height: 0)
-            //                let myView = UICollectionReusableView(frame: rect)
-            //
-            //                return myView
-            
-//            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilterSecondHeader", for: indexPath) as! FilterSecondHeader
-//                       header.secondLabel.text = "제조사"
-//                       header.secondLabel.textColor = .brownGrey
-//
-//                       return header
-            
-//        case UICollectionView.elementKindSectionFooter:
-//        default:
-//
-//            assert(false, "Unexpected element kind")
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! FilterHeaderCell
-//            headerView.titleLabel.text = "제조사"
-//            return headerView
-     //   }
-        
-        if kind == UICollectionView.elementKindSectionHeader {
-            
-           let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilterHeaderCell", for: indexPath) as! FilterHeaderCell
-                      headerView.titleLabel.text = "주재료"
-                      headerView.titleLabel.textColor = .brownGrey
-                      
-                      return headerView
-         
-
-         } else {
-            
-           assert(false, "Unexpected element kind")
-
-         }
-        
-    }
 }
+
+
+

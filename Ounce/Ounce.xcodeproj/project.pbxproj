@@ -110,8 +110,9 @@
 		7FBCE82A24BF8EEE00EFA5D2 /* MenuInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE82924BF8EEE00EFA5D2 /* MenuInfo.swift */; };
 		7FBCE82C24BF8F0700EFA5D2 /* ManufactureInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE82B24BF8F0700EFA5D2 /* ManufactureInfo.swift */; };
 		7FBCE82E24C0B27F00EFA5D2 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE82D24C0B27F00EFA5D2 /* HeaderCell.swift */; };
-		7FBCE83024C0B2AE00EFA5D2 /* FilterHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE82F24C0B2AE00EFA5D2 /* FilterHeaderCell.swift */; };
-		7FBCE83224C0CB2900EFA5D2 /* FilterSecondHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83124C0CB2900EFA5D2 /* FilterSecondHeader.swift */; };
+		7FBCE83424C0DC6A00EFA5D2 /* DryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83324C0DC6A00EFA5D2 /* DryCVC.swift */; };
+		7FBCE83624C0DC7B00EFA5D2 /* FoodCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83524C0DC7B00EFA5D2 /* FoodCVC.swift */; };
+		7FBCE83824C0DC8A00EFA5D2 /* ManuCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83724C0DC8A00EFA5D2 /* ManuCVC.swift */; };
 		7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */; };
 		7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */; };
 		7FC9385524AB1088002B0CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9385324AB1088002B0CA7 /* Main.storyboard */; };
@@ -249,8 +250,9 @@
 		7FBCE82924BF8EEE00EFA5D2 /* MenuInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInfo.swift; sourceTree = "<group>"; };
 		7FBCE82B24BF8F0700EFA5D2 /* ManufactureInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufactureInfo.swift; sourceTree = "<group>"; };
 		7FBCE82D24C0B27F00EFA5D2 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
-		7FBCE82F24C0B2AE00EFA5D2 /* FilterHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderCell.swift; sourceTree = "<group>"; };
-		7FBCE83124C0CB2900EFA5D2 /* FilterSecondHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSecondHeader.swift; sourceTree = "<group>"; };
+		7FBCE83324C0DC6A00EFA5D2 /* DryCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DryCVC.swift; sourceTree = "<group>"; };
+		7FBCE83524C0DC7B00EFA5D2 /* FoodCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCVC.swift; sourceTree = "<group>"; };
+		7FBCE83724C0DC8A00EFA5D2 /* ManuCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManuCVC.swift; sourceTree = "<group>"; };
 		7FC9384A24AB1088002B0CA7 /* Ounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -589,8 +591,9 @@
 				7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */,
 				7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */,
 				7FBCE82D24C0B27F00EFA5D2 /* HeaderCell.swift */,
-				7FBCE82F24C0B2AE00EFA5D2 /* FilterHeaderCell.swift */,
-				7FBCE83124C0CB2900EFA5D2 /* FilterSecondHeader.swift */,
+				7FBCE83324C0DC6A00EFA5D2 /* DryCVC.swift */,
+				7FBCE83524C0DC7B00EFA5D2 /* FoodCVC.swift */,
+				7FBCE83724C0DC8A00EFA5D2 /* ManuCVC.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				7754C98A24BCBCA0001F3A0F /* FollowService.swift in Sources */,
 				5EA7C46124B8EE5B00EB95EA /* BrowseUserTVCell.swift in Sources */,
 				5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */,
+				7FBCE83824C0DC8A00EFA5D2 /* ManuCVC.swift in Sources */,
 				7792017524BE0BBE00DB0ACD /* SearchService.swift in Sources */,
 				5E35794C24AE37B300043066 /* UIViewController+Extension.swift in Sources */,
 				7792017924BFBA2000DB0ACD /* ChangeAccountCVC.swift in Sources */,
@@ -991,6 +995,7 @@
 				5E48BF2224B1D7BB0060EA7B /* PostVC.swift in Sources */,
 				5E35795C24AE391500043066 /* UITabBar+Extension.swift in Sources */,
 				5EA7C46324B8EE7400EB95EA /* BrowseProductTVCell.swift in Sources */,
+				7FBCE83424C0DC6A00EFA5D2 /* DryCVC.swift in Sources */,
 				5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */,
 				5EA889FF24B3BEE300C4CEC4 /* RegisterVC.swift in Sources */,
 				7FF5158B24BE357800B34544 /* UserReviews.swift in Sources */,
@@ -1002,7 +1007,6 @@
 				5E69E89824AC685C005D4DC1 /* UIView+Extension.swift in Sources */,
 				5E35795224AE38A900043066 /* UIButton+Extension.swift in Sources */,
 				7FBCE82824BF8EDB00EFA5D2 /* DryInfo.swift in Sources */,
-				7FBCE83024C0B2AE00EFA5D2 /* FilterHeaderCell.swift in Sources */,
 				5EFD2DCF24BC6E430054B357 /* SignIn.swift in Sources */,
 				7FBCE82C24BF8F0700EFA5D2 /* ManufactureInfo.swift in Sources */,
 				5EA7C46524B8F17D00EB95EA /* BrowseSearchVC+Constraint.swift in Sources */,
@@ -1049,9 +1053,9 @@
 				5EFD2DC924BC66100054B357 /* NetworkResult.swift in Sources */,
 				777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */,
 				5E48BF1F24B1D79D0060EA7B /* BrowseCVCell.swift in Sources */,
+				7FBCE83624C0DC7B00EFA5D2 /* FoodCVC.swift in Sources */,
 				7FE7BA6124BDAAF800D57089 /* AccountVC.swift in Sources */,
 				5EA7C45F24B8EAAD00EB95EA /* BrowsePageCVCell.swift in Sources */,
-				7FBCE83224C0CB2900EFA5D2 /* FilterSecondHeader.swift in Sources */,
 				5E35795624AE38D100043066 /* Date+Extension.swift in Sources */,
 				5E039CB324AFFEAB009B1BC6 /* EmailVC+Constraint.swift in Sources */,
 				5EFD2DCB24BC68290054B357 /* ResponseResult.swift in Sources */,

@@ -29,7 +29,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var introduceLabel: UILabel!
     
-    var profile: MyProfile?
+    var profile: ProfileInfoArray?
     
     func setDataInformation(myfollower: String,
                             myfollowing: String,
@@ -72,7 +72,7 @@ class ProfileCell: UITableViewCell {
     }
     
     func cellProfile(){
-        
+//        dump(profile)
         profileImg.imageFromUrl(profile?.profileImg ?? "", defaultImgPath: "")
         profileImg.setRounded(radius: nil)
         nameLabel.text = profile?.profileName

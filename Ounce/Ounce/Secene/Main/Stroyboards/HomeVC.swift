@@ -12,25 +12,24 @@ import Foundation
 import SwiftKeychainWrapper
 
 class HomeVC: UIViewController {
-    
-    //var rootVC: UIViewController?
-    
+        
     @IBOutlet weak var reviewTV: UITableView!
     
-    var profiles: [MyProfile]?
+    var profiles: MyProfile?
     var reviews: [UserReviews]?
     var profileIndex: Int?
     var isOtherUser: Bool = false
     
-    var currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+    var currentProfileIndex: Int?
+    var pageIndex: [Int] = [1, 9]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reviewTV.delegate = self
         reviewTV.dataSource = self
-        
-        
+        currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+        print("123: ",currentProfileIndex ?? 0)
         // ReviewTableViewCell xib 연결
         let nibName = UINib(nibName: "ReviewTableViewCell", bundle: nil)
         
@@ -45,54 +44,21 @@ class HomeVC: UIViewController {
         //테이블 셀 라인 없애기
         self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        //        self.setupLayout()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
         if !isOtherUser {
             navigationController?.isNavigationBarHidden = true
         } else {
             didTapBackButton()
             navigationController?.isNavigationBarHidden = true
         }
-        dateReviewService(19, 1, 10)
         
-        profileService(19)
-        
-        
-        // MARK: - 윤진이 뷰에서 제품 등록해주고 완료 누르면, 다시 시간 순으로 정렬
-        //        func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
-        //
-        //            ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
-        //                switch responsedata {
-        //                case .success(let res):
-        //                    self.reviews = res as! [UserReviews]
-        //                    self.reviewTV.reloadData()
-        //                case .requestErr(_):
-        //                    print("reupload product request error")
-        //
-        //                case .pathErr:
-        //                    print("reupload product pathErr")
-        //
-        //                case .serverErr:
-        //                    print(" reupload product serverErr")
-        //
-        //                case .networkFail :
-        //                    print("reupload product failure")
-        //
-        //                }
-        //            }
-        //
-        //        }
-        
+        dateReviewService(currentProfileIndex ?? 0, pageIndex[0], pageIndex[1])
+        profileService(currentProfileIndex ?? 0)
     }
-    
-    // 위에 viewWillAppear하고 중복 아닌가?,,
-    //    func setupLayout() {
-    //        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    //    }
     
 }
 
@@ -140,7 +106,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                 cell.editProfileButton.addTarget(self, action: #selector(didEditProfileButton),
                                                  for: .touchUpInside)
                 
-                cell.profile = profiles?[indexPath.row]
+                cell.profile = profiles?.profileInfoArray[0]
                 cell.cellProfile()
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor.white
@@ -158,8 +124,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                 
                 return cell
             }
-        }
-        else{
+        } else {
             let reviewCell = reviewTV.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
             reviewCell.rootVC = self
             reviewCell.review = reviews?[indexPath.row]
@@ -228,6 +193,8 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             
             // xib 파일 - headerCell
             headerCell.rootVC = self
+            headerCell.reviews = profiles?.reviewCountAll
+            headerCell.reviewCount()
             
             return headerCell
         }
@@ -318,7 +285,7 @@ extension HomeVC {
         MyProfileService.shared.myprofile(String(profileIndex)) { responsedata in
             switch responsedata {
             case .success(let data):
-                self.profiles = data as? [MyProfile]
+                self.profiles = data as? MyProfile
                 
                 self.reviewTV.reloadData()
                 

@@ -56,7 +56,7 @@ struct SearchService {
                                     let decoder = JSONDecoder()
                                     let result = try decoder.decode(ResponseResult<User>.self,
                                                                     from: value)
-                                    print(result)
+//                                    print(result)
                                     completion(.success(result.data ?? [User].self))
                                 } catch {
                                     completion(.pathErr)
@@ -98,7 +98,6 @@ struct SearchService {
             "pageEnd": pageEnd
         ]
         
-        dump(body)
         
         Alamofire.request(URL,
                           method: .post,

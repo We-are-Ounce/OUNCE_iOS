@@ -46,9 +46,9 @@ struct MyProfileService {
                                case 200:
                                    do{
                                        let decoder = JSONDecoder()
-                                       let result = try decoder.decode(ResponseResult<MyProfile>.self,
+                                       let result = try decoder.decode(ResponseSimpleResult<MyProfile>.self,
                                                                        from: value)
-                                       completion(.success(result.data ?? [MyProfile].self))
+                                       completion(.success(result.data ?? MyProfile.self))
                                    } catch {
                                        completion(.pathErr)
                                    }

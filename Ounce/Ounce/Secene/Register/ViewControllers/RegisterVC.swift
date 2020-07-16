@@ -99,10 +99,7 @@ class RegisterVC: UIViewController {
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
 extension RegisterVC {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
-
+    
     func findEdit(){
         let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
         navigationController?.isNavigationBarHidden = false
@@ -116,10 +113,10 @@ extension RegisterVC {
     }
     
     func setView(){
-        dump(profiles)
-        profileIMG.imageFromUrl(profiles?[0].profileImg, defaultImgPath: "")
-        nameTextField.text = profiles?[0].profileName
-        contentTextField.text = profiles?[0].profileInfo
+//        dump(profiles)
+//        profileIMG.imageFromUrl(profiles?[0].profileImg, defaultImgPath: "")
+//        nameTextField.text = profiles?[0].profileName
+//        contentTextField.text = profiles?[0].profileInfo
 //        maleButton
 //        femaleButton
 //        neutralizationRoundButton

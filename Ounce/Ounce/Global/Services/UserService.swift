@@ -40,7 +40,6 @@ struct UserService {
                           encoding: JSONEncoding.default,
                           headers: headers).responseData{
                             response in
-                            dump(body)
                             
                             switch response.result {
                                 

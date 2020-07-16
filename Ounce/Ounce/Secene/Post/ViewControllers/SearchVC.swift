@@ -214,7 +214,10 @@ extension SearchVC: UITableViewDataSource {
         let recoding = recodeMemory[indexPath.row]
         
         cell.traceLabel.text = recoding
-        
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.white
+        cell.selectedBackgroundView = bgColorView
+
         return cell
     }
     

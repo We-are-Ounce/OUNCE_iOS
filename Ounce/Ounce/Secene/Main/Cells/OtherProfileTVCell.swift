@@ -154,17 +154,17 @@ class OtherProfileTVCell: UITableViewCell {
     }
     
     func setProfile(){
-        profileIMG.imageFromUrl(profile?.profileImg, defaultImgPath: "")
-        nameLabel.text = profile?.profileName
-        switch profile?.profileGender {
+        profileIMG.imageFromUrl(profile?.profileInfoArray[0].profileImg, defaultImgPath: "")
+        nameLabel.text = profile?.profileInfoArray[0].profileName
+        switch profile?.profileInfoArray[0].profileGender {
         case "male":
-            if profile?.profileNeutral == "true" {
+            if profile?.profileInfoArray[0].profileNeutral == "true" {
                 sexImage.image = UIImage(named: "unmale")
             } else {
                 sexImage.image = UIImage(named: "male")
             }
         case "female":
-            if profile?.profileNeutral == "true" {
+            if profile?.profileInfoArray[0].profileNeutral == "true" {
                 sexImage.image = UIImage(named: "unfemale")
             } else {
                 sexImage.image = UIImage(named: "female")
@@ -174,11 +174,11 @@ class OtherProfileTVCell: UITableViewCell {
         case .some(_):
             break
         }
-        weightLabel.text = (profile?.profileWeight ?? "") + " kg"
-        ageLabel.text = String(profile?.profileAge ?? 0) + " 살"
-        contentLabel.text = profile?.profileInfo ?? ""
-        followerLabel.text = "팔로워 " + String(profile?.follower ?? 0)
-        followingLabel.text = "팔로워 " + String(profile?.following ?? 0)
+        weightLabel.text = (profile?.profileInfoArray[0].profileWeight ?? "") + " kg"
+        ageLabel.text = String(profile?.profileInfoArray[0].profileAge ?? 0) + " 살"
+        contentLabel.text = profile?.profileInfoArray[0].profileInfo ?? ""
+        followerLabel.text = "팔로워 " + String(profile?.profileInfoArray[0].follower ?? 0)
+        followingLabel.text = "팔로워 " + String(profile?.profileInfoArray[0].following ?? 0)
     }
     
     @objc func didTapBackButton(){

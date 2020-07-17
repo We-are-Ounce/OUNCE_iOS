@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol HomeViewDelegate: class {
+    func didSortingClick(data: String)
+}
+
 class SortingVC: UIViewController {
+    
+    var homeViewDelegate: HomeViewDelegate?
+    
+    var totals: [ReviewTotal]?
     
     @IBOutlet var backView: UIView!
     @IBOutlet weak var popView: UIView!
@@ -18,6 +26,8 @@ class SortingVC: UIViewController {
     @IBOutlet weak var tableViewHeightLayoutConstraint: NSLayoutConstraint!
     
     var sortingList = ["날짜순", "기호도순", "총점순"]
+    
+    var profileIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +55,11 @@ class SortingVC: UIViewController {
         self.dismiss(animated: false, completion: nil)
         
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
-
+    
 }
 
 
@@ -68,35 +78,40 @@ extension SortingVC: UITableViewDelegate, UITableViewDataSource {
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.white
         sortingCell.selectedBackgroundView = bgColorView
-
-//        if sortingList[indexPath.row] == "날짜 순" {
-//            sortingCell.backgroundColor = .black
-//            sortingCell.textLabel?.textColor = .putty
-//        }
-//        else if sortingList[indexPath.row] == "기호도 순" {
-//
-//            sortingCell.backgroundColor = .white
-//            sortingCell.textLabel?.textColor = .putty
-//
-//        }
-//        else {
-//
-//            sortingCell.backgroundColor = .white
-//            sortingCell.textLabel?.textColor = .putty
-//        }
+        
         return sortingCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-         return 44
+        return 44
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // indexPath row 별로 데이터 보내기
+//                if indexPath.section == 1 {
+//
+//                    print("하이루")
+//
+//           return
+//
+//                }
+//
+//                else if indexPath.section == 2 {
+//
+//                    self.dismiss(animated: true, completion: nil)
+//
+//                    return
+//                }
+//                else {
+//
+//                    return
+//
+//                }
+//
+        homeViewDelegate?.didSortingClick(data: sortingList[indexPath.row])
+        dismiss(animated: false, completion: nil)
     }
     
 }
-

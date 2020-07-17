@@ -9,8 +9,10 @@
 import Foundation
 
 struct UserReviews: Codable {
+    
     let reviewIdx: Int
     let foodImg: String
     let foodManu, foodName, reviewInfo, reviewRating: String
     let reviewPrefer, createdAt: String
+    
 }

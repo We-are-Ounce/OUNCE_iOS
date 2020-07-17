@@ -11,8 +11,9 @@ import Foundation
 
 import SwiftKeychainWrapper
 
+
 class HomeVC: UIViewController {
-    
+        
     @IBOutlet weak var reviewTV: UITableView!
     
     var profiles: MyProfile?
@@ -362,6 +363,7 @@ extension HomeVC {
             case .success(let res):
                 self.reviews = res as? [UserReviews]
                 
+                print("홈 뷰 시간 순 Service")
                 dump(self.reviews)
                 
                 DispatchQueue.main.async {
@@ -386,7 +388,7 @@ extension HomeVC {
         
     }
     
-    // MARK: - 테이블 뷰 선택 시 리뷰 조회하면
+    // MARK: - 테이블 뷰 선택 시 리뷰 조회 화면
     func reviewDetailService(_ reviewIndex: Int){
         
         ReviewUpdateService.shared.reviewDetail(reviewIndex){ responsedata in
@@ -409,16 +411,18 @@ extension HomeVC {
                 
             }
         }
+
         // 홈 뷰: 리뷰 총점 조회(GET)
         func totalReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
-            
+
             ReviewTotalService.shared.totalReviews(String(profileIndex), String(start), String(end)) { responsedata in
                 switch responsedata {
                 case .success(let res):
                     self.totals = res as? [ReviewTotal]
                     
+                    print("리뷰 총점 서버 들어오기")
                     dump(self.totals)
-                    
+
                     DispatchQueue.main.async {
                         self.reviewTV.reloadData()
                     }
@@ -426,19 +430,19 @@ extension HomeVC {
                     print("홈 뷰 : 총점 성공")
                 case .requestErr(_):
                     print("request error")
-                    
+
                 case .pathErr:
                     print(".pathErr")
-                    
+
                 case .serverErr:
                     print(".serverErr")
-                    
+
                 case .networkFail :
                     print("failure")
-                    
+
                 }
             }
-            
+
         }
         
         
@@ -446,4 +450,8 @@ extension HomeVC {
     
 }
 
-
+extension HomeVC: HomeViewDelegate {
+    func didSortingClick(data: String) {
+        print(data)
+    }
+}

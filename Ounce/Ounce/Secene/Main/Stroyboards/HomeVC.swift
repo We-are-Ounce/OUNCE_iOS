@@ -236,7 +236,14 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension HomeVC {
+extension HomeVC: AccountDelegate {
+    func didClickedAccount() {
+        print(#function)
+        currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+        dateReviewService(currentProfileIndex ?? 0, pageIndex[0], pageIndex[1])
+        profileService(currentProfileIndex ?? 0)
+    }
+    
     
     // 여기 부분이 백 버튼 만드는 부분
     @objc func didTapBackButton(){
@@ -281,6 +288,7 @@ extension HomeVC {
         let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
         
         dvc.modalPresentationStyle = .overFullScreen
+        dvc.delegate = self
         
         self.present(dvc, animated: false)
     }

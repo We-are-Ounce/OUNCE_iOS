@@ -32,6 +32,8 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>사진첩 사용을 위한 설명</string>
 	<key>UIAppFonts</key>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
 	<array>
 		<string>NotoSansKR-Thin.otf</string>
 		<string>NotoSansKR-Regular.otf</string>

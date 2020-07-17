@@ -246,6 +246,11 @@ extension HomeVC {
         dvc.profileIndex = profileIndex
         dvc.isFollower = true
         navigationController?.pushViewController(dvc, animated: true)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+        style: .plain,
+        target: nil,
+        action: nil)
+        
     }
     
     @objc func didTapFollowingButton(){

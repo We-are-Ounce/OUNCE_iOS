@@ -128,6 +128,8 @@
 		7FBCE83624C0DC7B00EFA5D2 /* FoodCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83524C0DC7B00EFA5D2 /* FoodCVC.swift */; };
 		7FBCE83824C0DC8A00EFA5D2 /* ManuCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83724C0DC8A00EFA5D2 /* ManuCVC.swift */; };
 		7FBCE83C24C1A7BF00EFA5D2 /* ReviewTotalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83B24C1A7BF00EFA5D2 /* ReviewTotalService.swift */; };
+		7FBCE83E24C24F6E00EFA5D2 /* ReviewPrefer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83D24C24F6E00EFA5D2 /* ReviewPrefer.swift */; };
+		7FBCE84024C24FE000EFA5D2 /* ReviewPreferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83F24C24FE000EFA5D2 /* ReviewPreferService.swift */; };
 		7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */; };
 		7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */; };
 		7FC9385524AB1088002B0CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9385324AB1088002B0CA7 /* Main.storyboard */; };
@@ -286,6 +288,8 @@
 		7FBCE83524C0DC7B00EFA5D2 /* FoodCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCVC.swift; sourceTree = "<group>"; };
 		7FBCE83724C0DC8A00EFA5D2 /* ManuCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManuCVC.swift; sourceTree = "<group>"; };
 		7FBCE83B24C1A7BF00EFA5D2 /* ReviewTotalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTotalService.swift; sourceTree = "<group>"; };
+		7FBCE83D24C24F6E00EFA5D2 /* ReviewPrefer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPrefer.swift; sourceTree = "<group>"; };
+		7FBCE83F24C24FE000EFA5D2 /* ReviewPreferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPreferService.swift; sourceTree = "<group>"; };
 		7FC9384A24AB1088002B0CA7 /* Ounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -541,6 +545,7 @@
 				5EBA555024C1E31C002CC6D1 /* DetailReview.swift */,
 				F20AA59524C0DFF7001FA520 /* AddReview.swift */,
 				F24A0F7924C217BF004CC476 /* PostModel.swift */,
+				7FBCE83D24C24F6E00EFA5D2 /* ReviewPrefer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -565,6 +570,7 @@
 				5EFD2DCC24BC69CC0054B357 /* UserService.swift */,
 				7792017424BE0BBE00DB0ACD /* SearchService.swift */,
 				7FBCE83B24C1A7BF00EFA5D2 /* ReviewTotalService.swift */,
+				7FBCE83F24C24FE000EFA5D2 /* ReviewPreferService.swift */,
 				77DBD26B24BE0A9F003034D0 /* ReviewService.swift */,
 				7754C98924BCBCA0001F3A0F /* FollowService.swift */,
 				7FF5158C24BE35AE00B34544 /* ContentService.swift */,
@@ -1037,6 +1043,7 @@
 				777C1E9924C1C11B005DA57B /* LimitAccountService.swift in Sources */,
 				7754C98A24BCBCA0001F3A0F /* FollowService.swift in Sources */,
 				5EBA555324C1E32B002CC6D1 /* LimitAccount.swift in Sources */,
+				7FBCE83E24C24F6E00EFA5D2 /* ReviewPrefer.swift in Sources */,
 				5EA7C46124B8EE5B00EB95EA /* BrowseUserTVCell.swift in Sources */,
 				5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */,
 				7FBCE83824C0DC8A00EFA5D2 /* ManuCVC.swift in Sources */,
@@ -1068,6 +1075,7 @@
 				5EA7C46324B8EE7400EB95EA /* BrowseProductTVCell.swift in Sources */,
 				7FBCE83424C0DC6A00EFA5D2 /* DryCVC.swift in Sources */,
 				5E48BF2A24B1ED810060EA7B /* CustomTabBar.swift in Sources */,
+				7FBCE84024C24FE000EFA5D2 /* ReviewPreferService.swift in Sources */,
 				5EA889FF24B3BEE300C4CEC4 /* RegisterVC.swift in Sources */,
 				7FF5158B24BE357800B34544 /* UserReviews.swift in Sources */,
 				F248FD4224B7A8F30055D753 /* UIScroll+Extension.swift in Sources */,

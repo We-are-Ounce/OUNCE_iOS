@@ -94,15 +94,15 @@
 |             | 회원가입                            | [준현](https://github.com/5anniversary) | O         |
 | 프로필 등록 | 프로필 등록                         | [준현](https://github.com/5anniversary) | O         |
 | 홈 화면     | 정렬                                | [주연](https://github.com/juyeonblue)   | O         |
-|             | 필터                                | [주연](https://github.com/juyeonblue)   | △         |
-|             | 계정 선택                           | [주연](https://github.com/juyeonblue)   | △         |
-|             | 계정 추가                           | [주연](https://github.com/juyeonblue)   | △         |
+|             | 필터                                | [주연](https://github.com/juyeonblue)   | O         |
+|             | 계정 선택                           | [주연](https://github.com/juyeonblue)   | O         |
+|             | 계정 추가                           | [주연](https://github.com/juyeonblue)   | O         |
 |             | 팔로워                              | [호세](https://github.com/psychehose)   | O         |
 |             | 팔로잉                              | [호세](https://github.com/psychehose)   | O         |
 |             | 설정                                | -                                       | O         |
 |             | 프로필 수정                         | -                                       | O         |
 | 설정        | 설정 메뉴 내부에서 로그아웃         | [주연](https://github.com/juyeonblue)   | O         |
-| 기록하기    | 기록 하기                           | [윤진](https://github.com/profitjean)   | △         |
+| 기록하기    | 기록 하기                           | [윤진](https://github.com/profitjean)   | O         |
 |             | 제품 검색                           | [윤진](https://github.com/profitjean)   | O         |
 |             | 제품이 없을시 제품 생성과 함께 기록 | [윤진](https://github.com/profitjean)   | O         |
 | 제품        | 제품 검색                           | [준현](https://github.com/5anniversary) | O         |
@@ -406,25 +406,33 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
 
 
 
-### 😻 최강 아요 멤버
+### 😻 최강 아요 멤버 
 
 <img src="https://user-images.githubusercontent.com/55732968/86831239-9e044800-c0d1-11ea-8ab9-408db0ed00ab.jpeg" width="100" height = "100">  <img src="https://user-images.githubusercontent.com/55732968/86831306-b07e8180-c0d1-11ea-807c-e7c5cbbd871e.jpeg" width="100" height = "100" >  <img src="https://user-images.githubusercontent.com/55732968/86831405-d015aa00-c0d1-11ea-9cd5-2ac904324133.jpeg" width="100" height = "100 ">  <img src="https://user-images.githubusercontent.com/55732968/86831496-eae81e80-c0d1-11ea-8e01-e6db7ea97d0a.jpeg" height = "100" width = "100" >
 
-[김호세](https://github.com/psychehose )
+[김호세](https://github.com/psychehose ) / (사원)
 
-> 성장
+> **성장**
+>
+> 팀원들이 너무 좋아서 행복했다. 어렵지만 성장 할 수 있었던 즐거운 3주였다.
 
-[박주연](https://github.com/juyeonblue)
+[박주연](https://github.com/juyeonblue) / (차장. 사실 회장딸)
 
-> 앱스토어 출시 & 협업 능력 성장 
+> **앱스토어 출시 & 협업 능력 성장** 
+>
+> 우리 온스 영원하자❤️ 앱스토어 등록 고고~~
 
-[이윤진](https://github.com/profitjean )
+[이윤진](https://github.com/profitjean ) / (대리)
 
-> iOS 실력 성장 & 앱스토어 출시
+> **iOS 실력 성장 & 앱스토어 출시**
+>
+> 온스 사랑해요❤️ 다들 3주동안 고생많았어요
 
-[오준현](https://github.com/soogoon)
+[오준현](https://github.com/soogoon) / (부장)
 
-> 앱스토어 출시
+> **앱스토어 출시**
+>
+> 우리 사원들과 함께 즐거운 3주를 보낼 수 있어서 아주 즐거운 시간이었습니다.
 
 
 

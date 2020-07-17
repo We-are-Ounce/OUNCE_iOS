@@ -23,7 +23,7 @@ class HomeVC: UIViewController {
     
     var currentProfileIndex: Int?
     var pageIndex: [Int] = [0, 9]
-    
+    var detailReview: [DetailReview]?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -167,9 +167,10 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             /* 셀 클릭시 index값 넘겨주기 */
             
             dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
-
+            print(dvc.reviewIndexNumber)
             dvc.isEdit = true
             self.navigationController?.pushViewController(dvc, animated: true)
+            reviewDetailService(currentProfileIndex ?? 0)
         }
         
     }
@@ -352,7 +353,7 @@ extension HomeVC {
             case .success(let res):
                 self.reviews = res as? [UserReviews]
                
-//                dump(self.reviews)
+                dump(self.reviews)
                
                 DispatchQueue.main.async {
                      self.reviewTV.reloadData()
@@ -376,5 +377,31 @@ extension HomeVC {
         
     }
     
-}
+    
+    // MARK: - 테이블 뷰 선택 시 리뷰 조회하면
+    func reviewDetailService(_ reviewIndex: Int){
 
+        ReviewUpdateService.shared.reviewDetail(reviewIndex){ responsedata in
+            switch responsedata {
+
+            case .success(let res):
+                self.detailReview = res as? [DetailReview]
+
+                dump(self.detailReview)
+                print("테이블 뷰 선택 후 리뷰 조회 성공")
+            case .requestErr(_) :
+                print("requset error")
+
+            case.pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print("failure")
+
+            }
+        }
+
+    }
+
+}

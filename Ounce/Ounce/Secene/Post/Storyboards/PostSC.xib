@@ -706,6 +706,7 @@
                 <outlet property="pooState5" destination="nSf-Bh-apU" id="ahY-L4-uij"/>
                 <outlet property="productImg" destination="YUE-x9-6na" id="nkO-aH-IYT"/>
                 <outlet property="productName" destination="qh5-3f-aUT" id="zon-RY-ATj"/>
+                <outlet property="saveDate" destination="5f0-xj-yQL" id="SFH-F5-MzO"/>
                 <outlet property="scoreBtn1" destination="cmy-x8-43s" id="Zme-mY-r9Z"/>
                 <outlet property="scoreBtn2" destination="ljN-4S-FOJ" id="Rti-s7-d92"/>
                 <outlet property="scoreBtn3" destination="srK-kl-vVt" id="7Hu-KY-73Z"/>

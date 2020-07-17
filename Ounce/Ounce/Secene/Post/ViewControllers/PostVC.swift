@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class PostVC: UIViewController {
 
@@ -64,6 +65,8 @@ class PostVC: UIViewController {
         self.navigationItem.title = "기록하기"
         custom.foodDry.setTitle(foodDry, for: .normal)
         custom.foodMeat1.setTitle(foodMeat1, for: .normal)
+        
+       
         print("food2:",foodMeat2)
         if (foodMeat2) == ""{
             custom.foodMeat2.alpha = 0
@@ -73,7 +76,8 @@ class PostVC: UIViewController {
             custom.foodMeat2.setTitle(foodMeat2, for: .normal)
             custom.foodMeat2.borderWidth = 1
         }
-
+        
+        custom.profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
         custom.companyName.text = companyNameVC
         custom.productName.text = productNameVC
         custom.productImg.imageFromUrl(imageNameVC, defaultImgPath: "")

@@ -11,9 +11,10 @@ import Foundation
 import Alamofire
 import SwiftKeychainWrapper
 
-struct ReviewUpdateService{
+struct ReviewUpdateService {
     
     private init() {}
+    
     static let shared = ReviewUpdateService()
     
     var reviewIdx: Int?
@@ -121,9 +122,7 @@ struct ReviewUpdateService{
             "Content-Type": "application/json",
         ]
         print(URL)
-        
-    
-        dump(body)
+
         
         Alamofire.request(URL,
                           method: .delete,
@@ -144,10 +143,10 @@ struct ReviewUpdateService{
                             case 200:
                                 do{
                                     let decoder = JSONDecoder()
-                                    let result = try decoder.decode(ResponseResult<ResponseResult>.self,
+                                    let result = try decoder.decode(ResponseResult<ResponseTempResult>.self,
                                                                     from: value)
                                     //                                    print(result)
-                                    completion(.success(result.data ?? [ResponseResult].self))
+                                    completion(.success(result.data ?? [ResponseTempResult].self))
                                 } catch {
                                     completion(.pathErr)
                                 }
@@ -169,8 +168,59 @@ struct ReviewUpdateService{
         
     }
     
+       // MARK: - 리뷰 상세보기
     
     
+    func reviewDetail(_ reviewIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void){
+        
+        let URL = APIConstants.reviewDetail + "\(reviewIdx))"
+        //let token = KeychainWrapper.standard.string(forKey: "Token")
+        print(URL)
+        
+        Alamofire.request(URL,
+                          method: .get,
+                          parameters: nil,
+                          encoding: JSONEncoding.default,
+                          headers: nil).responseData
+            {
+                response in
+                
+                switch response.result {
+                    
+                case .success:
+                    // parameter 위치
+                    if let value = response.result.value {
+                        if let status = response.response?.statusCode {
+                            print(status)
+                            switch status {
+                            case 200:
+                                do{
+                                    let decoder = JSONDecoder()
+                                    let result = try decoder.decode(ResponseResult<DetailReview>.self,
+                                                                    from: value)
+                                    //                                    print(result)
+                                    completion(.success(result.data ?? [DetailReview].self))
+                                } catch {
+                                    completion(.pathErr)
+                                }
+                            case 400:
+                                completion(.pathErr)
+                            case 500:
+                                completion(.serverErr)
+                            default:
+                                break
+                            }
+                        }
+                    }
+                    break
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    completion(.networkFail)
+                }
+        }
+        
+        
+    }
     
     
 }

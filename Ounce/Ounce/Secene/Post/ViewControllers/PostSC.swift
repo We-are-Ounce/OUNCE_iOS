@@ -15,6 +15,7 @@ class PostSC:UIView,UITextViewDelegate {
     @IBOutlet weak var productImg: UIImageView! // 제품사진
     @IBOutlet weak var companyName: UILabel! // 회사명
     @IBOutlet weak var productName: UILabel! // 제품이름
+    @IBOutlet weak var saveDate: UILabel!
     
     @IBOutlet weak var foodDry: UIButton!
     @IBOutlet weak var foodMeat1: UIButton!
@@ -78,7 +79,7 @@ class PostSC:UIView,UITextViewDelegate {
     var sendFoodIndex: Int?
     var sendProfileIndex: Int?
     var rootVC: UIViewController?
-    
+    var isEditAgain: Bool = false
     @IBOutlet weak var stackViewLeadingConstraint: NSLayoutConstraint!
     
     
@@ -366,6 +367,7 @@ class PostSC:UIView,UITextViewDelegate {
     }
     func viewDidLoad(){
         
+        
         self.memoTextView.layer.borderWidth = 1.0
         self.memoTextView.layer.borderColor = UIColor.pale.cgColor
         self.memoTextView.layer.cornerRadius = 8.0
@@ -384,9 +386,6 @@ class PostSC:UIView,UITextViewDelegate {
         
         sendReview = review
         sendMemo = memo
-        
-        
-        
         sendPooState = pooState
         sendPooSmell = pooSmell
         sendEye = eye
@@ -395,6 +394,13 @@ class PostSC:UIView,UITextViewDelegate {
         sendVomit = vomit
         sendFoodIndex = foodIndex
         sendProfileIndex = profileIndex
+        
+        if !isEditAgain {
+            
+            saveDate.isHidden = true
+        }else{
+            saveDate.isHidden = false
+        }
     }
     func viewDidAppear(){
         

@@ -420,6 +420,9 @@ extension ProductDetailVC: UITableViewDataSource {
         let sb = UIStoryboard(name: "Post", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
         vc.reviews = reviews?[indexPath.row]
+        vc.reviewIdx = reviews?[indexPath.row].reviewIdx
+        vc.isOther = true
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     

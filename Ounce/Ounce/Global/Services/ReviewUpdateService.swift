@@ -182,7 +182,7 @@ struct ReviewUpdateService {
     
     func reviewDetail(_ reviewIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void){
         
-        let URL = APIConstants.reviewDetail + "\(reviewIdx))"
+        let URL = APIConstants.reviewDetail + "\(reviewIdx)"
         //let token = KeychainWrapper.standard.string(forKey: "Token")
         print(URL)
         

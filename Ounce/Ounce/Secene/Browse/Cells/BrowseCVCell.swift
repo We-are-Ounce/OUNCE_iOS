@@ -13,17 +13,6 @@ import Then
 
 class BrowseCVCell: UICollectionViewCell {
     
-//    let customView: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.cornerRadius = 12
-//        return view
-//    }()
-    
-    
-    
-    
-    
     let customView = UIView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }

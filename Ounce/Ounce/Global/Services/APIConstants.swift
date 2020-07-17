@@ -80,4 +80,7 @@ struct APIConstants {
     static let recommend = BaseURL + "search/recommend"
     // GET 유사도 제공
     static let similarity = BaseURL + "search/similarity"
+    
+    static let limitAddAccount = BaseURL + "profile/limitProfile"
+    
 }

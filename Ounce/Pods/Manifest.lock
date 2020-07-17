@@ -27,6 +27,7 @@ PODS:
   - SteviaLayout (4.7.3)
   - SwiftGifOrigin (1.7.0)
   - SwiftKeychainWrapper (3.4.0)
+  - SwiftyGif (5.3.0)
   - Then (2.6.0)
   - UPCarouselFlowLayout (1.1.2)
   - YPImagePicker (4.2.1):
@@ -42,12 +43,13 @@ DEPENDENCIES:
   - SnapKit (~> 5.0.0)
   - SwiftGifOrigin (~> 1.7.0)
   - SwiftKeychainWrapper
+  - SwiftyGif
   - Then
   - UPCarouselFlowLayout
   - YPImagePicker
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - CHIPageControl
     - Gedatsu
@@ -58,6 +60,7 @@ SPEC REPOS:
     - SteviaLayout
     - SwiftGifOrigin
     - SwiftKeychainWrapper
+    - SwiftyGif
     - Then
     - UPCarouselFlowLayout
     - YPImagePicker
@@ -73,10 +76,11 @@ SPEC CHECKSUMS:
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
+  SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
   UPCarouselFlowLayout: 4c7d2c43a10ebb1597bde502a53699d378341dad
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: dac4daa8bb9319703692c18e0b8367ac2abc7b24
+PODFILE CHECKSUM: 2057a69473b8c6753e462f81f559bee93c73e638
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.7.3

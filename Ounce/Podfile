@@ -18,5 +18,6 @@ target 'Ounce' do
   pod 'iOSDropDown'
   pod 'CHIPageControl', '~> 0.1.3'
   pod 'SwiftGifOrigin', '~> 1.7.0'
+  pod 'SwiftyGif'
 
 end

@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SwiftKeychainWrapper
+
 class AccountVC: UIViewController {
     
     @IBOutlet weak var backView: UIView!
@@ -37,6 +39,8 @@ class AccountVC: UIViewController {
         accountCV.delegate = self
         accountCV.dataSource = self
         
+        setFunc()
+        
     }
     
     
@@ -46,7 +50,7 @@ class AccountVC: UIViewController {
     }
     
     @objc func didTapAdd(){
-        print(#function)
+        //print(#function)
         limitAccount()
         
         
@@ -115,7 +119,21 @@ extension AccountVC {
                 let response = res as! LimitAccount
                 
                 self.judgeLimit = response
-                
+                dump(res)
+                if self.judgeLimit?.possibleAddProfile == true {
+                    //print("다른 뷰로")
+                    KeychainWrapper.standard.set(true, forKey: "newProfile")
+                    let storyboard = UIStoryboard(name: "Register", bundle: nil)
+                    
+                    let dvc = storyboard.instantiateViewController(identifier: "RegisterNavVC") as! RegisterNavVC
+                    
+                    dvc.modalPresentationStyle = .overFullScreen
+
+                    self.present(dvc, animated: true, completion: nil)
+                    
+                } else {
+                    self.simpleAlert(title: "이미 생성된 계정이", message: "제한된 계정의 수를 넘었습니다.")
+                }
             case .requestErr(_):
                 print("request error")
                 

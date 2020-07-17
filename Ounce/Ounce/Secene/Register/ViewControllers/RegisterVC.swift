@@ -101,9 +101,15 @@ class RegisterVC: UIViewController {
 extension RegisterVC {
     func findEdit(){
         let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+        let newProfile = KeychainWrapper.standard.bool(forKey: "newProfile") ?? false
+        KeychainWrapper.standard.set(false, forKey: "newProfile")
         navigationController?.isNavigationBarHidden = false
-        if profileIndex != nil {
+        if profileIndex != nil && newProfile == false {
             navigationItem.rightBarButtonItem = editButton
+            navigationItem.leftBarButtonItem = backButton
+            profileService(profileIndex ?? 0)
+        } else if newProfile == true {
+            navigationItem.rightBarButtonItem = rightButton
             navigationItem.leftBarButtonItem = backButton
             profileService(profileIndex ?? 0)
         } else {

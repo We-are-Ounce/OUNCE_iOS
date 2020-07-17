@@ -105,7 +105,6 @@ extension BrowseCVCell{
         
         if(recommendInfo != nil) {
             var foodStr = [String]()
-            
             foodStr = findFood(target: recommendInfo?.resultProfile[num].profileIdx ?? 8000)
             if (foodStr.endIndex != 3) {
                 for i in foodStr.endIndex ... 3 {

@@ -10,11 +10,11 @@ import UIKit
 import SwiftKeychainWrapper
 
 class PostVC: UIViewController {
-
+    
     //    @IBAction func out(_ sender: Any) {
     //        self.dismiss(animated: true, completion: nil)
     //    }
-
+    
     @IBOutlet weak var addScrollView: UIScrollView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -27,7 +27,7 @@ class PostVC: UIViewController {
     var foodDry: String?
     var foodMeat1: String?
     var foodMeat2: String?
-
+    
     // 리뷰를 볼 때
     var reviewIdx: Int?
     
@@ -46,10 +46,10 @@ class PostVC: UIViewController {
     var reviewEar: Int?
     var reviewHair: Int?
     var reviewVomit: Int?
-
-//    var foodMeat1: String?
-//    var foodMeat2: String?
-//    var foodDry: String?
+    
+    //    var foodMeat1: String?
+    //    var foodMeat2: String?
+    //    var foodDry: String?
     
     // var date: String?
     var foodIndexNumber: Int?
@@ -57,26 +57,39 @@ class PostVC: UIViewController {
     var reviewIndexNumber: Int?
     var postDelegate: PostDelegate?
     var reviews: Review?
-
+    
     var isEdit: Bool = false
     var isOther: Bool = false
-
+    
     let custom = Bundle.main.loadNibNamed("PostSC", owner: self, options: nil)?[0] as! PostSC
-
-    var rightButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(saveButtonDidTap))
-    var editButton = UIBarButtonItem(image: UIImage(named: "icMore"), style: .plain, target: self, action: #selector(editButtonDidTap))
-
-
+    
+    
+    lazy var doneButton = UIBarButtonItem(title: "완료",
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(saveButtonDidTap))
+    
+    lazy var moreButton = UIBarButtonItem(image: UIImage(named: "icMore"),
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(moreButtonDidTap))
+    
+    lazy var editButton = UIBarButtonItem(title: "수정",
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(editButtonDidTap))
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.backgroundColor = .white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-
-
+        
+        
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "기록하기"
         custom.foodDry.setTitle(foodDry, for: .normal)
@@ -113,7 +126,7 @@ class PostVC: UIViewController {
         custom.foodIndex = foodIndexNumber ?? 0
         //custom.profileIndex = profileIndexNumber ?? 0
         //profileIndexNumber = custom.sendProfileIndex
-        if isOther {
+        if isOther || isEdit {
             custom.scoreBtn1.isEnabled = false
             custom.scoreBtn2.isEnabled = false
             custom.scoreBtn3.isEnabled = false
@@ -125,13 +138,13 @@ class PostVC: UIViewController {
             custom.likeBtn3.isEnabled = false
             custom.likeBtn4.isEnabled = false
             custom.likeBtn5.isEnabled = false
-
+            
             custom.pooState1.isEnabled = false
             custom.pooState2.isEnabled = false
             custom.pooState3.isEnabled = false
             custom.pooState4.isEnabled = false
             custom.pooState5.isEnabled = false
-
+            
             custom.pooSmell1.isEnabled = false
             custom.pooSmell2.isEnabled = false
             custom.pooSmell3.isEnabled = false
@@ -145,10 +158,18 @@ class PostVC: UIViewController {
             
             custom.criticTextField.isEnabled = false
             custom.memoTextView.isEditable = false
-            
         }
-
-
+        
+        if !isEdit {
+            self.navigationItem.rightBarButtonItem = doneButton
+        } else if isOther{
+            reviewDetailService(reviewIdx ?? 0)
+        } else {
+            self.navigationItem.rightBarButtonItem = moreButton
+            reviewDetailService(reviewIdx ?? 0)
+        }
+        
+        
         custom.criticTextField.delegate = self
         custom.criticTextField.tintColor = .black
         custom.memoTextView.delegate = self
@@ -156,41 +177,74 @@ class PostVC: UIViewController {
         addScrollView.delegate = self
         addKeyboardNotification()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        rightButton.title = "완료"
-        if !isEdit {
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
-        } else if !isOther{
-            reviewDetailService(reviewIdx ?? 0)
-
-        } else {
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem = editButton
-            reviewDetailService(reviewIdx ?? 0)
-        }
+        
     }
-
-    @objc func editButtonDidTap(){
-        let settingAlert = UIAlertController(title: nil, message: nil , preferredStyle: .actionSheet)
-        let firstAction = UIAlertAction(title: "수정", style: .default, handler: nil)
-        let secondAction = UIAlertAction(title: "삭제", style: .destructive, handler: nil)
+    
+    @objc func rightButtonDidTap(){
+        print(#function)
+    }
+    
+    @objc func moreButtonDidTap(){
+        print(#function)
+        let settingAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let firstAction = UIAlertAction(title: "수정", style: .default) { (_) in
+            self.custom.scoreBtn1.isEnabled = true
+            self.custom.scoreBtn2.isEnabled = true
+            self.custom.scoreBtn3.isEnabled = true
+            self.custom.scoreBtn4.isEnabled = true
+            self.custom.scoreBtn5.isEnabled = true
+            
+            self.custom.likeBtn1.isEnabled = true
+            self.custom.likeBtn2.isEnabled = true
+            self.custom.likeBtn3.isEnabled = true
+            self.custom.likeBtn4.isEnabled = true
+            self.custom.likeBtn5.isEnabled = true
+            
+            self.custom.pooState1.isEnabled = true
+            self.custom.pooState2.isEnabled = true
+            self.custom.pooState3.isEnabled = true
+            self.custom.pooState4.isEnabled = true
+            self.custom.pooState5.isEnabled = true
+            
+            self.custom.pooSmell1.isEnabled = true
+            self.custom.pooSmell2.isEnabled = true
+            self.custom.pooSmell3.isEnabled = true
+            self.custom.pooSmell4.isEnabled = true
+            self.custom.pooSmell5.isEnabled = true
+            
+            self.custom.eyeTrouble.isEnabled = true
+            self.custom.earTrouble.isEnabled = true
+            self.custom.furTrouble.isEnabled = true
+            self.custom.vomitTrouble.isEnabled = true
+            
+            self.custom.criticTextField.isEnabled = true
+            self.custom.memoTextView.isEditable = true
+            self.navigationItem.rightBarButtonItem = self.editButton
+        }
+        let secondAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
+            print("수정 반드실 할꼬에요")
+        }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-
+        
         settingAlert.addAction(firstAction)
         settingAlert.addAction(secondAction)
         settingAlert.addAction(cancelAction)
         settingAlert.view.tintColor = UIColor.black
-
+        
         present(settingAlert,animated: true,completion: nil)
-
+        
     }
-
-
+    
+    @objc func editButtonDidTap(){
+        print(#function)
+        
+    }
+    
     @objc func saveButtonDidTap(){
         // 리뷰 작성 버튼 - 완료 버튼 눌렀을 때 액션
-        print(#function)
-
         custom.review = custom.criticTextField.text!
         custom.memo = custom.memoTextView.text
         //custom.foodIndex = custom.sendFoodIndex ?? 0
@@ -207,38 +261,37 @@ class PostVC: UIViewController {
                                     custom.vomit,
                                     custom.foodIndex,
                                     custom.profileIndex){ NetworkResult
-            in switch NetworkResult{
-            case .success(_):
-                print("버튼작동")
-                self.dismiss(animated: true, completion: nil)
-            case .requestErr(let message):
-                guard let message = message as? Int else {return}
-                print(message)
-                print("requestErr")
-
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-
-            case .pathErr:
-                print("pathErr")
-            }
-
-
+                                        in switch NetworkResult{
+                                        case .success(_):
+                                            print("버튼작동")
+                                            self.dismiss(animated: true, completion: nil)
+                                        case .requestErr(let message):
+                                            guard let message = message as? Int else {return}
+                                            print(message)
+                                            print("requestErr")
+                                            
+                                        case .serverErr:
+                                            print("serverErr")
+                                        case .networkFail:
+                                            print("networkFail")
+                                            
+                                        case .pathErr:
+                                            print("pathErr")
+                                        }
+                                        
+                                        
         }
-
+        
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-
-
-
+        
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
     }
-
+    
 }
 
 extension PostVC {
@@ -249,7 +302,7 @@ extension PostVC {
             case .success(let response):
                 let resp = response as! [DetailReview]
                 let res = resp[0]
-
+                
                 self.custom.foodDry.setTitle(res.foodDry, for: .normal)
                 self.custom.foodMeat1.setTitle(res.foodMeat1, for: .normal)
                 if (res.foodMeat2) == "" {
@@ -296,7 +349,7 @@ extension PostVC {
                     self.custom.scoreBtn4selected(self)
                 case 5:
                     self.custom.scoreBtn5selected(self)
-
+                    
                 case .none:
                     print(11)
                 case .some(_):
@@ -338,7 +391,7 @@ extension PostVC {
                     self.custom.eyeTroubleselected(self)
                     
                 }
-
+                
                 if res.reviewEar == 1 {
                     
                     self.custom.earTroubleselected(self)
@@ -375,7 +428,7 @@ extension PostVC {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
-
+    
     @objc private func keyboardWillShow(_ notification: Notification)  {
         if let info = notification.userInfo {
             let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
@@ -389,20 +442,20 @@ extension PostVC {
                 .first?.windows
                 .filter({$0.isKeyWindow}).first
             let bottomPadding = keyWindow?.safeAreaInsets.bottom
-
+            
             var contentInset:UIEdgeInsets = self.addScrollView.contentInset
             contentInset.bottom = keyboardHeight - (bottomPadding ?? 0)
-
+            
             addScrollView.contentInset = contentInset
             addScrollView.scrollToBottom()
-
+            
             self.view.setNeedsLayout()
             UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
                 self.view.layoutIfNeeded()
             })
         }
     }
-
+    
     @objc private func keyboardWillHide(_ notification: Notification) {
         if let info = notification.userInfo {
             let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
@@ -416,31 +469,31 @@ extension PostVC {
                 .first?.windows
                 .filter({$0.isKeyWindow}).first
             let bottomPadding = keyWindow?.safeAreaInsets.bottom
-
+            
             let contentInset:UIEdgeInsets = UIEdgeInsets.zero
             addScrollView.contentInset = contentInset
-
-
+            
+            
             self.view.setNeedsLayout()
             UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
                 self.view.layoutIfNeeded()
             })
         }
     }
-
+    
 }
 
 extension PostVC: UIScrollViewDelegate {
-
-
+    
+    
 }
 
 extension PostVC: UITextViewDelegate{
-
+    
 }
 
 extension PostVC: UITextFieldDelegate{
-
+    
 }
 
 protocol PostDelegate {

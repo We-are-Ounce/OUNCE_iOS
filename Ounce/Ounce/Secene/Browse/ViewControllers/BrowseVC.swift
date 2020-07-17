@@ -178,12 +178,6 @@ class BrowseVC: UIViewController {
         
         let origin_userCatName = KeychainWrapper.standard.string(forKey: "name") ?? ""
         
-        let userCatName1 = postPositionText("호세")
-        let userCatName2 = postPositionText("정균")
-        let userCatName3 = postPositionText("준현이")
-        
-        
-        
         let attributedStr = NSMutableAttributedString(string: origin_userCatName + "\n입맛이 비슷해요.")
         
         attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),

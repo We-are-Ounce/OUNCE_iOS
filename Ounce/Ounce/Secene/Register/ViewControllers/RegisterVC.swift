@@ -48,7 +48,7 @@ class RegisterVC: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapNextButton))
-        button.isEnabled = false
+        
         return button
         
     }()

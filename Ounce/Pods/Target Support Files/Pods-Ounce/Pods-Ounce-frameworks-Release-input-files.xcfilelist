@@ -7,6 +7,7 @@ ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework
 ${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework
 ${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework
+${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework
 ${BUILT_PRODUCTS_DIR}/Then/Then.framework
 ${BUILT_PRODUCTS_DIR}/UPCarouselFlowLayout/UPCarouselFlowLayout.framework
 ${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework

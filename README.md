@@ -2,7 +2,9 @@
 
 
 
-## <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/logo1.png?raw=true" width="400">
+## <img src="resources/icon.png?raw=true" width="100">
+
+
 
 ### We are Ounce‼️
 
@@ -12,6 +14,10 @@
 > 저희는 이러한 집사들의 고민을 해결하기 위해 직관적인 기록, 서로의 목록 공유, 입맛이 비슷한 고양이 추천 기능을 제공하고 있습니다. 
 >
 > 기록부터 선택까지, 온스가 함께합니다.
+
+
+
+<img src="resources/ounce_워크플로우.jpg?raw=true" width="500">
 
 
 
@@ -70,7 +76,7 @@
 | [UPCarouselFlowLayout](https://github.com/ink-spot/UPCarouselFlowLayout) | Carousel effect                  |
 | [iOSDropDown](https://github.com/jriosdev/iOSDropDown)       | DropDown 효과                    |
 | [CHIPageControl](https://github.com/ChiliLabs/CHIPageControl) | 인디케이터                       |
-
+| [SwiftGifOrigin](https://github.com/swiftgif/SwiftGif)       | GIF 이미지 사용                  |
 
 <br/>   
 <br/>   
@@ -80,28 +86,28 @@
 
 | 기능        | 상세 기능                           | 담당                                    | 구현 여부 |
 | ----------- | ----------------------------------- | --------------------------------------- | --------- |
-| 스플래시    | 스플래시 (자동 로그인)              | [준현](https://github.com/5anniversary) | -         |
-| 로그인      | 로그인                              | [준현](https://github.com/5anniversary) | -         |
-| 회원가입    | 이메일 인증                         | [준현](https://github.com/5anniversary) | -         |
-|             | 아이디 검증                         | [준현](https://github.com/5anniversary) | -         |
-|             | 비밀번호 검증                       | [준현](https://github.com/5anniversary) | -         |
-|             | 회원가입                            | [준현](https://github.com/5anniversary) | -         |
-| 프로필 등록 | 프로필 등록                         | [준현](https://github.com/5anniversary) | -         |
-| 홈 화면     | 정렬                                | [주연](https://github.com/juyeonblue)   | -         |
-|             | 필터                                | [주연](https://github.com/juyeonblue)   | -         |
-|             | 계정 선택                           | [주연](https://github.com/juyeonblue)   | -         |
-|             | 계정 추가                           | [주연](https://github.com/juyeonblue)   | -         |
-|             | 팔로워                              | [호세](https://github.com/psychehose)   | -         |
-|             | 팔로잉                              | [호세](https://github.com/psychehose)   | -         |
-|             | 설정                                | -                                       | -         |
-|             | 프로필 수정                         | -                                       | -         |
-| 설정        | 설정 메뉴 내부에서 프로필 삭제      | [주연](https://github.com/juyeonblue)   | -         |
-| 기록하기    | 기록 하기                           | [윤진](https://github.com/profitjean)   | -         |
-|             | 제품 검색                           | [윤진](https://github.com/profitjean)   | -         |
-|             | 제품이 없을시 제품 생성과 함께 기록 | [윤진](https://github.com/profitjean)   | -         |
-| 제품        | 제품 검색                           | [준현](https://github.com/5anniversary) | -         |
-| 둘러보기    | 둘러보기 카드 뷰                    | [호세](https://github.com/psychehose)   | -         |
-| 리뷰 추가   | 리뷰 추가                           | [준현](https://github.com/5anniversary) | -         |
+| 스플래시    | 스플래시                            | [준현](https://github.com/5anniversary) | O         |
+| 로그인      | 로그인                              | [준현](https://github.com/5anniversary) | O         |
+| 회원가입    | 이메일 인증                         | [준현](https://github.com/5anniversary) | O         |
+|             | 아이디 검증                         | [준현](https://github.com/5anniversary) | O         |
+|             | 비밀번호 검증                       | [준현](https://github.com/5anniversary) | O         |
+|             | 회원가입                            | [준현](https://github.com/5anniversary) | O         |
+| 프로필 등록 | 프로필 등록                         | [준현](https://github.com/5anniversary) | O         |
+| 홈 화면     | 정렬                                | [주연](https://github.com/juyeonblue)   | O         |
+|             | 필터                                | [주연](https://github.com/juyeonblue)   | O         |
+|             | 계정 선택                           | [주연](https://github.com/juyeonblue)   | O         |
+|             | 계정 추가                           | [주연](https://github.com/juyeonblue)   | O         |
+|             | 팔로워                              | [호세](https://github.com/psychehose)   | O         |
+|             | 팔로잉                              | [호세](https://github.com/psychehose)   | O         |
+|             | 설정                                | -                                       | O         |
+|             | 프로필 수정                         | -                                       | O         |
+| 설정        | 설정 메뉴 내부에서 로그아웃         | [주연](https://github.com/juyeonblue)   | O         |
+| 기록하기    | 기록 하기                           | [윤진](https://github.com/profitjean)   | O         |
+|             | 제품 검색                           | [윤진](https://github.com/profitjean)   | O         |
+|             | 제품이 없을시 제품 생성과 함께 기록 | [윤진](https://github.com/profitjean)   | O         |
+| 제품        | 제품 검색                           | [준현](https://github.com/5anniversary) | O         |
+| 둘러보기    | 둘러보기 카드 뷰                    | [호세](https://github.com/psychehose)   | O         |
+| 리뷰 추가   | 리뷰 추가                           | [준현](https://github.com/5anniversary) | O         |
 
 <br/>   
 <br/>   
@@ -111,40 +117,63 @@
 
 1. Splash
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Splash.png?raw=true" width="300">
+   <img src="https://user-images.githubusercontent.com/61657569/87795727-6f316300-c883-11ea-9f5a-289eafa54566.png" width="150">
+
+   
 
 2. Login
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Login.png?raw=true" width="300">
+    <img src="https://user-images.githubusercontent.com/61657569/87795692-680a5500-c883-11ea-823c-95cda1590752.png" width="150">
+
+   
+
+   
 
 3. Signup
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/SignUp.png?raw=true" width="300">
+   <img src="https://user-images.githubusercontent.com/61657569/87795695-693b8200-c883-11ea-943a-fa3334c5e0c1.png" width="150"> <img src="https://user-images.githubusercontent.com/61657569/87795703-6a6caf00-c883-11ea-88e0-b3c64cf95398.png" width="150"> <img src="https://user-images.githubusercontent.com/61657569/87796479-5f664e80-c884-11ea-9424-58cdf5553b55.png" width="150">
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/SignUp2.png?raw=true" width="300">
+   
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/SignUp3.png?raw=true" width="300">
+   
+
+   
 
 4. Register
 
+     <img src="https://user-images.githubusercontent.com/61657569/87795710-6b9ddc00-c883-11ea-9fd0-ed283df714e9.png " width = "150">
+
+   
+
 5. Home
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Home.png?raw=true" width="300">
+   <img src="https://user-images.githubusercontent.com/61657569/87795716-6d679f80-c883-11ea-9f8d-86a23bd7a82b.png" width="150">
+
+   
+
+   
 
 6. Setting
 
+   <img src="https://user-images.githubusercontent.com/61657569/87798173-a35a5300-c886-11ea-8c0e-4f74074856ba.png" width="150">
+
+   
+
+   
+
 7. Post
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Post.png?raw=true" width="300">
+   <img src="https://user-images.githubusercontent.com/61657569/87795725-6e98cc80-c883-11ea-9c02-9f7534b9e382.png" width="150">  <img src="https://user-images.githubusercontent.com/61657569/87795723-6e003600-c883-11ea-9324-c4ac065678dd.png" width="150"> <img src="https://user-images.githubusercontent.com/61657569/87797642-f54ea900-c885-11ea-9867-6f607b279105.png" width="150">
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Post2.png?raw=true" width="300">
+   
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Post3.png?raw=true" width="300">
+   
 
 8. Browse  
 
-   <img src="https://github.com/We-are-Ounce/OUNCE_iOS/blob/develop/resources/Browse.png?raw=true" width="300">
+   <img src="https://user-images.githubusercontent.com/55732968/87797968-5fffe480-c886-11ea-96fc-e3191a74ec54.png" width="150"> <img src="https://user-images.githubusercontent.com/55732968/87797981-642c0200-c886-11ea-8bae-c0cc5629d8b5.png" width="150">  <img src="https://user-images.githubusercontent.com/55732968/87797983-64c49880-c886-11ea-8a95-03399b781741.png" width="150"> <img src="https://user-images.githubusercontent.com/55732968/87797985-65f5c580-c886-11ea-8135-ade7e056df19.png" width="150"> <img src="https://user-images.githubusercontent.com/55732968/87797990-668e5c00-c886-11ea-8552-fb0faffd86c8.png" width="150"> <img src="https://user-images.githubusercontent.com/55732968/87797992-6726f280-c886-11ea-9b47-ef51a0eac1d0.png" width="150">
 
+   
 
 <br/>   
 <br/>   
@@ -377,25 +406,33 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
 
 
 
-### 😻 최강 아요 멤버
+### 😻 최강 아요 멤버 
 
 <img src="https://user-images.githubusercontent.com/55732968/86831239-9e044800-c0d1-11ea-8ab9-408db0ed00ab.jpeg" width="100" height = "100">  <img src="https://user-images.githubusercontent.com/55732968/86831306-b07e8180-c0d1-11ea-807c-e7c5cbbd871e.jpeg" width="100" height = "100" >  <img src="https://user-images.githubusercontent.com/55732968/86831405-d015aa00-c0d1-11ea-9cd5-2ac904324133.jpeg" width="100" height = "100 ">  <img src="https://user-images.githubusercontent.com/55732968/86831496-eae81e80-c0d1-11ea-8e01-e6db7ea97d0a.jpeg" height = "100" width = "100" >
 
-[김호세](https://github.com/psychehose )
+[김호세](https://github.com/psychehose ) / (사원)
 
-> 성장
+> **성장**
+>
+> 팀원들이 너무 좋아서 행복했다. 어렵지만 성장 할 수 있었던 즐거운 3주였다.
 
-[박주연](https://github.com/juyeonblue)
+[박주연](https://github.com/juyeonblue) / (차장. 사실 회장딸)
 
-> 앱스토어 출시 & 협업 능력 성장 
+> **앱스토어 출시 & 협업 능력 성장** 
+>
+> 우리 온스 영원하자❤️ 앱스토어 등록 고고~~
 
-[이윤진](https://github.com/profitjean )
+[이윤진](https://github.com/profitjean ) / (대리)
 
-> iOS 실력 성장 & 앱스토어 출시
+> **iOS 실력 성장 & 앱스토어 출시**
+>
+> 온스 사랑해요❤️ 다들 3주동안 고생많았어요
 
-[오준현](https://github.com/soogoon)
+[오준현](https://github.com/soogoon) / (부장)
 
-> 앱스토어 출시
+> **앱스토어 출시**
+>
+> 우리 사원들과 함께 즐거운 3주를 보낼 수 있어서 아주 즐거운 시간이었습니다.
 
 
 

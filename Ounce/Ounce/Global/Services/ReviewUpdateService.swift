@@ -32,19 +32,18 @@ struct ReviewUpdateService {
                      _ reviewEar: Int,
                      _ reviewHair: Int,
                      _ reviewVomit: Int,
-                     _ foodIdx: String,
-                     _ profileIdx: String,
                      completion: @escaping (NetworkResult<Any>) -> Void){
         
         // profileidx 받아와줘야해
         
-        let URL = APIConstants.updateReview + "/\(profileIdx)"
+        let URL = APIConstants.updateReview + "/\(reviewIdx)"
         let token = KeychainWrapper.standard.string(forKey: "Token")
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
             "token" : token ?? ""
         ]
         print(URL)
+        let profileIndex = KeychainWrapper.standard.string(forKey: "currentProfile")
         
         let body : Parameters = [
             "reviewRating": reviewRating,
@@ -57,27 +56,27 @@ struct ReviewUpdateService {
             "reviewEar": reviewEar,
             "reviewHair": reviewHair,
             "reviewVomit": reviewVomit,
-            "foodIdx": foodIdx,
-            "profileIdx": profileIdx
+            "profileIdx": profileIndex
         ]
         
-        dump(body)
+//        dump(body)
         
         Alamofire.request(URL,
                           method: .put,
-            parameters: body,
-            encoding: JSONEncoding.default,
-            headers: headers).responseData
+                          parameters: body,
+                          encoding: JSONEncoding.default,
+                          headers: headers).responseData
             {
                 response in
-                
+                print(response.result)
+                dump(response)
+
                 switch response.result {
-                    
                 case .success:
                     // parameter 위치
                     if let value = response.result.value {
                         if let status = response.response?.statusCode {
-                            print(status)
+                            print("상태", status)
                             switch status {
                             case 200:
                                 do{

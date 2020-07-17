@@ -33,6 +33,7 @@ class LogoAnimationView: UIView {
     private func commonInit() {
         backgroundColor = UIColor(white: 246.0 / 255.0, alpha: 1)
         addSubview(logoGifImageView)
+        logoGifImageView.contentMode = .scaleAspectFill
         logoGifImageView.pinEdgesToSuperView()
     }
 

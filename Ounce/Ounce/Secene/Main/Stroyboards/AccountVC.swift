@@ -56,8 +56,6 @@ class AccountVC: UIViewController {
     @objc func didTapAdd(){
         limitAccount()
         
-        
-        
     }
     
     func backgroundDismiss(){

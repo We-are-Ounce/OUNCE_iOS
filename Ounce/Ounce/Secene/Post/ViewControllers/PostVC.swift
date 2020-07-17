@@ -143,6 +143,8 @@ class PostVC: UIViewController {
             custom.furTrouble.isEnabled = false
             custom.vomitTrouble.isEnabled = false
             
+            custom.criticTextField.isEnabled = false
+            custom.memoTextView.isEditable = false
             
         }
 
@@ -331,20 +333,28 @@ extension PostVC {
                     print(11)
                 }
                 
-                switch (res.reviewEye){
-                case 1:
-                    self.custom.pooState1selected(self)
-                case 2:
-                    self.custom.pooState2selected(self)
-                case 3:
-                    self.custom.pooState3selected(self)
-                case 4:
-                    self.custom.pooState4selected(self)
-                case 5:
-                    self.custom.pooState5selected(self)
-                default:
-                    print(11)
+                if res.reviewEye == 1 {
+                    
+                    self.custom.eyeTroubleselected(self)
+                    
                 }
+
+                if res.reviewEar == 1 {
+                    
+                    self.custom.earTroubleselected(self)
+                }
+                if res.reviewHair == 1 {
+                    
+                    self.custom.furTroubleselected(self)
+                }
+                if res.reviewVomit == 1 {
+                    
+                    self.custom.vomitTroubleselected(self)
+                }
+                
+                self.custom.criticTextField.text = res.reviewInfo
+                self.custom.memoTextView.text = res.reviewMemo
+                
             case .requestErr(_) :
                 print("requset error")
                 

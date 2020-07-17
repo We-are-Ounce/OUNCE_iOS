@@ -222,10 +222,11 @@ class PostVC: UIViewController {
             
             self.custom.criticTextField.isEnabled = true
             self.custom.memoTextView.isEditable = true
+            
             self.navigationItem.rightBarButtonItem = self.editButton
         }
         let secondAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
-            print("수정 반드실 할꼬에요")
+            print("수정 반드시할꼬에요 여기에다가 삭제하는 api 연결해주면 된다~~")
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -241,12 +242,28 @@ class PostVC: UIViewController {
     @objc func editButtonDidTap(){
         print(#function)
         
+        
+        updateReview(custom.reviewIdx,
+                     custom.rating,
+                     custom.prefer,
+                     custom.review,
+                     custom.memo,
+                     custom.pooState,
+                     custom.pooSmell,
+                     custom.eye,
+                     custom.ear,
+                     custom.fur,
+                     custom.vomit)
+        
+        
+        
     }
     
     @objc func saveButtonDidTap(){
         // 리뷰 작성 버튼 - 완료 버튼 눌렀을 때 액션
         custom.review = custom.criticTextField.text!
         custom.memo = custom.memoTextView.text
+        
         //custom.foodIndex = custom.sendFoodIndex ?? 0
         print(custom.foodIndex)
         ReviewService.shared.Review(custom.rating,
@@ -295,14 +312,18 @@ class PostVC: UIViewController {
 }
 
 extension PostVC {
+    
+    
+    //func
     func reviewDetailService(_ reviewIndex: Int){
         ReviewUpdateService.shared.reviewDetail(reviewIndex){ responsedata in
             switch responsedata {
-                
+           
             case .success(let response):
                 let resp = response as! [DetailReview]
                 let res = resp[0]
-                
+                self.custom.reviewIdx = reviewIndex
+                self.custom.foodIndex = res.foodIdx
                 self.custom.foodDry.setTitle(res.foodDry, for: .normal)
                 self.custom.foodMeat1.setTitle(res.foodMeat1, for: .normal)
                 if (res.foodMeat2) == "" {
@@ -424,10 +445,49 @@ extension PostVC {
 }
 
 extension PostVC {
+    
+    func updateReview(_ reviewIdx: Int,
+                      _ reviewRating: Int,
+                      _ reviewPrefer: Int,
+                      _ reviewInfo:String,
+                      _ reviewMemo: String,
+                      _ reviewStatus: Int,
+                      _ reviewSmell: Int,
+                      _ reviewEye: Int,
+                      _ reviewEar: Int,
+                      _ reviewHair: Int,
+                      _ reviewVomit: Int){
+        ReviewUpdateService.shared.updateReview(reviewIdx,reviewRating, reviewPrefer, reviewInfo, reviewMemo, reviewStatus, reviewSmell, reviewEye, reviewEar, reviewHair, reviewVomit){ responsedata in
+              switch responsedata {
+              case .success(let data):
+                let resp = data as! [AddReview]
+                print("변경정보",resp)
+                //print("")
+                  self.dismiss(animated: true, completion: nil)
+                  
+              case .requestErr(_):
+                  print("request error")
+                  
+              case .pathErr:
+                  print(".pathErr")
+                  
+              case .serverErr:
+                  print(".serverErr")
+                  
+              case .networkFail :
+                  print("failure")
+                  
+              }
+          }
+          
+          
+      }
     func addKeyboardNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
+    
+    
     
     @objc private func keyboardWillShow(_ notification: Notification)  {
         if let info = notification.userInfo {

@@ -21,7 +21,9 @@ class ReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     
     var review: UserReviews?
+    var total: ReviewTotal?
     var addReview: CatProduct?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -42,4 +44,20 @@ class ReviewTableViewCell: UITableViewCell {
         
     }
     
+    func totalService() {
+        
+        productIMG.imageFromUrl(total?.foodImg ?? "", defaultImgPath: "")
+        productCompanyLabel.text = total?.foodManu
+        productNameLabel.text = total?.foodName
+        productContentLabel.text = total?.foodInfo
+        starLabel.text = String(total?.foodRating ?? 0)
+        likeLabel.text = String(total?.foodPrefer ?? 0)
+    }
+    
 }
+
+//let reviewIdx, profileIdx, foodIdx: Int
+//   let foodImg: String
+//   let foodManu, foodName, foodInfo: String
+//   let foodRating, foodPrefer: Int
+//   let createdAt: String

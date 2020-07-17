@@ -583,6 +583,9 @@
                                                             <state key="normal" title="연어">
                                                                 <color key="titleColor" red="0.20000000000000001" green="0.1960784314" blue="0.1960784314" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="clickFoodBtn:" destination="vQa-lD-YJa" eventType="touchUpInside" id="wDM-TN-ivE"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -628,6 +631,9 @@
                                                             <state key="normal" title="캣츠파인푸드">
                                                                 <color key="titleColor" red="0.20000000000000001" green="0.1960784314" blue="0.1960784314" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="clickMenuBtn:" destination="iYp-ga-yKJ" eventType="touchUpInside" id="V4l-TC-VcT"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -670,6 +676,9 @@
                                                             <state key="normal" title="건식">
                                                                 <color key="titleColor" red="0.20000000000000001" green="0.1960784314" blue="0.1960784314" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="clickDryBtn:" destination="wE5-Ov-Z2J" eventType="touchUpInside" id="k5I-wo-Xi3"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>

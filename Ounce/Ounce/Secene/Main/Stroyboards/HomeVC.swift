@@ -169,12 +169,20 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                                                                target: nil,
                                                                action: nil)
             navigationItem.rightBarButtonItem = UIBarButtonItem()
+
+            if isOtherUser {
+                dvc.isOther = true
+            }
             
             /* 셀 클릭시 index값 넘겨주기 */
-            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
+//            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
+            dvc.reviewIdx = reviews?[indexPath.row].reviewIdx
             dvc.isEdit = true
+            
             self.navigationController?.pushViewController(dvc, animated: true)
-            reviewDetailService(currentProfileIndex ?? 0)
+            reviewDetailService(dvc.reviewIdx ?? 0)
+            
+            
         }
         
     }
@@ -362,7 +370,7 @@ extension HomeVC {
             case .success(let res):
                 self.reviews = res as? [UserReviews]
                 
-                dump(self.reviews)
+                
                 
                 DispatchQueue.main.async {
                     self.reviewTV.reloadData()
@@ -395,7 +403,7 @@ extension HomeVC {
             case .success(let res):
                 self.detailReview = res as? [DetailReview]
                 
-                dump(self.detailReview)
+                
                 print("테이블 뷰 선택 후 리뷰 조회 성공")
             case .requestErr(_) :
                 print("requset error")
@@ -417,7 +425,7 @@ extension HomeVC {
                 case .success(let res):
                     self.totals = res as? [ReviewTotal]
                     
-                    dump(self.totals)
+                    
                     
                     DispatchQueue.main.async {
                         self.reviewTV.reloadData()

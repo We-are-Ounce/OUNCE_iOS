@@ -115,7 +115,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        isAuto()
         constraint()
         setNav()
         setTextField()
@@ -135,6 +135,15 @@ class LoginVC: UIViewController {
 }
 
 extension LoginVC {
+    
+    func isAuto(){
+        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
+        let pw = KeychainWrapper.standard.string(forKey: "pw") ?? ""
+        
+        if (id == nil) || (id == "") { } else {
+            signInService(id, pw)
+        }
+    }
     
     func setNav(){
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
@@ -214,6 +223,11 @@ extension LoginVC {
                 vc.modalPresentationStyle = .fullScreen
                 print("token:",response.accessToken)
                 print("profileIdx",response.profileIdx)
+                KeychainWrapper.standard.set(self.idTextField.text ?? "",
+                                             forKey: "id")
+                KeychainWrapper.standard.set(self.pwTextField.text ?? "",
+                                             forKey: "pw")
+
                 KeychainWrapper.standard.set(response.accessToken,
                                              forKey: "Token")
                 KeychainWrapper.standard.set(response.profileIdx,

@@ -516,7 +516,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="한 줄 평가를 적어주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sx-vr-1Wj">
-                    <rect key="frame" x="50" y="382.66666666666669" width="136.66666666666666" height="20"/>
+                    <rect key="frame" x="50" y="382.66666666666669" width="287" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="PTm-Ye-rK2"/>
                     </constraints>
@@ -659,6 +659,7 @@
                 <constraint firstItem="6ZC-Ff-7LK" firstAttribute="top" secondItem="YBr-q0-Z8i" secondAttribute="bottom" constant="26" id="Zcf-87-eGL"/>
                 <constraint firstItem="qh5-3f-aUT" firstAttribute="top" secondItem="7f2-ZG-WTE" secondAttribute="bottom" constant="3" id="Zhz-0X-XOU"/>
                 <constraint firstItem="HDB-YL-g94" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Zjh-5T-RI0"/>
+                <constraint firstItem="0sx-vr-1Wj" firstAttribute="trailing" secondItem="fNd-dZ-79X" secondAttribute="trailing" id="aJ0-gN-RNt"/>
                 <constraint firstItem="EZl-3x-rsE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="bk6-3a-oU3"/>
                 <constraint firstItem="0Vw-uz-Arz" firstAttribute="top" secondItem="3Ja-QK-1mR" secondAttribute="bottom" constant="26" id="bwG-x5-9Yi"/>
                 <constraint firstItem="0sx-vr-1Wj" firstAttribute="top" secondItem="0Vw-uz-Arz" secondAttribute="bottom" constant="11" id="eoR-E9-Zg9"/>

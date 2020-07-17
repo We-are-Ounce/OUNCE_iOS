@@ -169,12 +169,20 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                                                                target: nil,
                                                                action: nil)
             navigationItem.rightBarButtonItem = UIBarButtonItem()
+
+            if isOtherUser {
+                dvc.isOther = true
+            }
             
             /* 셀 클릭시 index값 넘겨주기 */
-            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
+//            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
+            dvc.reviewIdx = reviews?[indexPath.row].reviewIdx
             dvc.isEdit = true
+            
             self.navigationController?.pushViewController(dvc, animated: true)
-            reviewDetailService(currentProfileIndex ?? 0)
+            reviewDetailService(dvc.reviewIdx ?? 0)
+            
+            
         }
         
     }

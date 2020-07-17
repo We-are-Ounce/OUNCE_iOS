@@ -19,6 +19,8 @@ class AccountVC: UIViewController {
     
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,9 +31,6 @@ class AccountVC: UIViewController {
         
         accountCV.delegate = self
         accountCV.dataSource = self
-        
-        
-        
 
     }
     
@@ -64,7 +63,7 @@ extension AccountVC: UICollectionViewDelegate {
 extension AccountVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

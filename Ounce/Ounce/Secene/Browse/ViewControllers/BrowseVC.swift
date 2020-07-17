@@ -187,7 +187,7 @@ class BrowseVC: UIViewController {
         let attributedStr = NSMutableAttributedString(string: origin_userCatName + "\n입맛이 비슷해요.")
         
         attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
-                                   value: UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count-1))
+                                   value: UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count))
         
         
         guideNameLabel.attributedText = attributedStr

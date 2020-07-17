@@ -276,7 +276,7 @@ extension BrowseVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommendInfo?.recommendFoodList.count ?? 0
+        return recommendInfo?.resultProfile.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -295,7 +295,7 @@ extension BrowseVC: UICollectionViewDataSource {
         let vc = sb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         vc.modalPresentationStyle = .overFullScreen
         print(recommendInfo?.recommendFoodList[indexPath.row].profileIdx)
-        vc.profileIndex = recommendInfo?.recommendFoodList[indexPath.row].profileIdx
+        vc.profileIndex = recommendInfo?.resultProfile[indexPath.row].profileIdx
         vc.isOtherUser = true
         
         // MARK: - 이미지 클릭시 홈 뷰로 이동

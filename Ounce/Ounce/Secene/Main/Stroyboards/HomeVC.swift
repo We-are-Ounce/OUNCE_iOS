@@ -362,7 +362,7 @@ extension HomeVC {
             case .success(let res):
                 self.reviews = res as? [UserReviews]
                 
-                dump(self.reviews)
+                
                 
                 DispatchQueue.main.async {
                     self.reviewTV.reloadData()
@@ -395,7 +395,7 @@ extension HomeVC {
             case .success(let res):
                 self.detailReview = res as? [DetailReview]
                 
-                dump(self.detailReview)
+                
                 print("테이블 뷰 선택 후 리뷰 조회 성공")
             case .requestErr(_) :
                 print("requset error")
@@ -417,7 +417,7 @@ extension HomeVC {
                 case .success(let res):
                     self.totals = res as? [ReviewTotal]
                     
-                    dump(self.totals)
+                    
                     
                     DispatchQueue.main.async {
                         self.reviewTV.reloadData()

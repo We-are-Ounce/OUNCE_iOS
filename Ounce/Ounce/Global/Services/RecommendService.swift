@@ -43,7 +43,7 @@ struct RecommendService {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(ResponseSimpleResult<Recommend>.self, from: value)
                                 completion(.success(result.data ?? Recommend.self))
-                                dump(result.data)
+                                dump(result.data?.resultProfile)
                             }catch {
                                 completion(.pathErr)
                                 print("저기야?")

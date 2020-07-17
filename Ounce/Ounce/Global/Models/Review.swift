@@ -10,7 +10,8 @@ import Foundation
 
 struct Review: Codable {
     let profileIdx: Int
-    let profileName, profileInfo: String
+    let profileImg: String
+    let profileName, reviewInfo: String
     let profileAge, reviewIdx: Int
     let reviewRating, reviewPrefer: String
     let foodIdx: Int

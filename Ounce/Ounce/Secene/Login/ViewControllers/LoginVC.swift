@@ -76,7 +76,6 @@ class LoginVC: UIViewController {
         $0.makeRounded(cornerRadius: 8)
         $0.titleLabel?.font = Font.guideLabel
         $0.addTarget(self, action: #selector(tapSignInButton), for: .touchUpInside)
-//        $0.isEnabled = false
     }
     
     let findIDButton = UIButton().then {
@@ -120,8 +119,8 @@ class LoginVC: UIViewController {
         constraint()
         setNav()
         setTextField()
-        idTextField.text = "yen"
-        pwTextField.text = "1234"
+//        idTextField.text = "yen"
+//        pwTextField.text = "1234"
     }
     
     override func viewWillAppear(_ animated: Bool) {

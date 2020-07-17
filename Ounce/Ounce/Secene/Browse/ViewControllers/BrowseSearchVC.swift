@@ -46,9 +46,6 @@ class BrowseSearchVC: UIViewController {
         $0.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         $0.tintColor = .black
     }
-    //    let productTV = UITableView(frame: CGRect.init(), style: .grouped).then{
-    //        $0.backgroundView?.backgroundColor = .white
-    //    }
     let productTV = UITableView()
     let searchView = UIView().then {
         $0.backgroundColor = .whiteThree
@@ -57,11 +54,14 @@ class BrowseSearchVC: UIViewController {
     let searchTextField = UITextField().then {
         $0.placeholder = "검색어를 입력해주세요"
         $0.tintColor = .black
+        $0.becomeFirstResponder()
     }
+
     let searchButton = UIButton().then {
         $0.setImage(UIImage(named: "icSearch"), for: .normal)
         $0.addTarget(self, action: #selector(didTapSearch), for: .touchUpInside)
     }
+    
     let backGroundButton = UIButton().then {
         $0.addTarget(self, action: #selector(didTapBackgroundButton), for: .touchUpInside)
         $0.backgroundColor = .black
@@ -72,14 +72,15 @@ class BrowseSearchVC: UIViewController {
     var constraints: [NSLayoutConstraint] = []
     var user: [User]?
     var product: [CatProduct]?
-    var pageIndex = [1, 10]
-    var userPageIndex = [1, 10]
+    var pageIndex = [0, 9]
+    var userPageIndex = [0, 9]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         constraint()
         setTabbar()
+        searchTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,8 +98,8 @@ class BrowseSearchVC: UIViewController {
 
 extension BrowseSearchVC {
     @objc func didTapSearch(){
-        pageIndex = [1, 10]
-        userPageIndex = [1, 10]
+        pageIndex = [0, 9]
+        userPageIndex = [0, 9]
         searchUser()
         searchProduct()
     }
@@ -190,6 +191,21 @@ extension BrowseSearchVC: UIScrollViewDelegate {
         }
     }
     
+}
+
+extension BrowseSearchVC: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 입력된 빈칸 감지하기
+        var str = textField.text
+        str = str?.replacingOccurrences(of: " ", with: "")
+        
+        if str?.count != 0 {
+            searchUser()
+            searchProduct()
+            searchTextField.resignFirstResponder()
+        }
+        return true
+    }
 }
 
 extension BrowseSearchVC: UICollectionViewDelegate { }
@@ -445,13 +461,13 @@ extension BrowseSearchVC: UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
             
         case self.productTV:
-            print(product?[indexPath.row].foodImg ?? "")
             tableView.backgroundColor = .white
             productTV.backgroundColor = .white
             let sb = UIStoryboard(name: "ProductDetail", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
             vc.modalPresentationStyle = .overFullScreen
             vc.productInfo = product?[indexPath.row]
+            vc.foodIndex = product?[indexPath.row].foodIdx
             navigationController?.isNavigationBarHidden = false
             self.navigationController?.pushViewController(vc, animated: true)
 

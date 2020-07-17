@@ -55,6 +55,8 @@ class ProductDetailTVCell: UITableViewCell {
         $0.font = Font.buttonLabel
         $0.textColor = .putty
     }
+    
+    var review: Review?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -125,5 +127,15 @@ class ProductDetailTVCell: UITableViewCell {
         }
 
     }
-
+    
+    func cellService(){
+        profileIMG.imageFromUrl(review?.profileImg, defaultImgPath: "")
+        profileNameLabel.text = review?.profileName
+        profileAgeLabel.text = String(review?.profileAge ?? 0) + "살"
+        productContentLabel.text = review?.reviewInfo
+        starLabel.text = review?.reviewRating
+        hartLabel.text = review?.reviewPrefer
+    }
+    
 }
+

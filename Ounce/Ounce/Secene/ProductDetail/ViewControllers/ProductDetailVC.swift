@@ -11,6 +11,7 @@ import SafariServices
 
 import Then
 import SnapKit
+import SwiftKeychainWrapper
 
 class ProductDetailVC: UIViewController {
 
@@ -130,6 +131,7 @@ class ProductDetailVC: UIViewController {
     var productInfo: CatProduct?
     var reviews: [Review]?
 
+    
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -137,8 +139,9 @@ class ProductDetailVC: UIViewController {
         setTableView()
         contraint()
         setNav()
+        review(String(foodIndex ?? 0))
         navigationItem.rightBarButtonItem = rightButton
-
+        dump(productInfo)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -186,13 +189,43 @@ extension ProductDetailVC {
 
     @objc func didTapReview(){
         print(#function)
+        let sb = UIStoryboard(name: "Post", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "PostVC") as! PostVC
+        vc.foodIndexNumber = productInfo?.foodIdx
+        vc.foodDry = productInfo?.foodDry
+        vc.foodMeat1 = productInfo?.foodMeat1
+        vc.foodMeat2 = productInfo?.foodMeat2
+        vc.imageNameVC = productInfo?.foodImg
+        vc.companyNameVC = productInfo?.foodManu
+        vc.productNameVC = productInfo?.foodName
+
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func review(){
+        let currentProfile = KeychainWrapper.standard.string(forKey: "currentProfile")
+        for i in 0 ..< (reviews?.count ?? 0) {
+            print(reviews?[i].profileIdx ?? 0)
+            
+            if currentProfile == String(reviews?[i].profileIdx ?? 0) {
+                reviewButton.isEnabled = false
+                reviewLabelButton.isEnabled = false
+                reviewIMGButton.isEnabled = false
+
+                reviewLabelButton.setTitle("이미 리뷰를 작성했습니다.", for: .normal)
+            }
+        }
+
+    }
+
 }
+
+
 
 extension ProductDetailVC: UITableViewDelegate { }
 extension ProductDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return reviews?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -200,6 +233,8 @@ extension ProductDetailVC: UITableViewDataSource {
                                                  for: indexPath) as! ProductDetailTVCell
         cell.backgroundColor = .whiteTwo
         cell.cellConstraint()
+        cell.review = reviews?[indexPath.row]
+        cell.cellService()
         cell.selectionStyle = .none
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.white
@@ -219,20 +254,29 @@ extension ProductDetailVC: UITableViewDataSource {
         headerView.addSubview(headerProductNameLabel)
         headerProductNameLabel.text = productInfo?.foodName
         headerView.addSubview(firstCategoryLabel)
-
+        firstCategoryLabel.text = productInfo?.foodDry
         headerView.addSubview(firstCategoryView)
         headerView.addSubview(secondCategoryLabel)
-//        secondCategoryLabel.text = productInfo?.foodMeat
-
+        secondCategoryLabel.text = productInfo?.foodMeat1
         headerView.addSubview(secondCategoryView)
+        if productInfo?.foodMeat2 == "" || productInfo?.foodMeat2 == nil {
+            thirdCategoryLabel.alpha = 0
+            thirdCategoryView.alpha = 0
+        } else {
+            thirdCategoryLabel.text = productInfo?.foodMeat2
+        }
         headerView.addSubview(thirdCategoryLabel)
         headerView.addSubview(thirdCategoryView)
         headerView.addSubview(reviewLabel)
+//        reviewLabel.text = productInfo?.reviewInfo
         headerView.addSubview(reviewCountLabel)
+        reviewCountLabel.text = String(productInfo?.reviewCount ?? 0)
         headerView.addSubview(scoreLabel)
         headerView.addSubview(scoreCountLabel)
+        scoreCountLabel.text = String(productInfo?.avgRating ?? 0)
         headerView.addSubview(pleasureLabel)
         headerView.addSubview(pleasureCountLabel)
+        pleasureCountLabel.text = String(productInfo?.avgPrefer ?? 0)
         headerView.addSubview(reviewButton)
         headerView.addSubview(reviewLabelButton)
         headerView.addSubview(reviewIMGButton)
@@ -378,4 +422,76 @@ extension ProductDetailVC: UITableViewDataSource {
         vc.reviews = reviews?[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        // 로딩된 cell 중 마지막 셀 찾기
+//        let lastSectionIndex = tableView.numberOfSections - 1
+//        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+//        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+//
+//            let spinner = UIActivityIndicatorView()
+//
+//            productTV.tableFooterView = spinner
+//            productTV.tableFooterView?.isHidden = false
+//
+//            if reviews?.count != 0 && reviews?.count != nil {
+//                // 불러올 포스팅이 있을 경우
+//                spinner.startAnimating()
+//                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: productTV.bounds.width, height: CGFloat(44))
+//                spinner.hidesWhenStopped = true
+//                productTV.tableFooterView = spinner
+//                productTV.tableFooterView?.isHidden = false
+//
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                    self.review(String(self.foodIndex ?? 0))
+//                }
+//            } else {
+//                self.productTV.tableFooterView?.isHidden = true
+//                spinner.stopAnimating()
+//            }
+//
+//
+//        }
+//    }
+
+}
+
+extension ProductDetailVC {
+//    func loadMorePosts(_ productIndex: String) {
+//        if newsPosts?.count != 0 {
+//            getNewsPostsService(postCnt: 10, lastId: lastId, completionHandler: {(returnedData)-> Void in
+//                self.newsPostsArr?.append(contentsOf: self.newsPosts!)
+//                self.newsTV.reloadData()
+//                self.newsTV.tableFooterView = nil
+//            })
+//        } else {
+//            print("더 이상 불러올 게시글이 없습니다.")
+//        }
+//    }
+
+    func review(_ productIndex: String) {
+        ReviewService.shared.productReview(productIndex) { responsedata in
+            switch responsedata {
+            case .success(let res):
+                self.reviews = res as? [Review]
+                self.review()
+                self.productTV.reloadData()
+                
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+        
+    }
+
 }

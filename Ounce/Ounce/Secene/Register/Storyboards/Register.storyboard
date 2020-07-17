@@ -174,11 +174,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름은 5자 이하로 해주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hW6-1T-xtX">
+                                                <rect key="frame" x="22" y="298" width="353" height="13.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="kBx-Qi-T1u" firstAttribute="leading" secondItem="LT4-YS-2va" secondAttribute="leading" constant="22" id="2sS-IB-OyC"/>
                                             <constraint firstItem="G1P-9f-FPs" firstAttribute="leading" secondItem="LT4-YS-2va" secondAttribute="leading" constant="16" id="3n5-1L-Dbi"/>
+                                            <constraint firstItem="hW6-1T-xtX" firstAttribute="top" secondItem="30W-2L-qyR" secondAttribute="top" constant="2" id="5YY-YJ-brB"/>
                                             <constraint firstItem="bGz-bN-gde" firstAttribute="leading" secondItem="khx-ve-4J4" secondAttribute="leading" id="6YL-jP-Y8E"/>
                                             <constraint firstItem="66L-EC-klT" firstAttribute="trailing" secondItem="3jw-25-1DV" secondAttribute="trailing" id="6f7-im-jQX"/>
                                             <constraint firstItem="0KN-cR-My0" firstAttribute="top" secondItem="kBx-Qi-T1u" secondAttribute="bottom" id="6iZ-qf-yXI"/>
@@ -203,6 +210,7 @@
                                             <constraint firstItem="m7C-WK-Ko2" firstAttribute="leading" secondItem="LT4-YS-2va" secondAttribute="leading" constant="24" id="RAb-sC-EGE"/>
                                             <constraint firstItem="3jw-25-1DV" firstAttribute="leading" secondItem="LT4-YS-2va" secondAttribute="leading" constant="22" id="ROn-5E-2aF"/>
                                             <constraint firstItem="ujC-U2-A5f" firstAttribute="leading" secondItem="m7C-WK-Ko2" secondAttribute="trailing" constant="9" id="SbZ-gi-TaD"/>
+                                            <constraint firstAttribute="trailing" secondItem="hW6-1T-xtX" secondAttribute="trailing" id="Ug7-ME-ghd"/>
                                             <constraint firstItem="khx-ve-4J4" firstAttribute="trailing" secondItem="3jw-25-1DV" secondAttribute="trailing" id="UlA-E3-JXl"/>
                                             <constraint firstAttribute="trailing" secondItem="ujC-U2-A5f" secondAttribute="trailing" constant="24" id="VJu-et-hni"/>
                                             <constraint firstItem="n4h-3h-lJf" firstAttribute="leading" secondItem="CpT-zp-hI3" secondAttribute="leading" id="Wf8-SS-2m7"/>
@@ -229,6 +237,7 @@
                                             <constraint firstItem="m7C-WK-Ko2" firstAttribute="top" secondItem="ScM-oH-tfK" secondAttribute="bottom" constant="8" id="w1k-c1-C0K"/>
                                             <constraint firstItem="kBx-Qi-T1u" firstAttribute="top" secondItem="n4h-3h-lJf" secondAttribute="bottom" constant="8" id="w7u-JN-A4b"/>
                                             <constraint firstItem="gmh-Vl-MlX" firstAttribute="centerX" secondItem="LT4-YS-2va" secondAttribute="centerX" constant="12" id="whi-If-c61"/>
+                                            <constraint firstItem="hW6-1T-xtX" firstAttribute="leading" secondItem="3NX-7Q-NyT" secondAttribute="leading" id="wkT-13-oym"/>
                                             <constraint firstItem="bGz-bN-gde" firstAttribute="trailing" secondItem="khx-ve-4J4" secondAttribute="trailing" id="xJ7-d5-iOZ"/>
                                             <constraint firstItem="e3V-JB-4tU" firstAttribute="trailing" secondItem="VBH-ZY-azJ" secondAttribute="trailing" id="ykb-t6-bfY"/>
                                             <constraint firstItem="30W-2L-qyR" firstAttribute="leading" secondItem="LT4-YS-2va" secondAttribute="leading" constant="16" id="ysX-6r-L40"/>
@@ -271,6 +280,7 @@
                         <outlet property="femaleButton" destination="ujC-U2-A5f" id="h58-fw-5Ev"/>
                         <outlet property="guideLabel" destination="eqX-Sy-5oJ" id="nVD-tW-yfV"/>
                         <outlet property="maleButton" destination="m7C-WK-Ko2" id="aON-pK-2RZ"/>
+                        <outlet property="nameErrorLabel" destination="hW6-1T-xtX" id="Iwc-33-pnf"/>
                         <outlet property="nameGuideLabel" destination="CpT-zp-hI3" id="b93-1r-ho2"/>
                         <outlet property="nameTextField" destination="3NX-7Q-NyT" id="rzD-H9-Qwh"/>
                         <outlet property="nameUnderBarView" destination="30W-2L-qyR" id="WZC-Mx-L4f"/>

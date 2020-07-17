@@ -10,15 +10,13 @@ import Foundation
 
 struct CatProduct: Codable {
     let foodIdx: Int
-    let foodMeat1: String
-    let foodMeat2: String
-    let foodDry: String
+    let foodMeat1, foodMeat2, foodDry: String
     let foodImg: String
     let foodManu, foodName: String
     let foodLink: String
-    let reviewCount, reviewIdx, profileIdx: Int
+    let reviewCount, reviewIdx: Int
     let reviewInfo: String
-    let avgRating, avgPrefer: String
+    let avgRating, avgPrefer: Double
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -31,11 +29,10 @@ struct CatProduct: Codable {
         foodName = (try? values.decode(String.self, forKey: .foodName)) ?? ""
         foodLink = (try? values.decode(String.self, forKey: .foodLink)) ?? ""
         reviewCount = (try? values.decode(Int.self, forKey: .reviewCount)) ?? 0
-        profileIdx = (try? values.decode(Int.self, forKey: .profileIdx)) ?? 0
         reviewIdx = (try? values.decode(Int.self, forKey: .reviewIdx)) ?? 0
         reviewInfo = (try? values.decode(String.self, forKey: .reviewInfo)) ?? ""
-        avgRating = (try? values.decode(String.self, forKey: .avgRating)) ?? ""
-        avgPrefer = (try? values.decode(String.self, forKey: .avgPrefer)) ?? ""
+        avgRating = (try? values.decode(Double.self, forKey: .avgRating)) ?? 0
+        avgPrefer = (try? values.decode(Double.self, forKey: .avgPrefer)) ?? 0
     }
 
 }

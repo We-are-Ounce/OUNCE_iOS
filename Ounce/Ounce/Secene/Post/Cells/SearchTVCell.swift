@@ -19,7 +19,7 @@ class SearchTVCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         traceLabel.font = UIFont.systemFont(ofSize: 13, weight: .medium)
-        underBar.backgroundColor = .black
+        underBar.backgroundColor = .white
         underBar.alpha = 0.4
     }
 

@@ -121,6 +121,7 @@ struct SearchService {
                                     let result = try decoder.decode(ResponseResult<CatProduct>.self,
                                                                     from: value)
                                     completion(.success(result.data ?? [CatProduct].self))
+                                    dump(result)
                                 } catch {
                                     completion(.pathErr)
                                 }

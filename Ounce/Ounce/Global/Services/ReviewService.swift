@@ -91,12 +91,66 @@ struct ReviewService{
             case .failure: completion(.networkFail)
             }
         }
-        
-        
-        
     }
     
     
+    
+    func productReview(_ foodIndex: String,
+                       completion: @escaping (NetworkResult<Any>) -> Void) {
+
+        let token = KeychainWrapper.standard.string(forKey: "Token") ?? ""
+        let header: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "token": token
+        ]
+        
+        let body: Parameters = [
+            "foodIdx": foodIndex
+        ]
+        dump(body, name: "body")
+        
+        let dataRequest = Alamofire.request(APIConstants.reviewAll,
+                                            method: .post,
+                                            parameters: body,
+                                            encoding: JSONEncoding.default,
+                                            headers: header)
+        
+        dataRequest.responseData { dataResponse in
+            switch dataResponse.result {
+            case .success:
+                guard let statusCode = dataResponse.response?.statusCode else {
+                    return
+                }
+                guard let value = dataResponse.result.value else { return }
+                print(statusCode)
+                switch statusCode {
+                case 200:
+                    do {
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(ResponseResult<Review>.self, from: value)
+                        dump(result)
+                        completion(.success(result.data))
+                    } catch {
+                        completion(.pathErr)
+                    }
+                case 400:
+                    do {
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(ResponseTempResult.self, from: value)
+                        print(result.message ?? "")
+                        completion(.requestErr(result))
+                    } catch {
+                        completion(.pathErr)
+                    }
+                    
+                default:
+                    break
+                }
+            case .failure: completion(.networkFail)
+            }
+        }
+
+    }
     
 }
 

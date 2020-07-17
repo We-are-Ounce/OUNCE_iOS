@@ -23,6 +23,7 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var profileIMG: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameGuideLabel: UILabel!
+    @IBOutlet weak var nameErrorLabel: UILabel!
     @IBOutlet weak var contentGuideLabel: UILabel!
     @IBOutlet weak var nameUnderBarView: UIView!
     @IBOutlet weak var contentTextField: UITextField!
@@ -41,12 +42,13 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var weightUnderBarView: UIView!
     @IBOutlet weak var weightCountLabel: UILabel!
+    
     lazy var rightButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "완료",
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapNextButton))
-        //        button.isEnabled = false
+        button.isEnabled = false
         return button
         
     }()
@@ -74,6 +76,7 @@ class RegisterVC: UIViewController {
     var isNeutralization : Bool = false
     var isEdit: Bool = false
     var profiles: MyProfile?
+    var isEditPhoto: Bool = false
     
     // MARK: - Life Cycle
     
@@ -82,7 +85,6 @@ class RegisterVC: UIViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        print(isEdit)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setGuideLabel()
         setButton()
@@ -93,7 +95,6 @@ class RegisterVC: UIViewController {
         addKeyboardNotification()
         findEdit()
     }
-    
 }
 
 // MARK: - Helpers 메소드 모두 따로 작성해주세요
@@ -130,6 +131,8 @@ extension RegisterVC {
         }
         ageTextField.text = String(profileData?.profileAge ?? 0)
         weightTextField.text = profileData?.profileWeight
+        nameErrorLabel.textColor = .darkPeach
+        nameErrorLabel.alpha = 0
     }
     
     func setProfileIMG(){
@@ -299,9 +302,15 @@ extension RegisterVC {
 }
 
 extension RegisterVC: UITextFieldDelegate {
+    
     @objc func textFieldDidChange(_ textField: UITextField){
-        
+        if nameTextField.text?.count ?? 0 > 5 {
+            nameErrorLabel.alpha = 1
+        } else {
+            nameErrorLabel.alpha = 0
+        }
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.scrollRectToVisible(CGRect(x: 0,
                                               y: -(textField.frame.origin.y+100),

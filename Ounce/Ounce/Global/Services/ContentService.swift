@@ -16,7 +16,7 @@ struct ContentService {
     
     static let shared = ContentService()
     
-    // MARK: - 홈뷰 내 리뷰 조회
+    // MARK: - 홈뷰 내 리뷰 조회(시간순)
     
     func dateReviews(_ profileIndex: String,
                      _ start: String,

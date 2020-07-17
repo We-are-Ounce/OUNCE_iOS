@@ -32,6 +32,7 @@ struct ReviewUpdateService {
                      _ reviewEar: Int,
                      _ reviewHair: Int,
                      _ reviewVomit: Int,
+                     _ foodIndex: Int,
                      completion: @escaping (NetworkResult<Any>) -> Void){
         
         // profileidx 받아와줘야해
@@ -43,7 +44,7 @@ struct ReviewUpdateService {
             "token" : token ?? ""
         ]
         print(URL)
-        let profileIndex = KeychainWrapper.standard.string(forKey: "currentProfile")
+        let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
         
         let body : Parameters = [
             "reviewRating": reviewRating,
@@ -56,6 +57,7 @@ struct ReviewUpdateService {
             "reviewEar": reviewEar,
             "reviewHair": reviewHair,
             "reviewVomit": reviewVomit,
+            "foodIdx": foodIndex,
             "profileIdx": profileIndex
         ]
         
@@ -81,15 +83,23 @@ struct ReviewUpdateService {
                             case 200:
                                 do{
                                     let decoder = JSONDecoder()
-                                    let result = try decoder.decode(ResponseResult<AddReview>.self,
+                                    let result = try decoder.decode(ResponseTempResult.self,
                                                                     from: value)
                                     
-                                    completion(.success(result.data ?? [AddReview].self))
+                                    completion(.success(result))
                                 } catch {
                                     completion(.pathErr)
                                 }
                             case 400:
-                                completion(.pathErr)
+                                do{
+                                    let decoder = JSONDecoder()
+                                    let result = try decoder.decode(ResponseTempResult.self,
+                                                                    from: value)
+                                    
+                                    completion(.requestErr(result.message))
+                                } catch {
+                                    completion(.pathErr)
+                                }
                             case 500:
                                 completion(.serverErr)
                             default:
@@ -109,25 +119,25 @@ struct ReviewUpdateService {
         // MARK: - 리뷰 삭제하기
     
     
-    func deleteReview(
-                      _ profileIdx: Int,
-                      _ reviewIdx: Int,
+    func deleteReview(_ reviewIdx: Int,
                       completion: @escaping (NetworkResult<Any>) -> Void){
         
         
-        let URL = APIConstants.deleteReview + "/\(profileIdx)/\(reviewIdx)"
+       
         let token = KeychainWrapper.standard.string(forKey: "Token")
+        let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
+        let URL = APIConstants.deleteReview + "/\(profileIndex)/\(reviewIdx)"
         let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
+             "token" : token ?? ""
         ]
         print(URL)
-
+        
         
         Alamofire.request(URL,
                           method: .delete,
-            parameters: nil,
-            encoding: JSONEncoding.default,
-            headers: headers).responseData
+                          parameters: nil,
+                          encoding: JSONEncoding.default,
+                          headers: headers).responseData
             {
                 response in
                 
@@ -142,10 +152,10 @@ struct ReviewUpdateService {
                             case 200:
                                 do{
                                     let decoder = JSONDecoder()
-                                    let result = try decoder.decode(ResponseResult<ResponseTempResult>.self,
+                                    let result = try decoder.decode(ResponseTempResult.self,
                                                                     from: value)
                                     //                                    print(result)
-                                    completion(.success(result.data ?? [ResponseTempResult].self))
+                                    completion(.success(result))
                                 } catch {
                                     completion(.pathErr)
                                 }

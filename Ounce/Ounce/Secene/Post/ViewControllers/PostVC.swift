@@ -227,6 +227,7 @@ class PostVC: UIViewController {
         }
         let secondAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
             print("수정 반드시할꼬에요 여기에다가 삭제하는 api 연결해주면 된다~~")
+            self.deleteReview(self.custom.reviewIdx)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -253,7 +254,9 @@ class PostVC: UIViewController {
                      custom.eye,
                      custom.ear,
                      custom.fur,
-                     custom.vomit)
+                     custom.vomit,
+                     custom.foodIndex
+                     )
         
         
         
@@ -446,6 +449,29 @@ extension PostVC {
 
 extension PostVC {
     
+    func deleteReview(_ reviewIdx: Int){
+        
+        ReviewUpdateService.shared.deleteReview(reviewIdx){ responsedata in
+            switch responsedata{
+                
+                
+                
+            case .success(let data):
+                let resp = data as! ResponseTempResult
+                self.navigationController?.popViewController(animated: true)
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErrr")
+            case .networkFail:
+                print("failure")
+            }
+            
+        }
+        
+    }
     func updateReview(_ reviewIdx: Int,
                       _ reviewRating: Int,
                       _ reviewPrefer: Int,
@@ -456,14 +482,15 @@ extension PostVC {
                       _ reviewEye: Int,
                       _ reviewEar: Int,
                       _ reviewHair: Int,
-                      _ reviewVomit: Int){
-        ReviewUpdateService.shared.updateReview(reviewIdx,reviewRating, reviewPrefer, reviewInfo, reviewMemo, reviewStatus, reviewSmell, reviewEye, reviewEar, reviewHair, reviewVomit){ responsedata in
+                      _ reviewVomit: Int,
+                      _ foodIndex: Int){
+        ReviewUpdateService.shared.updateReview(reviewIdx,reviewRating, reviewPrefer, reviewInfo, reviewMemo, reviewStatus, reviewSmell, reviewEye, reviewEar, reviewHair, reviewVomit, foodIndex){ responsedata in
               switch responsedata {
               case .success(let data):
-                let resp = data as! [AddReview]
+                let resp = data as! ResponseTempResult
                 print("변경정보",resp)
-                //print("")
-                  self.dismiss(animated: true, completion: nil)
+                
+                self.navigationController?.popViewController(animated: true)
                   
               case .requestErr(_):
                   print("request error")

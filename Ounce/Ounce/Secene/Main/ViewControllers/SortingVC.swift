@@ -90,26 +90,6 @@ extension SortingVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//                if indexPath.section == 1 {
-//
-//                    print("하이루")
-//
-//           return
-//
-//                }
-//
-//                else if indexPath.section == 2 {
-//
-//                    self.dismiss(animated: true, completion: nil)
-//
-//                    return
-//                }
-//                else {
-//
-//                    return
-//
-//                }
-//
         homeViewDelegate?.didSortingClick(data: sortingList[indexPath.row])
         dismiss(animated: false, completion: nil)
     }

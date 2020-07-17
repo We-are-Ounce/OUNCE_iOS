@@ -18,7 +18,7 @@ class HomeVC: UIViewController, HomeViewDelegate {
         
         if data == "기호도순" {
             
-//            dateReviewService(profileIndex ?? 0, pageIndex[0], pageIndex[9])
+            preferReviewService(profileIndex ?? 0, pageIndex [0], pageIndex[1])
             
         
         }
@@ -42,6 +42,7 @@ class HomeVC: UIViewController, HomeViewDelegate {
     var otherProfiles: OtherProfile?
     var reviews: [UserReviews]?
     var totals: [ReviewTotal]?
+    var prefers: [ReviewPrefer]?
     
     var profileIndex: Int?
     var isOtherUser: Bool = false
@@ -322,9 +323,7 @@ extension HomeVC: AccountDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
-    
 }
-
 
 // MARK: - 서버 통신 코드
 extension HomeVC {
@@ -355,8 +354,7 @@ extension HomeVC {
                 
             }
         }
-        
-        
+  
     }
     
     func otherProfileService(_ profileIndex: Int) {
@@ -384,10 +382,7 @@ extension HomeVC {
                 
             }
         }
-        
-        
     }
-    
     
     // 홈 뷰: 리뷰 시간 순 조회(GET) - 고정
     func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
@@ -476,18 +471,38 @@ extension HomeVC {
                 
             }
         }
-        
     }
     
-    
+    // 홈 뷰: 리뷰 기호도 조회(GET)
+      func preferReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+          
+          ReviewPreferService.shared.preferReviews(String(profileIndex), String(start), String(end)) { responsedata in
+              switch responsedata {
+              case .success(let res):
+                  self.prefers = res as? [ReviewPrefer]
+                  
+                  print("기호도 서버 들어오기")
+                  dump(self.prefers)
+                  
+                  DispatchQueue.main.async {
+                      self.reviewTV.reloadData()
+                  }
+                  self.reviewTV.reloadData()
+                  print("홈 뷰 : 기호도 성공")
+              case .requestErr(_):
+                  print("request error")
+                  
+              case .pathErr:
+                  print(".pathErr")
+                  
+              case .serverErr:
+                  print(".serverErr")
+                  
+              case .networkFail :
+                  print("failure")
+                  
+              }
+          }
+      }
+   
 }
-
-
-
-//extension HomeVC: HomeViewDelegate {
-//    func didSortingClick(data: String) {
-//
-//
-//        }
-//    }
-//

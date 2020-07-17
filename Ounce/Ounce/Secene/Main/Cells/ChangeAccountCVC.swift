@@ -12,7 +12,6 @@ class ChangeAccountCVC: UICollectionViewCell {
 
     static let identifier: String = "ChangeAccountCVC"
     
-    var accountInfo: OtherAccount?
     
     let anotherCatImg = UIImageView().then {
         $0.backgroundColor = .pale
@@ -87,16 +86,6 @@ class ChangeAccountCVC: UICollectionViewCell {
         }
         
     }
-    
-    func setCall() {
-        
-        anotherCatImg.imageFromUrl(accountInfo?.profileImg ?? "", defaultImgPath: accountInfo?.profileImg ?? "")
-        catNameLabel.text = accountInfo?.profileName
-        oneIntroductionLabel.text = accountInfo?.profileInfo
-        
-        
-    }
-    
     
     
 }

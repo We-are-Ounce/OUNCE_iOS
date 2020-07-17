@@ -83,6 +83,4 @@ struct APIConstants {
     
     static let limitAddAccount = BaseURL + "profile/limitProfile"
     
-    static let convertProfile = BaseURL + "profile/conversion/"
-    
 }

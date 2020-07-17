@@ -109,8 +109,6 @@
 		777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */; };
 		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
 		777C1E9924C1C11B005DA57B /* LimitAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C1E9824C1C11B005DA57B /* LimitAccountService.swift */; };
-		777C1E9F24C229C8005DA57B /* OtherACService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C1E9E24C229C8005DA57B /* OtherACService.swift */; };
-		777C1EA124C22C2A005DA57B /* OtherAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C1EA024C22C2A005DA57B /* OtherAccount.swift */; };
 		7792017524BE0BBE00DB0ACD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017424BE0BBE00DB0ACD /* SearchService.swift */; };
 		7792017624BE0BDA00DB0ACD /* RecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBD26F24BE0AB3003034D0 /* RecommendService.swift */; };
 		7792017924BFBA2000DB0ACD /* ChangeAccountCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */; };
@@ -267,8 +265,6 @@
 		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
 		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		777C1E9824C1C11B005DA57B /* LimitAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitAccountService.swift; sourceTree = "<group>"; };
-		777C1E9E24C229C8005DA57B /* OtherACService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherACService.swift; sourceTree = "<group>"; };
-		777C1EA024C22C2A005DA57B /* OtherAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAccount.swift; sourceTree = "<group>"; };
 		7792017424BE0BBE00DB0ACD /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountCVC.swift; sourceTree = "<group>"; };
 		7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeAccountCVC.xib; sourceTree = "<group>"; };
@@ -541,7 +537,6 @@
 				5E71ACCD24C0E08400EFC3EA /* OtherProfile.swift */,
 				5EBA555024C1E31C002CC6D1 /* DetailReview.swift */,
 				F20AA59524C0DFF7001FA520 /* AddReview.swift */,
-				777C1EA024C22C2A005DA57B /* OtherAccount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -572,7 +567,6 @@
 				7FF5159024BE47FC00B34544 /* MyProfileService.swift */,
 				F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */,
 				777C1E9824C1C11B005DA57B /* LimitAccountService.swift */,
-				777C1E9E24C229C8005DA57B /* OtherACService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1103,7 +1097,6 @@
 				5E2C33F924B44E1A001F0FB4 /* SignUpCompleteVC.swift in Sources */,
 				F29B7CCC24B449AC0042089B /* SearchCollectVC.swift in Sources */,
 				5E69E89A24AC689C005D4DC1 /* APIConstants.swift in Sources */,
-				777C1EA124C22C2A005DA57B /* OtherAccount.swift in Sources */,
 				5E69E89624AC6833005D4DC1 /* Font+Enum.swift in Sources */,
 				77DBD26C24BE0A9F003034D0 /* ReviewService.swift in Sources */,
 				7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */,
@@ -1117,7 +1110,6 @@
 				7792017624BE0BDA00DB0ACD /* RecommendService.swift in Sources */,
 				7FBCE82024BF8CB800EFA5D2 /* Dry.swift in Sources */,
 				7747FF6724BA04D3006F5738 /* Follow.swift in Sources */,
-				777C1E9F24C229C8005DA57B /* OtherACService.swift in Sources */,
 				5E039CAF24AFFDBE009B1BC6 /* IDVC.swift in Sources */,
 				5E179B1524BDBD700061A498 /* CatProduct.swift in Sources */,
 				5E35795424AE38BE00043066 /* UIImageView+Extension.swift in Sources */,
@@ -1300,7 +1292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 36BC59Q598;
 				INFOPLIST_FILE = "Ounce/Global/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1322,7 +1314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 36BC59Q598;
 				INFOPLIST_FILE = "Ounce/Global/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

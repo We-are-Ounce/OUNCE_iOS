@@ -17,7 +17,7 @@ struct LimitAccountService {
     
     static let shared = LimitAccountService()
     
-    func limitAccount(completion: @escaping (NetworkResult<Any>) -> Void) {
+    func testTap(completion: @escaping (NetworkResult<Any>) -> Void) {
         
         print(#function)
         
@@ -47,8 +47,8 @@ struct LimitAccountService {
                         case 200:
                             do {
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(ResponseSimpleResult<LimitAccount>.self, from: value)
-                                completion(.success(result.data ?? ""))
+                                let result = try decoder.decode(ResponseTempResult.self, from: value)
+                                completion(.success(result.message ?? ""))
                                 print("성공")
                             } catch {
                                 completion(.pathErr)
@@ -75,4 +75,3 @@ struct LimitAccountService {
     
     
 }
-

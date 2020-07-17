@@ -13,4 +13,3 @@ struct OtherProfile: Codable {
     let profileInfoArray: [ProfileInfoArray]
     let ischeck: Bool
 }
-

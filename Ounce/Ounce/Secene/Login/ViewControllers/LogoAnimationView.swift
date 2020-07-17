@@ -10,6 +10,7 @@
 import UIKit
 
 import SwiftyGif
+import SnapKit
 
 class LogoAnimationView: UIView {
 
@@ -33,7 +34,14 @@ class LogoAnimationView: UIView {
     private func commonInit() {
         backgroundColor = UIColor(white: 246.0 / 255.0, alpha: 1)
         addSubview(logoGifImageView)
-        logoGifImageView.pinEdgesToSuperView()
+        logoGifImageView.contentMode = .scaleAspectFill
+        logoGifImageView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+//            make.height.equalTo(2436)
+        }
     }
 
 }

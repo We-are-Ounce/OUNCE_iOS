@@ -18,6 +18,8 @@ class HomeVC: UIViewController {
     var profiles: MyProfile?
     var otherProfiles: OtherProfile?
     var reviews: [UserReviews]?
+    var totals: [ReviewTotal]?
+    
     var profileIndex: Int?
     var isOtherUser: Bool = false
     
@@ -44,6 +46,8 @@ class HomeVC: UIViewController {
         
         //테이블 셀 라인 없애기
         self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
+        totalReviewService(1, 2, 10)
         
     }
     
@@ -79,6 +83,8 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         }
         else {
             let count = reviews?.count ?? 0
+            
+            // let total = totals?.count ?? 0
             if count == 0 {
                 return 0
             } else {
@@ -165,9 +171,9 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             navigationItem.rightBarButtonItem = UIBarButtonItem()
            
             /* 셀 클릭시 index값 넘겨주기 */
-            
             dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
-
+            
+            
             dvc.isEdit = true
             self.navigationController?.pushViewController(dvc, animated: true)
         }
@@ -344,7 +350,7 @@ extension HomeVC {
     }
 
     
-    // 홈 뷰: 리뷰 조회(POST)
+    // 홈 뷰: 리뷰 시간 순 조회(GET) - 고정
     func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
         
         ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
@@ -375,6 +381,39 @@ extension HomeVC {
         }
         
     }
+    
+    // 홈 뷰: 리뷰 총점 조회(GET)
+     func totalReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+            
+            ReviewTotalService.shared.totalReviews(String(profileIndex), String(start), String(end)) { responsedata in
+                switch responsedata {
+                case .success(let res):
+                    self.totals = res as? [ReviewTotal]
+                   
+                    dump(self.totals)
+                   
+                    DispatchQueue.main.async {
+                         self.reviewTV.reloadData()
+                    }
+                    self.reviewTV.reloadData()
+                    print("홈 뷰 : 총점 성공")
+                case .requestErr(_):
+                    print("request error")
+                    
+                case .pathErr:
+                    print(".pathErr")
+                    
+                case .serverErr:
+                    print(".serverErr")
+                    
+                case .networkFail :
+                    print("failure")
+                    
+                }
+            }
+            
+        }
+        
     
 }
 

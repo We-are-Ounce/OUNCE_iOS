@@ -117,6 +117,8 @@
 		7FBCE83424C0DC6A00EFA5D2 /* DryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83324C0DC6A00EFA5D2 /* DryCVC.swift */; };
 		7FBCE83624C0DC7B00EFA5D2 /* FoodCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83524C0DC7B00EFA5D2 /* FoodCVC.swift */; };
 		7FBCE83824C0DC8A00EFA5D2 /* ManuCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83724C0DC8A00EFA5D2 /* ManuCVC.swift */; };
+		7FBCE83A24C1A3D400EFA5D2 /* ReviewTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83924C1A3D400EFA5D2 /* ReviewTotal.swift */; };
+		7FBCE83C24C1A7BF00EFA5D2 /* ReviewTotalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83B24C1A7BF00EFA5D2 /* ReviewTotalService.swift */; };
 		7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */; };
 		7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */; };
 		7FC9385524AB1088002B0CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9385324AB1088002B0CA7 /* Main.storyboard */; };
@@ -263,6 +265,8 @@
 		7FBCE83324C0DC6A00EFA5D2 /* DryCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DryCVC.swift; sourceTree = "<group>"; };
 		7FBCE83524C0DC7B00EFA5D2 /* FoodCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCVC.swift; sourceTree = "<group>"; };
 		7FBCE83724C0DC8A00EFA5D2 /* ManuCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManuCVC.swift; sourceTree = "<group>"; };
+		7FBCE83924C1A3D400EFA5D2 /* ReviewTotal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTotal.swift; sourceTree = "<group>"; };
+		7FBCE83B24C1A7BF00EFA5D2 /* ReviewTotalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTotalService.swift; sourceTree = "<group>"; };
 		7FC9384A24AB1088002B0CA7 /* Ounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -504,11 +508,9 @@
 				7FF5158E24BE46BC00B34544 /* MyProfile.swift */,
 				5ED22C7E24C061C700F311F9 /* Review.swift */,
 				F20AA59324C0ACC9001FA520 /* FilteredCatProduct.swift */,
-
 				5E71ACCD24C0E08400EFC3EA /* OtherProfile.swift */,
-
 				F20AA59524C0DFF7001FA520 /* AddReview.swift */,
-
+				7FBCE83924C1A3D400EFA5D2 /* ReviewTotal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -532,6 +534,7 @@
 				77DBD26F24BE0AB3003034D0 /* RecommendService.swift */,
 				5EFD2DCC24BC69CC0054B357 /* UserService.swift */,
 				7792017424BE0BBE00DB0ACD /* SearchService.swift */,
+				7FBCE83B24C1A7BF00EFA5D2 /* ReviewTotalService.swift */,
 				77DBD26B24BE0A9F003034D0 /* ReviewService.swift */,
 				7754C98924BCBCA0001F3A0F /* FollowService.swift */,
 				7FF5158C24BE35AE00B34544 /* ContentService.swift */,
@@ -1073,8 +1076,10 @@
 				5E179B1824BDBE390061A498 /* User.swift in Sources */,
 				5E112F8824BF006F00F4B1AC /* Ounce.xcdatamodeld in Sources */,
 				F29B7CCE24B450F40042089B /* SearchCollectCell.swift in Sources */,
+				7FBCE83A24C1A3D400EFA5D2 /* ReviewTotal.swift in Sources */,
 				5E69E8A824AC6CA1005D4DC1 /* LoginCell.swift in Sources */,
 				5E039CB524AFFEBD009B1BC6 /* IDVC+Constraint.swift in Sources */,
+				7FBCE83C24C1A7BF00EFA5D2 /* ReviewTotalService.swift in Sources */,
 				5EFD2DC924BC66100054B357 /* NetworkResult.swift in Sources */,
 				777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */,
 				5ED22C7F24C061C700F311F9 /* Review.swift in Sources */,

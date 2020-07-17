@@ -18,7 +18,14 @@ class SplashVC: UIViewController {
         super.viewDidLoad()
 
         view.addSubview(logoAnimationView)
-        logoAnimationView.pinEdgesToSuperView()
+        logoAnimationView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+//            make.width.equalTo(1125)
+//            make.height.equalTo(2436)
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
         logoAnimationView.logoGifImageView.delegate = self
 
     }

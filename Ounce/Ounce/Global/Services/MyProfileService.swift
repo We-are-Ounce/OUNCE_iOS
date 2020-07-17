@@ -11,6 +11,7 @@ import Foundation
 import Alamofire
 import SwiftKeychainWrapper
 
+// MARK: - 홈 뷰 프로필
 struct MyProfileService {
     
     private init() {}

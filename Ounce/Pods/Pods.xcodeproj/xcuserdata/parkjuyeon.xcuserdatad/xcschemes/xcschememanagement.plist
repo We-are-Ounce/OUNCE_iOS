@@ -60,6 +60,11 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>SwiftGifOrigin.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>SwiftKeychainWrapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>

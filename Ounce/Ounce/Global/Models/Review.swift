@@ -15,3 +15,6 @@ struct Review: Codable {
     let reviewRating, reviewPrefer: String
     let foodIdx: Int
 }
+
+
+

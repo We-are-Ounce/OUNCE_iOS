@@ -38,4 +38,8 @@ class SortingCell: UITableViewCell {
             make.centerX.equalToSuperview()
         }
     }
+    
+    
 }
+
+

@@ -10,5 +10,4 @@ import Foundation
 
 struct LimitAccount: Codable {
     let possibleAddProfile: Bool
-    
 }

@@ -128,10 +128,10 @@ extension SignUpCompleteVC {
         completeButton.addTarget(self,
                                  action: #selector(didTapCompleteButton),
                                  for: .touchUpInside)
-        completeButton.backgroundColor = .wheatColor
+        completeButton.backgroundColor = .black
         completeButton.setRounded(radius: 8)
         completeButton.titleLabel?.font = Font.guideLabel
-        completeButton.tintColor = .black
+        completeButton.tintColor = .white
         
     }
     

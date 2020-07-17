@@ -8,17 +8,24 @@
 
 import UIKit
 
-class AccountVC: UIViewController {
+import SwiftKeychainWrapper
 
+class AccountVC: UIViewController {
+    
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var popView: UIView!
     @IBOutlet weak var touchView: UIView!
     @IBOutlet weak var accountCV: UICollectionView!
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addAccountBtn: UIButton!
+    
+    var judgeLimit: LimitAccount?
+    
+    // MARK: - UI components
     
     
-    
+
     
     
     override func viewDidLoad() {
@@ -31,7 +38,23 @@ class AccountVC: UIViewController {
         
         accountCV.delegate = self
         accountCV.dataSource = self
-
+        
+        setFunc()
+        
+    }
+    
+    
+    func setFunc(){
+        
+        addAccountBtn.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
+    }
+    
+    @objc func didTapAdd(){
+        //print(#function)
+        limitAccount()
+        
+        
+        
     }
     
     func backgroundDismiss(){
@@ -50,7 +73,7 @@ class AccountVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
-
+    
     
     
 }
@@ -80,5 +103,56 @@ extension AccountVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 78)
     }
+    
+}
+
+extension AccountVC {
+    
+    func limitAccount() {
+        
+        LimitAccountService.shared.testTap() { responsedata
+            in
+            
+            switch responsedata {
+            case . success(let res):
+                dump(res)
+                let response = res as! LimitAccount
+                
+                self.judgeLimit = response
+                dump(res)
+                if self.judgeLimit?.possibleAddProfile == true {
+                    //print("다른 뷰로")
+                    KeychainWrapper.standard.set(true, forKey: "newProfile")
+                    let storyboard = UIStoryboard(name: "Register", bundle: nil)
+                    
+                    let dvc = storyboard.instantiateViewController(identifier: "RegisterNavVC") as! RegisterNavVC
+                    
+                    dvc.modalPresentationStyle = .overFullScreen
+
+                    self.present(dvc, animated: true, completion: nil)
+                    
+                } else {
+                    self.simpleAlert(title: "이미 생성된 계정이", message: "제한된 계정의 수를 넘었습니다.")
+                }
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+                
+                
+            }
+            
+        }
+        
+    }
+    
     
 }

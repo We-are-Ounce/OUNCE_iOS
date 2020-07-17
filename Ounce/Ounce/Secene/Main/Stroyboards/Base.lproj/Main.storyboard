@@ -360,6 +360,7 @@
                     </view>
                     <connections>
                         <outlet property="accountCV" destination="If6-9g-1vZ" id="Rd8-gk-aSc"/>
+                        <outlet property="addAccountBtn" destination="uR4-6I-oys" id="F6z-1F-mV6"/>
                         <outlet property="backView" destination="dBq-pC-NGO" id="ZN2-Mn-lY0"/>
                         <outlet property="nameLabel" destination="1nJ-DZ-F67" id="ndi-L3-7jt"/>
                         <outlet property="popView" destination="QPs-Dd-yr3" id="pt8-el-dSG"/>

@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         Gedatsu.open()
         #endif
-        sleep(1)
+//        sleep(1)
 //        window = UIWindow.init(frame: UIScreen.main.bounds)
 //        window?.backgroundColor = UIColor.white
 //        window?.makeKeyAndVisible()

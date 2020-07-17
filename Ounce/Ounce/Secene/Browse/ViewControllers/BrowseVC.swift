@@ -176,15 +176,10 @@ class BrowseVC: UIViewController {
     
     func setNameLabel(){
         
-        let origin_userCatName = KeychainWrapper.standard.string(forKey: "name") ?? ""
+        var origin_userCatName = KeychainWrapper.standard.string(forKey: "name") ?? ""
+        let addPosition = postPositionText(origin_userCatName)
         
-        let userCatName1 = postPositionText("호세")
-        let userCatName2 = postPositionText("정균")
-        let userCatName3 = postPositionText("준현이")
-        
-        
-        
-        let attributedStr = NSMutableAttributedString(string: origin_userCatName + "\n입맛이 비슷해요.")
+        let attributedStr = NSMutableAttributedString(string: addPosition + "\n입맛이 비슷해요.")
         
         attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
                                    value: UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium) as Any, range: NSMakeRange(0, origin_userCatName.count))
@@ -281,7 +276,7 @@ extension BrowseVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return recommendInfo?.resultProfile.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -300,7 +295,7 @@ extension BrowseVC: UICollectionViewDataSource {
         let vc = sb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         vc.modalPresentationStyle = .overFullScreen
         print(recommendInfo?.recommendFoodList[indexPath.row].profileIdx)
-        vc.profileIndex = recommendInfo?.recommendFoodList[indexPath.row].profileIdx
+        vc.profileIndex = recommendInfo?.resultProfile[indexPath.row].profileIdx
         vc.isOtherUser = true
         
         // MARK: - 이미지 클릭시 홈 뷰로 이동

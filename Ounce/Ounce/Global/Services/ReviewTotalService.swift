@@ -30,7 +30,7 @@ struct ReviewTotalService {
             "Content-Type": "application/json",
             "token" : token ?? ""
         ]
-        print("홈 뷰:리뷰 총점 프로필 인덱스\(URL)")
+        print("홈 뷰:총점 프로필 인덱스\(URL)")
         Alamofire.request(URL,
                           method: .get,
                           parameters: nil,

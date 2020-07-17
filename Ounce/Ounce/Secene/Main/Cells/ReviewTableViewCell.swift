@@ -55,9 +55,3 @@ class ReviewTableViewCell: UITableViewCell {
     }
     
 }
-
-//let reviewIdx, profileIdx, foodIdx: Int
-//   let foodImg: String
-//   let foodManu, foodName, foodInfo: String
-//   let foodRating, foodPrefer: Int
-//   let createdAt: String

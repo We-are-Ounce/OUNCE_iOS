@@ -25,8 +25,11 @@ class AccountVC: UIViewController {
     // MARK: - UI components
     
     
-
     
+    // MARK - Variable and properties
+    
+    
+    var otherAccountInfo: [OtherAccount] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,7 @@ class AccountVC: UIViewController {
         accountCV.dataSource = self
         
         setFunc()
+        loadAccount()
         
     }
     
@@ -86,14 +90,21 @@ extension AccountVC: UICollectionViewDelegate {
 extension AccountVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return otherAccountInfo.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChangeAccountCVC.identifier, for: indexPath) as? ChangeAccountCVC else{ return UICollectionViewCell() }
         
-        return cell
+        cell.accountInfo = otherAccountInfo[indexPath.row]
+        cell.setCall()
         
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        KeychainWrapper.standard.set(otherAccountInfo[indexPath.row].profileIdx, forKey: "currentProfile")
+        dismiss(animated: false, completion: nil)
     }
     
 }
@@ -110,7 +121,7 @@ extension AccountVC {
     
     func limitAccount() {
         
-        LimitAccountService.shared.testTap() { responsedata
+        LimitAccountService.shared.limitAccount() { responsedata
             in
             
             switch responsedata {
@@ -154,5 +165,36 @@ extension AccountVC {
         
     }
     
+    func loadAccount() {
+        OtherACService.shared.loadOther() {
+            responsedata in
+            switch responsedata {
+            case .success(let res):
+                //dump(res)
+                let accountList = res as! [OtherAccount]
+                
+                self.otherAccountInfo = accountList
+                
+                self.accountCV.reloadData()
+                
+                
+                
+            case .requestErr(_):
+                print("request error")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".failureErr")
+                
+            }
+        }
+    }
+    
+    
+    
     
 }
+
+

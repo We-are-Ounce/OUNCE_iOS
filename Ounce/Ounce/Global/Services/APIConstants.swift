@@ -73,7 +73,7 @@ struct APIConstants {
     static let reviewCategory = BaseURL + "review/"
     // GET 캣푸드 목록 선택 필터링 /review/:profileIdx/filter
     static let reviewFilter = BaseURL + "review/"
-    // GET 캣푸드 리뷰 상세보기 /review/detail/
+    // GET 캣푸드 리뷰 상세보기 /review/detail/:reviewIdx
     static let reviewDetail = BaseURL + "review/detail/"
     
     // GET 추천 고양이 리스트

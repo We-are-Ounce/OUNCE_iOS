@@ -10,9 +10,20 @@ import UIKit
 
 class ReferenceCVCell: UICollectionViewCell {
 
+    // MARK: - UI components
+
+    // MARK: - Variables and Properties
+    
+    // MARK: - Life Cycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
+}
+
+// MARK: - Helpers 메소드 모두 따로 작성해주세요
+extension ReferenceCVCell {
+    
 }

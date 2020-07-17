@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a4l-1G-Dyu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SocialVC-->
+        <scene sceneID="492-r2-JQT">
+            <objects>
+                <viewController storyboardIdentifier="SocialVC" id="8R6-MC-wfi" customClass="SocialVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zKd-aI-QSe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Myp-tS-m8Y"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YzP-Pl-dsv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Anp-eY-0wm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="934.78260869565224" y="-48.214285714285715"/>
+        </scene>
+        <!--SocialNVC-->
+        <scene sceneID="Izg-rQ-kqt">
+            <objects>
+                <navigationController restorationIdentifier="SocialNVC" storyboardIdentifier="SocialNVC" title="SocialNVC" automaticallyAdjustsScrollViewInsets="NO" id="a4l-1G-Dyu" customClass="SocialNVC" customModule="Ounce" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="88O-fL-Wui">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8R6-MC-wfi" kind="relationship" relationship="rootViewController" id="HpE-96-N59"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mmb-45-56U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.637681159420293" y="-48.214285714285715"/>
+        </scene>
+    </scenes>
+</document>

@@ -100,6 +100,8 @@
 		7754C98A24BCBCA0001F3A0F /* FollowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754C98924BCBCA0001F3A0F /* FollowService.swift */; };
 		777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */; };
 		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
+		777C1E9724C1C0AC005DA57B /* LimitAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C1E9624C1C0AC005DA57B /* LimitAccount.swift */; };
+		777C1E9924C1C11B005DA57B /* LimitAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C1E9824C1C11B005DA57B /* LimitAccountService.swift */; };
 		7792017524BE0BBE00DB0ACD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017424BE0BBE00DB0ACD /* SearchService.swift */; };
 		7792017624BE0BDA00DB0ACD /* RecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBD26F24BE0AB3003034D0 /* RecommendService.swift */; };
 		7792017924BFBA2000DB0ACD /* ChangeAccountCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */; };
@@ -245,6 +247,8 @@
 		7754C98924BCBCA0001F3A0F /* FollowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowService.swift; sourceTree = "<group>"; };
 		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
 		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
+		777C1E9624C1C0AC005DA57B /* LimitAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitAccount.swift; sourceTree = "<group>"; };
+		777C1E9824C1C11B005DA57B /* LimitAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitAccountService.swift; sourceTree = "<group>"; };
 		7792017424BE0BBE00DB0ACD /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountCVC.swift; sourceTree = "<group>"; };
 		7792017824BFBA2000DB0ACD /* ChangeAccountCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeAccountCVC.xib; sourceTree = "<group>"; };
@@ -504,11 +508,9 @@
 				7FF5158E24BE46BC00B34544 /* MyProfile.swift */,
 				5ED22C7E24C061C700F311F9 /* Review.swift */,
 				F20AA59324C0ACC9001FA520 /* FilteredCatProduct.swift */,
-
 				5E71ACCD24C0E08400EFC3EA /* OtherProfile.swift */,
-
 				F20AA59524C0DFF7001FA520 /* AddReview.swift */,
-
+				777C1E9624C1C0AC005DA57B /* LimitAccount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -537,6 +539,7 @@
 				7FF5158C24BE35AE00B34544 /* ContentService.swift */,
 				7FF5159024BE47FC00B34544 /* MyProfileService.swift */,
 				F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */,
+				777C1E9824C1C11B005DA57B /* LimitAccountService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -991,6 +994,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777C1E9924C1C11B005DA57B /* LimitAccountService.swift in Sources */,
 				7754C98A24BCBCA0001F3A0F /* FollowService.swift in Sources */,
 				5EA7C46124B8EE5B00EB95EA /* BrowseUserTVCell.swift in Sources */,
 				5E69E8A424AC6C61005D4DC1 /* LoginVC.swift in Sources */,
@@ -1002,6 +1006,7 @@
 				5E35795824AE38E900043066 /* UITableView+Extension.swift in Sources */,
 				773384EC24B8E91200D05E8F /* SocialVC.swift in Sources */,
 				5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */,
+				777C1E9724C1C0AC005DA57B /* LimitAccount.swift in Sources */,
 				5E179B0B24BCECCE0061A498 /* SortingCell.swift in Sources */,
 				5E71ACCE24C0E08400EFC3EA /* OtherProfile.swift in Sources */,
 				F248FD3F24B4727A0055D753 /* Product.swift in Sources */,

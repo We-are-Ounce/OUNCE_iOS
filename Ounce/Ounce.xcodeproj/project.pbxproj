@@ -110,7 +110,6 @@
 		777B5C6D24B2698400B6514B /* BrowseCVCell + Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */; };
 		777B5C6F24B273C000B6514B /* UpCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */; };
 		777C1E9924C1C11B005DA57B /* LimitAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C1E9824C1C11B005DA57B /* LimitAccountService.swift */; };
-		777C1EA324C24B12005DA57B /* OtherAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C1EA224C24B12005DA57B /* OtherAccount.swift */; };
 		777C1EA524C24B6C005DA57B /* OtherACService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C1EA424C24B6C005DA57B /* OtherACService.swift */; };
 		7792017524BE0BBE00DB0ACD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792017424BE0BBE00DB0ACD /* SearchService.swift */; };
 		7792017624BE0BDA00DB0ACD /* RecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBD26F24BE0AB3003034D0 /* RecommendService.swift */; };
@@ -132,6 +131,7 @@
 		7FBCE83C24C1A7BF00EFA5D2 /* ReviewTotalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83B24C1A7BF00EFA5D2 /* ReviewTotalService.swift */; };
 		7FBCE83E24C24F6E00EFA5D2 /* ReviewPrefer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83D24C24F6E00EFA5D2 /* ReviewPrefer.swift */; };
 		7FBCE84024C24FE000EFA5D2 /* ReviewPreferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE83F24C24FE000EFA5D2 /* ReviewPreferService.swift */; };
+		7FBCE84224C2632D00EFA5D2 /* OtherAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCE84124C2632D00EFA5D2 /* OtherAccount.swift */; };
 		7FC9384E24AB1088002B0CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */; };
 		7FC9385024AB1088002B0CA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */; };
 		7FC9385524AB1088002B0CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9385324AB1088002B0CA7 /* Main.storyboard */; };
@@ -271,7 +271,6 @@
 		777B5C6C24B2698400B6514B /* BrowseCVCell + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowseCVCell + Constraint.swift"; sourceTree = "<group>"; };
 		777B5C6E24B273C000B6514B /* UpCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		777C1E9824C1C11B005DA57B /* LimitAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitAccountService.swift; sourceTree = "<group>"; };
-		777C1EA224C24B12005DA57B /* OtherAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAccount.swift; sourceTree = "<group>"; };
 		777C1EA424C24B6C005DA57B /* OtherACService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherACService.swift; sourceTree = "<group>"; };
 		7792017424BE0BBE00DB0ACD /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		7792017724BFBA2000DB0ACD /* ChangeAccountCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountCVC.swift; sourceTree = "<group>"; };
@@ -294,6 +293,7 @@
 		7FBCE83B24C1A7BF00EFA5D2 /* ReviewTotalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTotalService.swift; sourceTree = "<group>"; };
 		7FBCE83D24C24F6E00EFA5D2 /* ReviewPrefer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPrefer.swift; sourceTree = "<group>"; };
 		7FBCE83F24C24FE000EFA5D2 /* ReviewPreferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPreferService.swift; sourceTree = "<group>"; };
+		7FBCE84124C2632D00EFA5D2 /* OtherAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherAccount.swift; sourceTree = "<group>"; };
 		7FC9384A24AB1088002B0CA7 /* Ounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC9384D24AB1088002B0CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FC9384F24AB1088002B0CA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -449,6 +449,7 @@
 		5E580D0D24C1E0EB00878126 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				777C1EA224C24B12005DA57B /* OtherAccount.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -541,6 +542,7 @@
 				5E179B1724BDBE390061A498 /* User.swift */,
 				7FF5158A24BE357800B34544 /* UserReviews.swift */,
 				5E580D0E24C1E22700878126 /* ReviewTotal.swift */,
+				7FBCE84124C2632D00EFA5D2 /* OtherAccount.swift */,
 				7FF5158E24BE46BC00B34544 /* MyProfile.swift */,
 				5ED22C7E24C061C700F311F9 /* Review.swift */,
 				F20AA59324C0ACC9001FA520 /* FilteredCatProduct.swift */,
@@ -1116,7 +1118,6 @@
 				5E039CB724AFFECF009B1BC6 /* Password+Constraint.swift in Sources */,
 				5E2C33F924B44E1A001F0FB4 /* SignUpCompleteVC.swift in Sources */,
 				F29B7CCC24B449AC0042089B /* SearchCollectVC.swift in Sources */,
-				777C1EA324C24B12005DA57B /* OtherAccount.swift in Sources */,
 				5E69E89A24AC689C005D4DC1 /* APIConstants.swift in Sources */,
 				5E69E89624AC6833005D4DC1 /* Font+Enum.swift in Sources */,
 				77DBD26C24BE0A9F003034D0 /* ReviewService.swift in Sources */,
@@ -1153,6 +1154,7 @@
 				5EFD2DCB24BC68290054B357 /* ResponseResult.swift in Sources */,
 				5EC8D3AF24BF90DE00C4813B /* OtherProfileTVCell.swift in Sources */,
 				5E9E4A6A24C1F55000F92D50 /* LogoAnimationView.swift in Sources */,
+				7FBCE84224C2632D00EFA5D2 /* OtherAccount.swift in Sources */,
 				7FD5B90D24B2DF71008D382F /* ReviewTableViewCell.swift in Sources */,
 				5E48BF1A24B1D7750060EA7B /* BrowseVC.swift in Sources */,
 				F23316A524BCBE2400BA6023 /* ReviewData.swift in Sources */,

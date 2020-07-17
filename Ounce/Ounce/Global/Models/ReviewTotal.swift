@@ -11,10 +11,15 @@ import Foundation
 // MARK: - 리뷰 총점순 정렬
 struct ReviewTotal: Codable {
     
+//    let reviewIdx, profileIdx: Int
+//    let foodImg: String
+//    let foodManu, foodName, reviewInfo, reviewRating: String
+//    let reviewPrefer, createdAt: String
+//
+//
     let reviewIdx, profileIdx, foodIdx: Int
     let foodImg: String
     let foodManu, foodName, foodInfo: String
     let foodRating, foodPrefer: Int
     let createdAt: String
-    
 }

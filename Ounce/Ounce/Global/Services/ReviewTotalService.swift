@@ -24,7 +24,7 @@ struct ReviewTotalService {
                       completion: @escaping (NetworkResult<Any>) -> Void){
         
         let URL = APIConstants.reviewRating + profileIndex + "/rating?pageStart=" + start + "&pageEnd=" + end
-        
+        print(URL)
         let token = KeychainWrapper.standard.string(forKey: "Token")
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
@@ -51,6 +51,7 @@ struct ReviewTotalService {
                                                 let decoder = JSONDecoder()
                                                 let result = try decoder.decode(ResponseResult<ReviewTotal>.self,
                                                                                 from: value)
+                                                print(result.data)
                                                 completion(.success(result.data ?? [ReviewTotal].self))
                                             } catch {
                                                 completion(.pathErr)

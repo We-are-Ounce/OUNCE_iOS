@@ -387,6 +387,8 @@ extension HomeVC {
     // 홈 뷰: 리뷰 시간 순 조회(GET) - 고정
     func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
         
+        let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
+        
         ContentService.shared.dateReviews(String(profileIndex), String(start), String(end)) { responsedata in
             switch responsedata {
             case .success(let res):
@@ -443,7 +445,7 @@ extension HomeVC {
     
     // 홈 뷰: 리뷰 총점 조회(GET)
     func totalReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
-        
+        let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
         ReviewTotalService.shared.totalReviews(String(profileIndex), String(start), String(end)) { responsedata in
             switch responsedata {
             case .success(let res):
@@ -475,6 +477,8 @@ extension HomeVC {
     
     // 홈 뷰: 리뷰 기호도 조회(GET)
       func preferReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+        
+        let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
           
           ReviewPreferService.shared.preferReviews(String(profileIndex), String(start), String(end)) { responsedata in
               switch responsedata {

@@ -52,6 +52,5 @@ class ReviewTableViewCell: UITableViewCell {
         productContentLabel.text = total?.foodInfo
         starLabel.text = String(total?.foodRating ?? 0)
         likeLabel.text = String(total?.foodPrefer ?? 0)
-    }
-    
+    }  
 }

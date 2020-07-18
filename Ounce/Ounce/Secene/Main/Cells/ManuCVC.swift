@@ -12,6 +12,8 @@ class ManuCVC: UICollectionViewCell {
     
     static let identifier: String = "ManuCVC"
     
+   var bRec : Bool = true
+    
     @IBOutlet weak var manuLabel: UIButton!
     
     func round(){
@@ -20,12 +22,20 @@ class ManuCVC: UICollectionViewCell {
         manuLabel.setBorder(borderColor: .pale, borderWidth: 1.5)
         
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        override func awakeFromNib() {
-            super.awakeFromNib()
-            
-            round()
-        }
-        
+        round()
     }
+    @IBAction func clickMenuBtn(_ sender: Any) {
+        bRec = !bRec
+        if bRec {
+            manuLabel.setBorder(borderColor: .darkPeach, borderWidth: 1.5)
+        } else {
+            manuLabel.setBorder(borderColor: .pale, borderWidth: 1.5)
+        }
+    }
+    
+}
 

@@ -12,6 +12,7 @@ class FoodCVC: UICollectionViewCell {
     
     static let identifier: String = "FoodCVC"
     
+    var bRec : Bool = true
     @IBOutlet weak var foodLabel: UIButton!
     
     func round(){
@@ -19,11 +20,21 @@ class FoodCVC: UICollectionViewCell {
         foodLabel.setRounded(radius: 13)
         foodLabel.setBorder(borderColor: .pale, borderWidth: 1.5)
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        override func awakeFromNib() {
-            super.awakeFromNib()
-            
-            round()
+        round()
+    }
+    
+    @IBAction func clickFoodBtn(_ sender: Any) {
+        
+        bRec = !bRec
+        if bRec {
+            foodLabel.setBorder(borderColor: .darkPeach, borderWidth: 1.5)
+        } else {
+            foodLabel.setBorder(borderColor: .pale, borderWidth: 1.5)
         }
         
     }
+}

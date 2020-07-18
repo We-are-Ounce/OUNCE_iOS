@@ -63,7 +63,7 @@ class PostSC:UIView,UITextViewDelegate {
     //var date: String = "해떴다"
     var foodIndex: Int = 10
     var profileIndex: Int = 19
-    
+    var reviewIdx: Int = 0
     // 데이터 보내기
     var sendRating: Int?
     var sendPrefer: Int?

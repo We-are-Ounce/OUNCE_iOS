@@ -124,10 +124,6 @@ class BrowseProductTVCell: UITableViewCell {
         productIMG.imageFromUrl(product?.foodImg, defaultImgPath: "")
         productCompanyLabel.text = product?.foodManu
         productLabel.text = product?.foodName
-        if product?.reviewCount == 0 {
-            starIMG.image = UIImage(named: "icTotalUnselected")
-            hartIMG.image = UIImage(named: "icFavoriteUnselected")
-        }
         starLabel.text = String(product?.avgPrefer ?? 0)
         hartLabel.text = String(product?.avgRating ?? 0)
 

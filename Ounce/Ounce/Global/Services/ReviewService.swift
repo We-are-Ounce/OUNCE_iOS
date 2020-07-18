@@ -67,7 +67,7 @@ struct ReviewService{
                 case 200:
                     do {
                         let decoder = JSONDecoder()
-                        let result = try decoder.decode(ResponseSimpleResult<Int>.self, from: value)
+                        let result = try decoder.decode(ResponseTempResult.self, from: value)
                         completion(.success(result))
                         print("상태코드:\(statusCode)")
                     } catch {

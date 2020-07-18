@@ -106,14 +106,12 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         }
         else {
             let count = reviews?.count ?? 0
-            
-            // let total = totals?.count ?? 0
             if count == 0 {
-                return 0
+                reviewTV.setEmptyView(title: "아직 리뷰 기록이", message: "없습니다.😹")
             } else {
-                return count
+                reviewTV.restore()
             }
-            
+            return count
         }
     }
     

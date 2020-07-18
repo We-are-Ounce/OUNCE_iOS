@@ -19,7 +19,7 @@
                         <constraint firstAttribute="height" constant="17" id="4bs-gD-GeO"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.68235294117647061" green="0.65098039215686276" blue="0.62352941176470589" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제품 이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh5-3f-aUT">

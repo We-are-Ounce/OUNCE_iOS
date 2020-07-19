@@ -48,10 +48,21 @@ class RegisterVC: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapNextButton))
-        button.isEnabled = false
+        
         return button
         
     }()
+
+    lazy var addButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "완료",
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(didTapNextButton))
+        
+        return button
+        
+    }()
+
     lazy var editButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(named: "icSave"),
                                      style: .plain,
@@ -66,7 +77,6 @@ class RegisterVC: UIViewController {
                                      target: self,
                                      action: #selector(didTapBackButton))
         return button
-        
     }()
     
     // MARK: - Variables and Properties
@@ -94,6 +104,8 @@ class RegisterVC: UIViewController {
         navigationItem.titleView = UIImageView(image: image)
         addKeyboardNotification()
         findEdit()
+        nameErrorLabel.textColor = .darkPeach
+        nameErrorLabel.alpha = 0
     }
 }
 
@@ -101,8 +113,13 @@ class RegisterVC: UIViewController {
 extension RegisterVC {
     func findEdit(){
         let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+        let newProfile = KeychainWrapper.standard.bool(forKey: "newProfile") ?? false
+        KeychainWrapper.standard.set(false, forKey: "newProfile")
         navigationController?.isNavigationBarHidden = false
-        if profileIndex != nil {
+        if newProfile {
+            navigationItem.rightBarButtonItem = addButton
+            navigationItem.leftBarButtonItem = backButton
+        } else if profileIndex != nil {
             navigationItem.rightBarButtonItem = editButton
             navigationItem.leftBarButtonItem = backButton
             profileService(profileIndex ?? 0)
@@ -131,8 +148,6 @@ extension RegisterVC {
         }
         ageTextField.text = String(profileData?.profileAge ?? 0)
         weightTextField.text = profileData?.profileWeight
-        nameErrorLabel.textColor = .darkPeach
-        nameErrorLabel.alpha = 0
     }
     
     func setProfileIMG(){
@@ -443,12 +458,14 @@ extension RegisterVC {
             
             switch data {
             case .success(_):
+                print(#function)
                 self.dismiss(animated: true, completion: nil)
                 
             case .requestErr:
                 self.simpleAlert(title: "실패", message: "")
                 
             case .pathErr:
+                self.dismiss(animated: true, completion: nil)
                 print(".pathErr")
                 
             case .serverErr:

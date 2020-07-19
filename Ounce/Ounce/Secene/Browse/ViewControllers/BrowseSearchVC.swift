@@ -346,7 +346,8 @@ extension BrowseSearchVC: UITableViewDataSource {
             let userInfoCount = self.user?.count
             
             if userInfoCount == 0 {
-                userTV.setEmptyView(title: "해당하는 검색 결과가 없습니다", message: "")
+                userTV.setEmptyView(title: searchTextField.text ?? "" + "에",
+                                    message: "해당하는 결과가 없습니다.")
             } else {
                 userTV.restore()
             }
@@ -404,7 +405,8 @@ extension BrowseSearchVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView == productTV {
-            return 48
+            return 0
+            
         } else {
             return 0
         }

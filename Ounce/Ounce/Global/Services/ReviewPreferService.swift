@@ -1,8 +1,8 @@
 //
-//  ReviewTotalService.swift
+//  ReviewPreferService.swift
 //  Ounce
 //
-//  Created by 박주연 on 2020/07/17.
+//  Created by 박주연 on 2020/07/18.
 //  Copyright © 2020 박주연. All rights reserved.
 //
 
@@ -11,26 +11,26 @@ import Foundation
 import Alamofire
 import SwiftKeychainWrapper
 
-struct ReviewTotalService {
+struct ReviewPreferService {
     private init() {}
     
-    static let shared = ReviewTotalService()
+    static let shared = ReviewPreferService()
     
-    // MARK: - 홈 뷰 리뷰 총점 조회
+    // MARK: - 홈 뷰 리뷰 선호도 조회
     
-    func totalReviews(_ profileIndex: String,
+    func preferReviews(_ profileIndex: String,
                       _ start: String,
                       _ end: String,
                       completion: @escaping (NetworkResult<Any>) -> Void){
         
-        let URL = APIConstants.reviewRating + profileIndex + "/rating?pageStart=" + start + "&pageEnd=" + end
+        let URL = APIConstants.reviewPrefer + profileIndex + "/prefer?pageStart=" + start + "&pageEnd=" + end
         
         let token = KeychainWrapper.standard.string(forKey: "Token")
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
             "token" : token ?? ""
         ]
-        print("홈 뷰:총점 프로필 인덱스\(URL)")
+        print("홈 뷰:기호도 프로필 인덱스\(URL)")
         Alamofire.request(URL,
                           method: .get,
                           parameters: nil,
@@ -49,9 +49,9 @@ struct ReviewTotalService {
                                         case 200:
                                             do{
                                                 let decoder = JSONDecoder()
-                                                let result = try decoder.decode(ResponseResult<ReviewTotal>.self,
+                                                let result = try decoder.decode(ResponseResult<ReviewPrefer>.self,
                                                                                 from: value)
-                                                completion(.success(result.data ?? [ReviewTotal].self))
+                                                completion(.success(result.data ?? [ReviewPrefer].self))
                                             } catch {
                                                 completion(.pathErr)
                                             }

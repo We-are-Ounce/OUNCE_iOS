@@ -1,8 +1,8 @@
 //
-//  ReviewTotalService.swift
+//  CategoryService.swift
 //  Ounce
 //
-//  Created by 박주연 on 2020/07/17.
+//  Created by Junhyeon on 2020/07/18.
 //  Copyright © 2020 박주연. All rights reserved.
 //
 
@@ -11,35 +11,30 @@ import Foundation
 import Alamofire
 import SwiftKeychainWrapper
 
-struct ReviewTotalService {
+struct CategoryService {
     private init() {}
     
-    static let shared = ReviewTotalService()
+    static let shared = CategoryService()
     
-    // MARK: - 홈 뷰 리뷰 총점 조회
-    
-    func totalReviews(_ profileIndex: String,
-                      _ start: String,
-                      _ end: String,
-                      completion: @escaping (NetworkResult<Any>) -> Void){
+    func category(completion: @escaping (NetworkResult<Any>) -> Void){
         
-        let URL = APIConstants.reviewRating + profileIndex + "/rating?pageStart=" + start + "&pageEnd=" + end
+        let profileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
         
-        let token = KeychainWrapper.standard.string(forKey: "Token")
+        let URL = APIConstants.reviewCategory + String(profileIndex) + "/category"
         let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "token" : token ?? ""
+            "Content-Type": "application/json"
         ]
-        print("홈 뷰:총점 프로필 인덱스\(URL)")
+        
         Alamofire.request(URL,
                           method: .get,
                           parameters: nil,
                           encoding: JSONEncoding.default,
-                          headers: headers).responseData{
+                          headers: headers).responseData
+            {
                             response in
                             
                             switch response.result {
-                                
+                            
                             case .success:
                                 // parameter 위치
                                 if let value = response.result.value {
@@ -49,9 +44,9 @@ struct ReviewTotalService {
                                         case 200:
                                             do{
                                                 let decoder = JSONDecoder()
-                                                let result = try decoder.decode(ResponseResult<ReviewTotal>.self,
+                                                let result = try decoder.decode(ResponseResult<Category>.self,
                                                                                 from: value)
-                                                completion(.success(result.data ?? [ReviewTotal].self))
+                                                completion(.success(result.data ?? [Category].self))
                                             } catch {
                                                 completion(.pathErr)
                                             }
@@ -76,8 +71,12 @@ struct ReviewTotalService {
                                 print(err.localizedDescription)
                                 completion(.networkFail)
                             }
-        }
+                          }
         
     }
     
+}
+
+struct Category: Codable {
+    let foodManu: String
 }

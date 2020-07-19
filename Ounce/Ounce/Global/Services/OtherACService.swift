@@ -1,8 +1,8 @@
 //
-//  LimitAccountService.swift
+//  OtherACService.swift
 //  Ounce
 //
-//  Created by psychehose on 2020/07/17.
+//  Created by psychehose on 2020/07/18.
 //  Copyright © 2020 박주연. All rights reserved.
 //
 
@@ -11,32 +11,34 @@ import Foundation
 import Alamofire
 import SwiftKeychainWrapper
 
-struct LimitAccountService {
+struct OtherACService {
     
     private init() {}
-    
-    static let shared = LimitAccountService()
-    
-    func limitAccount(completion: @escaping (NetworkResult<Any>) -> Void) {
         
-        print(#function)
+        static let shared = OtherACService()
         
-        let URL = APIConstants.limitAddAccount
-        print (URL)
+    
+    func loadOther(completion: @escaping (NetworkResult<Any>)-> Void) {
+        
+        
         
         let profile = KeychainWrapper.standard.integer(forKey: "currentProfile") ?? 0
+        
+        let URL = APIConstants.convertProfile + "\(profile)"
+        
+        print(URL)
+        
         let token = KeychainWrapper.standard.string(forKey: "Token") ?? ""
+        
         let headers : HTTPHeaders = [
             "Content-Type": "application/json",
             "token" : token
+            
         ]
-        
-        
-        
-        Alamofire.request(URL, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData{
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData {
             response in
             
-            print("오우예")
+            print("통신 리퀘스트 시작~~~")
             
             switch response.result {
             case .success:
@@ -46,15 +48,16 @@ struct LimitAccountService {
                         switch status {
                         case 200:
                             do {
+                                print("여기가문제야")
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(ResponseSimpleResult<LimitAccount>.self, from: value)
-                                completion(.success(result.data ?? ""))
-                                print("성공")
+                                let result = try decoder.decode(ResponseResult<OtherAccount>.self, from: value)
+                                print(result.message)
+                                completion(.success(result.data ?? OtherAccount.self))
+                                
                             } catch {
                                 completion(.pathErr)
-                                print("실패")
                             }
-                        case 400:
+                        case 409:
                             completion(.pathErr)
                         case 500:
                             completion(.serverErr)
@@ -62,16 +65,15 @@ struct LimitAccountService {
                             break
                         }
                     }
-            }
+                }
                 break
-            case .failure(let err):
+                case .failure(let err):
                 print(err.localizedDescription)
                 completion(.networkFail)
-                
             }
-        
         }
+        
     }
     
-    
 }
+    

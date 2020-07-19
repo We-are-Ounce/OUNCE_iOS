@@ -82,5 +82,6 @@ struct APIConstants {
     static let similarity = BaseURL + "search/similarity"
     
     static let limitAddAccount = BaseURL + "profile/limitProfile"
-    
+    static let convertProfile = BaseURL + "profile/conversion/"
+
 }

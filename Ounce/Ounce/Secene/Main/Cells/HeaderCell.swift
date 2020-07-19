@@ -59,7 +59,7 @@ class HeaderCell: UITableViewCell {
         let dvc = sb.instantiateViewController(withIdentifier: "SortingVC") as! SortingVC
 
         dvc.modalPresentationStyle = .overFullScreen
-
+        dvc.homeViewDelegate = rootVC as! HomeViewDelegate
         self.rootVC?.present(dvc, animated: false)
         
     }

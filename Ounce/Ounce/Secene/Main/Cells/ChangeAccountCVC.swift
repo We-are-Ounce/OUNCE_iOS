@@ -32,6 +32,7 @@ class ChangeAccountCVC: UICollectionViewCell {
     }
     
     
+    var accountInfo: OtherAccount?
     
     override init(frame: CGRect) {
         
@@ -87,5 +88,14 @@ class ChangeAccountCVC: UICollectionViewCell {
         
     }
     
-    
+ 
+    func setCall() {
+
+        anotherCatImg.imageFromUrl(accountInfo?.profileImg ?? "", defaultImgPath: accountInfo?.profileImg ?? "")
+        catNameLabel.text = accountInfo?.profileName
+        oneIntroductionLabel.text = accountInfo?.profileInfo
+
+
+    }
+
 }

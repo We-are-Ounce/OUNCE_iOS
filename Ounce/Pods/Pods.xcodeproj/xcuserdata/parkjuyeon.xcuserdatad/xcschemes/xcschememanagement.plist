@@ -72,6 +72,11 @@
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
+		<key>SwiftyGif.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>Then.xcscheme</key>
 		<dict>
 			<key>isShown</key>

@@ -89,7 +89,7 @@ extension LoginVC {
         loginButton.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.centerY.equalTo(view.snp.centerY).offset(80)
+            make.top.equalTo(pwTextFieldGuideView.snp.top).offset(60)
             make.height.equalTo(48)
         }
         

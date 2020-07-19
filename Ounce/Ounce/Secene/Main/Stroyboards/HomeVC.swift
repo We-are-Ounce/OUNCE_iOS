@@ -11,7 +11,30 @@ import Foundation
 
 import SwiftKeychainWrapper
 
-class HomeVC: UIViewController {
+
+class HomeVC: UIViewController, HomeViewDelegate {
+    
+    func didSortingClick(data: String) {
+        
+        if data == "기호도순" {
+            
+            preferReviewService(profileIndex ?? 0, pageIndex [0], pageIndex[1])
+            
+        
+        }
+        else if data == "총점순"{
+            
+          totalReviewService(profileIndex ?? 0,pageIndex[0], pageIndex[1])
+  
+        }
+        else {
+            
+            dateReviewService(profileIndex ?? 0, pageIndex[0], pageIndex[1])
+
+        }
+        
+    }
+    
     
     @IBOutlet weak var reviewTV: UITableView!
     
@@ -19,6 +42,7 @@ class HomeVC: UIViewController {
     var otherProfiles: OtherProfile?
     var reviews: [UserReviews]?
     var totals: [ReviewTotal]?
+    var prefers: [ReviewPrefer]?
     
     var profileIndex: Int?
     var isOtherUser: Bool = false
@@ -47,7 +71,7 @@ class HomeVC: UIViewController {
         //테이블 셀 라인 없애기
         self.reviewTV.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-//        totalReviewService(1, 2, 10)
+        //        totalReviewService(1, 2, 10)
         
     }
     
@@ -65,7 +89,6 @@ class HomeVC: UIViewController {
         }
         
     }
-    
 }
 
 extension HomeVC : UITableViewDataSource, UITableViewDelegate {
@@ -83,14 +106,12 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         }
         else {
             let count = reviews?.count ?? 0
-            
-            // let total = totals?.count ?? 0
             if count == 0 {
-                return 0
+                reviewTV.setEmptyView(title: "아직 리뷰 기록이", message: "없습니다.😹")
             } else {
-                return count
+                reviewTV.restore()
             }
-            
+            return count
         }
     }
     
@@ -169,12 +190,20 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
                                                                target: nil,
                                                                action: nil)
             navigationItem.rightBarButtonItem = UIBarButtonItem()
+
+            if isOtherUser {
+                dvc.isOther = true
+            }
             
             /* 셀 클릭시 index값 넘겨주기 */
-            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
+//            dvc.reviewIndexNumber = reviews?[indexPath.row].reviewIdx
+            dvc.reviewIdx = reviews?[indexPath.row].reviewIdx
             dvc.isEdit = true
+            
             self.navigationController?.pushViewController(dvc, animated: true)
-            reviewDetailService(currentProfileIndex ?? 0)
+            reviewDetailService(dvc.reviewIdx ?? 0)
+            
+            
         }
         
     }
@@ -222,13 +251,17 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
             
             return myView
         }
-        
     }
-    
-    
 }
 
-extension HomeVC {
+extension HomeVC: AccountDelegate {
+    func didClickedAccount() {
+        print(#function)
+        currentProfileIndex = KeychainWrapper.standard.integer(forKey: "currentProfile")
+        dateReviewService(currentProfileIndex ?? 0, pageIndex[0], pageIndex[1])
+        profileService(currentProfileIndex ?? 0)
+    }
+    
     
     // 여기 부분이 백 버튼 만드는 부분
     @objc func didTapBackButton(){
@@ -273,6 +306,7 @@ extension HomeVC {
         let dvc = storyboard.instantiateViewController(identifier: "AccountVC") as! AccountVC
         
         dvc.modalPresentationStyle = .overFullScreen
+        dvc.delegate = self
         
         self.present(dvc, animated: false)
     }
@@ -287,9 +321,7 @@ extension HomeVC {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
-    
 }
-
 
 // MARK: - 서버 통신 코드
 extension HomeVC {
@@ -320,8 +352,7 @@ extension HomeVC {
                 
             }
         }
-        
-        
+  
     }
     
     func otherProfileService(_ profileIndex: Int) {
@@ -349,10 +380,7 @@ extension HomeVC {
                 
             }
         }
-        
-        
     }
-    
     
     // 홈 뷰: 리뷰 시간 순 조회(GET) - 고정
     func dateReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
@@ -361,9 +389,9 @@ extension HomeVC {
             switch responsedata {
             case .success(let res):
                 self.reviews = res as? [UserReviews]
-                
+                print("홈 뷰 시간 순 Service")
                 dump(self.reviews)
-                
+
                 DispatchQueue.main.async {
                     self.reviewTV.reloadData()
                 }
@@ -386,7 +414,7 @@ extension HomeVC {
         
     }
     
-    // MARK: - 테이블 뷰 선택 시 리뷰 조회하면
+    // MARK: - 테이블 뷰 선택 시 리뷰 조회 화면
     func reviewDetailService(_ reviewIndex: Int){
         
         ReviewUpdateService.shared.reviewDetail(reviewIndex){ responsedata in
@@ -395,7 +423,7 @@ extension HomeVC {
             case .success(let res):
                 self.detailReview = res as? [DetailReview]
                 
-                dump(self.detailReview)
+                
                 print("테이블 뷰 선택 후 리뷰 조회 성공")
             case .requestErr(_) :
                 print("requset error")
@@ -409,41 +437,70 @@ extension HomeVC {
                 
             }
         }
-        // 홈 뷰: 리뷰 총점 조회(GET)
-        func totalReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
-            
-            ReviewTotalService.shared.totalReviews(String(profileIndex), String(start), String(end)) { responsedata in
-                switch responsedata {
-                case .success(let res):
-                    self.totals = res as? [ReviewTotal]
-                    
-                    dump(self.totals)
-                    
-                    DispatchQueue.main.async {
-                        self.reviewTV.reloadData()
-                    }
-                    self.reviewTV.reloadData()
-                    print("홈 뷰 : 총점 성공")
-                case .requestErr(_):
-                    print("request error")
-                    
-                case .pathErr:
-                    print(".pathErr")
-                    
-                case .serverErr:
-                    print(".serverErr")
-                    
-                case .networkFail :
-                    print("failure")
-                    
-                }
-            }
-            
-        }
-        
-        
     }
     
+    // 홈 뷰: 리뷰 총점 조회(GET)
+    func totalReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+        
+        ReviewTotalService.shared.totalReviews(String(profileIndex), String(start), String(end)) { responsedata in
+            switch responsedata {
+            case .success(let res):
+                self.totals = res as? [ReviewTotal]
+                
+                print("리뷰 총점 서버 들어오기")
+                dump(self.totals)
+                
+                DispatchQueue.main.async {
+                    self.reviewTV.reloadData()
+                }
+                self.reviewTV.reloadData()
+                print("홈 뷰 : 총점 성공")
+            case .requestErr(_):
+                print("request error")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail :
+                print("failure")
+                
+            }
+        }
+    }
+    
+    // 홈 뷰: 리뷰 기호도 조회(GET)
+      func preferReviewService(_ profileIndex: Int, _ start: Int, _ end: Int) {
+          
+          ReviewPreferService.shared.preferReviews(String(profileIndex), String(start), String(end)) { responsedata in
+              switch responsedata {
+              case .success(let res):
+                  self.prefers = res as? [ReviewPrefer]
+                  
+                  print("기호도 서버 들어오기")
+                  dump(self.prefers)
+                  
+                  DispatchQueue.main.async {
+                      self.reviewTV.reloadData()
+                  }
+                  self.reviewTV.reloadData()
+                  print("홈 뷰 : 기호도 성공")
+              case .requestErr(_):
+                  print("request error")
+                  
+              case .pathErr:
+                  print(".pathErr")
+                  
+              case .serverErr:
+                  print(".serverErr")
+                  
+              case .networkFail :
+                  print("failure")
+                  
+              }
+          }
+      }
+   
 }
-
-

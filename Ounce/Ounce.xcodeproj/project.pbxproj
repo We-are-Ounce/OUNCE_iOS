@@ -65,10 +65,10 @@
 		5E69E8A624AC6C97005D4DC1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E69E8A524AC6C97005D4DC1 /* Login.storyboard */; };
 		5E69E8A824AC6CA1005D4DC1 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69E8A724AC6CA1005D4DC1 /* LoginCell.swift */; };
 		5E71ACCE24C0E08400EFC3EA /* OtherProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E71ACCD24C0E08400EFC3EA /* OtherProfile.swift */; };
+		5E76F71924C29431008D9D37 /* Splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5E76F71824C29431008D9D37 /* Splash.gif */; };
 		5E7C974424C23B9A00E5386F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E40C5F024BF49B50023B8E6 /* Default-568h@2x.png */; };
 		5E87D84A24BE2A4400E10A8C /* SortingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E87D84924BE2A4400E10A8C /* SortingListVC.swift */; };
 		5E9236FA24B4387B00378C8C /* RegisterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9236F924B4387B00378C8C /* RegisterDetailVC.swift */; };
-		5E9E4A6624C1EEBF00F92D50 /* Splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5E9E4A6524C1EEBE00F92D50 /* Splash.gif */; };
 		5E9E4A6824C1F1AC00F92D50 /* Screen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5E9E4A6724C1F1AC00F92D50 /* Screen.gif */; };
 		5E9E4A6A24C1F55000F92D50 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9E4A6924C1F55000F92D50 /* LogoAnimationView.swift */; };
 		5EA0B01524B1D1A40051C352 /* TBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0B01424B1D1A40051C352 /* TBC.swift */; };
@@ -84,6 +84,8 @@
 		5EB8B7FA24C1F88200C238DB /* LoginNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB8B7F924C1F88200C238DB /* LoginNVC.swift */; };
 		5EBA555124C1E31C002CC6D1 /* DetailReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA555024C1E31C002CC6D1 /* DetailReview.swift */; };
 		5EBA555324C1E32B002CC6D1 /* LimitAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA555224C1E32B002CC6D1 /* LimitAccount.swift */; };
+		5EBB76FB24C26E010051A255 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB76FA24C26E010051A255 /* CategoryService.swift */; };
+		5EBB76FF24C2793C0051A255 /* spla.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5EBB76FE24C2793C0051A255 /* spla.gif */; };
 		5EC8D3AF24BF90DE00C4813B /* OtherProfileTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8D3AE24BF90DE00C4813B /* OtherProfileTVCell.swift */; };
 		5ED22C7F24C061C700F311F9 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22C7E24C061C700F311F9 /* Review.swift */; };
 		5EFD2DC024BAFE140054B357 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFD2DBF24BAFE140054B357 /* ProductDetail.storyboard */; };
@@ -228,9 +230,9 @@
 		5E69E8A524AC6C97005D4DC1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		5E69E8A724AC6CA1005D4DC1 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		5E71ACCD24C0E08400EFC3EA /* OtherProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfile.swift; sourceTree = "<group>"; };
+		5E76F71824C29431008D9D37 /* Splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Splash.gif; sourceTree = "<group>"; };
 		5E87D84924BE2A4400E10A8C /* SortingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingListVC.swift; sourceTree = "<group>"; };
 		5E9236F924B4387B00378C8C /* RegisterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailVC.swift; sourceTree = "<group>"; };
-		5E9E4A6524C1EEBE00F92D50 /* Splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Splash.gif; sourceTree = "<group>"; };
 		5E9E4A6724C1F1AC00F92D50 /* Screen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Screen.gif; sourceTree = "<group>"; };
 		5E9E4A6924C1F55000F92D50 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		5EA0B01424B1D1A40051C352 /* TBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBC.swift; sourceTree = "<group>"; };
@@ -246,6 +248,8 @@
 		5EB8B7F924C1F88200C238DB /* LoginNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNVC.swift; sourceTree = "<group>"; };
 		5EBA555024C1E31C002CC6D1 /* DetailReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReview.swift; sourceTree = "<group>"; };
 		5EBA555224C1E32B002CC6D1 /* LimitAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimitAccount.swift; sourceTree = "<group>"; };
+		5EBB76FA24C26E010051A255 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		5EBB76FE24C2793C0051A255 /* spla.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spla.gif; sourceTree = "<group>"; };
 		5EC8D3AE24BF90DE00C4813B /* OtherProfileTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileTVCell.swift; sourceTree = "<group>"; };
 		5ED22C7E24C061C700F311F9 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		5EFD2DBF24BAFE140054B357 /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
@@ -583,6 +587,7 @@
 				F20AA59124BF9300001FA520 /* ReviewUpdateService.swift */,
 				777C1E9824C1C11B005DA57B /* LimitAccountService.swift */,
 				777C1EA424C24B6C005DA57B /* OtherACService.swift */,
+				5EBB76FA24C26E010051A255 /* CategoryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -609,8 +614,9 @@
 		5E69E88424AC66D6005D4DC1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5EBB76FE24C2793C0051A255 /* spla.gif */,
+				5E76F71824C29431008D9D37 /* Splash.gif */,
 				774008B324C0E277001A6A84 /* cat.gif */,
-				5E9E4A6524C1EEBE00F92D50 /* Splash.gif */,
 				5E9E4A6724C1F1AC00F92D50 /* Screen.gif */,
 				774008B124C0DF2E001A6A84 /* welcome.gif */,
 				5E69E8A024AC6BE0005D4DC1 /* Cells */,
@@ -987,7 +993,8 @@
 				7FC9385724AB108A002B0CA7 /* Assets.xcassets in Resources */,
 				5E7C974424C23B9A00E5386F /* Default-568h@2x.png in Resources */,
 				F2940ADA24B2F180003C3047 /* PostSC.xib in Resources */,
-				5E9E4A6624C1EEBF00F92D50 /* Splash.gif in Resources */,
+				5E76F71924C29431008D9D37 /* Splash.gif in Resources */,
+				5EBB76FF24C2793C0051A255 /* spla.gif in Resources */,
 				5E48BF2024B1D79D0060EA7B /* BrowseCVCell.xib in Resources */,
 				774008B224C0DF2E001A6A84 /* welcome.gif in Resources */,
 				5E075D3A24B0ABF70035C415 /* NotoSansKR-Light.otf in Resources */,
@@ -1073,6 +1080,7 @@
 				7FF5158924BE23AF00B34544 /* EditProfile.swift in Sources */,
 				7FF5158F24BE46BC00B34544 /* MyProfile.swift in Sources */,
 				5E69E89124AC6769005D4DC1 /* ReferenceCVCell.swift in Sources */,
+				5EBB76FB24C26E010051A255 /* CategoryService.swift in Sources */,
 				5EFD2DC224BAFE300054B357 /* ProductDetailVC.swift in Sources */,
 				7F7CE9BF24B7668000CB2476 /* FilterVC.swift in Sources */,
 				773384FC24B9D65A00D05E8F /* SocialVC + Constraints.swift in Sources */,
@@ -1314,7 +1322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 36BC59Q598;
 				INFOPLIST_FILE = "Ounce/Global/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1336,7 +1344,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 36BC59Q598;
 				INFOPLIST_FILE = "Ounce/Global/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

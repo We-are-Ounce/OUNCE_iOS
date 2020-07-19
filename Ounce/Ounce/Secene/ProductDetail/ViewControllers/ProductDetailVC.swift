@@ -235,6 +235,7 @@ extension ProductDetailVC: UITableViewDataSource {
         cell.cellConstraint()
         cell.review = reviews?[indexPath.row]
         cell.cellService()
+    
         cell.selectionStyle = .none
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.white
@@ -422,6 +423,7 @@ extension ProductDetailVC: UITableViewDataSource {
         vc.reviews = reviews?[indexPath.row]
         vc.reviewIdx = reviews?[indexPath.row].reviewIdx
         vc.isOther = true
+        vc.isEdit = true
         
         navigationController?.pushViewController(vc, animated: true)
     }

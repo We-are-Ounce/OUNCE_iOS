@@ -405,7 +405,8 @@ extension BrowseSearchVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView == productTV {
-            return 48
+            return 0
+            
         } else {
             return 0
         }

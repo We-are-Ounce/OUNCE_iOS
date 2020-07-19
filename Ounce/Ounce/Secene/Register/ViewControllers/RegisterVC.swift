@@ -458,12 +458,14 @@ extension RegisterVC {
             
             switch data {
             case .success(_):
+                print(#function)
                 self.dismiss(animated: true, completion: nil)
                 
             case .requestErr:
                 self.simpleAlert(title: "실패", message: "")
                 
             case .pathErr:
+                self.dismiss(animated: true, completion: nil)
                 print(".pathErr")
                 
             case .serverErr:

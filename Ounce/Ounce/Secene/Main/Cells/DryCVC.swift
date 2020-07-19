@@ -26,6 +26,7 @@ class DryCVC: UICollectionViewCell {
         super.awakeFromNib()
         
         round()
+        dryLabel.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
     @IBAction func clickDryBtn(_ sender: Any) {
@@ -37,7 +38,10 @@ class DryCVC: UICollectionViewCell {
             dryLabel.setBorder(borderColor: .pale, borderWidth: 1.5)
         }
         
-        
+    }
+    
+    @objc func didTapButton() -> String{
+        return dryLabel.titleLabel?.text ?? ""
     }
 }
 

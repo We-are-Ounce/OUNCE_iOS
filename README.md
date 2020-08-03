@@ -410,7 +410,7 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
 
 <img src="https://user-images.githubusercontent.com/55732968/86831239-9e044800-c0d1-11ea-8ab9-408db0ed00ab.jpeg" width="100" height = "100">  <img src="https://user-images.githubusercontent.com/55732968/86831306-b07e8180-c0d1-11ea-807c-e7c5cbbd871e.jpeg" width="100" height = "100" >  <img src="https://user-images.githubusercontent.com/55732968/86831405-d015aa00-c0d1-11ea-9cd5-2ac904324133.jpeg" width="100" height = "100 ">  <img src="https://user-images.githubusercontent.com/55732968/86831496-eae81e80-c0d1-11ea-8e01-e6db7ea97d0a.jpeg" height = "100" width = "100" >
 
-[김호세](https://github.com/psychehose ) / (사원)
+[김호세](https://github.com/psychehose) / (사원)
 
 > **성장**
 >
@@ -422,13 +422,13 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
 >
 > 우리 온스 영원하자❤️ 앱스토어 등록 고고~~
 
-[이윤진](https://github.com/profitjean ) / (대리)
+[이윤진](https://github.com/profitjean) / (대리)
 
 > **iOS 실력 성장 & 앱스토어 출시**
 >
 > 온스 사랑해요❤️ 다들 3주동안 고생많았어요
 
-[오준현](https://github.com/soogoon) / (부장)
+[오준현](https://github.com/5anniversary) / (부장)
 
 > **앱스토어 출시**
 >
